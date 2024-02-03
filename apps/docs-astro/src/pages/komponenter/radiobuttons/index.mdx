@@ -1,0 +1,203 @@
+---
+title: Radiobutton
+description: "Radio button for å velge kun en av mange."
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/radiobuttons" },
+    { "title": "Kode", "href": "komponenter/radiobuttons/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/radiobuttons/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktRadioButton, PktInputWrapper } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Radioknapper (radio button) brukes hvis brukeren må velge kun ett alternativ fra en liste på fem eller færre. Siden alle alternativene er synlige, kan brukeren enkelt skanne og sammenligne alternativer for å gjøre et passende valg.
+
+<CodeExample>
+  <PktInputWrapper
+    label="Etikett"
+    helptext="Dette er tekst over avmerkingsboksene."
+    optionalTag
+    optionalText="Valgfritt"
+    forId="radioGroup"
+    hasFieldset
+  >
+    <PktRadioButton id="radio1" label="Radio1" name="radiogroup" />
+    <PktRadioButton id="radio2" label="Radio2" name="radiogroup" />
+  </PktInputWrapper>
+</CodeExample>
+
+## Varianter
+
+Radioknappene kommer i standard styling og med ramme (tile styling).
+
+<ImageWrapper caption="Frittstående radioknapp med og uten ramme.">
+  <img
+    src="/assets/komponenter/radiobuttons/radio-1.svg"
+    alt="Frittstående radioknapp med og uten ramme"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Vi har flere mulige variasjoner av radioknapper. De kan brukes helt enkelt uten label, eller du kan inkludere inputwrapperen (i Figma heter den radio button group) som inneholder:
+
+- Label
+- Valgfritt- eller obligatorisk-tag
+- Hjelpetekst
+- Ekspanderende hjelpetekst
+- Feilmelding
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-2.svg"
+    alt="Gruppe med radioknapper."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Farger
+
+Radioknapper skal alltid ha fargen $brand-blue.
+
+## Slik bruker du komponenten
+
+Radioknapper skal alltid ha minimum to alternativer. Begrens antall alternativer til fem eller færre for en bedre brukeropplevelse. Hvis du har mer enn fem alternativer, bør du vurdere å bruke [Select](https://punkt.oslo.kommune.no/latest/komponenter/select/).
+
+En gruppe radioknapper må ha en god overskrift, og ledeteksten til hver radioknapp må beskrive alternativet.
+
+### Label (etikett/ledetekst)
+
+For å fungere godt bør radioknappene ha en kort og tydelig ledetekst (label) og det er mulig å legge til hjelpetekst om nødvendig.
+
+- Når du skriver label kan det være greit å huske på at:
+- Man burde være konsis og konsistent slik at brukeren skjønner hva som forventes av hen
+- Om mulig: hold deg til 1-3 ord og under 20 bokstaver, inkludert mellomrom
+- Ikke bruk bare store eller bare små bokstaver
+- Ikke bruk kolon etter label
+
+### Valgfritt-/obligatorisk-tag
+
+Til høyre for label kan du velge enten valgfritt-tag eller obligatorisk-tag. Bruk kun én av variantene i din tjeneste eller løsning for å unngå å forvirre brukeren. Vi anbefaler å markere de valgfrie feltene.
+
+### Feilmelding og validering
+
+Hvis feltet er påkrevd eller ikke validerer, vil en feilmelding dukke opp under, som beskriver hva som er galt. Feilmeldingen har tre visuelle indikatorer: en rød ramme, et ikon og selve feilmeldingsteksten. Essensen av hjelpeteksten må også være inkludert i feilmeldingen. Les mer om hvordan du kan skrive en god feilmelding her (ks.no).
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-3.svg"
+    alt="Radioknapper med feilmeldinger."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Hjelpetekst
+
+Du kan velge å ha hjelpetekst over en gruppe med radioknapper eller hjelpetekst per radioknapp.
+
+Når du skriver hjelpetekst, er det viktig at du:
+
+- Bruker store bokstaver i setningstil og skriver teksten i de fleste tilfeller som hele setninger.
+- Dersom du har veldig lang hjelpetekst eller har behov for å legge til lenker og lignende, bruk den ekspanderende hjelpeteksten.
+
+<ImageWrapper caption="Ekspanderende hjelpetekst under label.">
+  <img
+    src="/assets/komponenter/radiobuttons/radio-4.svg"
+    alt="Ekspanderende hjelpetekst under label"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<ImageWrapper caption="Hjelpetekst under radioknapp, vanlig styling og med ramme.">
+  <img
+    src="/assets/komponenter/radiobuttons/radio-5.svg"
+    alt="Hjelpetekst under radioknapp, vanlig styling og med ramme"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Plassering
+
+Plasser radioknapper vertikalt når det er mulig for å eliminere forvirring rundt merking og hvilket alternativ brukeren velger. Horisontal plassering anbefales bare om det er to alternativer eller færre. På samme måte, hvis du bruker lengre etiketter og teksten bryter mellom linjer er vertikalt den foretrukne plasseringen.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-6.svg"
+    alt="Plassering av radioknapper."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+På mobil skal alltid radioknappene plasseres vertikalt for optimal lesbarhet.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-7.svg"
+    alt="Radioknapper på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Ikke bruk radioknapper om brukeren skal kunne velge flere valg (bruk [Checkbox](https://punkt.oslo.kommune.no/latest/komponenter/checkbox/))
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-8.svg"
+    alt="Radioknapper vs checkbox."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk radioknapper dersom du har mange alternativer (bruk [Select](https://punkt.oslo.kommune.no/latest/komponenter/select/))
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/radiobuttons/radio-9.svg"
+    alt="Select vs Radio"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+### Frittstående radioknapp
+
+1. Radioknapp
+2. Valgalternativ
+3. Hjelpetekst
+
+<ImageWrapper caption="Frittstående radioknapp.">
+  <img
+    src="/assets/komponenter/radiobuttons/radio-10.svg"
+    alt="Anatomi enkeltstående radioknapp."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Gruppe med radioknapper
+
+1. Etikett/ledetekst
+2. Valgfritt-/obligatorisk-tag
+3. Hjelpetekst
+4. Ekspanderende hjelpetekst
+5. Radioknapper med valgalternativer
+
+<ImageWrapper caption="Gruppe med radioknapper.">
+  <img
+    src="/assets/komponenter/radiobuttons/radio-11.svg"
+    alt="Anatomi gruppe med radioknapper."
+    aria-hidden="true"
+  />
+</ImageWrapper>

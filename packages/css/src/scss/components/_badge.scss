@@ -1,0 +1,60 @@
+/* 
+ * Badge element
+ * DEPRECATED - use tag instead 
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+
+.pkt-badge {
+  display: inline-flex;
+  height: 1.5em;
+  margin-left: 0.4em;
+  padding: 0.25em 0.4em;
+  color: black;
+  font-weight: 500;
+  font-size: 0.75em;
+  line-height: 1em;
+  background: map.get(variables.$pkt-colors, 'pkt-color-brand-blue-500');
+  border-radius: 1px;
+}
+
+.pkt-btn>.pkt-badge.pkt-badge--strong,
+.pkt-badge--strong {
+  color: map.get(variables.$pkt-colors, 'pkt-color-brand-blue-500');
+  background: map.get(variables.$pkt-colors, 'pkt-color-brand-dark-blue-1000');
+}
+
+.pkt-btn>.pkt-badge.pkt-badge--info,
+.pkt-badge--info {
+  background: map.get(variables.$pkt-colors, 'pkt-color-brand-yellow-1000');
+}
+
+// Reduce size when used inside headings
+.pkt-badge.pkt-badge--small,
+.pkt-h1>.pkt-badge,
+.pkt-h2>.pkt-badge,
+.pkt-h3>.pkt-badge {
+  font-size: 0.5em;
+  transform: translateY(-0.25em);
+}
+
+// Badges for buttons
+.pkt-btn:not(.pkt-btn--ter)>.pkt-badge {
+  color: inherit;
+  background: transparent;
+  border: 1px solid map.get(variables.$pkt-colors, 'pkt-color-brand-dark-blue-1000');
+  border-radius: 4px;
+}
+
+.pkt-btn--pri:not(.pkt-btn--neg)>.pkt-badge,
+.pkt-btn--neg.pkt-btn--ter>.pkt-badge,
+.pkt-btn--neg.pkt-btn--ghost>.pkt-badge {
+  border-color: white;
+}
+
+// Hack to fix pixel alignment on small buttons
+.pkt-btn--small>.pkt-badge {
+  padding-top: 0.28em;
+  transform: translateY(-0.1em);
+}

@@ -1,0 +1,107 @@
+{
+  "name": "pkt-footer",
+  "css-class": "pkt-footer",
+  "props": {
+    "personvernOgInfoLink": {
+      "type": "string",
+      "description": "Link to personvern og info page"
+    },
+    "tilgjengelighetLink": {
+      "type": "string",
+      "description": "Link to tilgjengelighet page"
+    },
+    "columnOne": {
+      "type": "object",
+      "description": "Content for the first column of the footer",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title for the first column of the footer"
+        },
+        "links": {
+          "type": "array",
+          "description": "Array of links for the first column of the footer",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string",
+                "description": "URL for the link"
+              },
+              "text": {
+                "type": "string",
+                "description": "Text for the link"
+              },
+              "external": {
+                "type": "boolean",
+                "description": "Whether the link is external"
+              }
+            },
+            "required": ["href", "text"]
+          }
+        },
+        "text": {
+          "type": "string",
+          "description": "Text for the first column of the footer"
+        }
+      },
+      "required": ["title"]
+    },
+    "columnTwo": {
+      "type": "object",
+      "description": "Content for the second column of the footer",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title for the second column of the footer"
+        },
+        "links": {
+          "type": "array",
+          "description": "Array of links for the second column of the footer",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string",
+                "description": "URL for the link"
+              },
+              "text": {
+                "type": "string",
+                "description": "Text for the link"
+              },
+              "external": {
+                "type": "boolean",
+                "description": "Whether the link is external"
+              }
+            },
+            "required": ["href", "text"]
+          }
+        }
+      },
+      "required": ["title"]
+    },
+    "socialLinks": {
+      "type": "array",
+      "description": "Array of social links for the footer",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "URL for the link"
+          },
+          "iconName": {
+            "type": "string",
+            "description": "Name of the icon to use"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language of the website"
+          }
+        }
+      },
+      "required": ["href"]
+    }
+  },
+  "required": ["columnOne", "columnTwo"]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "pkt-icon",
+  "css-class": "pkt-svgicon",
+  "events": {},
+  "props": [
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ],
+  "slots": {}
+}

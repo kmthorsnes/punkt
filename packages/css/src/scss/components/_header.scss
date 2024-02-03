@@ -1,0 +1,299 @@
+/* 
+ * Header component
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/' as *;
+
+.pkt-header {
+  background-color: var(--pkt-color-background-default);
+  border-bottom: 1px solid var(--pkt-color-border-subtle);
+  color: var(--pkt-color-text-body-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 map.get(variables.$spacing, 'size-16');
+  height: map.get(variables.$spacing, 'size-72');
+
+  @include bp('tablet-up') {
+    height: map.get(variables.$spacing, 'size-88');
+  }
+
+  @include bp('laptop-up') {
+    height: map.get(variables.$spacing, 'size-104');
+    padding: 0 map.get(variables.$spacing, 'size-48');
+  }
+
+  &--fixed {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  &--scroll-to-hide {
+    transform: translate3d(0, 0, 0);
+    transition: 0.5s transform ease-in-out;
+  }
+
+  &--hidden {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  &__logo {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    gap: map.get(variables.$spacing, 'size-16');
+    margin: 0;
+    padding: map.get(variables.$spacing, 'size-6') 0 0;
+
+    @include bp('laptop-up') {
+      padding: map.get(variables.$spacing, 'size-4') 0 0;
+      gap: map.get(variables.$spacing, 'size-24');
+    }
+
+    &-link,
+    &-service {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+
+    & svg {
+      --fg-color: var(--pkt-color-text-body-default);
+    }
+
+    &-service {
+      padding-top: 0.3rem;
+      display: none;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      @include get-text('pkt-txt-22-light');
+
+      @include bp('tablet-up') {
+        display: inline-block;
+      }
+
+      @include bp('laptop-up') {
+        padding-top: 0.6rem;
+        @include get-text('pkt-txt-24-light');
+      }
+    }
+
+    &-svg {
+      height: map.get(variables.$spacing, 'size-52');
+      width: calc(map.get(variables.$spacing, 'size-52') * 60 / 31);
+
+      @include bp('laptop-up') {
+        height: map.get(variables.$spacing, 'size-64');
+        width: calc(map.get(variables.$spacing, 'size-64') * 60 / 31);
+      }
+    }
+  }
+
+  &--narrow {
+    padding: 0 map.get(variables.$spacing, 'size-16');
+    height: map.get(variables.$spacing, 'size-72');
+
+    .pkt-header__logo {
+      gap: map.get(variables.$spacing, 'size-16');
+
+      &-service {
+        padding-top: 0.28rem;
+        @include get-text('pkt-txt-18-light');
+      }
+
+      &-svg {
+        height: map.get(variables.$spacing, 'size-48');
+        width: calc(map.get(variables.$spacing, 'size-48') * 60 / 31);
+      }
+    }
+  }
+
+  &__menu-btn {
+    @media screen and (min-width: 0) and (max-width: map.get(variables.$breakpoints, 'tablet-big')) {
+      border: 0;
+
+      .pkt-btn__text {
+        display: none;
+      }
+    }
+  }
+
+  &__user-btn {
+    border-color: var(--pkt-color-brand-yellow-1000);
+  }
+
+  &__actions {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+
+    &-row {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: map.get(variables.$spacing, 'size-32');
+
+      > li {
+        padding: 0;
+      }
+    }
+  }
+
+  &__dropdown {
+    z-index: 2;
+    position: absolute;
+    margin: 0;
+    margin-top: map.get(variables.$spacing, 'size-12');
+    right: 0;
+    left: 0;
+    padding-left: 0;
+    list-style: none;
+    visibility: hidden;
+    max-height: calc(100vh - 4.5rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--pkt-color-text-body-dark);
+
+    @include bp('tablet-up') {
+      margin-top: map.get(variables.$spacing, 'size-16');
+      left: auto;
+      right: 0;
+      min-width: 23rem;
+      width: auto;
+    }
+
+    > li {
+      padding: map.get(variables.$spacing, 'size-32');
+      background-color: var(--pkt-color-surface-subtle-white);
+
+      &.footer {
+        padding-top: map.get(variables.$spacing, 'size-16');
+        padding-bottom: map.get(variables.$spacing, 'size-16');
+      }
+
+      &:nth-child(odd) {
+        background-color: var(--pkt-color-surface-default-gray);
+      }
+    }
+  }
+
+  &__user-fullname {
+    display: none;
+
+    @include bp('laptop-up') {
+      display: inline;
+    }
+  }
+
+  &__user-shortname {
+    display: inline;
+
+    @include bp('laptop-up') {
+      display: none;
+    }
+  }
+
+  &--has-dropdown {
+    @include bp('tablet-up') {
+      position: relative;
+    }
+
+    > .pkt-btn {
+      &:hover .pkt-btn--closed {
+        --fg-color: var(--pkt-color-surface-subtle-white);
+      }
+    }
+
+    .pkt-btn--open {
+      display: none;
+    }
+
+    .pkt-btn--closed {
+      display: none;
+
+      @include bp('laptop-up') {
+        display: inline-block;
+      }
+    }
+
+    &.pkt-header--open-dropdown {
+      > .pkt-btn {
+        background-color: var(--pkt-color-border-states-active);
+        border-color: var(--pkt-color-border-states-active);
+        color: var(--pkt-color-surface-subtle-white);
+
+        .pkt-btn--open {
+          --fg-color: var(--pkt-color-surface-subtle-white);
+
+          @include bp('laptop-up') {
+            display: inline-block;
+          }
+        }
+
+        .pkt-btn--closed {
+          display: none;
+        }
+      }
+
+      .pkt-header__dropdown {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.pkt-user-menu {
+  p {
+    margin: 0;
+  }
+
+  &__label {
+    color: var(--pkt-color-grays-gray-600);
+    @include get-text('pkt-txt-14-medium');
+  }
+
+  &__name {
+    @include get-text('pkt-txt-18-medium');
+  }
+
+  &__last-logged-in,
+  &__org_number {
+    @include get-text('pkt-txt-16-light');
+  }
+
+  .pkt-list {
+    margin: 0;
+
+    .pkt-link {
+      color: var(--pkt-color-text-body-dark);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    > li > a {
+      grid-template-columns: 1.5rem auto;
+      gap: map.get(variables.$spacing, 'size-8');
+    }
+  }
+
+  .pkt-list-horizontal {
+    margin: 0;
+
+    .pkt-link {
+      color: var(--pkt-color-text-body-dark);
+    }
+  }
+}

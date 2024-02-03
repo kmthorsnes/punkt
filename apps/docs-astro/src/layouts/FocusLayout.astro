@@ -1,0 +1,66 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Header from "@components/Header.astro";
+import Navigation from "@components/Navigation.vue";
+
+import { PktFooterSimple } from '@oslokommune/punkt-react';
+
+import { Frontmatter } from "src/config";
+import SkipLink from "src/components/SkipLink.astro";
+
+type Props = {
+  frontmatter: Frontmatter;
+  url: string;
+};
+const { frontmatter } = Astro.props as Props;
+
+const allArticles = await Astro.glob("../pages/**/*.{mdx,md}");
+const filteredArticles = allArticles.filter(
+  (article) => !article.file.includes("/pages/versjoner.mdx")
+);
+const pagePathName = Astro.url.pathname;
+---
+
+<MainLayout title={frontmatter.title}>
+  <SkipLink />
+  <Header path={pagePathName} />
+  <div class="page-container">
+    <Navigation articles={filteredArticles} page={pagePathName} />
+    <main
+      id="main-content"
+      class="focus-layout pkt-container pkt-container--tablet"
+      aria-label="Innhold"
+    >
+      <h1>{frontmatter.title}</h1>
+      <slot />
+    </main>
+  </div>
+  <PktFooterSimple />
+</MainLayout>
+
+<style lang="scss">
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+  $header-height: 70px;
+
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 128px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+  .focus-layout {
+    padding-bottom: 4rem;
+    padding-top: $header-height + 40px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .page-nav {
+    @include bp("tablet-up") {
+      display: none !important;
+    }
+  }
+</style>

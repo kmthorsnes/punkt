@@ -1,0 +1,362 @@
+---
+title: Select
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/select" },
+    { "title": "Kode", "href": "komponenter/select/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/select/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+`<select>` er plassbesparende, og brukes ved 5+ valg hvor det ikke er et behov for å synliggjøre alle valg. Elementet skal ha et forhåndssatt valg uten verdi som navngis på en måte som informerer brukeren om konteksten (eksempel "Velg firma å representere").
+
+### Avhengigheter
+
+Ekspanderende hjelpetekst:
+
+- pkt-alert
+- pkt-button
+
+### Bruk i Vue og React
+
+Denne komponenten fungerer som en drop-in erstatning for `<select>` og har ingen innebygget funksjonalitet i selve nedtrekksfeltet. Det betyr at du selv må legge inn `<option>` i komponentens `slot` (Vue) / `children` (React). Vi anbefaler at du bruker `v-model` rett på `PktSelect`-komponenten om du bruker Vue, eller `value` og `onChange` om du bruker React.
+
+## Varianter
+
+<CodeExample client:load>
+  <div class="pkt-inputwrapper">
+    <label class="pkt-inputwrapper__label" for="exampleSelect1">
+      <span>Hva er ditt foretrukne frontendrammeverk?</span>
+      <div class="pkt-inputwrapper__helptext">
+        Vi bruker ikke svarene på denne til noe nyttig.
+      </div>
+      <select class="pkt-input" id="exampleSelect1">
+        <option selected>Velg ditt foretrukne rammeverk</option>
+        <option value="1">Vue.js</option>
+        <option value="2">React</option>
+        <option value="3">Web components</option>
+        <option value="4">Svelte</option>
+      </select>
+    </label>
+
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+<div class="pkt-inputwrapper">
+  <label class="pkt-inputwrapper__label" for="exampleSelect1">
+    <span>Hva er ditt foretrukne frontendrammeverk?</span>
+    <div class="pkt-inputwrapper__helptext">
+      Vi bruker ikke svarene på denne til noe nyttig.
+    </div>
+    <select class="pkt-input" id="exampleSelect1">
+      <option selected>Velg ditt foretrukne rammeverk</option>
+      <option value="1">Vue.js</option>
+      <option value="2">React</option>
+      <option value="3">Web components</option>
+      <option value="4">Svelte</option>
+    </select>
+  </label>
+</div>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```html
+  <PktSelect
+    label="Hva er ditt foretrukne frontendrammeverk?"
+    helptext="Vi bruker ikke svarene på denne til noe nyttig."
+    id="exampleSelect1"
+    v-model="preferedframework"
+  >
+    <option selected>Velg ditt foretrukne rammeverk</option>
+    <option value="1">Vue.js</option>
+    <option value="2">React</option>
+    <option value="3">Web components</option>
+    <option value="4">Svelte</option>
+  </PktSelect>
+  ```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSelect
+  label="Hva er ditt foretrukne frontendrammeverk?"
+  helptext="Vi bruker ikke svarene på denne til noe nyttig."
+  id="exampleSelect1"
+  value={preferedframework}
+  onChange={setPreferedFramework}
+>
+  <option selected>Velg ditt foretrukne rammeverk</option>
+  <option value="1">Vue.js</option>
+  <option value="2">React</option>
+  <option value="3">Web components</option>
+  <option value="4">Svelte</option>
+</PktSelect>
+```
+</div>
+</CodeTabs>
+
+### Disabled
+
+<CodeExample client:load>
+  <div class="pkt-inputwrapper pkt-inputwrapper--disabled">
+    <label class="pkt-inputwrapper__label" for="exampleSelect1">
+      <span>Hva er ditt foretrukne frontendrammeverk? (Disabled)</span>
+      <div class="pkt-inputwrapper__helptext">
+        Vi bruker ikke svarene på denne til noe nyttig.
+      </div>
+      <select class="pkt-input" id="exampleSelect1" disabled>
+        <option selected>Velg ditt foretrukne rammeverk</option>
+        <option value="1">Vue.js</option>
+        <option value="2">React</option>
+        <option value="3">Web components</option>
+        <option value="4">Svelte</option>
+      </select>
+    </label>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+<div class="pkt-inputwrapper pkt-inputwrapper--disabled">
+  <label class="pkt-inputwrapper__label" for="exampleSelect1">
+    <span>Hva er ditt foretrukne frontendrammeverk? (Disabled)</span>
+    <div class="pkt-inputwrapper__helptext">
+      Vi bruker ikke svarene på denne til noe nyttig.
+    </div>
+    <select class="pkt-input" id="exampleSelect1" disabled>
+      <option selected>Velg ditt foretrukne rammeverk</option>
+      <option value="1">Vue.js</option>
+      <option value="2">React</option>
+      <option value="3">Web components</option>
+      <option value="4">Svelte</option>
+    </select>
+  </label>
+</div>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```html
+  <PktSelect
+    label="Hva er ditt foretrukne frontendrammeverk?"
+    helptext="Vi bruker ikke svarene på denne til noe nyttig."
+    id="exampleSelect1"
+    v-model="preferedframework"
+    disabled
+  >
+    <option selected>Velg ditt foretrukne rammeverk</option>
+    <option value="1">Vue.js</option>
+    <option value="2">React</option>
+    <option value="3">Web components</option>
+    <option value="4">Svelte</option>
+  </PktSelect>
+  ```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSelect
+  label="Hva er ditt foretrukne frontendrammeverk?"
+  helptext="Vi bruker ikke svarene på denne til noe nyttig."
+  id="exampleSelect1"
+  value={preferedframework}
+  onChange={setPreferedFramework}
+  disabled
+>
+  <option selected>Velg ditt foretrukne rammeverk</option>
+  <option value="1">Vue.js</option>
+  <option value="2">React</option>
+  <option value="3">Web components</option>
+  <option value="4">Svelte</option>
+</PktSelect>
+```
+</div>
+</CodeTabs>
+
+### Error
+
+<CodeExample client:load>
+  <div class="pkt-inputwrapper pkt-inputwrapper--error">
+    <label class="pkt-inputwrapper__label" for="exampleSelect1">
+      <span>Hva er ditt foretrukne frontendrammeverk? (Error)</span>
+      <div class="pkt-inputwrapper__helptext">
+        Vi bruker ikke svarene på denne til noe nyttig.
+      </div>
+      <select class="pkt-input" id="exampleSelect1">
+        <option selected>Velg ditt foretrukne rammeverk</option>
+        <option value="1">Vue.js</option>
+        <option value="2">React</option>
+        <option value="3">Web components</option>
+        <option value="4">Svelte</option>
+      </select>
+    </label>
+    <div
+      class="pkt-alert pkt-alert--error pkt-alert--compact"
+      aria-live="assertive"
+    >
+      <span class="pkt-icon pkt-alert__icon">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <use href="#alert-error"></use>
+        </svg>
+      </span>
+      <div class="pkt-alert__text">Dette er en feilmelding</div>
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+  <div class="pkt-inputwrapper pkt-inputwrapper--error">
+    <label class="pkt-inputwrapper__label" for="exampleSelect1">
+      <span>Hva er ditt foretrukne frontendrammeverk? (Disabled)</span>
+      <div class="pkt-inputwrapper__helptext">
+        Vi bruker ikke svarene på denne til noe nyttig.
+      </div>
+      <select class="pkt-input" id="exampleSelect1">
+        <option selected>Velg ditt foretrukne rammeverk</option>
+        <option value="1">Vue.js</option>
+        <option value="2">React</option>
+        <option value="3">Web components</option>
+        <option value="4">Svelte</option>
+      </select>
+    </label>
+    <div class="pkt-alert pkt-alert--error pkt-alert--compact" aria-live="assertive">
+      <span class="pkt-icon pkt-alert__icon">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <use href="#alert-error"></use>
+        </svg>
+      </span>
+      <div class="pkt-alert__text">Dette er en feilmelding</div>
+    </div>
+  </div>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```html
+  <PktSelect
+    label="Hva er ditt foretrukne frontendrammeverk?"
+    helptext="Vi bruker ikke svarene på denne til noe nyttig."
+    id="exampleSelect1"
+    v-model="preferedframework"
+    hasError
+    errorMessage="Dette er en feilmelding"
+  >
+    <option selected>Velg ditt foretrukne rammeverk</option>
+    <option value="1">Vue.js</option>
+    <option value="2">React</option>
+    <option value="3">Web components</option>
+    <option value="4">Svelte</option>
+  </PktSelect>
+  ```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSelect
+  label="Hva er ditt foretrukne frontendrammeverk?"
+  helptext="Vi bruker ikke svarene på denne til noe nyttig."
+  id="exampleSelect1"
+  value={preferedframework}
+  onChange={setPreferedFramework}
+  hasError
+  errorMessage="Dette er en feilmelding"
+>
+  <option selected>Velg ditt foretrukne rammeverk</option>
+  <option value="1">Vue.js</option>
+  <option value="2">React</option>
+  <option value="3">Web components</option>
+  <option value="4">Svelte</option>
+</PktSelect>
+```
+</div>
+</CodeTabs>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-select</li>
+    <li>.pkt-inputwrapper</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper__label</li>
+    <li>.pkt-inputwrapper__helptext</li>
+    <li>.pkt-input__container</li>
+    <li>.pkt-input</li>
+    <li>.pkt-inputwrapper__helptext-expandable</li>
+    <li>.pkt-inputwrapper__helptext-expandable-heading</li>
+    <li>.pkt-inputwrapper__helptext-expandable-open</li>
+    <li>.pkt-inputwrapper__helptext-expandable-closed</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper`--`disabled</li>
+    <li>.pkt-inputwrapper`--`error</li>
+    <li>.pkt-inputwrapper`--`inline</li>
+    <li>.pkt-input`--`fullwidth</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props                  | Type    | Validation | Default        | Beskrivelse                                                              |
+| ---------------------- | ------- | ---------- | -------------- | ------------------------------------------------------------------------ |
+| id                     | string  | Required   | -              | ID for inputfeltet                                                       |
+| label                  | string  | Required   | -              | Etiketten for inputfeltet                                                |
+| ariaDescribedby        | string  | -          | -              | aria for elementet som beskriver inputfeltet                             |
+| ariaLabelledby         | string  | -          | -              | aria for elementet som beskriver inputfeltet                             |
+| className              | string  | -          | -              | Tilpasset CSS-klasse for inputfeltet                                     |
+| disabled               | boolean | -          | false          | Angir om inputfeltet er deaktivert                                       |
+| errorMessage           | string  | -          | -              | Feilmelding som vises når det er en feil i inputfeltet                   |
+| hasError               | boolean | -          | false          | Angir om inputfeltet har en feil                                         |
+| helptext               | string  | -          | -              | Hjelpetekst som vises over inputfeltet                                   |
+| helptextDropdown       | string  | -          | -              | Hjelpetekst som er skjult bak "Les mer"-knapp                            |
+| helptextDropdownButton | string  | -          | -              | Alternativ tekst til "Les mer"-knapp                                     |
+| inline                 | boolean | -          | false          | Angir om inputfelt skal vises i en linje                                 |
+| fullwidth              | boolean | -          | false          | Sett select-elementet til å ha full bredde                               |
+| name                   | string  | -          | id             | Navnet for inputfeltet                                                   |
+| optionalTag            | boolean | -          | false          | Angir om inputfeltet skal ha et valgfritt-merke                          |
+| optionalText           | string  | -          | 'Valgfritt'    | Overstyre tekst for `optionalTag`-merke                                  |
+| requiredTag            | boolean | -          | false          | Angir om inputfeltet er påkrevd                                          |
+| requiredText           | string  | -          | 'Må fylles ut' | Overstyre tekst for `requiredTag`-merke                                  |
+| useWrapper             | boolean | -          | true           | Angir om feltet skal ha label og hjelpetekst eller om det skal stå alene |
+| value                  | string  | -          | -              | Verdien for inputfeltet                                                  |
+
+| Slots    | Type  | Validation | Default | Beskrivelse |
+| -------- | ----- | ---------- | ------- | ----------- |
+| default  | Vue   | -          | -       |             |
+| children | React | -          | -       |             |
+
+| Events | Type | Validation | Default | Beskrivelse                                                                                 |
+| ------ | ---- | ---------- | ------- | ------------------------------------------------------------------------------------------- |
+| input  | Vue  |            |         | Utløses når verdien i inputfeltet endres. Sender den nye verdien som parameter til eventet. |
+
+React Merk: Denne komponenten er videresendt med `forwardRef`, så den støtter også å motta en `ref` som en ekstra prop. Denne `ref`-propen kan brukes til å referere til selve inputfeltet og få tilgang til dets egenskaper og metoder.
+
+## Les mer
+
+- [MDN - The HTML Select element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
+- [MDN - Drop-down controls](https://developer.mozilla.org/en-US/docs/Learn/Forms/Other_form_controls#drop-down_controls)

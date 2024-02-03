@@ -1,0 +1,41 @@
+---
+title: "404 sidemal"
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "maler-og-monstre/404-side" },
+    { "title": "Kodeeksempel", "href": "maler-og-monstre/404-side/kode" },
+  ]
+priority: 1
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+Her ligger en lenke til eksempelet som vises under: https://punkt.oslo.kommune.no/404/
+
+```html
+<section class="pkt-grid pkt-grid--colgap-size-64">
+  <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-laptop-up">
+    <h1 class="pkt-txt-54--phablet-up mb-size-24 mb-size-32--phablet-up">
+      Houston, we have a problem! Beklager, vi finner ikke siden du leter etter.
+    </h1>
+    <p class="mb-size-24 mb-size-32--phablet-up">
+      Det kan være at siden er slettet, eller at det er en feil i lenken du
+      fulgte for å komme hit.
+    </p>
+    <p class="mb-size-24 mb-size-32--phablet-up">
+      Om vi har lenket feil blir vi glade om du
+      <a href="#" class="pkt-link"> gir oss beskjed. </a>
+    </p>
+    <a href="/" aria-label="til forsiden" class="pkt-btn pkt-btn--primary">
+      <span class="pkt-btn__text">Gå til startsiden</span>
+    </a>
+  </div>
+  <div
+    class="pkt-cell pkt-cell--center-vertical pkt-cell--span12 pkt-cell--span6-laptop-up"
+  >
+    (sett inn illustrasjon her)
+  </div>
+</section>
+```

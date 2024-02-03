@@ -1,0 +1,101 @@
+@use "sass:map";
+@use "@pkt/scss/abstracts/mixins/typography";
+@use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+@use "@pkt/scss/abstracts/variables";
+
+$navigation-width: 17rem;
+$header-height: 69px;
+$max-content-width: 720px;
+$max-page-width: calc($navigation-width + 32px + $max-content-width + 32px + $navigation-width + 32px);
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .main-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: $header-height 1rem 4rem 1rem;
+
+
+    @include bp("tablet-up") {
+      padding-right: 2rem;
+      padding-left: calc(2rem + $navigation-width);
+    }
+
+    @media screen and (min-width: 85rem) {
+      padding-right: max(2rem, calc((100% - $max-page-width) / 2 + 2rem));
+      padding-left: max(calc(2rem + $navigation-width),
+          calc((100% - $max-page-width) / 2 + $navigation-width + 2rem));
+    }
+
+    &__lead {
+      padding: 0;
+
+      @media screen and (min-width: 75rem) {
+        grid-template-areas: "article sidebar";
+        grid-template-columns: 1fr 272px;
+        display: grid;
+        column-gap: 2rem;
+      }
+    }
+
+    &__article {
+      grid-area: article;
+      min-width: 0px;
+    }
+  }
+
+  .right-sidebar {
+    grid-area: sidebar;
+    display: none;
+    width: 17rem;
+    padding-top: 0.5rem;
+
+    @media screen and (min-width: 75rem) {
+      display: block;
+      top: 8rem;
+      position: sticky;
+      height: 66vh;
+    }
+
+    h2 {
+      @include typography.get-text("pkt-txt-14-medium");
+      margin-top: 8px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      @include typography.get-text("pkt-txt-16-light");
+      list-style-type: none;
+    }
+
+    a {
+      display: flex;
+      padding-left: 16px;
+      padding-bottom: 8px;
+      margin-left: 8px;
+      border-left: 1px solid var(--pkt-color-grays-gray-200);
+      text-decoration: none;
+    }
+
+    a.active {
+      border-left: 3px solid var(--pkt-color-brand-blue-1000);
+      transition: 0.3 ease border-left;
+      @include typography.get-text("pkt-txt-16-medium");
+    }
+
+    a:visited {
+      color: var(--pkt-color-brand-dark-blue-1000);
+    }
+  }
+
+  .pkt-hr {
+    margin-top: 0;
+  }
+}

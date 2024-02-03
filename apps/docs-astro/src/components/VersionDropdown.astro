@@ -1,0 +1,194 @@
+---
+---
+
+<div class="v-dropdown">
+  <button
+    class="v-dropdown__toggle pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+    type="button"
+    id="vDropdownToggle"
+  >
+    <svg class="pkt-btn__icon" aria-hidden="true">
+      <use href="#chevron-thin-down" id="vDropdownIcon"></use>
+    </svg>
+    <span
+      id="vDropdownVersionNumber"
+      class="v-dropdown__version-nr pkt-btn__text"
+    >
+    </span>
+  </button>
+  <ul
+    id="vDropdownVersions"
+    class="v-dropdown__menu"
+    aria-labelledby="vDropdownToggle"
+  >
+  </ul>
+</div>
+
+<script>
+  const vDropdownButtonEl = document.getElementById("vDropdownToggle");
+  const vDropdownVersionsEl = document.getElementById("vDropdownVersions");
+  const vDropdownIconEl = document.getElementById("vDropdownIcon");
+  const vDropdownVersionNumberEl = document.getElementById(
+    "vDropdownVersionNumber"
+  );
+  const docsDomain = "https://punkt.oslo.kommune.no";
+
+  async function fetchVersions() {
+    const response = await fetch(
+      "https://punkt-cdn.oslo.kommune.no/versions.json"
+    );
+    return (await response.json()).versions;
+  }
+
+  async function createList(versions) {
+    if (!versions) return;
+
+    const latestVersions = versions.reverse().slice(0, 5);
+
+    const latestVersionNotUrl = versions[0];
+
+    const versionFromUrl = window.location.pathname.split("/")[1];
+    const currentVersion = versionFromUrl.includes(".")
+      ? `v${versionFromUrl}`
+      : `v${latestVersionNotUrl}`;
+
+    vDropdownVersionNumberEl.textContent = currentVersion;
+
+    const listItemHTML = latestVersions
+      .map((version, index) => {
+        if (versionFromUrl === version) {
+          return index === 0
+            ? `<li class="v-dropdown__menuitem v-dropdown__menuitem-first v-dropdown__menuitem-selected">Nyeste (v${version})</li>`
+            : `<li class="v-dropdown__menuitem v-dropdown__menuitem-selected">v${version}</li>`;
+        } else {
+          return index === 0
+            ? `<li><a class="v-dropdown__menuitem v-dropdown__menuitem-first" href="${docsDomain}/latest">Nyeste (v${version})</a></li>`
+            : `<li><a class="v-dropdown__menuitem" href="${docsDomain}/${version}">v${version}</a></li>`;
+        }
+      })
+      .join("");
+
+    vDropdownVersionsEl.innerHTML = listItemHTML;
+
+    if (versions.length > 5) {
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      const href = docsDomain.includes(window.location.hostname)
+        ? `/${versionFromUrl}/versjoner`
+        : "/versjoner";
+
+      link.classList.add("v-dropdown__menuitem", "linktoall");
+      link.setAttribute("href", href);
+      link.textContent = "Se alle versjoner";
+      listItem.appendChild(link);
+      vDropdownVersionsEl.appendChild(listItem);
+    }
+  }
+  const allVersions = await fetchVersions();
+  createList(allVersions);
+
+  vDropdownButtonEl.addEventListener("click", (event) => {
+    event.stopPropagation();
+    vDropdownButtonEl.classList.toggle("pkt-btn--active");
+    vDropdownVersionsEl.classList.toggle("show");
+    vDropdownIconEl.setAttribute(
+      "href",
+      `#chevron-thin-${
+        vDropdownVersionsEl.classList.contains("show") ? "up" : "down"
+      }`
+    );
+  });
+
+  window.addEventListener("click", (event) => {
+    if (
+      event.target !== vDropdownButtonEl &&
+      !(vDropdownVersionsEl as Node).contains(event.target as Node)
+    ) {
+      vDropdownButtonEl.classList.remove("pkt-btn--active");
+      vDropdownVersionsEl.classList.remove("show");
+      vDropdownIconEl.setAttribute("href", "#chevron-thin-down");
+    }
+  });
+</script>
+
+<style lang="scss" is:global>
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/variables";
+  @use "@pkt/scss/abstracts/mixins/typography";
+
+  .pkt-btn.pkt-btn--active:focus {
+    background-color: var(--btn-active-bg);
+    border-color: var(--btn-active-bc);
+    color: var(--btn-active-txt);
+    outline: 0;
+    text-decoration: none;
+  }
+
+  .v-dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 999999;
+
+    &__toggle {
+      min-width: 7rem;
+      margin: 0 !important;
+    }
+
+    &__menu {
+      @include typography.get-text("pkt-txt-16-light");
+      box-shadow: 0 5px 30px -10px var(--pkt-color-grays-gray-400);
+      display: none;
+      position: absolute;
+      margin: 0;
+      top: 100%;
+      left: auto;
+      right: 0;
+
+      background-color: #fff;
+      border: 1px solid var(--pkt-color-brand-neutrals-200);
+      padding: 0;
+      list-style: none;
+      &item {
+        padding: 8px 16px;
+        display: block;
+        text-decoration: none;
+        white-space: nowrap;
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &-first {
+          @include typography.get-text("pkt-txt-16-medium");
+          background-color: var(--pkt-color-brand-neutrals-100);
+          &::before {
+            content: url(@pkt-assets/icons/heart.svg);
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+            width: 18px;
+            height: 18px;
+          }
+        }
+        &-selected {
+          color: var(--pkt-color-brand-warm-blue-1000);
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &.linktoall {
+          border-top: var(--pkt-color-brand-neutrals-200) 1px solid;
+        }
+      }
+
+      & li:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  #vDropdownToggle {
+    justify-content: center;
+  }
+  .show {
+    display: block;
+  }
+</style>

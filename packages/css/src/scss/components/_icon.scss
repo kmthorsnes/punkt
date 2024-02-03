@@ -1,0 +1,36 @@
+/* 
+ * Icons
+ *
+ * TODO: use SVG icons instead
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+
+.pkt-icon {
+  display: inline-flex;
+  min-height: 1rem;
+  min-width: 1rem;
+
+  > svg {
+    min-height: 1rem;
+    min-width: 1rem;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  &--small {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &--medium {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  &--large {
+    height: 4rem;
+    width: 4rem;
+  }
+}

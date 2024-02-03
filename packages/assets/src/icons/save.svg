@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="save" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd"
+    d="M1 1v30h26.414L31 27.414V1H1Zm4 2H3v26h3v-8h20v8h.584L29 26.584V3h-2v14H5V3Zm20 0H7v12h18V3Zm-1 26v-6h-3v6h3Zm-5 0v-6H8v6h11Z"
+    clip-rule="evenodd" />
+</svg>

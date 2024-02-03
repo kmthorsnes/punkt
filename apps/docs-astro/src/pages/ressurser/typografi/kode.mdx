@@ -1,0 +1,128 @@
+---
+title: Typografi
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { 'title': 'Beskrivelse', 'href': 'ressurser/typografi' },
+    { 'title': 'Font', 'href': 'ressurser/typografi/font' },
+    { 'title': 'Kode', 'href': 'ressurser/typografi/kode' },
+    { 'title': 'Universell utforming', 'href': 'ressurser/typografi/universell-utforming' },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## CSS-klasser
+
+Ta i bruk våre tekst-stiler ved bruk av klasser. 
+
+<CodeExample>
+  <h1 class="pkt-txt-54">.pkt-txt-54</h1>
+  <h2 class="pkt-txt-30-medium">.pkt-txt-30-medium</h2>
+  <h3 class="pkt-txt-24-medium">.pkt-txt-24-medium</h3>
+  <p class="pkt-txt-16-light">.pkt-txt-16-light</p>
+</CodeExample>
+
+```html
+<h1 class="pkt-txt-54">.pkt-txt-54</h1>
+<h2 class="pkt-txt-30-medium">.pkt-txt-30-medium</h2>
+<h3 class="pkt-txt-24-medium">.pkt-txt-24-medium</h3>
+<p class="pkt-txt-16-light">.pkt-txt-16-light</p>
+```
+
+
+CSS-klassene vil style din tekst slik:
+
+```scss
+$pkt-styles: (
+  'pkt-txt-54': (
+    'size': 'size-54',
+    'weight': 'regular',
+    'letter-spacing': 'tighter',
+    'line-height': 'lh-82',
+  ),
+```
+
+## SCSS mixin
+Du kan også ta i bruk tekst-stilene med mixin `get-text`:
+
+```scss
+@use "@oslokommune/punkt-css/dist/scss/abstracts/mixins/typography" as *;
+
+.page-header {
+  @include get-text("pkt-txt-40-light");
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+
+  @include bp("tablet-up") {
+    @include get-text("pkt-txt-54");
+  }
+}
+```
+
+## SCSS funksjon
+Du kan også hente typografiverdier med SCSS `map-get`-funksjonen.
+
+```scss
+@use "sass:map";
+@use "@oslokommune/punkt-css/dist/scss/abstracts/variables";
+
+.wrapper {
+  font-size: map.get(variables.$font-size, "size-54");
+}
+```
+
+Se alle tilgjengelige typografi-variabler i [koden på GitHub](https://github.com/oslokommune/punkt/blob/main/packages/css/src/scss/abstracts/variables/_typography.scss)
+
+## Globale verdier
+
+Per nå setter rammeverket noen globale verdier for luft, typografi, og lenker. Det er det eneste stedet hvor dette gjøres utenom `_normalise.scss`. Hva gjør de globale verdiene?
+
+- Tar i bruk Oslo kommunes definerte font stack, som inkluderer fonten **Oslo Sans**.
+- Setter default `font-size`, `font-weight`, `line-height` og `letter-spacing` i hht Oslo kommunes visuell-profil.
+- Setter global lenkestil.
+
+### Normalise
+
+Gjennom bruk av `_normalise.scss` så settes alle HTML headinger til brødtekst.
+
+Tanken er at man skal sette headinger i henhold til applikasjonens behov. Lager du nettside er disse annerledes enn et admin-grensesnitt. Noen vil ha responsive fonter, andre ikke. Derfor er dette opp til dere å definere sammen med designerne.
+
+```css
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+```
+
+## Defaultstiler
+
+<CodeExample>
+  <p>Dette er vanlig brødtekst.</p>
+  <p>
+    <em>Dette er skrevet i kursiv</em>.
+  </p>
+  <p>
+    <small>Dette er skrevet i liten tekst</small>.
+  </p>
+  <p>
+    <strong>Dette er skrevet i fet tekst</strong>.
+  </p>
+  <p>
+    <a href="#">Dette er en lenke</a>
+  </p>
+</CodeExample>
+
+```html
+<p>Dette er vanlig brødtekst.</p>
+<p><em>Dette er skrevet i kursiv</em>.</p>
+<p><small>Dette er skrevet i liten tekst</small>.</p>
+<p><strong>Dette er skrevet i fet tekst</strong>.</p>
+```
+
+

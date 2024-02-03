@@ -1,0 +1,8 @@
+<svg id="drag" data-category="ui" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32">
+  <circle cx="10" cy="4" r="4" fill="var(--fg-color, #2A2859)"/>
+  <circle cx="22" cy="4" r="4" fill="var(--fg-color, #2A2859)"/>
+  <circle cx="10" cy="16" r="4" fill="var(--fg-color, #2A2859)"/>
+  <circle cx="22" cy="16" r="4" fill="var(--fg-color, #2A2859)"/>
+  <circle cx="10" cy="28" r="4" fill="var(--fg-color, #2A2859)"/>
+  <circle cx="22" cy="28" r="4" fill="var(--fg-color, #2A2859)"/>
+</svg>

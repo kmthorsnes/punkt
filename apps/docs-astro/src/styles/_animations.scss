@@ -1,0 +1,25 @@
+/* animations */
+$animation-curve: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+.slide-in-from-top-delayed {
+  &-enter-active {
+    transition: all 0.2s $animation-curve 0.2s;
+  }
+  &-leave-active {
+    transition: all 0.2s ease-in 0.2s;
+  }
+  &-enter,
+  &-leave-to {
+    margin-top: -50%;
+    opacity: 0;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

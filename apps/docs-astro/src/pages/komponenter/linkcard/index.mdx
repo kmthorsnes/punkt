@@ -1,0 +1,234 @@
+---
+title: Link card
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/linkcard" },
+    { "title": "Kode", "href": "komponenter/linkcard/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/linkcard/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Link card er en spesialvariant av en lenke som inneholder ikon, lenketekst og mer informasjon under lenketeksten. Denne brukes som oftest som inngang til en tjeneste eller underside. [Les om generelle retningslinjer for lenker her](/komponenter/link/).
+
+<CodeExample client:load>
+  <a href="#" class="pkt-linkcard pkt-link m-size-8">
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title pkt-link pkt-link--external">
+        Overskrift her
+      </div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+  <a href="#" class="pkt-linkcard pkt-linkcard--beige pkt-link m-size-8">
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title">Overskrift her</div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+  <a href="#" class="pkt-linkcard pkt-linkcard--blue pkt-link m-size-8">
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title">Overskrift her</div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+  <a href="#" class="pkt-linkcard pkt-linkcard--grey-outline pkt-link m-size-8">
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title">Overskrift her</div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+  <a
+    href="#"
+    class="pkt-linkcard pkt-linkcard--beige-outline pkt-link m-size-8"
+  >
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title">Overskrift her</div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+</CodeExample>
+
+## Varianter
+
+Link card kommer i tre varianter: med eller uten bakgrunn (card), i tillegg til en versjon med outline. Bakgrunnen kan være enten blue-5 eller light grey, avhengig av hvilken bakgrunn du bruker komponenten på.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard1.svg"
+    alt="Link card i forskjellige varianter"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Farger
+
+De ulike fargene som brukes er:
+
+- Beige bakgrunn: $beige-light (#F8F0DD)
+- Blå bakgrunn: $blue-5 (#F1FDFF)
+- Grå ramme: $gray (#F2F2F2)
+- Beige ramme: $beige-light (#F8F0DD)
+
+Alle bruker blue-dark (#2A2859) som tekstfarge.
+
+## Slik bruker du komponenten
+
+Link card skal brukes for å lede brukeren til en ny side og gi dem mer informasjon om hva de finner. Bruk ikon og tilleggstekst for å utdype. For eksempel slik:
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard2.svg"
+    alt="Link card med ikon og tekst"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Du kan godt bruke flere link cards etter hverandre. Da setter du dem opp i grupper. En linje på desktop skal kun inneholde max 3 cards i bredden, på mobil kollapser cardsene under hverandre.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard3.svg"
+    alt="Link card med ikon og tekst"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<ImageWrapper caption="Link card på mobil.">
+  <img
+    src="/assets/komponenter/linkcard/linkcard4.svg"
+    alt="Link card på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Det er også mulig å bruke link cards med “chevron” ikonet for å vise at det er en transportlenke. For eksempel slik:
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard5.svg"
+    alt="Link card med chevron"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Det skal skilles visuelt på intern og eksternt lenke. Interne lenker fører brukeren til andre steder på samme nettside, mens eksterne lenker fører brukeren til en annen nettside.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard10.svg"
+    alt="Link card med ekstern lenke skal ha visuell indikasjon"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Responsivitet
+
+På mobil skal lenketeksten justeres fra 24px til 20px.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard-mobile.svg"
+    alt="Link card på mobil"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør dette/ikke gjør dette
+
+Her kommer noen eksempler på hvordan man skal bruke link card.
+
+### Bruk et beskrivende ikon som passer til innholdet
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard7.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk link card"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Skriv kort og konsist
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard8.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk link card"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Sørg for god kontrast om du endrer bakgrunnsfarge
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard9.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk link card"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Ikon til venstre
+2. Lenketekst
+3. Innhold
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/linkcard/linkcard6.svg"
+    alt="Link card anatomi"
+    aria-hidden="true"
+  />
+</ImageWrapper>

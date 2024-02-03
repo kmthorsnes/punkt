@@ -1,0 +1,276 @@
+---
+title: Header
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/header" },
+    { "title": "Kode", "href": "komponenter/header/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/header/universell-utforming",
+    },
+  ]
+showStatus: true,
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Headeren er den globale navigasjonen på våre tjenester og nettsider. Den er et viktig element for merkevarebygging og et gjenkjennelig element. Den gir brukeren oversikt og konsistens i våre løsninger og tjenester, i tillegg til en konsekvent avsender på tvers av løsninger fra Oslo kommune. Headeren skal være lik og konsistent på alle sider av en applikasjon.
+
+Ved å klikke på navnet til den som er logget inn trigger man en ekspandert meny. [Les mer om styling og bruk av denne her](https://punkt.oslo.kommune.no/latest/komponenter/headermenu/).
+
+<CodeExample client:load>
+  <header id="pkt-header" aria-label="Topp" class="pkt-header">
+    <div class="pkt-header__logo">
+      <a
+        aria-label="Tilbake til forside"
+        href="https://www.oslo.kommune.no/"
+        class="pkt-header__logo-link"
+      >
+        <span class="pkt-icon pkt-header__logo-svg">
+          <svg viewBox="0 0 60 31">
+            <use href="#oslologo"></use>
+          </svg>
+        </span>
+      </a>
+    </div>
+    <nav class="pkt-header__actions">
+      <ul class="pkt-header__actions-row">
+        <li class="pkt-header--has-dropdown">
+          <button
+            class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+            type="button"
+            aria-controls="pktUserDropdown"
+            aria-expanded="false"
+            onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+          >
+            <span class="pkt-icon pkt-btn__icon">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            <span class="pkt-header__user-fullname pkt-btn__text">
+              Aksel Web Opdahl
+            </span>
+            <span class="pkt-header__user-shortname pkt-btn__text">AWO</span>
+            <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+              <svg viewBox="0 0 32 32">
+                <use href="#chevron-thin-down"></use>
+              </svg>
+            </span>
+            <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+              <svg viewBox="0 0 32 32">
+                <use href="#chevron-thin-up"></use>
+              </svg>
+            </span>
+          </button>
+          <ul id="pktUserDropdown" class="pkt-header__dropdown pkt-user-menu">
+            <li>
+              <div class="pkt-user-menu__label">Pålogget som</div>
+              <div class="pkt-user-menu__name">Aksel Web Opdahl</div>
+              <div class="pkt-user-menu__last-logged-in">
+                Sist pålogget: <time>20.01.2022</time>
+              </div>
+            </li>
+            <li>
+              <ul class="pkt-list">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Mine bookinger
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Mine adresser
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="pkt-user-menu__label">Representerer</div>
+              <div class="pkt-user-menu__name">Joe & The Juice AS</div>
+              <div class="pkt-user-menu__org-number">Org.nr. 911738066</div>
+              <ul class="pkt-list mt-size-16">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Endre organisasjon
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="pkt-list">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Innstillinger
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Logg ut
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer">
+              <ul class="pkt-list-horizontal bordered">
+                <li>
+                  <a href="#" class="pkt-link">
+                    Kontakt
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    Personvern
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</CodeExample>
+
+## Varianter
+
+I Punkt finnes to variasjoner av header:
+
+1. Innlogget header som brukes på de fleste løsninger eller tjenester utviklet i Origo
+2. Utlogget header/generell header, altså headeren brukt på Oslo kommune sine nettsider (oslo.kommune.no)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/header-1.svg"
+    alt="De to ulike variantene av header."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Vi kommer til å beskrive innlogget header. Utseende og styling av header til åpne nettsider eies av designteamet hos UKE.
+
+Flere av elementene er overlappende, men det er også noen forskjeller.
+
+Innlogget header inneholder: logo, tjenestenavn, innlogget meny og mulighet for logg ut-knapp. Utlogget header inneholder: logo, søkefelt, inngang til megameny, kontakt, og inngang til min side.
+
+Grunnen til at søkefeltet ikke er inkludert i innlogget header er for å unngå forvirring. Søkefeltet på oslo.kommune.no er globalt og søker på innholdet på deres sider. Dersom man ønsker et søkefelt på innloggede sider må det utformes annerledes og plasseres et annet sted på siden.
+
+Det er ikke tenkt at man skal bruke innlogget header med alle elementene inkludert. Har du en innlogget bruker som skal logge ut? Bruk kun knappen med brukerens navn. Ønsker du kun å gi brukeren mulighet til å logge ut, bruk logg ut-knappen osv.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/header-2.svg"
+    alt="Eksempel som viser innlogget bruker og et eksempel som viser logg ut-knapp."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Farger
+
+Headeren skal alltid opptre med hvit bakgrunnsfarge. Man kan bruke alle knappestylinger (primær, sekundær og tertiær) på høyre side. Ekspandert meny skal alltid styles likt og som det fremstår i designsystemet. [Les mer om ekspandert meny her.](https://punkt.oslo.kommune.no/latest/komponenter/headermenu/)
+
+## Responsivitet
+
+Headeren er optimalisert for mindre enheter slik som mobil og nettbrett. Likevel er det viktig at du tester navigasjonen på siden din på mobil. Gjør dette ved enten å bruke Figma mirror-appen i skisse-perioden eller å åpne testlenker på mobilen din i tillegg til desktop når du tester.
+
+På mobil skjules noen av elementene og alt legges inn i menyen. Du kan selv velge om du vil vise initialene til den innloggede brukeren, eller kun bruker-ikonet.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/header-3.svg"
+    alt="Header på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+### Seksjoner
+
+I headeren skal alltid logo og avsender være plassert til venstre. På høyre side har man en seksjon for interaktive elementer og funksjonalitet, slik som søk, meny, innlogget meny og “logg ut”-knapp.
+
+<ImageWrapper caption="Eksempel på seksjoner i 1920px bredde">
+  <img
+    src="/assets/komponenter/header/header-4.svg"
+    alt="Eksempel på seksjoner i 1920px bredde"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Logo
+
+Oslologoen kan ikke kombineres med andre navn og må alltid brukes i sin helhet. [Les mer om riktig bruk av Oslo logoen her](https://designmanual.oslo.kommune.no/oslologo).
+
+Det er ikke påkrevd, men om ønskelig kan man legge til tjenestenavn ved siden av logo, dette legges det opp til i header på denne måten (markert i rødt):
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/header-5.svg"
+    alt="Header med seksjoner, seksjonen for tjenestenavn er markert."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Inkluder både navnet på applikasjonen og logoen hvis tilgjengelig. Klikk på applikasjonens navn eller logo skal ta deg til forsiden/starten til applikasjonen eller tilbake til oslo.kommune.no.
+
+### Navigasjonselementer
+
+I høyre seksjon av headeren kan du implementere funksjonalitet. I headeren har vi lagt opp til meny, innlogget meny og logg ut-knapp. Alle må ikke brukes samtidig. Unngå logg ut-knapp sammen med innlogget meny. Navigasjonen skal være lik gjennom hele tjenesten din. Ha maksimalt fire elementer i hovednavigasjonen.
+
+Bruk tydelige og konkrete tekster i lenkene.
+
+## Gjør dette/ikke gjør dette
+
+- Ikke endre størrelsen på headeren
+- Behold strukturen i headeren - ikke endre plassering av logo, avsender eller funksjonalitet
+- Ikke endre bakgrunnsfargen på headeren
+- Tenk over logisk knappestruktur
+- Alltid ha Oslo-logoen på venstre side og i sin helhet
+- Hold antall navigasjonselementer nede
+
+## Anatomi
+
+1. Bakgrunn
+2. Oslo logo
+3. Tjenestenavn (valgfritt)
+4. Meny (valgfritt)
+5. Innlogget meny (valgfritt)
+6. Logg ut-knapp (valgfritt)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/header-6.svg"
+    alt="Headerens anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

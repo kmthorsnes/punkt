@@ -1,0 +1,147 @@
+---
+title: Tabs
+description: ""
+layout: "@layouts/DocLayout.astro"
+categoryName: komponenter
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/tabs" },
+    { "title": "Kode", "href": "komponenter/tabs/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/tabs/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import TabExample from "@components/TabExample.astro";
+
+## Om komponenten
+
+Faner (tabs) er en type navigasjon innad på en side (f.eks. på nivå 3 eller 4), der valgt fane påvirker alt innhold i et begrenset område under fanerekken. Med faner kan brukere enkelt navigere mellom relatert innhold uten bytte kontekst.
+
+<CodeExample>
+  <TabExample />
+</CodeExample>
+
+## Varianter
+
+I fanene har du mulighet til å legge til flere elementer, du kan velge mellom:
+
+- Kun tekst
+- Ikon og tekst
+- Tekst og tag
+- Ikon, tekst og tag
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-1.svg"
+    alt="De ulike typene tabs"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Husk at dersom du tar i bruk ikoner er det viktig at de kommuniserer hvilken type innhold som er i en fane. Ikoner bør være enkle og gjenkjennelige.
+
+## Farger
+
+Valgt fane skal alltid ha $Border-Blue, #6FE9FF under, mens den som man hviler musen over skal ha $Border-States-Hover, #1F42AA.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-2.svg"
+    alt="Tab states"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Dersom du bruker tags kan du selv velge hvilken farge du ønsker å ta i bruk basert på innholdet eller budskapet du ønsker å formidle. [Les mer om god bruk av tags her.](https://punkt.oslo.kommune.no/latest/komponenter/tag/)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-3.svg"
+    alt="Tabs med ulike farger på tags"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+Tittelen på fanen bør være kort og beskrive panelet den åpner. Fanene ser ikke bra ut med tekst over flere linjer eller med for lang tekst.
+
+Husk at én fane vil alltid være aktiv siden ett panel alltid vises. Første gang brukeren besøker en side, skal den første fanen være aktiv.
+
+### Plassering og responsivitet
+
+Fanene skal plasseres over innholdet de endrer.
+
+<ImageWrapper caption="Eksempel på god bruk av faner fra Team Booking">
+  <img
+    src="/assets/komponenter/tabs/tabs-4.svg"
+    alt="Faner i booking-løsningen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Gjør en vurdering på antall faner i løsningen din. For mange kan oppleves voldsomt for brukeren. Om det er flere faner enn det er plass til på små skjermer (som f.eks mobil) vil menyen få horisontal scroll.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-5.svg"
+    alt="Tabs på mobil"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Unngå å bruke kun ikoner som titler på faner
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-7.svg"
+    alt="Tabs med både tekst og ikon, og med kun ikon"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Sørg for at evt ikoner kommuniserer hvilken type innhold som er i fanen
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-8.svg"
+    alt="Tabs med matchende ikoner, og med ikoner uten tydelig betydning"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Hold titlene på fanene korte og konsise
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-9.svg"
+    alt="Tabs med gode titler, og én med for lange titler"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Aktiv fane
+2. Tag (valgfritt)
+3. Ikon (valgfritt)
+4. Sidetittel på fane
+5. Ikke aktiv fane
+6. Aktiv linje
+7. Skillelinje
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tabs/tabs-6.svg"
+    alt="Tabs anatomi"
+    aria-hidden="true"
+  />
+</ImageWrapper>

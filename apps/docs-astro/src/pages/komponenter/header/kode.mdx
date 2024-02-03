@@ -1,0 +1,503 @@
+---
+title: Header
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/header" },
+    { "title": "Kode", "href": "komponenter/header/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/header/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+Dersom denne brukes med bare CSS må du selv sørge for funksjonalitet for å åpne brukermeny og sette aria-verdier som opprettholder god UU.
+
+## Varianter
+
+<CodeExample>
+  <header id="pkt-header" aria-label="Topp" class="pkt-header">
+    <div class="pkt-header__logo">
+      <a
+        aria-label="Tilbake til forside"
+        href="https://www.oslo.kommune.no/"
+        class="pkt-header__logo-link"
+      >
+        <span class="pkt-icon pkt-header__logo-svg">
+          <svg viewBox="0 0 60 31">
+            <use href="#oslologo"></use>
+          </svg>
+        </span>
+      </a>
+    </div>
+    <nav class="pkt-header__actions">
+      <ul class="pkt-header__actions-row">
+        <li class="pkt-header--has-dropdown">
+          <button
+            class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+            type="button"
+            aria-controls="pktUserDropdown"
+            aria-expanded="false"
+            onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+          >
+            <span class="pkt-icon pkt-btn__icon">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            <span class="pkt-header__user-fullname pkt-btn__text">
+              Aksel Web Opdahl
+            </span>
+            <span class="pkt-header__user-shortname pkt-btn__text">AWO</span>
+            <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+              <svg viewBox="0 0 32 32">
+                <use href="#chevron-thin-down"></use>
+              </svg>
+            </span>
+            <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+              <svg viewBox="0 0 32 32">
+                <use href="#chevron-thin-up"></use>
+              </svg>
+            </span>
+          </button>
+          <ul id="pktUserDropdown" class="pkt-header__dropdown pkt-user-menu">
+            <li>
+              <div class="pkt-user-menu__label">Pålogget som</div>
+              <div class="pkt-user-menu__name">Aksel Web Opdahl</div>
+              <div class="pkt-user-menu__last-logged-in">
+                Sist pålogget: <time>20.01.2022</time>
+              </div>
+            </li>
+            <li>
+              <ul class="pkt-list">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Mine bookinger
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Mine adresser
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="pkt-user-menu__label">Representerer</div>
+              <div class="pkt-user-menu__name">Joe & The Juice AS</div>
+              <div class="pkt-user-menu__org-number">Org.nr. 911738066</div>
+              <ul class="pkt-list mt-size-16">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Endre organisasjon
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="pkt-list">
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Innstillinger
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    <span class="pkt-icon pkt-icon--medium">
+                      <svg viewBox="0 0 32 32">
+                        <use href="#heart"></use>
+                      </svg>
+                    </span>
+                    Logg ut
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer">
+              <ul class="pkt-list-horizontal bordered">
+                <li>
+                  <a href="#" class="pkt-link">
+                    Kontakt
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pkt-link">
+                    Personvern
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<header id="pkt-header" aria-label="Topp" class="pkt-header">
+  <div class="pkt-header__logo">
+    <a
+      aria-label="Tilbake til forside"
+      href="https://www.oslo.kommune.no/"
+      class="pkt-header__logo-link"
+    >
+      <span class="pkt-icon pkt-header__logo-svg">
+        <svg viewBox="0 0 60 31">
+          <use href="#oslologo"></use>
+        </svg>
+      </span>
+    </a>
+    <span class="pkt-header__logo-service">Navn på virksomheten</span>
+  </div>
+  <nav class="pkt-header__actions">
+    <ul class="pkt-header__actions-row">
+      <li>
+        <button
+          type="button"
+          class="pkt-header__menu-btn pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#menu"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Meny</span>
+        </button>
+      </li>
+      <li class="pkt-header--has-dropdown">
+        <button
+          class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+          type="button"
+          aria-controls="pktUserDropdown"
+          aria-expanded="false"
+          onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#user"></use>
+            </svg>
+          </span>
+          <span class="pkt-header__user-fullname pkt-btn__text"
+            >Aksel Web Opdahl</span
+          >
+          <span class="pkt-header__user-shortname pkt-btn__text">AWO</span>
+          <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-up"></use>
+            </svg>
+          </span>
+        </button>
+        <ul id="pktUserDropdown" class="pkt-header__dropdown pkt-user-menu">
+          <li>
+            <div class="pkt-user-menu__label">Pålogget som</div>
+            <div class="pkt-user-menu__name">Aksel Web Opdahl</div>
+            <div class="pkt-user-menu__last-logged-in">
+              Sist pålogget: <time>20.01.2022</time>
+            </div>
+          </li>
+          <li>
+            <ul class="pkt-list">
+              <li>
+                <a href="#" class="pkt-link">
+                  <span class="pkt-icon pkt-icon--medium">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#heart"></use>
+                    </svg>
+                  </span>
+                  Mine bookinger
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pkt-link">
+                  <span class="pkt-icon pkt-icon--medium">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#house-heart"></use>
+                    </svg>
+                  </span>
+                  Mine adresser
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="pkt-user-menu__label">Representerer</div>
+            <div class="pkt-user-menu__name">Joe & The Juice AS</div>
+            <div class="pkt-user-menu__org-number">Org.nr. 911738066</div>
+            <ul class="pkt-list mt-size-16">
+              <li>
+                <a href="#" class="pkt-link">
+                  <span class="pkt-icon pkt-icon--medium">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#cogwheel"></use>
+                    </svg>
+                  </span>
+                  Endre organisasjon
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul class="pkt-list">
+              <li>
+                <a href="#" class="pkt-link">
+                  <span class="pkt-icon pkt-icon--medium">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#cogwheel"></use>
+                    </svg>
+                  </span>
+                  Innstillinger
+                </a>
+              </li>
+              <li>
+                <a href="#" class="pkt-link">
+                  <span class="pkt-icon pkt-icon--medium">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#exit"></use>
+                    </svg>
+                  </span>
+                  Logg ut
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="footer">
+            <ul class="pkt-list-horizontal bordered">
+              <li><a href="#" class="pkt-link">Kontakt</a></li>
+              <li><a href="#" class="pkt-link">Personvern</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button
+          type="button"
+          class="pkt-header__user-btn pkt-header__user-btn-logout pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#exit"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Logg ut</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<PktHeader
+  :canChangeRepresentation="true"
+  :representing="representing"
+  :user="{
+    name: 'Aksel Web Opdahl',
+    shortname: 'AWO',
+    lastLoggedIn: new Date(),
+  }"
+  :userMenu="[
+    {
+      title: 'Mine bookinger',
+      iconName: 'heart',
+      target: '#',
+    },
+    {
+      title: 'Mine adresser',
+      iconName: 'house-heart',
+      target: console.log('Mine adresser'),
+    },
+  ]"
+  :userMenuFooter="[
+    {
+      title: 'Kontakt',
+      target: '#',
+    },
+    {
+      title: 'Personvern',
+      target: '#',
+    },
+  ]"
+  :userOptions="[
+    {
+      title: 'Innstillinger',
+      iconName: 'cogwheel',
+      target: '#',
+    },
+  ]"
+  @changeRepresentation="changeRepresentation"
+  @logOut="logOut"
+  serviceName="Gravferdsetaten"
+></PktHeader>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```jsx
+<PktHeader
+  canChangeRepresentation={true}
+  user={{
+    name: 'Aksel Web Opdahl',
+    shortname: 'AWO',
+    lastLoggedIn: new Date(),
+  }}
+  representing={representing: {
+    name: 'Joe & the Juice Norge AS',
+    shortname: 'JJN',
+    orgNumber: '911738066',
+  }}
+  userMenu={[
+    {
+      title: 'Mine bookinger',
+      iconName: 'heart',
+      target: '#',
+    },
+    {
+      title: 'Mine adresser',
+      iconName: 'house-heart',
+      target: userMenuItemFunction,
+    },
+  ]}
+  userMenuFooter={[
+    {
+      title: 'Kontakt',
+      target: '#',
+    },
+    {
+      title: 'Personvern',
+      target: '#',
+    },
+  ]}
+  changeRepresentation={changeRepresentation}
+  logOut={logOut}
+  serviceName="Gravferdsetaten"
+/>
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-header</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-header__logo</li>
+    <li>.pkt-header__logo-service</li>
+    <li>.pkt-header__actions</li>
+    <li>.pkt-header__menu-btn</li>
+    <li>.pkt-header__user-btn</li>
+    <li>.pkt-header__user-btn-logout</li>
+    <li>.pkt-header__user-fullname</li>
+    <li>.pkt-header__user-shortname</li>
+    <li>.pkt-header__dropdown</li>
+    <li>.pkt-user-menu__label</li>
+    <li>.pkt-user-menu__name</li>
+    <li>.pkt-user-menu__last-logged-in</li>
+    <li>.pkt-user-menu__org-number</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-header`--`fixed</li>
+    <li>.pkt-header`--`scroll-to-hide</li>
+    <li>.pkt-header`--`hidden</li>
+    <li>.pkt-header`--`has-dropdown</li>
+    <li>.pkt-header`--`open-dropdown</li>
+  </ul>
+</div>
+
+## Brukermeny
+
+For å få innhold i brukermenyen i React eller Vue, så må man sende inn objekter med innhold for de forskjellige blokkene.
+
+```js
+// user:
+{ name: String, shortname: String, lastLoggedIn: String|Date, }
+
+// userMenu:
+[{ iconName: String, title: String, target: String|Function, }]
+
+// representing:
+{ name: String, shortname: String, orgNumber: String|Number, }
+
+// userOptions:
+[{ iconName: String, title: String, target: String|Function, }]
+
+// userMenuFooter:
+[{ title: String, target: String|Function, }]
+```
+
+## OBS!
+
+Det er mulig å gjøre logo-lenken til en knapp med funksjon. Dette anbefales ikke, men tillates dersom applikasjonen deres forlanger at «Hjem»-lenken er en knapp.
+
+## Props, slots og events
+
+| Props                   | Type              | Validation | Default                      | Beskrivelse |
+| ----------------------- | ----------------- | ---------- | ---------------------------- | ----------- |
+| logoLink                | string / function |            | https://www.oslo.kommune.no/ |             |
+| serviceName             | string            |            |                              |             |
+| fixed                   | boolean           |            | true                         |             |
+| scrollToHide            | boolean           |            | true                         |             |
+| user                    | object            |            |                              |             |
+| userMenu                | object            |            |                              |             |
+| userMenuFooter          | object            |            |                              |             |
+| userOptions             | object            |            |                              |             |
+| representing            | object            |            |                              |             |
+| canChangeRepresentation | boolean           |            | true                         |             |
+| showMenuButton          | boolean           |            | false                        |             |
+| showLogoutButton        | boolean           |            | false                        |             |
+
+| Events               | Type | Validation | Default | Beskrivelse                               |
+| -------------------- | ---- | ---------- | ------- | ----------------------------------------- |
+| openMenu             |      |            |         | Trigges ved klikk på generisk menyknapp   |
+| logOut               |      |            |         | Trigges ved klikk på logg ut-knapp        |
+| changeRepresentation |      |            |         | Trigges ved klikk på "Endre organisasjon" |

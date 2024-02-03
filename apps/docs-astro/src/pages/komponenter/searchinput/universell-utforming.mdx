@@ -1,0 +1,59 @@
+---
+title: Search input
+description: ""
+categoryName: Komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/searchinput" },
+    { "title": "Kode", "href": "komponenter/searchinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/searchinput/universell-utforming",
+    },
+  ]
+---
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+- Søkeforslag i resultatene må ha de korrekte ARIA-attributtene
+- Dersom label (ledetekst) brukes bør søkefeltets plassholdertekst gi forslag/veiledning til søketekst
+- Plassholdertekst i søkefelt må også møte minstekrav for kontrast (4.5:1)
+- Tastaturnavigering: ESC sletter tekst i søkefeltet og enter gjennomfører søket
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+       Søkeresultatene i søket har de korrekte ARIA-attributtene.
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+     Dersom søkefeltet har label (ledetekst) gir plassholdertekst forslag/veiledning til søketekst.
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+     Plassholderteksten i søkefelt møter minstekrav for kontrast (4.5:1).
+      </label>
+    </div>
+  </div>
+</CodeExample>

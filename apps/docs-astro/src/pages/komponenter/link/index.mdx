@@ -1,0 +1,139 @@
+---
+title: Link
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/link" },
+    { "title": "Kode", "href": "komponenter/link/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/link/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Lenker er et vanlig element på nettsider som brukes til å navigere til andre sider på nettstedet eller til eksterne nettsider. Lenker må være visuelt identifiserbare og lenkens mål må fremgå tydelig. Det skal skilles visuelt på intern og ekstern lenke.
+
+<CodeExample client:load toggle-mode>
+<a href="#123" class="pkt-link my-size-8">Normal lenke</a><br />
+<a href="#123" class="pkt-link pkt-link--focus my-size-8">Fokus lenke</a><br />
+<a href="#123" class="pkt-link pkt-link--hover my-size-8">Hover lenke</a><br />
+<a href="#123" class="pkt-link pkt-link--active my-size-8">Aktiv lenke</a><br />
+<a href="#123" class="pkt-link pkt-link--external my-size-8">Ekstern lenke</a>
+</CodeExample>
+
+## Varianter
+
+Det er to typer lenker: interne lenker og eksterne lenker. Interne lenker fører brukeren til andre steder på samme nettside, mens eksterne lenker fører brukeren til en annen nettside.
+
+For å gjøre det tydelig for brukeren at lenken fører til en ekstern nettside, markeres våre eksterne lenker med et ikon til høyre etter lenketeksten.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links2.svg"
+    alt="Intern og ekstern lenke"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Det er viktig at lenkene kan identifiseres uavhengig av situasjon, evner og innstillinger på utstyret som benyttes. Dette betyr at lenker må være markert med mer enn bare farge. I Punkt gjør vi det ved å enten ha understrek eller å bruke “chevron”-ikonet foran eller bak teksten.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links3.svg"
+    alt="Lenke med og uten ikon"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Dersom lenken din skal brukes i løpende tekst, og er en intern lenke, anbefaler vi å unngå å bruke ikon. Lenke med chevron-ikonet brukes oftest i brødsmuler og lenkelister.
+
+## Slik bruker du komponenten
+
+Generelt sett er det viktig å bruke lenker på en gjennomtenkt måte for å gi en best mulig brukeropplevelse. Det kan være lurt å plassere lenker der brukerne forventer å finne dem, og å sørge for at lenketeksten er beskrivende og gir en klar indikasjon på hvor lenken fører.
+
+Lenker kan plasseres på ulike steder, for eksempel i løpende tekst, på slutten av teksten eller i relatert informasjon. Før du velger plassering av lenkene, bør du derfor vurdere hvem som er målgruppe for teksten, hvilken kontekst brukeren befinner seg i og hva som er formålet med lenken.
+
+<ImageWrapper caption="Dette er et eksempel på en løpende tekst med lenker.">
+  <img
+    src="/assets/komponenter/link/links4.svg"
+    alt="Våre lenkestylinger"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør dette/ikke gjør dette
+
+Her kommer noen eksempler på hvordan man skal bruke linkstyling.
+
+### Bruk enten ikon eller understrek
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links6.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk lenkestylingen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Unngå å bruke ikoner for å merke lenker i løpende tekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links7.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk lenkestylingen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Bruk ikoner med omhu
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links8.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk lenkestylingen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Gå for én styling av lenker
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links9.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk lenkestylingen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk bare store bokstaver
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links10.svg"
+    alt="Eksempel som viser hvordan man skal ta i bruk lenkestylingen"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Ikon venstre
+2. Lenketekst
+3. Ikon høyre
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/link/links5.svg"
+    alt="Lenkens anatomi"
+    aria-hidden="true"
+  />
+</ImageWrapper>

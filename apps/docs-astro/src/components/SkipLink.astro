@@ -1,0 +1,62 @@
+<div class="skip-link">
+  <a class="" href="#main-content">Hopp til hovedinnhold</a>
+</div>
+
+<script type="module">
+  // variables
+  const skipLink = document.querySelector(".skip-link a");
+
+  // execution
+  skipLink.addEventListener("keydown", (event) => {
+    if (!event.target.closest("a")) return;
+    const key = event.key;
+
+    if (key !== "Enter") return;
+    event.preventDefault();
+    const target = event.target.getAttribute("href");
+
+    if (document.querySelector(target)) {
+      const targetElement = document.querySelector(target);
+      targetElement.setAttribute("tabindex", "-1");
+      targetElement.focus();
+    } else if (
+      !document.querySelector(target) &&
+      document.querySelector("h1")
+    ) {
+      const h1 = document.querySelector("h1");
+      h1.setAttribute("tabindex", "-1");
+      h1.focus();
+    } else {
+      console.warn(
+        "SkipLinks are not set, either missing an h1 or main content id on the page."
+      );
+    }
+  });
+</script>
+
+<style lang="scss" is:global>
+  @use "sass:map";
+
+  @use "@pkt/scss/abstracts/mixins/typography";
+  .skip-link {
+    a {
+      @include typography.get-text("pkt-txt-16-medium");
+      background-color: var(--pkt-color-brand-neutrals-200);
+      border-bottom-right-radius: 6px;
+      padding: 1rem 3.25rem;
+      position: absolute;
+      display: block;
+      z-index: 200;
+      top: -100vh;
+      left: 0;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline solid var(--pkt-color-brand-blue-1000) 2px;
+        text-underline-offset: 4px;
+        top: 0;
+        outline-offset: 2px;
+      }
+    }
+  }
+</style>

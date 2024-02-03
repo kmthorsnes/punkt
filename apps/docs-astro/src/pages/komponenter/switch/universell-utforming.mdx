@@ -1,0 +1,62 @@
+---
+title: Switch
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/switch" },
+    { "title": "Kode", "href": "komponenter/switch/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/switch/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+- Switch er implementert som en checkbox og følger samme interaksjon som den, dvs. space aktiverer/deaktiverer elementet
+- Skriv en klar, kortfattet og unik etikett: dersom du bruker switch uten etiketter, for eksempel om de brukes i en tabell eller lignende, kreves det fortsatt en skjult etikett for hjelpeteknologier. WCAG 2.1: 1.3.1 [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships), 2.4.6 [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- Alle tastaturinteraksjoner og ARIA-etiketter må oppfylle tilgjengelighetskriterier ([WAI-ARIA Switch Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/switch/))
+- Bruk fieldset og legend (som inputwrapper tilbyr) ved gruppering av flere switcher.
+
+
+## Sjekkliste
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Jeg har gjort en vurdering på om bruk av switch er det riktige valget i
+        konteksten den opptrer (og vurdert om vi heller burde gå for checkbox
+        eller radioknapper)
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Switchen har en klar, kortfattet og unik ledetekst
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Brukeren kan tabbe seg til switchen, og velge den ved hjelp av
+        mellomromstasten
+      </label>
+    </div>
+  </div>
+</CodeExample>

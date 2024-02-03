@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="character-exclamation-mark" fill="none" data-category="ui"
+  viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)"
+    d="m14.5 7 .4 12h2.2l.4-12h-3Zm-.501 16c0 1.119.857 2 2 2s2-.881 2-2c0-1.12-.857-2-2-2s-2 .88-2 2Z" />
+</svg>

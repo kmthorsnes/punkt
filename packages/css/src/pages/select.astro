@@ -1,0 +1,526 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - forside">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Text input</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Select
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1multiple"
+          >Select multiple
+          <select class="pkt-input" id="exampleInputText1multiple" multiple>
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Select inline
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select></label
+        >
+      </div>
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Select inline
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label
+          class="pkt-inputwrapper__label"
+          for="exampleInputText2"
+          id="labelledby"
+          >Select med hjelpetekst
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText3"
+          ><span
+            >Select med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText45"
+          ><span
+            >Select med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+              >Må fylles ut</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText35"
+          >Select med prefix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText36"
+          >Select med suffix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+            <p class="pkt-input-suffix">kr</p>
+          </div></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText37"
+          >Select med suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText38"
+          >Select med ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+            <div class="pkt-input-icon">
+              <span class="pkt-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText372"
+          >Select med prefix, suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper__helptext mb-size-24">
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Select med åpen expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <select class="pkt-input" id="exampleSelect1">
+          <option>Frukt…</option>
+          <option>Apples</option>
+          <option>Oranges</option>
+          <option>Grapes</option>
+          <option>Pears</option>
+          <option>Durians</option>
+        </select>
+      </div>
+
+      <div
+        class="pkt-inputwrapper pkt-inputwrapper__helptext pkt-texinput__helptext-expandable mb-size-24"
+      >
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Select med lukket expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+
+        <div class="pkt-inputwrapper__helptext-expandable-closed">Lukket</div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <select class="pkt-input" id="exampleSelect1">
+          <option>Frukt…</option>
+          <option>Apples</option>
+          <option>Oranges</option>
+          <option>Grapes</option>
+          <option>Pears</option>
+          <option>Durians</option>
+        </select>
+      </div>
+    </section>
+
+    <h1>States</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText4"
+          >Select focus
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText6"
+          >Hover
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--disabled">
+        <label class="pkt-inputwrapper__label" for="exampleInputText7"
+          ><span
+            >Disabled<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <select class="pkt-input" id="exampleSelect1" disabled>
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+      </div>
+
+      <div
+        class="pkt-inputwrapper pkt-inputwrapper__helptext pkt-inputwrapper--disabled mb-size-24"
+      >
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Expandable disabled<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+          disabled
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <div class="pkt-input__container">
+          <select class="pkt-input" id="exampleSelect1" disabled>
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+          <p class="pkt-input-suffix">
+            Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+              <svg viewBox="0 0 32 32">
+                <use href="#close"></use>
+              </svg></span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText8"
+          ><span
+            >Error<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <select class="pkt-input" id="exampleSelect1">
+            <option>Frukt…</option>
+            <option>Apples</option>
+            <option>Oranges</option>
+            <option>Grapes</option>
+            <option>Pears</option>
+            <option>Durians</option>
+          </select>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText37"
+          >Select med suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText35"
+          >Text med prefix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <select class="pkt-input" id="exampleSelect1">
+              <option>Frukt…</option>
+              <option>Apples</option>
+              <option>Oranges</option>
+              <option>Grapes</option>
+              <option>Pears</option>
+              <option>Durians</option>
+            </select>
+          </div>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

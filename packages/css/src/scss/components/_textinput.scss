@@ -1,0 +1,13 @@
+/* 
+ * Textinput component 
+ *
+ * Denne blir stilsatt av .pkt-input
+ * Ikke bruk klassen .pkt-textinput 
+*/
+@use '../elements/input';
+
+.pkt-textinput {
+  &__input {
+    @extend .pkt-input;
+  }
+}

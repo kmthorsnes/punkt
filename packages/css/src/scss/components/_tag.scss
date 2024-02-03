@@ -1,0 +1,315 @@
+/* 
+ * Tag element
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/typography';
+
+.pkt-tag {
+
+    --pkt-color-tag-text-active: var(--pkt-color-brand-warm-blue-1000);
+    --pkt-color-tag-text-focus: var(--pkt-color-brand-warm-blue-1000);
+    --pkt-color-tag-text-hover: var(--pkt-color-brand-warm-blue-1000);
+    --pkt-color-tag-text-normal: var(--pkt-color-brand-dark-blue-1000);
+
+    @at-root [data-mode='dark'] .pkt-tag {
+        --pkt-color-tag-text-active: var(--pkt-color-brand-dark-blue-1000);
+        --pkt-color-tag-text-focus: var(--pkt-color-brand-dark-blue-1000);
+        --pkt-color-tag-text-hover: var(--pkt-color-brand-dark-blue-1000);
+        --pkt-color-tag-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    @include typography.get-text('pkt-txt-14-medium');
+    background: var(--pkt-color-surface-default-light-blue);
+    padding: map.get(variables.$spacing, 'size-4') map.get(variables.$spacing, 'size-8');
+    display: inline-flex;
+    align-items: center;
+    height: 1.875rem;
+    column-gap: 0;
+    color: var(--pkt-color-tag-text-normal);
+
+    &.pkt-btn:hover,
+    &.pkt-tag--hover {
+        background-color: var(--pkt-color-surface-strong-blue);
+        color: var(--pkt-color-tag-text-hover);
+        text-decoration: underline;
+        border-color: transparent;
+
+        >svg {
+            --fg-color: var(--pkt-color-tag-text-hover);
+        }
+    }
+
+    &.pkt-btn:focus,
+    &.pkt-tag--focus {
+        background-color: var(--pkt-color-surface-strong-blue);
+        border-color: var(--pkt-color-text-action-active);
+        outline: 4px solid var(--pkt-color-border-states-focus);
+        color: var(--pkt-color-tag-text-focus);
+
+        >svg {
+            --fg-color: var(--pkt-color-tag-text-focus);
+        }
+    }
+
+    &.pkt-btn:active,
+    &.pkt-tag--active,
+    &.pkt-tag--active:hover {
+        background-color: var(--pkt-color-surface-strong-blue);
+        color: var(--pkt-color-tag-text-active);
+
+        >svg {
+            --fg-color: var(--pkt-color-tag-text-active);
+        }
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        margin-right: map.get(variables.$spacing, 'size-8');
+    }
+
+    &__close-btn {
+        width: 16px;
+        height: 16px;
+        margin-left: map.get(variables.$spacing, 'size-8');
+    }
+
+    // Modifiers
+    // Skins
+    &--green {
+        background: var(--pkt-color-surface-strong-light-green);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-green);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-green);
+            color: var(--pkt-color-tag-text-focus);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-focus);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-green);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+    }
+
+
+    &--yellow {
+        background: var(--pkt-color-surface-default-yellow);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-yellow);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-yellow);
+            color: var(--pkt-color-tag-text-focus);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-focus);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-yellow);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+    }
+
+    &--red {
+        background: var(--pkt-color-surface-default-red);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-red);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-red);
+            color: var(--pkt-color-tag-text-focus);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-focus);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-red);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+    }
+
+    &--beige {
+        background: var(--pkt-color-surface-default-light-beige);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-beige);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-beige);
+            color: var(--pkt-color-tag-text-focus);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-focus);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-beige);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+    }
+
+    &--grey {
+        background: var(--pkt-color-surface-default-gray);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-gray);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-gray);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-gray);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+
+    }
+
+
+    &--blue-light {
+        background: var(--pkt-color-surface-subtle-light-blue);
+
+        &.pkt-btn:hover,
+        &.pkt-tag--hover {
+            background-color: var(--pkt-color-surface-strong-blue);
+            color: var(--pkt-color-tag-text-hover);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-hover);
+            }
+        }
+
+        &.pkt-btn:focus,
+        &.pkt-tag--focus {
+            background-color: var(--pkt-color-surface-strong-blue);
+            color: var(--pkt-color-tag-text-focus);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-focus);
+            }
+        }
+
+        &.pkt-btn:active,
+        &.pkt-tag--active {
+            background-color: var(--pkt-color-surface-strong-blue);
+            color: var(--pkt-color-tag-text-active);
+
+            >svg {
+                --fg-color: var(--pkt-color-tag-text-active);
+            }
+        }
+
+    }
+
+    // Sizes
+    &--small {
+        padding: map.get(variables.$spacing, 'size-4');
+        height: 1.375rem;
+    }
+
+    &--medium {
+        padding: map.get(variables.$spacing, 'size-4') map.get(variables.$spacing, 'size-8');
+        height: 1.875rem;
+    }
+
+    &--large {
+        @include typography.get-text('pkt-txt-18-medium');
+        padding: map.get(variables.$spacing, 'size-4') map.get(variables.$spacing, 'size-8');
+        height: 2.25rem;
+    }
+
+    // Typography
+    &--normal-text {
+        @include typography.get-text('pkt-txt-14-medium');
+    }
+
+    &--thin-text {
+        @include typography.get-text('pkt-txt-14-light');
+    }
+}

@@ -1,0 +1,230 @@
+---
+title: Select
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/select" },
+    { "title": "Kode", "href": "komponenter/select/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/select/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Select (også kalt nedtrekkslister) er et skjemaelement som skal brukes når man skal velge ett enkelt valg i liste med mange valg. Komponenten skal brukes når det er for mange valg til å velge radioknapper eller liste ut elementene.
+
+<CodeExample>
+  <div class="pkt-inputwrapper">
+    <label class="pkt-inputwrapper__label" for="exampleSelect1">
+      <span>Hva er ditt foretrukne frontendrammeverk?</span>
+      <div class="pkt-inputwrapper__helptext">
+        Vi bruker ikke svarene på denne til noe nyttig.
+      </div>
+      <select class="pkt-input" id="exampleSelect1">
+        <option selected>Velg ditt foretrukne rammeverk</option>
+        <option value="1">Vue.js</option>
+        <option value="2">React</option>
+        <option value="3">Web components</option>
+        <option value="4">Svelte</option>
+      </select>
+    </label>
+  </div>
+</CodeExample>
+
+## Varianter
+
+Vi har flere mulige variasjoner av nedtrekkslisten. Det kan brukes helt enkelt med label og nedtrekksmeny, eller du kan legge til:
+
+- Label (etikett)
+- Valgfritt- eller obligatorisk-tag
+- Hjelpetekst
+- Ekspanderende hjelpetekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-1.svg"
+    alt="Eksempel på tre forskjellige varianter av select"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Farger
+
+Komponenten skal alltid ha $brand-blue på kant og tekst. Det er ikke mulig å endre farge på komponenten.
+
+## Slik bruker du komponenten
+
+Nedtrekkslister bør brukes for å velge et element når man har mange valgmuligheter. Men husk, de kan være problematiske for skjermlesere hvis listen med alternativer er veldig lang og det er flere kjente problemer knyttet til bruk av select-komponenten (les mer om dette under [“Research about this component” på gov.uk sine sider](https://design-system.service.gov.uk/components/select/)).
+
+Vurder å forenkle spørsmålene dine slik at det er færre alternativer og om du da kan bruke radioknapper i stedet.
+
+### Når burde jeg bruke select?
+
+- Når du skal presentere mange alternativ der bare ett kan velges.
+- Når du ønsker å unngå at lange lister med alternativer blir overveldende.
+- Når du trenger å få plass til flere alternativer på liten plass.
+
+### Og når burde det unngås?
+
+- Når du har bare noen få alternativer og nok plass - bruk radioknapp og list ut alternativene så de synes.
+- Når brukere kan velge mer enn én av noen få alternativer - da må du ta i bruk checkbokser.
+- Når du har strukturerte alternativer med nok plass er det bedre å liste ut alle valgene.
+
+Det er viktig å liste ut elementene dine på en oversiktlig måte, om det så er alfabetisk, tidsbasert eller en annen logisk rekkefølge.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-2.svg"
+    alt="Ett select-felt med 6 valg, og ett med kun 3 valg"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Label (etikett/ledetekst)
+
+Det er viktig at nedtrekksfeltet har en kort og tydelig ledetekst (label) og en hjelpetekst om det er nødvendig.
+
+Når du skriver label kan det være greit å huske på at:
+
+- Man burde være konsis og konsistent slik at brukeren skjønner hva som forventes av hen
+- Om mulig: hold deg til 1-3 ord og under 20 bokstaver, inkludert mellomrom
+- Ikke bruk bare store eller bare små bokstaver
+- Ikke bruk kolon etter label
+
+### Valgfritt-/obligatorisk-tag
+
+Til høyre for label kan du velge enten valgfritt-tag eller obligatorisk-tag. Bruk kun én av variantene i din tjeneste eller løsning for å unngå å forvirre brukeren. Vi anbefaler å markere de valgfrie feltene.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-3.svg"
+    alt="Ett felt merket som påkrevd, og ett merket som valgfritt"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Størrelse
+
+Det er ikke påkrevd, men det anbefales at et tekstfelt ikke er bredere enn 500 px. Det viktigste er at bredden på tekstfeltet må passe til innholdet brukeren legger inn.
+
+### Feilmelding og validering
+
+Hvis tekstfeltet ikke validerer eller det er obligatorisk og brukeren ikke har fylt det ut, vil en feilmelding dukke opp under tekstfeltet som beskriver hva som er galt. Feilmeldingen har tre visuelle indikatorer: en rød ramme, et ikon og selve feilmeldingsteksten. Essensen av hjelpeteksten må også være inkludert i feilmeldingen. [Les mer om hvordan du kan skrive en god feilmelding her (ks.no)](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/feilmeldinger/).
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-4.svg"
+    alt="Select med feilmelding"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Plassholdertekst
+
+Tekstfeltet har mulighet for plassholdertekst, men unngå å bruke plassholdertekst med meningsbærende/viktig innhold, og unngå å bruke plassholdertekst uten label/ledetekst. Plassholderteksten er nemlig ikke tilgjengelig for skjermlesere og kan skape forvirring for brukeren. Gå heller for ledetekst og/eller hjelpetekst.
+
+### Hjelpetekst
+
+Valgfri hjelpetekst er relevant informasjon som hjelper brukeren med å fylle ut feltet riktig. Det brukes for eksempel ofte til å forklare riktig dataformat. I select-komponenten kan du velge mellom enkel hjelpetekst og ekspanderende hjelpetekst.
+
+Når du skriver hjelpetekst, er det viktig at du:
+
+- Bruker store bokstaver i setningstil og skriver teksten i de fleste tilfeller som hele setninger.
+- Dersom du har veldig lang hjelpetekst eller har behov for å legge til lenker og lignende, bruk den ekspanderende hjelpeteksten.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-5.svg"
+    alt="Forskjellige typer hjelpetekster"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Select vs Dropdown
+
+Vi går ofte litt i beina på hverandre på hva en dropdown og select-komponent er. Enkelt forklart: Select er et standard skjemaelement der man kun kan velge ett valg. En viktig forskjell mellom komponentene er den underliggende koden; Select-komponenten er basert på det standard HTML skjemaelementet Select, og derfor bestemmes utseende til komponenten av nettleseren (se eksempel under). Dropdown-komponenten kan styles etter behov.
+
+<ImageWrapper caption="Select ekspandert på desktop.">
+  <img
+    src="/assets/komponenter/select/select-6.svg"
+    alt="Select ekspandert på desktop"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<ImageWrapper caption="Select ekspandert på mobil.">
+  <img
+    src="/assets/komponenter/select/select-7.svg"
+    alt="Select ekspandert på mobil"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Ikke bruk nedtrekksliste til adresse, telefonnummer eller lignende
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-8.svg"
+    alt="Eksempel på select for bydelsvelger, og eksempel på select for å velge postnummer"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Bruk med kun placeholdertekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-9.svg"
+    alt="Eksempel på select med label og hjelpetekst, og eksempel på select med kun placeholder"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk den dersom du har få valg (gå for radio buttons eller lignende)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-10.svg"
+    alt="Eksempel på tre radioknapper, og eksempel på select for kun tre valg"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### List ut elementene dine på en logisk måte
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-11.svg"
+    alt="Eksempel på bydelsvelger med logisk sortering, og eksempel på bydelsvelger med vilkårlig sortering"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Label (etikett/ledetekst)
+2. Valgfritt-tag
+3. Obligatorisk-tag
+4. Hjelpetekst
+5. Ekspanderende hjelpetekst
+6. Inputfelt
+7. Plassholdertekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/select/select-12.svg"
+    alt="Anatomi av select"
+    aria-hidden="true"
+  />
+</ImageWrapper>

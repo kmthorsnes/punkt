@@ -1,0 +1,54 @@
+[
+  {
+    "from": "../../packages/assets/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/assets.md"
+  },
+  {
+    "from": "../../packages/cli/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/cli.md"
+  },
+  {
+    "from": "../../packages/css/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/css.md"
+  },
+  {
+    "from": "../../packages/react/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/react.md"
+  },
+  {
+    "from": "../../packages/vue/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/vue.md"
+  },
+  {
+    "from": "../../packages/vue2/README.md",
+    "to": "src/pages/kom-i-gang/for-utviklere/vue2.md"
+  },
+  {
+    "from": "../../packages/assets/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/assets.md"
+  },
+  {
+    "from": "../../packages/cli/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/cli.md"
+  },
+  {
+    "from": "../../packages/css/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/css.md"
+  },
+  {
+    "from": "../../CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/index.md"
+  },
+  {
+    "from": "../../packages/react/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/react.md"
+  },
+  {
+    "from": "../../packages/vue/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/vue.md"
+  },
+  {
+    "from": "../../packages/vue2/CONTRIBUTING.md",
+    "to": "src/pages/bidra/som-utvikler/vue2.md"
+  }
+]

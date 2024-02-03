@@ -1,0 +1,120 @@
+<div class="pkt-tabs" id="PktTabs1">
+  <div class="pkt-tabs__list" role="tablist">
+    <button
+      id="tab-1"
+      type="button"
+      class="pkt-tabs__button pkt-link-button active"
+      aria-selected="true"
+      aria-controls="panel-1"
+      role="tab"
+    >
+      Tab 1<span class="pkt-tag pkt-tag--yellow pkt-tag--small">Tag</span>
+    </button>
+    <button
+      id="tab-2"
+      type="button"
+      class="pkt-tabs__button pkt-link-button"
+      role="tab"
+      aria-controls="panel-2"
+      aria-selected="false"
+    >
+      Tab 2
+    </button>
+    <button
+      id="tab-3"
+      type="button"
+      class="pkt-tabs__button pkt-link-button"
+      aria-selected="false"
+      aria-controls="panel-3"
+      role="tab"
+    >
+      Tab 3
+    </button>
+    <button
+      id="tab-4"
+      type="button"
+      class="pkt-tabs__button pkt-link-button"
+      aria-selected="false"
+      aria-controls="panel-4"
+      role="tab"
+    >
+      Tab 4
+    </button>
+    <button
+      id="tab-5"
+      type="button"
+      class="pkt-tabs__button pkt-link-button"
+      aria-selected="false"
+      role="tab"
+      aria-controls="panel-5"
+    >
+      <span class="pkt-icon pkt-icon--small">
+        <svg viewBox="0 0 32 32">
+          <use href="#user"></use>
+        </svg>
+      </span>
+      Tab 5
+    </button>
+  </div>
+</div>
+<div class="pkt-tabpanels" id="PktTabs1Panels">
+  <div id="panel-1" class="p-size-20" role="tabpanel" aria-labelledby="tab-1">
+    One morning, when Gregor Samsa woke from troubled dreams, he found himself
+    transformed in his bed into a horrible vermin.
+  </div>
+  <div
+    id="panel-2"
+    class="p-size-20 pkt-hide"
+    role="tabpanel"
+    aria-labelledby="tab-2"
+  >
+    He lay on his armour-like back, and if he lifted his head a little he could
+    see his brown belly, slightly domed and divided by arches into stiff
+    sections.
+  </div>
+  <div
+    id="panel-3"
+    class="p-size-20 pkt-hide"
+    role="tabpanel"
+    aria-labelledby="tab-3"
+  >
+    The bedding was hardly able to cover it and seemed ready to slide off any
+    moment.
+  </div>
+  <div
+    id="panel-4"
+    class="p-size-20 pkt-hide"
+    role="tabpanel"
+    aria-labelledby="tab-4"
+  >
+    His many legs, pitifully thin compared with the size of the rest of him,
+    waved about helplessly as he looked.
+  </div>
+  <div
+    id="panel-5"
+    class="p-size-20 pkt-hide"
+    role="tabpanel"
+    aria-labelledby="tab-5"
+  >
+    "What‘s happened to me?" he thought. It wasn‘t a dream.
+  </div>
+</div>
+
+<script>
+  import PktTabs from "@oslokommune/punkt-css/dist/scripts/pkt-tabs.js";
+  const tabList1 =
+    document.getElementById("PktTabs1") &&
+    document.getElementById("PktTabs1Panels") &&
+    new PktTabs(
+      document.getElementById("PktTabs1"),
+      document.getElementById("PktTabs1Panels")
+    );
+  document &&
+    document.querySelectorAll("#PktTabs1 [role=tab]") &&
+    document.querySelectorAll("#PktTabs1 [role=tab]").forEach((tab, index) => {
+      tab.addEventListener("click", (event) => {
+        event.preventDefault();
+        tabList1.setActiveByIndex(index);
+      });
+    });
+</script>

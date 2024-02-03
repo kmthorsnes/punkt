@@ -1,0 +1,61 @@
+{
+  "name": "@oslokommune/punkt-docs",
+  "version": "0.20.19",
+  "description": "Dokumentasjonsnettstedet til Punkt, et designsystem laget av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "postbuild-fix-astro-paths": "node ./scripts/postbuild-fix-astro-paths.js",
+    "postbuild-update-cf-function": "node ./scripts/postbuild-update-cf-function.js",
+    "prebuild-create-content": "node ./scripts/prebuild-create-content.js"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.19.6",
+    "@astrojs/prism": "^2.1.0",
+    "@astrojs/react": "^2.2.1",
+    "@astrojs/vue": "^2.2.1",
+    "@oslokommune/punkt-assets": "*",
+    "@oslokommune/punkt-css": "*",
+    "@oslokommune/punkt-react": "*",
+    "astro": "^2.8.1",
+    "react": "^18.2.0",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "edit-json-file": "^1.7.0",
+    "fast-glob": "^3.3.0",
+    "path": "^0.12.7",
+    "prettier-plugin-astro": "^0.10.0",
+    "sass": "^1.63.6"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "private": true,
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "vue",
+    "vuejs",
+    "react",
+    "components",
+    "ux",
+    "ui",
+    "css",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

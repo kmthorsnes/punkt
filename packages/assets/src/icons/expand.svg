@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="expand" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M4 4h2v8H4V4Zm24 24h-2v-8h2v8Zm0-24v2h-8V4h8ZM4 28v-2h8v2H4Z" />
+    <path d="M12 4v2H4V4h8Zm8 24v-2h8v2h-8Zm8-16h-2V4h2v8ZM4 20h2v8H4v-8Z" />
+  </g>
+</svg>

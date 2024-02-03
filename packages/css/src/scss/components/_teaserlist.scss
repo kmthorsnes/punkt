@@ -1,0 +1,56 @@
+/* 
+ * Header element
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+
+.pkt-teaserlist {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  position: relative;
+  row-gap: 30px;
+
+  @include bp('tablet-up') {
+    column-gap: 30px;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto;
+    justify-items: normal;
+  }
+
+  @include bp('tablet-big-up') {
+    grid-template-columns: 300px auto;
+  }
+
+  &.flip {
+    @include bp('tablet-up') {
+      grid-template-columns: auto 200px;
+    }
+    @include bp('tablet-big-up') {
+      grid-template-columns: auto 300px;
+    }
+  }
+
+  &.flip > &__img {
+    @include bp('tablet-up') {
+      grid-column: 2;
+    }
+  }
+  &.flip > &__txt {
+    @include bp('tablet-up') {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  &__img {
+    width: 150px;
+
+    @include bp('tablet-up') {
+      width: 100%;
+    }
+  }
+}

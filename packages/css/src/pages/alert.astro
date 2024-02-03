@@ -1,0 +1,291 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Alert - Punkt CSS">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Alert</h1>
+    <section class="component">
+      <h2>Alert - Compact versjon med kort melding</h2>
+      <div class="component__block-example">
+        <div class="pkt-alert pkt-alert--compact">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-information"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--error pkt-alert--compact">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-error"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--success pkt-alert--compact">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-success"></use></svg>
+          </span>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--warning pkt-alert--compact">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-warning"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="component">
+      <h2>Alert - Kort melding</h2>
+      <div class="component__block-example">
+        <div class="pkt-alert">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-information"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--error">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-error"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--success">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-success"></use></svg>
+          </span>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--warning">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-warning"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å skrive en kort varsling. Men den kan
+            fortsatt gå over to linjer, så det må se bra ut da også. Bruk dette
+            tekstfeltet til å skrive en kort varsling.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <div class="component__block-example">
+        <h2>Alert - Melding med tittel</h2>
+        <div class="pkt-alert pkt-alert--info">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-information"></use></svg>
+          </span>
+          <div class="pkt-alert__title">Information</div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du
+            kan bruke så mange linjer du har behov for, men prøv likevel å være
+            kort og konsis.
+          </div>
+        </div>
+        <div class="pkt-alert pkt-alert--info">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#alert-information"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__title">Information</div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du
+            kan bruke så mange linjer du har behov for, men prøv likevel å være
+            kort og konsis.
+          </div>
+          <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--info">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#alert-information"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__title">Information</div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du
+            kan bruke så mange linjer du har behov for, men prøv likevel å være
+            kort og konsis.
+          </div>
+          <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--warning">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-warning"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__title">Warning</div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du
+            kan bruke så mange linjer du har behov for, men prøv likevel å være
+            kort og konsis.
+          </div>
+          <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--error">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32"><use href="#alert-error"></use></svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__title">Error</div>
+          <div class="pkt-alert__text">
+            <p>
+              Bruk dette tekstfeltet til å skrive en kort varsling, ligger i en
+              p-tagg.
+            </p>
+            <p>
+              Bruk dette tekstfeltet til å skrive en kort varsling, ligger i en
+              p-tagg.
+            </p>
+          </div>
+          <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+        </div>
+
+        <div class="pkt-alert pkt-alert--success">
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#alert-success"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__close">
+            <button
+              class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+              role="button"
+              tabindex="0"
+              aria-label="close"
+            >
+              <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+                <use href="#close"></use>
+              </svg>
+              <span class="pkt-btn__text">Trykk her</span>
+            </button>
+          </div>
+          <div class="pkt-alert__title">Success</div>
+          <div class="pkt-alert__text">
+            Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du
+            kan bruke så mange linjer du har behov for, men prøv likevel å være
+            kort og konsis.
+          </div>
+          <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

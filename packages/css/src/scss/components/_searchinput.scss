@@ -1,0 +1,109 @@
+/* Common styles for all inputs */
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/functions';
+@use '../abstracts/mixins/typography';
+
+.pkt-searchinput {
+  position: relative;
+
+  @include typography.get-text('pkt-txt-18-light');
+
+  &__field {
+    width: min(100%, 31rem);
+    display: flex;
+  }
+
+  &--fullwidth &__field {
+    width: 100%;
+  }
+
+  &--global .pkt-input:not(:disabled) {
+    border-color: var(--pkt-color-border-yellow);
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: var(--pkt-color-input-border-active);
+    }
+  }
+
+  &--global &__button {
+    border-radius: 50%;
+  }
+
+  &--local-with-button &__field {
+    gap: 0.5rem;
+  }
+
+  &--local .pkt-input {
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+
+  &--local &__button {
+    &:disabled {
+      border-color: var(--pkt-color-input-border-disabled);
+    }
+    & svg {
+      margin-left: 0;
+    }
+  }
+
+  &__suggestions {
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    margin: 2px 0 0;
+    width: min(calc(100%), 31rem);
+    list-style: none;
+    background-color: var(--pkt-color-background-card);
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+  &--global &__suggestions {
+    width: min(calc(100% - 3rem), 28rem);
+  }
+  &--local-with-button &__suggestions {
+    width: min(calc(100% - 3.5rem), 27.5rem);
+  }
+  &--fullwidth &__suggestions {
+    width: 100%;
+  }
+  &__suggestion {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--pkt-color-text-action-normal);
+    border: none;
+    font: inherit;
+    outline: inherit;
+    text-align: inherit;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      background-color: var(--pkt-color-background-subtle);
+      color: var(--pkt-color-text-action-active);
+      .pkt-searchinput__suggestion-title {
+        text-decoration: underline;
+      }
+      > * {
+        color: inherit;
+      }
+    }
+    &--has-hover {
+      cursor: pointer;
+    }
+  }
+  &__suggestion-title {
+    @include typography.get-text('pkt-txt-18-medium');
+  }
+  &__suggestion-text {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    hyphens: auto;
+  }
+}

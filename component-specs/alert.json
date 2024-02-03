@@ -1,0 +1,25 @@
+{
+  "name": "pkt-alert",
+  "css-class": "pkt-alert",
+  "events": {
+    "onClick": {
+      "description": ""
+    }
+  },
+  "props": {
+    "closeAlert": {
+      "type": "boolean",
+      "default": false
+    },
+    "skin": ["info", "success", "warning", "error"],
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "date": {
+      "type": "string",
+      "default": ""
+    },
+    "ariaLive": ["off", "polite", "assertive"]
+  }
+}

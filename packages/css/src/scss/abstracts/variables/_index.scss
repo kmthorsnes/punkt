@@ -1,0 +1,27 @@
+// All design tokens in Punkt
+
+@forward 'colors';
+@forward 'typography';
+@forward 'breakpoints';
+@forward 'spacing';
+
+// Default icon path
+$icon-path: 'https://punkt-cdn.oslo.kommune.no/latest/icons' !default;
+
+// Borders
+$border-width: (
+  'thin': 1px,
+) !default;
+
+$border-radius: (
+  'small': 0.25rem,
+  'medium': 0.5rem,
+  'large': 1rem,
+) !default;
+
+// Shadows
+$box-shadow: (
+  'small': 0 1px 1px rgba(0, 0, 0, 0.1),
+  'medium': 0 1px 3px rgba(0, 0, 0, 0.2),
+  'large': 0 1px 5px rgba(0, 0, 0, 0.4),
+) !default;

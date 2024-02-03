@@ -1,0 +1,99 @@
+---
+title: Backlink
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/backlink" },
+    { "title": "Kode", "href": "komponenter/backlink/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/backlink/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktBackLink } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Backlink er et sekundært navigasjonselement som henviser tilbake til det overordnede nivået i en applikasjon, løsning eller nettsted.
+
+<CodeExample client:load>
+  <PktBackLink href="#" text="Start-/transport-/landingsside" client:load />
+</CodeExample>
+
+## Varianter
+
+Punkt støtter både backlink og [breadcrumb](https://punkt.oslo.kommune.no/latest/komponenter/breadcrumb/). Det er viktig at du er konsekvent i din løsning og kun bruker én av mulighetene.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/backlink/backlink-2.svg"
+    alt="Forskjellen mellom backlink og breadcrumb."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Viktig: dersom du lager en løsning som henger sammen med Oslo kommune sine åpne nettsider ([www.oslo.kommune.no](www.oslo.kommune.no)) skal du <i>alltid</i> bruke backlink, aldri breadcrumbs.
+
+### Farger
+
+Backlink skal ha samme styling som en vanlig lenke. Les mer om lenker her. [Les mer om lenker her](https://punkt.oslo.kommune.no/latest/komponenter/link/).
+
+## Slik bruker du komponenten
+
+Backlinken tar brukeren tilbake til forrige side i en løsning. Du kan selv velge om backlinken skal inneholde navnet på den forrige siden (anbefalt) eller at det står “Tilbake”. Sørg for at lenken tar brukeren tilbake til den forrige siden de så på, i tilstanden de sist så den i.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/backlink/backlink-3.svg"
+    alt="Eksempel som viser to alternative tekster i backlink."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Backlink fungerer best på sider med færre nivåer.
+
+### Plassering
+
+Backlink skal alltid plasseres i den øverste venstre delen av siden. Den skal være under menyen og hovednavigasjonen, men over sidetittelen. Den skal ikke ha sticky scroll, slik som menyen har.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/backlink/backlink-4.svg"
+    alt="Backlink på desktop."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+På mobil plasseres også backlinken på samme sted, til venstre under menyen.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/backlink/backlink-5.svg"
+    alt="Backlink på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+- Backlink skal alltid være sekundær og aldri erstatte primærnavigasjonen i løsningen eller på siden din
+- En backlink er ikke det samme som en stegindikator og burde ikke brukes til dette
+
+## Anatomi
+
+1. Ikon
+2. Lenke
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/backlink/backlink-6.svg"
+    alt="Backlinks anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

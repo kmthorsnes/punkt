@@ -1,0 +1,132 @@
+/* 
+ * Form elements
+ * https://css-tricks.com/html-inputs-and-labels-a-love-story/
+ * 
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/functions';
+
+/* TODO: move to animation.scss */
+@keyframes enter {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* TODO: Contemplate and decide if this should be split up to multiple files or not.
+ * button is only one without pkt-form prefix. Is that ok???
+ */
+.pkt-form {
+  &-group {
+    margin-bottom: map.get(variables.$spacing, 'size-24');
+
+    &:focus-within {
+      color: var(--pkt-color-brand-warm-blue-1000);
+    }
+  }
+
+  /* EXPLICIT LABEL (recommended for use)
+   * - the label is connected to an input via "for" and "id"
+   */
+  &-label {
+    width: 100%;
+
+    >p:first-child {
+      display: inline;
+    }
+  }
+
+  &-help {
+    margin: 0.25em 0;
+    font-size: map.get(variables.$font-size, 'size-14');
+    line-height: 1.25em;
+    opacity: 0.9;
+  }
+
+  &-validation {
+    animation: enter 0.2s ease-in forwards;
+    background-color: var(--pkt-color-brand-red-1000);
+    border: 2px solid var(--pkt-color-brand-red-1000);
+    font-size: map.get(variables.$font-size, 'size-14');
+    line-height: 2rem;
+    margin: map.get(variables.$spacing, 'size-16') 0 0;
+    padding: 0.4375rem 0.5rem;
+    transform-origin: 0 0;
+
+    &--warning {
+      background-color: var(--pkt-color-brand-yellow-1000);
+      border-color: var(--pkt-color-brand-yellow-1000);
+    }
+
+    &--error {
+      background-color: var(--pkt-color-brand-red-1000);
+      border-color: var(--pkt-color-brand-red-1000);
+    }
+  }
+
+  &-input,
+  &-textarea {
+    appearance: none; // Fix appearance on date inputs in Safari
+    background-clip: padding-box;
+    background-color: var(--pkt-color-brand-neutrals-white);
+    border: 2px solid var(--pkt-color-brand-dark-blue-1000);
+    border-radius: 0;
+    color: var(--pkt-color-brand-dark-blue-1000);
+    display: block;
+    font-size: map.get(variables.$font-size, 'size-16');
+    font-weight: map.get(variables.$font-weight, 'regular');
+    line-height: 2rem;
+    margin: 0;
+    padding: 0.4375rem 0.5rem;
+    position: relative;
+    width: 100%;
+
+    &:focus {
+      background-color: var(--pkt-color-brand-neutrals-white);
+      border-color: var(--pkt-color-brand-warm-blue-1000);
+      box-shadow: 0 0 var(--pkt-color-brand-warm-blue-1000);
+      color: var(--pkt-color-brand-warm-blue-1000);
+      outline: 2px solid var(--pkt-color-brand-warm-blue-1000);
+    }
+
+    /* Placeholder
+     * 1. Override Firefox's default opacity
+     */
+    &::placeholder {
+      color: var(--pkt-color-grays-gray-300);
+      opacity: 1;
+      /* 1 */
+    }
+
+    &+.pkt-form-validation {
+      display: none;
+    }
+
+    &:not(:placeholder-shown):invalid {
+      border-color: var(--pkt-color-brand-red-1000);
+
+      &+.pkt-form-validation {
+        display: inherit;
+      }
+    }
+
+    &:disabled,
+    &[readonly] {
+      background-color: var(--pkt-color-brand-neutrals-200);
+      border-color: var(--pkt-color-grays-gray-300);
+      color: var(--pkt-color-grays-gray-300);
+      cursor: inherit;
+    }
+
+    &[required],
+    &:required {
+      // TODO
+    }
+  }
+}

@@ -1,0 +1,46 @@
+name: React - manual deploy
+
+on: workflow_dispatch
+
+jobs:
+  publish:
+    name: Deploy Punkt-react app
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build React app
+        run: |
+          npm run build-assets
+          npm run build-css
+          npm run build-react-app
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Deploy files to react.punkt.oslo.systems and clear cache
+        run: |
+          aws s3 sync ./packages/react/dist-app s3://${{ secrets.AWS_S3_PUNKT_REACT_APP }} --delete --cache-control 'max-age=31536000'
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_REACT_APP }} --paths "/*"

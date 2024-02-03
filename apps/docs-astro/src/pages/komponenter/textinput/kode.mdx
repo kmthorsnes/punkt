@@ -1,0 +1,350 @@
+---
+title: Textinput
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textinput" },
+    { "title": "Kode", "href": "komponenter/textinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textinput/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+import { PktTextinput } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+### Avhengigheter
+
+- pkt-icon
+
+Dropdown:
+
+- pkt-alert
+- pkt-button
+
+## Varianter
+
+## Input
+
+<CodeExample client:load>
+  <PktTextinput
+    className="mb-size-24"
+    id="testinput1"
+    label="Textinput"
+    placeholder="Placeholder"
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-textinput">
+  <label class="pkt-inputwrapper__label" for="exampleInputText1"
+    >Textinput
+    <input
+      class="pkt-input"
+      type="text"
+      id="exampleInputText1"
+      placeholder="Plassholder"
+    />
+  </label>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<pkt-textinput
+  id="exampleInputText1"
+  label="Textinput"
+  placeholder="Plassholder"
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextinput
+  id="exampleInputText1"
+  label="Textinput"
+  placeholder="Plassholder"
+/>
+```
+
+</div>
+</CodeTabs>
+
+## Input med dropdown helptext
+
+For å åpne helptext i CSS, bytt ut `pkt-inputwrapper__helptext-expandable-closed` med `pkt-inputwrapper__helptext-expandable-open`
+
+<CodeExample client:load>
+  <PktTextinput
+    id="exampleInputText2"
+    label="Tekstinput med dropdown"
+    helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+    iconNameRight="user"
+    helptextDropdown="Dette er en utvidet hjelpetekst"
+    requiredTag
+    client:load
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-inputwrapper pkt-inputwrapper__helptext">
+  <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+    Textinput med åpen expandable helptext<span
+      class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+      >Må fylles ut</span
+    >
+  </h2>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#chevron-thin-down"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text"
+      >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+    >
+  </button>
+  <div
+    class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+  >
+    Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+  </div>
+  <label class="pkt-sr-only" for="exampleInputText2"
+    >Visuelt skjult label</label
+  >
+  <div class="pkt-input__container">
+    <input
+      class="pkt-input"
+      type="text"
+      id="exampleInputText2"
+      placeholder="Plassholder"
+    />
+    <div class="pkt-input-icon">
+      <span class="pkt-icon">
+        <svg viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </span>
+    </div>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-textinput
+  id="exampleInputText2"
+  label="Tekstinput med dropdown"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  iconNameRight="user"
+  helptextDropdown="Dette er en utvidet hjelpetekst"
+  requiredTag
+></pkt-textinput>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextinput
+  id="exampleInputText2"
+  label="Tekstinput med dropdown"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  iconNameRight="user"
+  helptextDropdown="Dette er en utvidet hjelpetekst"
+  requiredTag
+/>
+```
+
+</div>
+</CodeTabs>
+
+## Input med error
+
+<CodeExample client:load>
+  <PktTextinput
+    id="exampleInputText3"
+    label="Tekstinput med error"
+    helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+    iconNameRight="user"
+    suffix="Suffix"
+    errorMessage="Dette er en feilmelding"
+    hasError
+    client:load
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+  <label class="pkt-inputwrapper__label" for="exampleInputText3"
+    >Textinput med error
+    <div class="pkt-inputwrapper__helptext">
+      Dette er tekst over tekstfeltet.
+    </div>
+    <div class="pkt-input__container">
+      <input
+        class="pkt-input"
+        type="text"
+        id="exampleInputText3"
+        placeholder="Plassholder"
+      />
+      <p class="pkt-input-suffix">
+        Suffix
+        <span class="pkt-icon pkt-input__input-suffix-icon">
+          <svg viewBox="0 0 32 32">
+            <use href="#close"></use>
+          </svg>
+        </span>
+      </p>
+    </div>
+  </label>
+  <div
+    class="pkt-alert pkt-alert--error pkt-alert--compact"
+    aria-live="assertive"
+  >
+    <span class="pkt-icon pkt-alert__icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#alert-error"></use>
+      </svg>
+    </span>
+    <div class="pkt-alert__text">Dette er en feilmelding</div>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-textinput
+  id="exampleInputText3"
+  label="Tekstinput med error"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  iconNameRight="user"
+  suffix="Suffix"
+  errorMessage="Dette er en feilmelding"
+  hasError
+></pkt-textinput>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextinput
+  id="exampleInputText3"
+  label="Tekstinput med error"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  iconNameRight="user"
+  suffix="Suffix"
+  errorMessage="Dette er en feilmelding"
+  hasError
+/>
+```
+
+</div>
+</CodeTabs>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-textinput</li>
+    <li>.pkt-inputwrapper</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper__label</li>
+    <li>.pkt-inputwrapper__helptext</li>
+    <li>.pkt-input__container</li>
+    <li>.pkt-input</li>
+    <li>.pkt-input-prefix</li>
+    <li>.pkt-input-suffix</li>
+    <li>.pkt-input-icon</li>
+    <li>.pkt-inputwrapper__helptext-expandable</li>
+    <li>.pkt-inputwrapper__helptext-expandable-heading</li>
+    <li>.pkt-inputwrapper__helptext-expandable-open</li>
+    <li>.pkt-inputwrapper__helptext-expandable-closed</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper`--`disabled</li>
+    <li>.pkt-inputwrapper`--`error</li>
+    <li>.pkt-inputwrapper`--`inline</li>
+    <li>.pkt-input`--`fullwidth</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props                  | Type    | Validation | Default        | Beskrivelse                                                               |
+| ---------------------- | ------- | ---------- | -------------- | ------------------------------------------------------------------------- |
+| id                     | string  | Required   | -              | ID for inputfeltet                                                        |
+| label                  | string  | Required   | -              | Etiketten for inputfeltet                                                 |
+| ariaDescribedby        | string  | -          | -              | aria for elementet som beskriver inputfeltet                              |
+| ariaLabelledby         | string  | -          | -              | aria for elementet som beskriver inputfeltet                              |
+| autocomplete           | string  | -          | 'off'          | Angir om autocomplete skal være aktivert for inputfeltet                  |
+| className              | string  | -          | -              | Tilpasset CSS-klasse for inputfeltet                                      |
+| disabled               | boolean | -          | false          | Angir om inputfeltet er deaktivert                                        |
+| errorMessage           | string  | -          | -              | Feilmelding som vises når det er en feil i inputfeltet                    |
+| hasError               | boolean | -          | false          | Angir om inputfeltet har en feil                                          |
+| helptext               | string  | -          | -              | Hjelpetekst som vises over inputfeltet                                    |
+| helptextDropdown       | string  | -          | -              | Hjelpetekst som er skjult bak "Les mer"-knapp                             |
+| helptextDropdownButton | string  | -          | -              | Alternativ tekst til "Les mer"-knapp                                      |
+| iconNameRight          | string  | -          | -              | Navn på ikonet som vises til høyre for inputfeltet                        |
+| inline                 | boolean | -          | false          | Angir om inputfelt skal vises i en linje                                  |
+| fullwidth              | boolean | -          | false          | Sett input-elementet til å ha full bredde                                 |
+| name                   | string  | -          | id             | Navnet for inputfeltet                                                    |
+| placeholder            | string  | -          | -              | Plassholder-tekst for inputfeltet                                         |
+| prefix                 | string  | -          | -              | Tekst som vises før inputfeltet                                           |
+| optionalTag            | boolean | -          | false          | Angir om inputfeltet skal ha et valgfritt-merke                           |
+| optionalText           | string  | -          | 'Valgfritt'    | Overstyre tekst for `optional`-merke                                      |
+| requiredTag            | boolean | -          | false          | Angir om inputfeltet er påkrevd                                           |
+| requiredText           | string  | -          | 'Må fylles ut' | Overstyre tekst for `required`-merke                                      |
+| suffix                 | string  | -          | -              | Tekst som vises etter inputfeltet                                         |
+| type                   | string  | -          | 'text'         | Angir typen for inputfeltet                                               |
+| useWrapper             | boolean | -          | true           | Angir om feltet skal ha label og hjelpetekst eller om det skal stå alene  |
+| omitSearchIcon         | boolean | -          | false          | Sett til `true` dersom du bruker `type="search"` men ikke ønsker søkeikon |
+| value                  | string  | -          | -              | Verdien for inputfeltet                                                   |
+
+| Slots | Type | Validation | Default | Beskrivelse |
+| ----- | ---- | ---------- | ------- | ----------- |
+|       | -    | -          | -       |             |
+
+| Events | Type | Validation | Default | Beskrivelse                                                                                 |
+| ------ | ---- | ---------- | ------- | ------------------------------------------------------------------------------------------- |
+| input  | Vue  |            |         | Utløses når verdien i inputfeltet endres. Sender den nye verdien som parameter til eventet. |
+
+React Merk: Denne komponenten er videresendt med `forwardRef`, så den støtter også å motta en `ref` som en ekstra prop. Denne `ref`-propen kan brukes til å referere til selve inputfeltet og få tilgang til dets egenskaper og metoder.

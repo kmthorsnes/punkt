@@ -1,0 +1,185 @@
+---
+title: Alert
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/alert" },
+    { "title": "Kode", "href": "komponenter/alert/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/alert/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Alert-komponenten brukes for å vise en statusbeskjed. En statusbeskjed er en kort beskjed til brukeren som informerer brukeren om:
+
+- en viktig hendelse eller endring
+- konsekvenser av en handling
+
+<CodeExample>
+  <div class="pkt-alert">
+    <span class="pkt-icon pkt-alert__icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#alert-information"></use>
+      </svg>
+    </span>
+    <div class="pkt-alert__close">
+      <button
+        class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+        role="button"
+        tabindex="0"
+        aria-label="close"
+      >
+        <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="pkt-alert__title">Information</div>
+    <div class="pkt-alert__text">
+      Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du kan
+      bruke så mange linjer du har behov for, men prøv likevel å være kort og
+      konsis.
+    </div>
+    <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+  </div>
+</CodeExample>
+
+En statusbeskjed skal hjelpe brukeren med å få løst oppgaven sin. Dersom du ønsker å gruppere innhold/tekst, men det ikke er definert som en statusbeskjed, anbefales det å bruke
+[komponenten “Messagebox”](https://punkt.oslo.kommune.no/latest/komponenter/messagebox/) istedet.
+
+Statusbeskjeder bør ikke bryte over flere linjer på desktop, men kan vises over flere linjer på mobil så lenge ingen viktig informasjon skjules. Hvis den ikke er knyttet til en spesifikk tilstand, bør brukeren kunne lukke den. For globale meldinger bør man gi brukerne muligheten til å lukke varslingen, slik at de ikke ser den flere ganger.
+
+## Varianter
+
+Alert-komponenten har 4 ulike statuser/varianter:
+
+- Blå informative alert: gir tilleggsinformasjon som ikke krever umiddelbar handling.
+- Gul warning alert: advarer brukeren om systemfeil og konsekvenser av valg.
+- Rød error alert: gir brukeren beskjed om at noe er feil. Hvis mulig, si noe om hvordan hen kan løse oppgaven sin.
+- Grønn success alert: bekrefter at en handling har vært vellykket.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/alert/alert-1.svg"
+    alt="Alle fargevarianter av alert"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Komponenten kommer også i default og compact størrelse.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/alert/alert-2.svg"
+    alt="To varianter av alert, default og compact"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Farger
+
+De ulike fargene som brukes er:
+
+- Blå: bg $blue-60 (#D1F9FF), linje $blue (#6FE9FF)
+- Gul: bg $yellow-50 (#FFE7BC), linje $yellow (#F9C66B)
+- Rød: bg $red-30 (#FFDFDC), linje $red (#FF8274)
+- Grønn: bg $green-30 (#C7FDE9), linje $green (#43F8B6)
+  Alle bruker blue-dark (#2A2859) som tekstfarge.
+
+## Slik bruker du komponenten
+
+Du kan bruke komponenten som en inline alert, banner alert og toast alert. Disse kommer i ulike størrelser og muligheter for innhold. Du kan velge om de skal kunne lukkes eller ikke.
+
+### Inline alert
+
+Inline alert er en melding som knyttes direkte til en handling og plasseres under innholdselementet. Den varsler brukeren om statusen til en handling, for eksempel en feilmelding i et skjema.
+
+Eksempel på bruk: Feilmelding
+
+- Bruk kun den minste størrelsen (compact, ikke default) – helst kun 1 setning
+- Ikke dato og ikke overskrift
+- Validering, mest brukt som rød feilmelding
+- Forklar brukeren hva som har skjedd og hva hen kan gjøre for å komme videre
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/alert/alert-3.svg"
+    alt="Alert som feilmelding"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Banner alert
+
+Banner alert bruker du når du trenger å gi litt mer informasjon. Den kan stå sammen med et innholdselement eller alene.
+
+Eksempel på bruk: Driftsmelding
+
+- Kan brukes i alle størrelser, men skriv så kort som mulig
+- Må ha meningsbærende overskrift
+- Kan inkludere dato og lukke-ikon
+- Bruk blå status (fram i tid) eller gul status (skjer nå)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/alert/alert-4.svg"
+    alt="Banner alert"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Toast alert/kompakt alert
+
+Toast alert popper opp for å vise brukeren korte meldinger. Det kan for eksempel være en beskjed om at noe autolagres, eller bruker får beskjed om at et skjema er vellykket sendt inn.
+
+Hvis man bruker en toast som forsvinner etter noen sekunder må man sikre at brukeren får med seg meldingen. WCAG 2.1 krever at statusbeskjeder skal kunne oppfattes av:
+
+- blinde som bruker skjermleser
+- svaksynte som bruker zoom helt opp til 400%
+- personer med nedsatt kognisjon
+- Om du ikke får testet dette godt nok og er usikker på om bruker får den med seg anbefaler vi å bruke en toast som blir værende på siden men med et kryss slik at bruker selv kan krysse den vekk.
+
+Det er ulike måter å plassere en toast alert. Vi anbefaler at den enten opptrer i nærheten av innholdet brukeren har gjort en handling i (i så fall anbefaler vi default størrelse), eller øverst midt på siden (da med dropshadow, og at den legger seg et nivå over det andre innholdet på siden). Se eksempler under.
+
+<ImageWrapper caption="Toast alert i nærheten av innhold">
+  <img
+    src="/assets/komponenter/alert/alert-5.svg"
+    alt="Alert med en kort melding om feil under lagring"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<ImageWrapper caption="Overordnet toast alert plassert over innhold">
+  <img
+    src="/assets/komponenter/alert/alert-6.svg"
+    alt="Alert med en kort melding om vellykket handling"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+Alert komponenten er bygget opp av ulike elementer med med 4 ulike varianter som indikerer status.
+
+1. Ikon
+2. Tittel (valgfritt)
+3. Melding
+4. Dato (valgfritt)
+5. Lukkeknapp (valgfritt)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/alert/alert-7.svg"
+    alt="Anatomi av alert"
+    aria-hidden="true"
+  />
+</ImageWrapper>

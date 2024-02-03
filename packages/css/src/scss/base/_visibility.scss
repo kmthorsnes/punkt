@@ -1,0 +1,28 @@
+/* 
+ * Visibility
+ */
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins/breakpoints' as *;
+
+.pkt-hide {
+  display: none !important;
+}
+.pkt-show {
+  display: block !important;
+}
+
+@each $name, $value in $breakpoints {
+  .pkt-hide-#{$name}-up {
+    @include bp($value) {
+      display: none !important;
+    }
+  }
+
+  .pkt-show-#{$name}-up {
+    @include bp('#{$value}') {
+      display: block !important;
+    }
+    display: none !important;
+  }
+}

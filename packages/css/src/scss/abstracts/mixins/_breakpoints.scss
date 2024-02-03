@@ -1,0 +1,60 @@
+// Breakpoints mixin
+//
+// - make it easy to write media queries with named breakpoints or custom values in rem.
+// - TODO: Support more tpx, rem,em
+// - TODO: Create a great mixin that takes a nested map from settings as input to replace
+//         the verbose thing
+// - TODO: reflect current media queries for use in javascript.
+//         https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
+
+@mixin bp($name) {
+  @if $name== 'mobile' {
+    @media screen and (min-width: 0rem) and (max-width: 35.938rem) {
+      @content;
+    }
+  } @else if $name== 'mobile-up' {
+    @media screen and (min-width: 0rem) {
+      @content;
+    }
+  } @else if $name== 'phablet' {
+    @media screen and (min-width: 35.938rem) and (max-width: 47.938rem) {
+      @content;
+    }
+  } @else if $name== 'phablet-up' {
+    @media screen and (min-width: 35.938rem) {
+      @content;
+    }
+  } @else if $name== 'tablet' {
+    @media screen and (min-width: 48rem) and (max-width: 63.938rem) {
+      @content;
+    }
+  } @else if $name== 'tablet-up' {
+    @media screen and (min-width: 48rem) {
+      @content;
+    }
+  } @else if $name== 'tablet-big' {
+    @media screen and (min-width: 64rem) and (max-width: 79.938rem) {
+      @content;
+    }
+  } @else if $name== 'tablet-big-up' {
+    @media screen and (min-width: 64rem) {
+      @content;
+    }
+  } @else if $name== 'laptop' {
+    @media screen and (min-width: 80rem) and (max-width: 99.938rem) {
+      @content;
+    }
+  } @else if $name== 'laptop-up' {
+    @media screen and (min-width: 80rem) {
+      @content;
+    }
+  } @else if $name== 'desktop-up' {
+    @media screen and (min-width: 100rem) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $name) {
+      @content;
+    }
+  }
+}

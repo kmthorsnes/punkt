@@ -1,0 +1,58 @@
+{
+  "name": "@oslokommune/punkt-css",
+  "version": "11.4.1",
+  "description": "CSS-rammeverket til Punkt, et designsystem laget av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "/dist",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "astro": "astro",
+    "build": "node ./scripts/build.js",
+    "build-app": "node ./scripts/build-app.js && astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@oslokommune/punkt-assets": "^11.0.0",
+    "astro": "^2.8.1",
+    "edit-json-file": "^1.7.0",
+    "fs-extra": "^11.1.0",
+    "prettier": "^2.8.3",
+    "sass": "^1.63.6",
+    "svgo": "^3.0.2",
+    "svgson": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@oslokommune/punkt-assets": ">=3.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "css",
+    "scss",
+    "framework"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

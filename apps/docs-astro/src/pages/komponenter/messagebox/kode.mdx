@@ -1,0 +1,198 @@
+---
+title: Messagebox
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/messagebox" },
+    { "title": "Kode", "href": "komponenter/messagebox/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/messagebox/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Varianter
+
+### Standard
+
+<CodeExample>
+  <div class="pkt-messagebox pkt-messagebox--green">
+    <div class="pkt-messagebox__title">Messagebox green</div>
+    <div class="pkt-messagebox__text">
+      Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+      bilder om du ønsker
+      <ul>
+        <li>Listeelement 1</li>
+        <li>Listeelement 2</li>
+        <li>Listeelement 3</li>
+      </ul>
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-messagebox pkt-messagebox--green">
+  <div class="pkt-messagebox__title">Messagebox green</div>
+  <div class="pkt-messagebox__text">
+    Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+    bilder om du ønsker
+    <ul>
+      <li>Listeelement 1</li>
+      <li>Listeelement 2</li>
+      <li>Listeelement 3</li>
+    </ul>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-messagebox title="Messagebox green" skin="green">
+  Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+  bilder om du ønsker
+  <ul>
+    <li>Listeelement 1</li>
+    <li>Listeelement 2</li>
+    <li>Listeelement 3</li>
+  </ul>
+</pkt-messagebox>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktMessagebox title="Messagebox green" skin="green">
+  Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+  bilder om du ønsker
+  <ul>
+    <li>Listeelement 1</li>
+    <li>Listeelement 2</li>
+    <li>Listeelement 3</li>
+  </ul>
+</PktMessagebox>
+```
+
+</div>
+</CodeTabs>
+
+### Compact
+
+<CodeExample>
+  <div class="pkt-messagebox pkt-messagebox--compact pkt-messagebox--green ">
+    <div class="pkt-messagebox__title">Messagebox green</div>
+    <div class="pkt-messagebox__text">
+      Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+      bilder om du ønsker
+      <ul>
+        <li>Listeelement 1</li>
+        <li>Listeelement 2</li>
+        <li>Listeelement 3</li>
+      </ul>
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-messagebox pkt-messagebox--compact pkt-messagebox--green">
+  <div class="pkt-messagebox__title">Messagebox green compact</div>
+  <div class="pkt-messagebox__text">
+    Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+    bilder om du ønsker
+    <ul>
+      <li>Listeelement 1</li>
+      <li>Listeelement 2</li>
+      <li>Listeelement 3</li>
+    </ul>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-messagebox title="Messagebox green" skin="green" compact>
+  Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+  bilder om du ønsker
+  <ul>
+    <li>Listeelement 1</li>
+    <li>Listeelement 2</li>
+    <li>Listeelement 3</li>
+  </ul>
+</pkt-messagebox>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktMessagebox title="Messagebox green" skin="green" compact>
+  Skriv en informerende tekst om ønskelig tema her. Legg til knapper eller
+  bilder om du ønsker
+  <ul>
+    <li>Listeelement 1</li>
+    <li>Listeelement 2</li>
+    <li>Listeelement 3</li>
+  </ul>
+</PktMessagebox>
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-messagebox</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-messagebox__title</li>
+    <li>.pkt-messagebox__text</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-messagebox`--`beige (default)</li>
+    <li>.pkt-messagebox`--`red</li>
+    <li>.pkt-messagebox`--`green</li>
+    <li>.pkt-messagebox`--`blue</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props | Type   | Validation               | Default | Beskrivelse |
+| ----- | ------ | ------------------------ | ------- | ----------- |
+| skin  | string | beige, greeen, red, blue | beige   |             |
+| title | string |                          |         |             |
+
+| Slots   | Type | Validation | Default | Beskrivelse                  |
+| ------- | ---- | ---------- | ------- | ---------------------------- |
+| default |      |            |         | Tekstinnholdet i komponenten |
+
+| Events | Type | Validation | Default | Beskrivelse |
+| ------ | ---- | ---------- | ------- | ----------- |
+|        |      |            |         |             |

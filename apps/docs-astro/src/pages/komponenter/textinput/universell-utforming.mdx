@@ -1,0 +1,79 @@
+---
+title: Text input
+description: ""
+categoryName: Komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textinput" },
+    { "title": "Kode", "href": "komponenter/textinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textinput/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Skjemaelementer burde ha en en-kolonnes layout, og hvert element skal ha sin egen label for å beskrive bruk. Om label av en eller annen grunn ikke skal vises skal den fortsatt finnes, men bruke klassen pkt-sr-only slik at skjemaet fortsatt er brukervennlig.
+- Alle tekstfelt bør ha et tilknyttet label (ledetekst) eller instruksjon som viser hvordan skjemaet skal fylles ut, inkludert informasjon om obligatoriske felt.
+- Label (ledeteksten) bør være koblet til tekstfeltet i koden slik at skjermlesere kan lese opp riktig informasjon. Komplekse skjema kan kreve mer hjelp enn bare enn labels.
+- Bruker du symboler i tekstfeltet bør symbolene enten være logiske og kjente, eller så må de forklares før de brukes for å unngå forvirring.
+- Feilmeldinger bør være kodet som tekst og identifisere det spesifikke skjemaelementet hvor feilen oppstod. Feilmeldingen må beskrive feilen og være synlig uten at brukeren gjør noen ekstra handlinger.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Alle skjemaelementene har tilknyttet label eller instruksjon
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Det er tydelig merket hvilke felter som er obligatoriske og hvilke som
+        er valgfrie
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Feilmeldinger er kodet som tekst og er i nærheten av det spesifikke
+        tekstfeltet der feilen oppstod
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Feilmeldinger er tilgjengelig for skjermleser og keyboard-navigering
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [UUtilsynet: Ledetekster og instruksjoner](https://www.uutilsynet.no/veiledning/skjema/38#ledetekster_og_instruksjoner)
+- [KS: Klart språk - feilmeldinger](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/feilmeldinger/)

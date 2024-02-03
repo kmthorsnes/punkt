@@ -1,0 +1,127 @@
+/* 
+ * Alert component
+ */
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+@use '../abstracts/' as *;
+
+$-module-name: 'pkt-alert';
+
+// Spacing
+$-alert-spacing: map.get(variables.$spacing, 'size-24');
+$-border-thickness: map.get(variables.$spacing, 'size-4');
+
+// default is "info"
+.#{$-module-name} {
+  --pkt-color-alert-bc: var(--pkt-color-border-blue);
+  --pkt-color-alert-bg: var(--pkt-color-surface-default-light-blue);
+  --pkt-color-alert-txt: var(--pkt-color-text-body-dark);
+  --pkt-color-alert-icon-fg: var(--pkt-color-brand-dark-blue-1000);
+  --pkt-color-alert-close-fg: var(--pkt-color-brand-dark-blue-1000);
+}
+
+.#{$-module-name}--error {
+  --pkt-color-alert-bc: var(--pkt-color-border-red);
+  --pkt-color-alert-bg: var(--pkt-color-surface-default-faded-red);
+}
+
+.#{$-module-name}--success {
+  --pkt-color-alert-bc: var(--pkt-color-border-green);
+  --pkt-color-alert-bg: var(--pkt-color-surface-default-light-green);
+}
+
+.#{$-module-name}--warning {
+  --pkt-color-alert-bc: var(--pkt-color-border-yellow);
+  --pkt-color-alert-bg: var(--pkt-color-surface-default-yellow);
+}
+
+.#{$-module-name} {
+  padding: $-alert-spacing $-alert-spacing $-alert-spacing calc($-alert-spacing - $-border-thickness);
+  display: block;
+  position: relative;
+  border-left: $-border-thickness solid var(--pkt-color-alert-bc);
+  background-color: var(--pkt-color-alert-bg);
+  color: var(--pkt-color-alert-txt);
+
+  &__title {
+    @include get-text('pkt-txt-18-medium');
+    margin: 0 0 $-alert-spacing 2.5rem;
+  }
+
+  &__close~&__title {
+    margin: 0 4rem $-alert-spacing 2.5rem;
+  }
+
+  &__text {
+    @include get-text('pkt-txt-18-light');
+    margin: 0 0 0 2.5rem;
+
+    p {
+      margin-bottom: map.get(variables.$spacing, 'size-16');
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__close+&__text {
+    margin: 0 4rem 0 2.5rem;
+  }
+
+  &__title+&__text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &__date {
+    @include get-text('pkt-txt-14-light');
+    margin-top: $-alert-spacing;
+  }
+
+  &__icon {
+    --fg-color: var(--pkt-color-alert-icon-fg);
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 22px;
+    left: 20px;
+  }
+
+  &__close {
+    position: absolute;
+    right: 1.125rem;
+    top: 0.625rem;
+
+    & svg {
+      --fg-color: var(--pkt-color-alert-close-fg);
+    }
+  }
+}
+
+// Utelukkende for bruk i feilmeldinger i InputWrapper
+.#{$-module-name}--compact {
+  padding: map.get(variables.$spacing, 'size-12')
+    map.get(variables.$spacing, 'size-16')
+    map.get(variables.$spacing, 'size-12') map.get(variables.$spacing, 'size-4');
+
+  .#{$-module-name}__icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    top: 0.81rem;
+    left: 1.25rem;
+  }
+
+  .#{$-module-name}__text {
+    @include get-text('pkt-txt-16-light');
+    margin: 0 2.875rem;
+  }
+  .#{$-module-name}__close {
+    top: 0.25rem;
+  }
+}

@@ -1,0 +1,539 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - checkbox">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Checkbox and Radio</h1>
+
+    <section class="component">
+      <h2>Single checkbox</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox"
+              >Checkbox 1</label
+            >
+          </div>
+        </div>
+        <div class="pkt-input-check mt-size-8">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox pkt-input-check__input-checkbox--error"
+              type="checkbox"
+              id="exampleCheckboxError"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxError">Checkbox Error</label
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Single checkbox with text</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxText"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxText"
+              >Checkbox 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Checkbox check</h2>
+
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox1"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox1"
+              >Checkbox 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox2"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox2"
+              >Checkbox 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox3"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox3"
+              >Checkbox 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Single checkbox - Tile</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxTile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxTile"
+              >Checkbox 1
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Single tile checkbox with text</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxTextTile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxTextTile"
+              >Checkbox 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Checkbox Tile check</h2>
+
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox1tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox1tile"
+              >Checkbox 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox2tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox2tile">Checkbox 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckbox3tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox3tile"
+              >Checkbox 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Radio</h2>
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio1"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio1"
+              >Radio 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div></label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio2"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio2"
+              >Radio 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio3"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio3"
+              >Radio 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Radio - Tile</h2>
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox pkt-input-check__input-checkbox--error"
+              type="radio"
+              id="exampleRadio1Tile"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio1Tile"
+              >Radio 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div></label
+            >
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio2Tile"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio2Tile"
+              >Radio 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio3Tile"
+              name="radio"
+            />
+            <label class="pkt-input-check__input-label" for="exampleRadio3Tile"
+              >Radio 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+    <section class="component">
+      <h2>Radio expandable</h2>
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend
+          class="pkt-inputwrapper__helptext-expandable-heading pkt-inputwrapper__legend"
+          >Label og hjelpetekst<div
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+          >
+            Må fylles ut
+          </div></legend
+        >
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <div class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-up"></use>
+            </svg>
+          </div>
+          <div class="pkt-btn__text">
+            Les mer <div class="pkt-sr-only">om inputfeltet</div>
+          </div>
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio1expandable"
+              name="radio"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio1expandable"
+              >Radio 1
+
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio2expandable"
+              name="radio"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio2expandable">Radio 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio3expandable"
+              name="radio"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio3expandable"
+              >Radio 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Disabled</h2>
+      <fieldset
+        class="pkt-inputwrapper pkt-inputwrapper__fieldset pkt-inputwrapper--disabled"
+      >
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxDisabled1"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+              checked
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled1">Checkbox 1</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxDisabled2"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled2">Checkbox 2</label
+            >
+          </div>
+          <div
+            class="pkt-input-check__input pkt-input-check__input--tile pkt-input-check__input--tile-disabled"
+          >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              id="exampleCheckboxDisabled3"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled3">Checkbox 3</label
+            >
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Radio - Disabled</h2>
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div
+            class="pkt-input-check__input pkt-input-check__input--tile pkt-input-check__input--tile-disabled"
+          >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio1Tiledisabled"
+              name="radio"
+              disabled
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio1Tiledisabled"
+              >Radio 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div></label
+            >
+          </div>
+          <div
+            class="pkt-input-check__input pkt-input-check__input--tile pkt-input-check__input--tile-disabled"
+          >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio2Tiledisabled"
+              name="radio"
+              disabled
+              checked
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio2Tiledisabled">Radio 2</label
+            >
+          </div>
+          <div
+            class="pkt-input-check__input pkt-input-check__input--tile pkt-input-check__input--tile-disabled"
+          >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="radio"
+              id="exampleRadio3Tiledisabled"
+              name="radio"
+              disabled
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleRadio3Tiledisabled"
+              >Radio 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+</Layout>

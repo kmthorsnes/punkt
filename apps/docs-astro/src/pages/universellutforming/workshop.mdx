@@ -1,0 +1,372 @@
+---
+title: UU workshop 2023
+description: ""
+categoryName: universellutforming
+layout: "@layouts/DocLayout.astro"
+---
+
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktMessagebox } from "@oslokommune/punkt-react";
+
+Høsten 2023 gjennomførte Team Designsystem workshop i universell utforming for tre av produktteamene i Origo. Hovedfokuset var å øke kunnskapen hos teamene
+på hvordan man kan teste nettsider selv basert på WCAG prinsippene. Workshopen ble også en fin arena for oss å diskutere og lære underveis, derfor tenkte vi at en oppsummering av workshopen er nyttig for flere enn bare oss. Så her kommer en tekstlig versjon av vår UU-workshop med funn og læringspunkter.
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/Tezza-2432.jpg"
+    alt="team skjema på workshop"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Introduksjon
+
+Det er naturlig at vi som lager designsystemet har domenekunnskap på universell utforming. Vi jobber hardt for å sikre at komponentene våre oppfyller kravene i WCAG. Likevel er det noen ting vi ikke kan teste, spesielt med tanke på hvordan komponentene fungerer i forskjellige situasjoner. Derfor ønsker vi å dele vår kunnskap om hvordan du og ditt team kan teste egne løsninger.
+
+Men hva er WCAG? spør du kanskje. Kort fortalt er WCAG en veiledning for oss til å skape et mer inkluderende digitalt miljø. [Les mer om WCAG her](hva-er-uu).
+
+WCAG er delt inn i fire prinsipper som legger vekt på at digitale tjenester skal:
+
+- være mulig å oppfatte
+- være mulig å betjene
+- være mulig å forstå
+- være kompatible med ulike teknologier
+
+<PktMessagebox title="Har du oppdaget feil i våre komponenter?" skin="blue">
+  Hvis du oppdager noe som ikke er riktig med våre komponenter ta kontakt med
+  oss! Vi setter pris på din hjelp med å gjøre designsystemet vårt bedre!
+</PktMessagebox>
+
+## Test selv
+
+Så hvordan teste at en nettside følger WCAG-prinsippene?
+Vi ønsket å lage en workshop som skulle passe for et tverrfaglig team og optimalisere for at alle skal klare å teste sin nettside eller tjeneste. Derfor valgte vi enkle verktøy som man raskt kan ta i bruk direkte i nettleseren. De er ikke nødvendigvis de beste, og av erfaring er det lurt å teste med ulike verktøy fordi testverktøyene kan finne ulike feil. Vi hadde også en liste over nettsider vi visste hadde feil som deltakerne kunne teste på.
+
+### Start her
+
+Installer nettleser extension:
+
+- [Silktide](https://chrome.google.com/webstore/detail/silktide-website-accessib/okcpiimdfkpkjcbihbmhppldhiebhhaf)
+- [Wave](https://wave.webaim.org/extension/)
+- Ønsker du å teste med andre verktøy kan du lese [om ulike testverktøy her](testverktoy).
+
+Finn en nettside du mistenker kan ha feil. Gjerne en side du må bruke et skjema, bestille billett, eller booke et rom.
+
+Nå skal du teste nettsiden fra ulike brukerperspektiv. Dette kan innebære brukere som har vanskeligheter med:
+
+- syn - svaksynt, blind, tåkesyn, fargeblind
+- motorikk - skjelving, smerter i hånd eller bruk av én hånd.
+- eplepsi/migrene
+- kognitive - ukonsentrert, dysleksi, stresset, redd, usikker
+
+<PktMessagebox title="Visste du at?" skin="blue">
+  1 av 5 av oss har en form for funksjonsnedsettelse? I tillegg kan alle bli
+  utsatt for en midlertidig funksjonsnedsettelse, kanskje har du operert en
+  hånd? Eller kanskje du er i en situasjon hvor du ikke klarer å høre, lese
+  eller trykke? Kanskje du ofte holder et barn i den ene armen, men trenger å
+  bruke en digital løsning samtidig? Vi kan alle føle på frustrasjoner og lite
+  mestring i møte med digitale løsninger og vi har en tendens til å skylde på
+  oss selv, men det handler oftest om at løsningen ikke er tilgjengelig for
+  alle.
+</PktMessagebox>
+
+## Oppgave 1 - Mulig å oppfatte
+
+Selv om testverktøyet finner feil under alle prinsippene i WCAG, er de vanligste feilene man finner knyttet til vanskelig å oppfatte. Derfor starter vi oppgavene med testverkøyet Wave.
+
+1. Når du er på din valgte nettside trykk på Wave-ikonet i listen over dine nettleser-extensions. Wave tester en og en side av gangen. Bli kjent med verktøyet og resultatene. Hva sier verktøyet om feilene?
+2. Se på din valgte nettside på 400% zoom. Er det mulig å oppfatte innholdet på nettsiden?
+3. Se på din valgte nettside med mobil og i landskapsmodus. Er det mulig å oppfatte innholdet på nettsiden?
+
+### De vanligste feilene og hva de betyr:
+
+Nedenfor kan du lese om de vanligste feilene deltakerne i workshopen fant på oppgave 1.
+
+#### 1. Missing alternative text
+
+Den vanligste feilen er missing alternative text. Dette innebærer at bildene ikke har en alternativ tekst i img-taggen i kode.
+Om et bilde illustrerer noe som er viktig for å forstå innhold eller funksjon på nettsiden vil de som bruker skjermleser ikke oppfatte denne informasjonen.
+
+Når man skal skrive alternative tekster så tenk brukeropplevelse for skjermleserbrukere, hva er det man ønsker å formidle? Er det stemning, viktig informasjon eller veiledning? NRK har skrevet en god beskrivelse av [hvordan skrive alternative tekster](https://info.nrk.no/tilgjengelighet/?/l4qw3ygbojy).
+
+Om bildet bare er rent dekorativt, så kan man vurdere om det er nødvendig å beskrive bildet med alternativ tekst slik at skjermleseren ikke leser opp unødvendig eller irrelevant informasjon. Men om du velger å ikke ha en alt-tekst så må du huske å ha med alt-attributten, men la den være tom ellers vil `src=""` bli lest opp av skjermleseren. Tenk brukeropplevelsen ved beskrivelse av bildet/bildene.
+
+```html
+<img alt="" class="dekor" src="bildeavdekoren-2-copy.jpg" />
+```
+
+Alternativ tekst til bilder er også slik søkemotorer forstår innholdet på nettsiden din, så det kan hjelpe nettsiden din med SEO. Alternativ tekst på bildet er også det som dukker opp når bildet ikke lastes opp, som kan være til hjelp ved feilsøking.
+
+#### 2. Missing form label
+
+Missing form label betyr at et skjemaelement ikke har et korrekt tilknyttet label. Dette gjør at funksjonen eller formålet til skjemaelementet ikke blir oppfattet av skjermleserbrukere. Label gir også synlig veiledning/beskrivelse og større klikkbare områder for skjemaelementet.
+
+For å unngå manglende label, bør man alltid sørge for at hvert skjemaelement har et tilknyttet label.
+
+For eksempel, hvis du har en tekstboks for brukernavn, kan du legge til en tilknyttet label ved å inkludere følgende HTML-kode:
+
+```html
+<label for="username">Brukernavn:</label>
+<input type="text" id="username" name="username" />
+```
+
+Her matcher `for`-attributtet i `<label>` med id-attributtet til det tilsvarende skjemaelementet (`<input>`). Dette sikrer en klar og forståelig tilknytning mellom label og input, og hjelper skjermlesere med å riktig presentere informasjon om formål og funksjon til brukeren.
+
+Om du ikke ønsker å ha et synlig `label` over ditt skjemaelement kan du fortsatt ha en `label` men legge til en [pkt-sr-only klasse](/ressurser/hjelpeklasser/#screenreader-only), altså en CSS klasse som visuelt skjuler `label` men blir lest opp av skjermleser.
+
+#### 3. Empty link / Linked image missing alternative text
+
+"Empty link" er en lenke som ikke har noe tekstinnhold eller alternativ tekst. Dette kan skape forvirring for brukere, spesielt de som bruker skjermlesere som ikke får tilstrekkelig informasjon om lenkens formål. Men også forvirrende for andre brukere hvis det ikke er synlig at dette er en lenke eller man ikke forstår dens formål. Ofte er dette en feil som dukker opp når man bruker bilder som lenke.
+
+For å løse disse problemene, bør du legge til relevant tekst eller alternativ tekst til linken eller bildet. Her er noen eksempler:
+
+**Lenke:**
+
+```html
+<!--Feil: Lenken har ingen tekst-->
+<a href="https://eksempel.com"> </a>
+
+<!--Riktig: Legg til tekst inni lenken-->
+<a href="https://eksempel.com">Gå til eksempel.com</a>
+```
+
+**Bilde i en lenke:**
+
+```html
+<!--Ikke så bra: Mangler alternativ tekst for bildet-->
+<a href="https://eksempel.com"><img src="ikon.png" alt="Ikon" /></a>
+
+<!--Bedre: Beskrivende alternativ tekst-->
+<a href="https://eksempel.com"
+  ><img src="ikon.png" alt="Gå til hovedsiden"
+/></a>
+
+<!--Bedre: Beskrivende aria label-->
+<a href="https://eksempel.com" aria-label="Gå til hovedsiden"
+  ><img src="ikon.png" alt=""
+/></a>
+```
+
+**Hvordan skrive gode lenketekster?**
+Her er det viktig å tenke på brukeropplevelsen for alle, for eksempel:
+
+- Unngå lenketekst som "Klikk her", "Mer" og "Les mer". Slike lenker kan være forvirrende når de leses av en skjermleser uten noe kontekst.
+- Bruk unik lenketekst der det er mulig. Brukere av hjelpeteknologi kan oppleve problemer med duplisert lenketekst.
+- Det er akseptabelt å lenke en hel setning, men unngå lengre enn det.
+- Når du har en lenketekst med full URL-adresse bør du tenke på brukere som må uttale den høyt og de som må lytte til en skjermleser.
+
+<PktMessagebox title="Visste du at?" skin="blue">
+  Bruk ARIA-attributter med forsiktighet. Dette fordi tolkning, implementering
+  og støtte i de ulike hjelpeteknologiene kan variere. Og i flere tilfeller kan
+  feil bruk av ARIA-attributter overstyre standard nettleser-funksjoner. Å skape
+  meningsfulle lenketekster, bruke riktig HTML-elementer, og følge andre beste
+  praksiser for tilgjengelighet er viktigere enn å inkludere ARIA-attributter.
+</PktMessagebox>
+
+#### 4. Contrast errors
+
+Contrast errors er knyttet til kontrasten mellom tekst og bakgrunn. Kontrasten er avgjørende for at teksten skal være tydelig lesbar, spesielt for personer med nedsatt syn, fargeblindhet og andre visuelle utfordringer. Dårlig kontrast gjør teksten mindre lesbar og brukere kan være nødt til å anstrenge øynene mer for å skille tekst fra bakgrunnen. Dette kan være spesielt uheldig i lengre perioder med skjermbruk og kan føre til hodepine og tretthet. I tillegg til visuelle utfordringer kan dårlig kontrast også påvirke brukere med for eksempel dysleksi eller kognitive utfordringer. Klart definerte kontraster kan forbedre lesbarheten og redusere risikoen for feiloppfatninger.
+
+Hva kan man gjøre med kontrastfeil? Retningslinjene i WCAG spesifiserer krav til minimum kontrastforhold mellom tekst og bakgrunn. Dette kan du sjekke med vår [kontrastsjekker](/ressurser/colors/universell-utforming/) om du jobber i Oslo kommune. Ellers finnes det mange kontrastverktøy der ute du kan bruke.
+
+Du bør også bruke farger med omhu. Det er viktig å tenke på at dette ikke bare gjelder kontrasten mellom tekst og bakgrunn, men også kontrasten mellom elementer. Forsikre deg om at fargekombinasjonene du velger å ha ved siden av hverandre også oppfyller tilgjengelighetskravene, siden testverktøy som Wave ikke sjekker dette.
+
+Eksempel på vanskelig å oppfatte for fargeblinde:
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/contrasterror.png"
+    alt="Eksempel på contrasterror"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Ved å fokusere på kontrasten på tjenesten vi lager, bidrar vi til å gjøre innholdet mer tilgjengelig for alle brukere. Dette oppfyller ikke bare WCAG-kravene, men det gir også en bedre brukeropplevelse.
+
+#### Hva testverktøyet ikke registrerte
+
+Det var flere ting vi oppdaget under manuell testing av prinsippet mulig å oppfatte som testverkøyet ikke gjorde oss oppmerksomme på. Noen eksempler på dette var:
+
+**Rekkefølger.** Viktig informasjon eller funksjon som kommer etter en liste eller inputfelt. Et eksempel var da en deltaker fant filtreringsfunksjon som kom etter en veldig lang liste. Dette kan føre til at en bruker ikke får med seg at det finnes en filteringsfunksjon fordi den er utenfor synsfelt, eller de må høre på/navigere seg gjennom en hel liste før den kan filtreres.
+
+**Video, animasjon og lyd.** Video, animasjon og lyd skal kunne stoppes av brukeren selv for å imøtekomme personer som kan oppleve epileptiske anfall eller har konsentrasjonsvansker. Et eksempel på dette fra workshopen var en bildekarusell med viktig informasjon som ble borte etter 7 sekunder. Om animasjoner, video eller lyd inneholder viktig informasjon må det gis en alternativ presentasjon av dette.
+
+**400% zoom, mobil og landskap.** At nettsider er tilpasset ulike skjermstørrelser er viktig ikke bare for brukervennlighet, men også for tilgjengelighet. Eksempler fra workshopen viste at ved 400% zoom, noe som er et krav i WCAG, hadde nettsiden masse tomrom, noe som kan føre til at brukeren ikke oppfatter innholdet eller må scrolle mye. Det var også eksempler på at elementer overlapper hverandre slik at man ikke oppfatter innhold eller ikke får brukt funksjoner som knapper eller inputfelt.
+
+## Oppgave 2 - Mulig å betjene
+
+I oppgave 1 kunne man se at testverktøyet Wave ikke får med seg alle feil. Dette gjelder spesielt under prinsippet mulig å betjene og forståelig. Derfor er det viktig med manuelle tester av nettsiden. Så la oss teste med en skjermleser og tastatur!
+
+1. Silktide er et enkelt simuleringsverktøy som simulerer ulike funksjonsnedsettelser. Gå til blindness-fanen og test nettsiden med skjermleseren.
+2. Test nettsiden ved å bare bruke tastatur.
+   - Tab er fremover
+   - Tab + shift er bakover
+   - Space for å ta et valg
+   - Enter for å aktivere funksjon
+   - Bruk piltaster for å navigere
+
+Klarer du å betjene nettsiden? Får du navigert deg frem til det du mener er hovedfunksjonen med nettsiden? Får du bestilt billett, fylt ut skjema eller booket rom?
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/skjermleser.png"
+    alt="Screenshot av skjermleseren i silktide"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<PktMessagebox title="Greit å vite" skin="blue">
+  Skjermleseren til Silktide blir brukt for enkelhetens skyld i workshop, ellers
+  ville vi brukt tiden på opplæring av skjermleser. Silktide fungerer ikke
+  akkurat som de mest brukte skjermleserne JAWS, VoiceOver eller NVDA, og den
+  viser seg å ha litt bugs. Så vi anbefaler å teste med tungvekterne når man har
+  blitt litt bedre kjent med konseptet.
+</PktMessagebox>
+
+### De vanligste feilene og hva de betyr
+
+Nedenfor kan du lese om de vanligste feilene deltakerne i workshopen fant på oppgave 2.
+
+#### Skjemaelementer
+
+Utilgjengelige skjemaelementer går igjen som feil ved å teste om nettsiden er mulig å betjene. Ikke tilgjengelige inputfelt som for eksempel select, kalender, eller dropdowns i menyer er ofte avgjørende for å kunne gjøre det man skal på en nettside.
+
+I workshopen oppdaget vi gjentatte feil knyttet til kalendere. Ved nærmere titt på koden kunne man se input `type=”text”` og egenprodusert JavaScript-kode. Denne tilnærmingen er imidlertid ofte utilstrekkelig for å støtte skjermlesere eller tastaturnavigasjon, med mindre koden er spesifikt utformet med tanke på å gjøre kalenderen tilgjengelig for disse verktøyene.
+
+Så hva kan man gjøre for å lage tilgjengelige skjemaelementer? Det er alltid en god regel å bruke semantisk riktig HTML før andre løsninger. Skjermlesere og andre hjelpeteknologier bruker HTML til å tolke og presentere innholdet, og moderne nettlesere gir deg innebygd funksjonaliteten for enkelte HTML-elementer. Som for eksempel input `type=”date”` for kalenderfunksjonalitet. Semantisk riktig HTML forbedrer derfor tilgjengeligheten. Men det aller viktigste man kan gjøre er selvfølgelig å teste under utvikling og kjøre brukertester.
+
+#### Fokusmarkering
+
+Manglende eller lite tydelig fokusmarkering på aktive elementer var en gjentakende feil ved å betjene med bare tastatur. Fokusmarkering er visuelle indikatorer som vises rundt et aktivt element på en nettside når det får tastaturfokus.
+
+<button class="pkt-btn pkt-btn--tertiary pkt-btn--icon-left pkt-btn--focus">
+  <span class="pkt-icon pkt-btn__icon">
+    <svg viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+  </span>
+  <span class="pkt-btn__text">Punkt sin fokusindikator</span>
+</button>
+
+Det er flere brukere som er avhengig av tastaturnavigering på grunn av fysiske begrensninger. Fokusmarkering sikrer at disse brukerne tydelig kan se hvor de befinner seg på nettsiden.
+Selv for personer uten funksjonshemminger kan tastaturnavigasjon være mer effektiv i visse situasjoner. For eksempel, hvis musen ikke er tilgjengelig eller for brukere som foretrekker tastaturnavigasjon. Den nyeste versjonen av WCAG, WCAG 2.2, anbefales det en fokusindikator på minst 2 piksler.
+
+#### Dialog/Popups
+
+Dialog og popups er ment for å vise midlertidig informasjon. En dialog kan for eksempel være et vindu som du må godkjenne/avvise informasjonskapsler, og en popup kan være midlertidig informasjon eller reklame som du må krysse vekk.
+
+Disse kan være irriterende for enhver, men for de som bruker skjermleser og tastatur kan disse være med på å hindre deg fra å kunne bruke nettsiden. Vi fant feil der man ble sittende fast i dialogboksen med skjermleser og det var ikke mulig å lukke eller trykke på knapper. Men oftest dukket ikke dialogboksen opp i skjermleseren i det hele tatt, så du aldri fikk mulighet til å få viktig informasjon eller å godkjenne eller avvise informasjonskapsler.
+
+For å minimere problemene knyttet til dialoger og popups, bør utviklere og designere ta hensyn til tilgjengelighetsstandarder, implementere responsiv design, sørge for riktig tastaturnavigasjon og følge beste praksis for å informere brukere om dialogens formål. Test også grundig på tvers av ulike nettlesere og enheter for å sikre en konsistent opplevelse.
+
+#### Skiplink
+
+En "skiplink" er en navigasjonslenke som vanligvis er plassert øverst på en nettside og gir brukere muligheten til å hoppe over gjentatt navigasjon og gå direkte til hovedinnholdet på siden.
+Formålet med skiplink er å forbedre navigasjonen og brukeropplevelsen for de som er avhengige av tastaturnavigasjon eller andre alternative metoder. Når en bruker aktiverer skiplinken, hopper de over gjentatt navigasjon, for eksempel menyelementer eller andre strukturelle elementer, og går rett til hovedinnholdet på siden.
+
+En gjentakende mangel på nettsidene var denne skiplinken. Brukeren må da navigere seg gjennom masse irrelevant informasjon før man kommer til det man er på nettsiden for. Og faren for å bli sittende fast i ulike elementer er stor før du i det hele tatt har fått gjort noe av det du skulle på nettsiden.
+
+Skiplinker bidrar til en mer effektiv og behagelig brukeropplevelse ved å gi brukere kontroll over hvordan de navigerer gjennom nettstedet. Dette gjelder ikke bare på førstesiden, i workshopen opplevde vi flere områder man gjerne skulle hatt en skiplink.
+
+## Oppgave 3 - Forståelig
+
+Prinsippet forståelig betyr at du skal kunne forstå hvordan løsningen skal brukes og forstå den informasjonen nettsiden formidler. Denne oppgaven kan være gjentakende for hva du tidligere har funnet i de andre oppgavene. Men vi bruker denne oppgaven til å oppsummere litt og gi deg mulighet til å teste ut de andre simulatorene i Silktide. Finner du noe nytt ved bruk av fargeblind-simulatoren eller tunnelsyn? Hva med dysleksi? Test nettsiden med simulatorene i Silktide.
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/simulator.png"
+    alt="Screenshot av simulator"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### De vanligste feilene og hva de betyr:
+
+Nedenfor kan du lese om de vanligste feilene deltakerne i workshopen fant på oppgave 3.
+
+#### Uforståelig veiledning
+
+De fleste nettsider deltakerne testet viste seg å ha uforståelig informasjon på knapper, linker, checkboxer, inputfelt, feilmeldinger eller advarsler.
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/eksempleruforstaaelig.png"
+    alt="Screenshot av eksempler på uforstaaelig"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Vi fant også uforståelige knapper med forkortelser som "ingen ank." som betydde "ikke ledig rom",
+"Søk etter rooms", eller "Ikke noe problem" i tekst på en knapp som egentlig betydde "done".
+
+Problemet med uforståelig informasjon på disse elementene er en betydelig utfordring for tilgjengelighet, fordi konsekvensene er at for eksempel skjermleserbrukerne ikke har mulighet til å betjene nettsiden. For å løse disse problemene kan du huske på å:
+
+- Bruke klare og beskrivende tekster for alle interaktive elementer.
+- Labels til inputfelt og checkboxer/radiobuttons.
+- Unngå bruk av vage, generiske eller duplikate formuleringer.
+- Gi konkrete instruksjoner og veiledning i feilmeldinger.
+
+Her er noen flere eksempler på problemer med uforståelig informasjon, og hva man kan gjøre:
+
+**Knapper og linker**
+
+- **Problem:** Knapper eller linker med tekster som bare sier "Klikk her" eller "Les mer" gir ikke tilstrekkelig informasjon om den forventede handlingen.
+
+- **Løsning:** Gi knapper og linker beskrivende tekster som klart formidler hva som skjer når de trykkes, for eksempel “Send skjema”, "Gå til handlekurven", "Les detaljer om produktet."
+  Noen ganger kan det være vanskelig å beskrive funksjonen med korte ord. Men dette kan du løse med å ha tekst som bare er tilgjengelig for skjermleser:
+
+```html
+<a href="/artikkel">
+  Les mer
+  <span class="pkt-sr-only">om våre nyeste produkter</span>
+</a>
+
+<button type="button">
+  <span class="pkt-sr-only">Åpne meny</span>
+  <svg aria-hidden="true" ...><!-- Ikon her --></svg>
+</button>
+```
+
+**Inputfelt**
+
+- **Problem:** Checkboxer eller inputfelt uten klare labels eller med for generisk tekst gir ikke tilstrekkelig informasjon om hva de representerer.
+
+- **Løsning:** Legg til tydelige labels som beskriver formålet med checkboxen eller inputfeltet. For eksempel, "Godta vilkårene og betingelsene" for en checkbox.
+
+**Feilmeldinger**
+
+- **Problem:** Feilmeldinger som bare sier "Feil" eller "Ugyldig inndata" gir ikke
+  brukeren nok informasjon om hva som gikk galt og hvordan det kan rettes opp.
+
+- **Løsning:** Gi detaljerte feilmeldinger som identifiserer problemet og gir veiledning om hvordan brukeren kan korrigere det. For eksempel, "Passordet må være minst 8 tegn og inneholde minst én stor bokstav og ett tall."
+
+#### Struktur
+
+Uforståelig eller vanskelig struktur var noe vi fant på flere av nettsidene som ble testet. Spesielt ved navigering med skjermleser og tastatur. Dette var også noe testverktøyet Wave ga alerts om:
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/wavealert.png"
+    alt="Screenshot av eksempler på uforstaaelig"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+**Empty heading:** Tom overskrift (leses opp av skjermleser, usynlig for de som ser)
+En tom overskrift refererer til et HTML `<h1>`- til `<h6>`-element som ikke inneholder noen tekst. Når overskriften er tom, blir ikke informasjonen formidlet til skjermleserbrukerne, men de får vite at den finnes noe som skaper forvirring.
+
+**Skipped heading level:** Hoppet over overskriftsnivå - ikke riktig rekkefølge på overskrifter.Dersom overskriftsnivåene ikke følger en logisk rekkefølge (for eksempel å hoppe fra `<h2>` til `<h4>` uten en `<h3>` imellom), kan det føre til forvirring for brukere av hjelpeteknologi. Dette kan påvirke den oppfattede strukturen og organiseringen av innholdet.
+
+**No heading structure:** Ingen overskriftsstruktur
+Overskrifter (`<h1>-<h6>`) gir viktig dokumentstruktur, oversikter og navigasjonsfunksjonalitet for brukere av hjelpeteknologi.
+Sørg for en klar, konsistent overskriftsstruktur, vanligvis med én `<h1>` og underoverskrifter etter behov. Med unntak av svært enkle sider, bør de fleste nettsider ha en overskriftsstruktur.
+
+For å ha en forståelig struktur på nettsiden er det viktig å gi meningsfull tekst til overskrifter og organisere dem i en logisk rekkefølge. Dette gir en bedre opplevelse for brukere som er avhengige av hjelpeteknologi og for alle som samhandler med nettstedet ditt.
+
+<ImageWrapper>
+  <img
+    src="/assets/universell-utforming/Tezza-3310.jpg"
+    alt="team booking jobber konsentrert på workshop"
+    aria-hidden="true"
+  />
+</ImageWrapper>

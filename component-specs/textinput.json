@@ -1,0 +1,79 @@
+{
+  "name": "pkt-textinput",
+  "css-class": "pkt-textinput",
+  "props": {
+    "requiredTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "optionalTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "hasError": {
+      "type": "boolean",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false
+    },
+    "type": {
+      "type": "string",
+      "required": false,
+      "default": "text"
+    },
+    "autocomplete": {
+      "type": "string",
+      "required": false,
+      "default": "off"
+    },
+    "value": {
+      "type": "string",
+      "required": false
+    },
+    "suffix": {
+      "type": "string",
+      "required": false
+    },
+    "prefix": {
+      "type": "string",
+      "required": false
+    },
+    "iconNameRight": {
+      "type": "string",
+      "required": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "inline": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "fullwidth": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "ariaLabelledby": {
+      "type": "string",
+      "required": false
+    },
+    "omitSearchIcon": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

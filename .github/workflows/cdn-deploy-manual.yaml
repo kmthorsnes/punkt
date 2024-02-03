@@ -1,0 +1,85 @@
+name: CDN - manual deploy
+
+on: workflow_dispatch
+
+jobs:
+  cdn:
+    name: Update cdn
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout all branches and tags
+          token: ${{ secrets.GH_TOKEN_SCHJETNE }} # Required for pushing to protected branch
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build necessary packages
+        run: |
+          npm run build-assets
+          npm run build-css
+
+      - name: Generate version for docs and assets
+        run: |
+          node ./scripts/build-set-majorminor-version.js
+
+      - name: Set release version
+        run: |
+          RELEASE_VERSION=$(jq -r .majorMinor ./temp/version.json)
+          echo "RELEASE_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Deploy assets to /${{ env.RELEASE_VERSION }} for CDN
+        run: |
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.RELEASE_VERSION }}/fonts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.RELEASE_VERSION }}/icons --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.RELEASE_VERSION }}/logos --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.RELEASE_VERSION }}/fonts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.RELEASE_VERSION }}/icons --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.RELEASE_VERSION }}/logos --delete --cache-control 'max-age=300'
+
+      - name: Deploy CSS to /${{ env.RELEASE_VERSION }} for CDN
+        run: |
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.RELEASE_VERSION }}/css --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.RELEASE_VERSION }}/css --delete --cache-control 'max-age=300'
+
+      - name: Deploy Scripts to /${{ env.RELEASE_VERSION }} for CDN
+        run: |
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.RELEASE_VERSION }}/scripts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.RELEASE_VERSION }}/scripts --delete --cache-control 'max-age=300'
+
+      - name: Update CDN versions.json
+        run: |
+          aws s3 cp s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json ./
+          npx lerna run update-cdn-versions-json --scope=@oslokommune/punkt-cdn -- version=${{ env.RELEASE_VERSION }}
+          aws s3 cp ./versions.json s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json --cache-control 'max-age=300'
+
+      - name: Update other CDN root files
+        run: |
+          aws s3 ls s3://origo-punkt-cdn/ --recursive | awk '{print $4}' > s3_files.txt
+          npx lerna run build-app --scope=@oslokommune/punkt-cdn -- file=../../s3_files.txt
+          aws s3 cp ./apps/cdn/dist s3://${{ secrets.AWS_S3_PUNKT_CDN }}/ --recursive --cache-control 'max-age=300'
+
+      - name: Invalidate CF cache for CDN root and versions
+        run: |
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_CDN }} --paths "/*.*" "/*/index.html"

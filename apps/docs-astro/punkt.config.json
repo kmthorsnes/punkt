@@ -1,0 +1,33 @@
+{
+  "svgsprite": {
+    "files": [
+      "../../packages/assets/dist/icons/alert-error.svg",
+      "../../packages/assets/dist/icons/alert-information.svg",
+      "../../packages/assets/dist/icons/alert-success.svg",
+      "../../packages/assets/dist/icons/alert-warning.svg",
+      "../../packages/assets/dist/icons/chevron-left.svg",
+      "../../packages/assets/dist/logos/oslologo.svg",
+      "../../packages/assets/dist/icons/github.svg",
+      "../../packages/assets/dist/icons/close.svg",
+      "../../packages/assets/dist/icons/menu.svg",
+      "../../packages/assets/dist/icons/user.svg",
+      "../../packages/assets/dist/icons/heart.svg",
+      "../../packages/assets/dist/icons/table.svg",
+      "../../packages/assets/dist/icons/chevron-right.svg",
+      "../../packages/assets/dist/icons/chevron-thin-down.svg",
+      "../../packages/assets/dist/icons/chevron-thin-up.svg",
+      "../../packages/assets/dist/icons/slack.svg",
+      "../../packages/assets/dist/icons/copy.svg",
+      "../../packages/assets/dist/icons/twitter.svg",
+      "../../packages/assets/dist/icons/facebook.svg",
+      "../../packages/assets/dist/icons/map.svg",
+      "../../packages/assets/dist/icons/bullseye.svg",
+      "../../packages/assets/dist/icons/check-big.svg",
+      "../../packages/assets/dist/icons/magnifying-glass-big.svg"
+    ],
+    "output": {
+      "fileType": "html",
+      "filePath": "./src/components/Icons.vue"
+    }
+  }
+}

@@ -1,0 +1,198 @@
+/* 
+ * Typografi
+ * 
+ * Setter Oslo kommune-stiler
+ * 
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/typography';
+@use '../abstracts/mixins/breakpoints' as *;
+@use '../abstracts/functions';
+
+body {
+  color: var(--pkt-color-text-body-default);
+  font-family: #{map.get(variables.$font-family, 'normal')};
+  font-size: map.get(variables.$font-size, 'size-16');
+  font-weight: map.get(variables.$font-weight, 'light');
+  letter-spacing: map.get(variables.$letter-spacing, 'normal');
+  line-height: map.get(variables.$line-height, 'body');
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: map.get(variables.$font-size, 'size-14');
+  opacity: 0.8;
+}
+
+strong {
+  font-weight: map.get(variables.$font-weight, 'medium');
+}
+
+a,
+.pkt-link-button {
+  // Order of pseudoclasses is important for specificity:
+  // link, visited, hover, focus, active
+  // but we don't use visited, so we can skip :link
+
+  color: var(--pkt-color-text-action-normal);
+  text-decoration: underline;
+  word-wrap: break-word;
+  cursor: pointer;
+
+  // visited
+  &:visited:not(.pkt-linkcard):not(.pkt-btn):not(.pkt-tabs__link) {
+    color: inherit;
+  }
+
+  // hover
+  &:hover,
+  &.pkt-link--hover {
+    color: var(--pkt-color-text-action-active);
+    text-decoration: underline;
+  }
+
+  // focus
+  &:focus-visible,
+  &.pkt-link--focus {
+    box-shadow: 0px 0px 0px 0.125rem var(--pkt-color-text-action-active),
+      0px 0px 0px 0.375rem var(--pkt-color-border-states-focus);
+    outline: none;
+    color: var(--pkt-color-text-action-active);
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline: 0.125rem solid var(--pkt-color-text-action-active);
+    color: var(--pkt-color-text-action-active);
+  }
+
+  // active
+  &:active,
+  &.pkt-link--active {
+    color: var(--pkt-color-text-action-active);
+  }
+}
+
+.pkt-link {
+  display: inline-flex;
+  text-align: left;
+  align-items: center;
+
+  &__icon {
+    --fg-color: currentColor;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+
+  &--icon-left {
+    flex-direction: row;
+    text-decoration: none;
+  }
+
+  &--icon-right {
+    flex-direction: row-reverse;
+    text-decoration: none;
+  }
+
+  &--external::after {
+    content: ' ';
+    --svg: url(#{variables.$icon-path}/new-window-small.svg);
+    background-image: var(--svg);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  &--external:hover::after {
+    // #1f42aa
+    filter: brightness(0) saturate(100%) invert(16%) sepia(99%) saturate(2420%)
+      hue-rotate(222deg) brightness(93%) contrast(90%);
+  }
+}
+
+button.pkt-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: inherit;
+}
+
+@at-root [data-mode='dark'] {
+  .pkt-link {
+    &--external::after {
+      // white
+      filter: brightness(0) saturate(100%) invert(100%);
+    }
+
+    &--external:hover::after {
+      // #b3f5ff
+      filter: brightness(0) saturate(100%) invert(80%) sepia(54%) saturate(502%)
+        hue-rotate(173deg) brightness(109%) contrast(105%);
+    }
+  }
+}
+
+/*
+ * origo typography
+ * prefix pkt
+ */
+
+@each $name, $style in variables.$pkt-styles {
+  @include typography.generate-text-class($name, $style);
+}
+
+@each $name, $style in variables.$pkt-font-weight {
+  @include typography.generate-text-class($name, $style);
+}
+
+@each $bp-name, $bp-value in variables.$breakpoints {
+  @each $name, $style in variables.$pkt-styles {
+    @include bp('#{$bp-value}') {
+      @include typography.generate-text-class(
+        '#{$name}--#{$bp-name}-up',
+        $style
+      );
+    }
+  }
+  @each $name, $style in variables.$pkt-font-weight {
+    @include bp('#{$bp-value}') {
+      @include typography.generate-text-class(
+        '#{$name}--#{$bp-name}-up',
+        $style
+      );
+    }
+  }
+}
+
+/*
+ * Alignment
+ */
+.pkt-txt-start {
+  text-align: left !important;
+}
+
+.pkt-txt-end {
+  text-align: right !important;
+}
+
+.pkt-txt-center {
+  text-align: center !important;
+}
+
+/* 
+ * Truncate text
+ * requires inline-block or block
+ */
+.pkt-truncate-text {
+  @include typography.truncate-text();
+}

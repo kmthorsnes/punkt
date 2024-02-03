@@ -1,0 +1,50 @@
+---
+title: Ikoner
+categoryName: ressurser
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { 'title': 'Beskrivelse', 'href': 'ressurser/ikoner' },
+    { 'title': 'Kode', 'href': 'ressurser/ikoner/kode' },
+  ]
+priority: 5
+---
+
+import ListIcons from "@components/ListIcons.vue";
+
+<p class="ingress">
+Dette er en fullstendig oversikt over alle SVG-ikonene, gruppert etter kategoriene som er brukt i Figma. SVG-ikonene er tilrettelagt og optimalisert for bruk.
+</p>
+
+## Piler
+
+<ListIcons category="arrows" client:load></ListIcons>
+
+## Tilbakemelding
+
+<ListIcons category="feedback" client:load></ListIcons>
+
+## Pluss og minus
+
+<ListIcons category="plusminus" client:load></ListIcons>
+
+## UI
+
+<ListIcons category="ui" client:load></ListIcons>
+
+## Sosialt
+
+<ListIcons category="social" client:load></ListIcons>
+
+## Tjenester
+
+<ListIcons category="services" client:load></ListIcons>
+
+## Sign
+
+<ListIcons category="sign" client:load></ListIcons>
+
+## Mennesker og helse
+
+<ListIcons category="people-and-health" client:load></ListIcons>
+

@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PktHeader snapshot renders correctly with all props 1`] = `
+<div>
+  <header
+    aria-label="Topp"
+    class="pkt-header pkt-header--fixed pkt-header--scroll-to-hide"
+    data-testid="pkt-header"
+    id="pkt-header"
+  >
+    <div
+      class="pkt-header__logo"
+    >
+      <a
+        aria-label="Tilbake til forside"
+        class="pkt-header__logo-link"
+        href="https://www.oslo.kommune.no/"
+      />
+      <span
+        class="pkt-header__logo-service"
+      />
+    </div>
+    <nav
+      class="pkt-header__actions"
+    >
+      <ul
+        class="pkt-header__actions-row"
+      >
+        <li
+          class="pkt-header--has-dropdown "
+          data-testid="usermenu"
+        >
+          <button
+            aria-controls="pktUserDropdown"
+            aria-expanded="false"
+            class="pkt-header__user-btn pkt-btn pkt-btn--secondary pkt-btn--icons-right-and-left"
+            role="button"
+            type="button"
+          >
+            <span
+              class="pkt-header__user-fullname"
+            >
+              Org Name
+            </span>
+            <span
+              class="pkt-header__user-shortname"
+            >
+              ON
+            </span>
+          </button>
+          <ul
+            class="pkt-header__dropdown pkt-user-menu"
+            id="pktUserDropdown"
+          >
+            <li>
+              <div
+                class="pkt-user-menu__label"
+              >
+                Pålogget som
+              </div>
+              <div
+                class="pkt-user-menu__name"
+              >
+                John Doe
+              </div>
+              <div
+                class="pkt-user-menu__last-logged-in"
+              >
+                Sist pålogget: 
+                <time>
+                  2023-08-20T12:34:56Z
+                </time>
+              </div>
+            </li>
+            <li>
+              <ul
+                class="pkt-list"
+              >
+                <li>
+                  <a
+                    class="pkt-link"
+                    href="/profile"
+                  >
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="pkt-link"
+                    href="/settings"
+                  >
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div
+                class="pkt-user-menu__label"
+              >
+                Representerer
+              </div>
+              <div
+                class="pkt-user-menu__name"
+              >
+                Org Name
+              </div>
+              <div
+                class="pkt-user-menu__org-number"
+              >
+                Org.nr. 
+                123456789
+              </div>
+              <ul
+                class="pkt-list mt-size-16"
+              >
+                <li>
+                  <button
+                    class="pkt-link-button pkt-link"
+                  >
+                    Endre organisasjon
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul
+                class="pkt-list"
+              >
+                <li>
+                  <button
+                    class="pkt-link-button pkt-link"
+                  >
+                    Logg ut
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="footer"
+            >
+              <ul
+                class="pkt-list-horizontal bordered"
+              >
+                <li>
+                  <a
+                    class="pkt-link"
+                    href="/help"
+                  >
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+`;

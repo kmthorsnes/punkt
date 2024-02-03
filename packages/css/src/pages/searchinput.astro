@@ -1,0 +1,435 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - SearchInput">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>SearchInput</h1>
+    <section class="component">
+      <form class="pkt-searchinput pkt-searchinput--global">
+        <label for="search-global" role="search" class="pkt-inputwrapper__label"
+          >Søk etter noe
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-global"
+              id="search-global"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form
+        class="pkt-searchinput pkt-searchinput--global pkt-searchinput--fullwidth"
+      >
+        <label
+          for="search-global-fullwidth"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk etter noe (full bredde)
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-global-fullwidth"
+              id="search-global-fullwidth"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input pkt-input--fullwidth"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe (full bredde)</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--global">
+        <label
+          for="search-global-disabled"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >deaktivert søk
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-global-disabled"
+              id="search-global-disabled"
+              placeholder="Søk…"
+              disabled="disabled"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              disabled="disabled"
+              class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">deaktivert søk</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--global">
+        <label
+          for="search-global-results"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk med søkeforslag (Skriv noe)
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-global-results"
+              id="search-global-results"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+              onfocus="document.querySelector('#nosuggestions').classList.toggle('pkt-hide', true)"
+              oninput="document.querySelector('#suggestions').classList.toggle('pkt-hide', !this.value)"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk med søkeforslag (Skriv noe)</span
+              >
+            </button>
+          </div>
+        </label>
+        <ul class="pkt-searchinput__suggestions pkt-hide" id="suggestions">
+          <li>
+            <a
+              href="https://oslo.kommune.no"
+              class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 1
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></a
+            >
+          </li><li>
+            <a
+              href="https://oslo.kommune.no"
+              class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 2
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></a
+            >
+          </li><li>
+            <a
+              href="https://oslo.kommune.no"
+              class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 3
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></a
+            >
+          </li><li>
+            <a
+              href="https://oslo.kommune.no"
+              class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 4
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></a
+            >
+          </li><li>
+            <a
+              href="https://oslo.kommune.no"
+              class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 5
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></a
+            >
+          </li><li>
+            <button
+              type="button"
+              class="pkt-link-button pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+              ><h3 class="pkt-searchinput__suggestion-title">
+                Tittel på søkeresultatet 6 med funksjon
+              </h3><p class="pkt-searchinput__suggestion-text">
+                Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+                nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+              </p></button
+            >
+          </li>
+        </ul>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--global">
+        <label
+          for="search-global-noresults"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk med ingen resultater (Skriv noe)<div
+            class="pkt-searchinput__field"
+          >
+            <input
+              type="search"
+              name="search-global-noresults"
+              id="search-global-noresults"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+              onfocus="document.querySelector('#suggestions').classList.toggle('pkt-hide', true)"
+              oninput="document.querySelector('#nosuggestions').classList.toggle('pkt-hide', !this.value)"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text"
+                >Søk med ingen resultater (Skriv noe)</span
+              >
+            </button>
+          </div>
+        </label>
+        <ul class="pkt-searchinput__suggestions pkt-hide" id="nosuggestions">
+          <li>
+            <div class="pkt-searchinput__suggestion">
+              <p class="pkt-searchinput__suggestion-text">Ingen resultater</p>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </section><section class="component">
+      <form class="pkt-searchinput pkt-searchinput--local-with-button">
+        <label
+          for="search-local-with-button"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk etter noe
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-local-with-button"
+              id="search-local-with-button"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form
+        class="pkt-searchinput pkt-searchinput--local-with-button pkt-searchinput--fullwidth"
+      >
+        <label
+          for="search-local-with-button-fullwidth"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk etter noe (full bredde)
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-local-with-button-fullwidth"
+              id="search-local-with-button-fullwidth"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input pkt-input--fullwidth"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe (full bredde)</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--local-with-button">
+        <label
+          for="search-local-with-button-disabled"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >deaktivert søk
+          <div class="pkt-searchinput__field">
+            <input
+              type="search"
+              name="search-local-with-button-disabled"
+              id="search-local-with-button-disabled"
+              placeholder="Søk…"
+              disabled="disabled"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              disabled="disabled"
+              class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">deaktivert søk</span>
+            </button>
+          </div>
+        </label>
+      </form>
+    </section><section class="component">
+      <form class="pkt-searchinput pkt-searchinput--local">
+        <label for="search-local" role="search" class="pkt-inputwrapper__label"
+          >Søk etter noe<div class="pkt-input__container">
+            <input
+              type="search"
+              name="search-local"
+              id="search-local"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form
+        class="pkt-searchinput pkt-searchinput--local pkt-searchinput--fullwidth"
+      >
+        <label
+          for="search-local-fullwidth"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk etter noe (full bredde)<div class="pkt-input__container">
+            <input
+              type="search"
+              name="search-local-fullwidth"
+              id="search-local-fullwidth"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input pkt-input--fullwidth"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk etter noe (full bredde)</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--local">
+        <label
+          for="search-local-disabled"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >deaktivert søk<div class="pkt-input__container">
+            <input
+              type="search"
+              name="search-local-disabled"
+              id="search-local-disabled"
+              placeholder="Søk…"
+              disabled="disabled"
+              autocomplete="off"
+              class="pkt-input"
+            />
+            <button
+              type="submit"
+              disabled="disabled"
+              class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">deaktivert søk</span>
+            </button>
+          </div>
+        </label>
+      </form>
+      <form class="pkt-searchinput pkt-searchinput--local">
+        <label
+          for="search-local-noresults"
+          role="search"
+          class="pkt-inputwrapper__label"
+          >Søk med ingen resultater (Allerede åpen)<div
+            class="pkt-input__container"
+          >
+            <input
+              type="search"
+              name="search-local-noresults"
+              id="search-local-noresults"
+              placeholder="Søk…"
+              autocomplete="off"
+              class="pkt-input"
+              value="Her er ingenting"
+            />
+            <button
+              type="submit"
+              class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+              ><span class="pkt-icon pkt-btn__icon"
+                ><svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              ><span class="pkt-btn__text">Søk med ingen resultater</span>
+            </button>
+          </div>
+        </label>
+        <ul class="pkt-searchinput__suggestions">
+          <li>
+            <div class="pkt-searchinput__suggestion">
+              <p class="pkt-searchinput__suggestion-text">Ingen resultater</p>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </section>
+  </main>
+</Layout>

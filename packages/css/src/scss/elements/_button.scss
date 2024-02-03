@@ -1,0 +1,522 @@
+/* Button element!
+ *
+ * Size: small, medium, large
+ * Skin: primary, secondary, tertiary
+ * State: normal, focus, hover, active, disabled
+ * Variant: label-only, icon-left, icon-right, icon-only
+ * Background: light, dark
+ */
+
+@use 'sass:map';
+@use 'sass:selector';
+@use '../abstracts/variables';
+@use '../abstracts/placeholders';
+@use '../abstracts/mixins/typography';
+
+$-module-name: 'pkt-btn';
+$-sizes: (
+  'small': (
+    'text-class': 'pkt-txt-14-medium',
+    'padding': 0 0.5rem,
+    'padding-icon-only': 0 0.5625rem,
+    'icon-size': 1.25rem,
+    'height': 2.625rem,
+    'line-height': 1.1,
+  ),
+  'medium': (
+    'text-class': 'pkt-txt-18-medium',
+    'padding': 0 1rem,
+    'padding-icon-only': 0 0.625rem,
+    'icon-size': 1.5rem,
+    'height': 3rem,
+    'line-height': 1.1,
+  ),
+  'large': (
+    'text-class': 'pkt-txt-24-medium',
+    'padding': 0 1rem,
+    'padding-icon-only': 0 0.875rem,
+    'icon-size': 2rem,
+    'height': 4rem,
+    'line-height': 1.1,
+  ),
+);
+
+$-skins: (
+  'primary': (
+    'light': (
+      'button-background-normal': --pkt-color-brand-dark-blue-1000,
+      'button-border-normal': --pkt-color-brand-dark-blue-1000,
+      'button-text-normal': --pkt-color-brand-neutrals-white,
+      'button-background-focus': --pkt-color-brand-warm-blue-1000,
+      'button-border-focus': --pkt-color-brand-warm-blue-1000,
+      'button-text-focus': --pkt-color-brand-neutrals-white,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-background-hover': --pkt-color-brand-warm-blue-1000,
+      'button-border-hover': --pkt-color-brand-warm-blue-1000,
+      'button-text-hover': --pkt-color-brand-neutrals-white,
+      'button-background-active': --pkt-color-brand-warm-blue-1000,
+      'button-border-active': --pkt-color-brand-warm-blue-1000,
+      'button-text-active': --pkt-color-brand-neutrals-white,
+      'button-background-disabled': --pkt-color-brand-neutrals-100,
+      'button-border-disabled': --pkt-color-brand-neutrals-100,
+      'button-text-disabled': --pkt-color-grays-gray-500,
+    ),
+    'dark': (
+      'button-background-normal': --pkt-color-brand-blue-500,
+      'button-border-normal': --pkt-color-brand-blue-500,
+      'button-text-normal': --pkt-color-brand-dark-blue-1000,
+      'button-background-focus': --pkt-color-brand-blue-1000,
+      'button-border-focus': --pkt-color-brand-blue-1000,
+      'button-text-focus': --pkt-color-brand-dark-blue-1000,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-background-hover': --pkt-color-brand-blue-1000,
+      'button-border-hover': --pkt-color-brand-blue-1000,
+      'button-text-hover': --pkt-color-brand-dark-blue-1000,
+      'button-background-active': --pkt-color-brand-blue-1000,
+      'button-border-active': --pkt-color-brand-blue-1000,
+      'button-text-active': --pkt-color-brand-dark-blue-1000,
+      'button-background-disabled': --pkt-color-brand-neutrals-100,
+      'button-border-disabled': --pkt-color-brand-neutrals-100,
+      'button-text-disabled': --pkt-color-grays-gray-600,
+    ),
+  ),
+  'secondary': (
+    'light': (
+      'button-background-normal': --pkt-color-brand-neutrals-transparent,
+      'button-border-normal': --pkt-color-brand-dark-blue-1000,
+      'button-text-normal': --pkt-color-brand-dark-blue-1000,
+      'button-background-focus': --pkt-color-brand-warm-blue-1000,
+      'button-border-focus': --pkt-color-brand-warm-blue-1000,
+      'button-text-focus': --pkt-color-brand-neutrals-white,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-background-hover': --pkt-color-brand-warm-blue-1000,
+      'button-border-hover': --pkt-color-brand-warm-blue-1000,
+      'button-text-hover': --pkt-color-brand-neutrals-white,
+      'button-background-active': --pkt-color-brand-warm-blue-1000,
+      'button-border-active': --pkt-color-brand-warm-blue-1000,
+      'button-text-active': --pkt-color-brand-neutrals-white,
+      'button-background-disabled': --pkt-color-brand-neutrals-100,
+      'button-border-disabled': --pkt-color-brand-neutrals-100,
+      'button-text-disabled': --pkt-color-grays-gray-600,
+    ),
+    'dark': (
+      'button-background-normal': --pkt-color-brand-neutrals-transparent,
+      'button-border-normal': --pkt-color-brand-neutrals-white,
+      'button-text-normal': --pkt-color-brand-neutrals-white,
+      'button-background-focus': --pkt-color-brand-blue-500,
+      'button-border-focus': --pkt-color-brand-blue-500,
+      'button-text-focus': --pkt-color-brand-dark-blue-1000,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-background-hover': --pkt-color-brand-blue-500,
+      'button-border-hover': --pkt-color-brand-blue-500,
+      'button-text-hover': --pkt-color-brand-dark-blue-1000,
+      'button-background-active': --pkt-color-brand-blue-500,
+      'button-border-active': --pkt-color-brand-blue-500,
+      'button-text-active': --pkt-color-brand-dark-blue-1000,
+      'button-background-disabled': --pkt-color-grays-gray-100,
+      'button-border-disabled': --pkt-color-grays-gray-100,
+      'button-text-disabled': --pkt-color-grays-gray-600,
+    ),
+  ),
+  'tertiary': (
+    'light': (
+      'button-background-normal': --pkt-color-brand-neutrals-transparent,
+      'button-border-normal': --pkt-color-brand-neutrals-transparent,
+      'button-text-normal': --pkt-color-brand-dark-blue-1000,
+      'button-background-focus': --pkt-color-brand-neutrals-200,
+      'button-border-focus': --pkt-color-brand-warm-blue-1000,
+      'button-text-focus': --pkt-color-brand-warm-blue-1000,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-background-hover': --pkt-color-brand-neutrals-200,
+      'button-border-hover': --pkt-color-brand-neutrals-200,
+      'button-text-hover': --pkt-color-brand-warm-blue-1000,
+      'button-background-active': --pkt-color-brand-warm-blue-1000,
+      'button-border-active': --pkt-color-brand-warm-blue-1000,
+      'button-text-active': --pkt-color-brand-neutrals-white,
+      'button-background-disabled': --pkt-color-brand-neutrals-100,
+      'button-border-disabled': --pkt-color-brand-neutrals-100,
+      'button-text-disabled': --pkt-color-grays-gray-600,
+    ),
+    'dark': (
+      'button-background-normal': --pkt-color-brand-neutrals-transparent,
+      'button-border-normal': --pkt-color-brand-neutrals-transparent,
+      'button-text-normal': --pkt-color-brand-neutrals-white,
+      'button-background-focus': --pkt-color-brand-dark-blue-700,
+      'button-border-focus': --pkt-color-brand-dark-blue-700,
+      'border-states-focus': --pkt-color-brand-purple-1000,
+      'button-text-focus': --pkt-color-brand-neutrals-white,
+      'button-background-hover': --pkt-color-brand-dark-blue-700,
+      'button-border-hover': --pkt-color-brand-dark-blue-700,
+      'button-text-hover': --pkt-color-brand-neutrals-white,
+      'button-background-active': --pkt-color-brand-dark-blue-700,
+      'button-border-active': --pkt-color-brand-dark-blue-700,
+      'button-text-active': --pkt-color-brand-neutrals-white,
+      'button-background-disabled': --pkt-color-brand-neutrals-100,
+      'button-border-disabled': --pkt-color-brand-neutrals-100,
+      'button-text-disabled': --pkt-color-grays-gray-600,
+    ),
+  ),
+);
+
+@mixin -print-skin-as-css-vars($name, $o, $mode) {
+  @each $key, $value in $o {
+    // Only print primary skin and css vars that differ from primary
+    @if $name == 'primary' or $value !=map.get($-skins, 'primary', $mode, $key)
+    {
+      --pkt-color-#{$key}: var(#{$value});
+    }
+  }
+}
+
+@mixin -size($name, $o) {
+  @if $name ==medium {
+    @include typography.get-text(map.get($o, 'text-class'));
+    height: map.get($o, 'height');
+    line-height: map.get($o, 'line-height');
+    padding: map.get($o, 'padding');
+
+    &__icon {
+      height: map.get($o, 'icon-size');
+      margin: map.get($o, 'icon-margin');
+      width: map.get($o, 'icon-size');
+    }
+
+    // button variants (base)
+    &--label-only {
+      .#{$-module-name}__icon {
+        display: none;
+      }
+    }
+
+    &--icon-left {
+      flex-direction: row;
+    }
+
+    &--icon-right {
+      flex-direction: row-reverse;
+    }
+
+    &--icons-right-and-left {
+      flex-direction: row;
+    }
+
+    &--icon-only {
+      padding: map.get($o, 'padding-icon-only');
+
+      .#{$-module-name}__text {
+        @extend %sr-only;
+      }
+    }
+  } @else {
+    &--#{$name} {
+      @include typography.get-text(map.get($o, 'text-class'));
+      height: map.get($o, 'height');
+      line-height: map.get($o, 'line-height');
+      padding: map.get($o, 'padding');
+    }
+
+    &--#{$name} &__icon {
+      height: map.get($o, 'icon-size');
+      margin: map.get($o, 'icon-margin');
+      width: map.get($o, 'icon-size');
+    }
+
+    &--#{$name}.#{$-module-name}--icon-only {
+      padding: map.get($o, 'padding-icon-only');
+    }
+  }
+}
+
+@mixin -skin($name, $o) {
+  $css-skin: '';
+
+  @if $name !=primary {
+    $css-skin: --#{$name};
+  }
+
+  .#{$-module-name}#{$css-skin} {
+    @include -print-skin-as-css-vars(
+      $name,
+      map.get($-skins, $name, 'light'),
+      'light'
+    );
+  }
+
+  @at-root [data-mode='dark'] .#{$-module-name}#{$css-skin} {
+    @include -print-skin-as-css-vars(
+      $name,
+      map.get($-skins, $name, 'dark'),
+      'dark'
+    );
+
+    // Dark mode
+    &--green-dark {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-dark-green-1000
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-dark-green-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--green-dark-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-dark-green-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--green {
+      --pkt-color-button-background-normal: var(--pkt-color-brand-green-1000);
+      --pkt-color-button-border-normal: var(--pkt-color-brand-green-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &--green-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-green-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--blue {
+      --pkt-color-button-background-normal: var(--pkt-color-brand-blue-1000);
+      --pkt-color-button-border-normal: var(--pkt-color-brand-blue-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &--blue-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-blue-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--beige-light {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-light-beige-1000
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-light-beige-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &--beige-dark-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-dark-beige-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--yellow {
+      --pkt-color-button-background-normal: var(--pkt-color-brand-yellow-1000);
+      --pkt-color-button-border-normal: var(--pkt-color-brand-yellow-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &--yellow-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-yellow-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+
+    &--red {
+      --pkt-color-button-background-normal: var(--pkt-color-brand-red-1000);
+      --pkt-color-button-border-normal: var(--pkt-color-brand-red-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &--red-outline {
+      --pkt-color-button-background-normal: var(
+        --pkt-color-brand-neutrals-transparent
+      );
+      --pkt-color-button-border-normal: var(--pkt-color-brand-red-1000);
+      --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+    }
+  }
+}
+
+// Print css vars for hvert skin
+@each $key, $value in $-skins {
+  @include -skin($key, map.get($value, 'light'));
+}
+
+// Selve knappe-klassen
+.#{$-module-name} {
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: normal;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: top;
+  background-color: var(--pkt-color-button-background-normal);
+  border: 2px solid var(--pkt-color-button-border-normal);
+  color: var(--pkt-color-button-text-normal);
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-align: left;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  &[class*='pkt-btn--icon'] > .pkt-btn__icon {
+    display: flex;
+  }
+
+  &__icon {
+    --fg-color: currentColor;
+    display: none;
+    flex-shrink: 0;
+  }
+
+  &:link,
+  &:visited {
+    color: var(--pkt-color-button-text-normal);
+  }
+
+  @at-root a.#{$-module-name}:focus,
+    &:enabled:focus,
+    &.#{$-module-name}--focus {
+    background-color: var(--pkt-color-button-background-focus);
+    color: var(--pkt-color-button-text-focus);
+    border-color: var(--pkt-color-button-border-focus);
+    outline: 4px solid var(--pkt-color-border-states-focus);
+    text-decoration: none;
+  }
+
+  @at-root a.#{$-module-name}:hover,
+    &:enabled:hover,
+    &.#{$-module-name}--hover {
+    background-color: var(--pkt-color-button-background-hover);
+    border-color: var(--pkt-color-button-border-hover);
+    color: var(--pkt-color-button-text-hover);
+    outline: 0;
+    text-decoration: underline;
+  }
+
+  @at-root a.#{$-module-name}:active,
+    &:enabled:active,
+    &.#{$-module-name}--active,
+    &.#{$-module-name}--active:hover {
+    background-color: var(--pkt-color-button-background-active);
+    border-color: var(--pkt-color-button-border-active);
+    color: var(--pkt-color-button-text-active);
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &:disabled {
+    background-color: var(--pkt-color-button-background-disabled);
+    border-color: var(--pkt-color-button-border-disabled);
+    color: var(--pkt-color-button-text-disabled);
+    cursor: inherit;
+  }
+
+  // button sizes & variants
+  @each $key, $value in $-sizes {
+    @include -size($key, $value);
+  }
+
+  // Til slutt: dette er okay å gjøre siden vi spesifiserer en synlig focus state
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  // button colors modifiers
+  &--green-dark {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-dark-green-1000
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-dark-green-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-neutrals-white);
+  }
+
+  &--green-dark-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-dark-green-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--green {
+    --pkt-color-button-background-normal: var(--pkt-color-brand-green-1000);
+    --pkt-color-button-border-normal: var(--pkt-color-brand-green-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--green-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-green-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--blue {
+    --pkt-color-button-background-normal: var(--pkt-color-brand-blue-1000);
+    --pkt-color-button-border-normal: var(--pkt-color-brand-blue-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--blue-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-blue-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--beige-light {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-light-beige-1000
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-light-beige-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--beige-dark-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-dark-beige-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--yellow {
+    --pkt-color-button-background-normal: var(--pkt-color-brand-yellow-1000);
+    --pkt-color-button-border-normal: var(--pkt-color-brand-yellow-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--yellow-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-yellow-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--red {
+    --pkt-color-button-background-normal: var(--pkt-color-brand-red-1000);
+    --pkt-color-button-border-normal: var(--pkt-color-brand-red-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--red-outline {
+    --pkt-color-button-background-normal: var(
+      --pkt-color-brand-neutrals-transparent
+    );
+    --pkt-color-button-border-normal: var(--pkt-color-brand-red-1000);
+    --pkt-color-button-text-normal: var(--pkt-color-brand-dark-blue-1000);
+  }
+}

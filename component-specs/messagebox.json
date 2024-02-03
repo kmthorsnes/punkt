@@ -1,0 +1,11 @@
+{
+  "name": "pkt-messagebox",
+  "css-class": "pkt-messagebox",
+  "props": {
+    "skin": ["beige", "blue", "red", "green"],
+    "title": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

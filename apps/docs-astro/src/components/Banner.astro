@@ -1,0 +1,74 @@
+---
+import { Frontmatter } from "src/config";
+
+export interface Props {
+  frontmatter?: Frontmatter;
+  frontpage?: boolean;
+}
+
+const { frontpage, frontmatter } = Astro.props;
+---
+
+<section class="article-banner py-size-40">
+  {
+    frontpage ? (
+      <div>
+        <h1 class="m-size-0">
+          <span class="banner__logo sr-only">{frontmatter.title}</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 87 19"
+            class="banner__svg"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.07 0C4.06 0 0 4.06 0 9.07C0 14.08 4.06 18.14 9.07 18.14C14.08 18.14 18.14 14.08 18.14 9.07C18.14 4.06 14.07 0 9.07 0ZM9.07 13.07C6.86 13.07 5.07 11.28 5.07 9.07C5.07 6.86 6.86 5.07 9.07 5.07C11.28 5.07 13.07 6.86 13.07 9.07C13.07 11.28 11.28 13.07 9.07 13.07Z"
+              fill="#2A2859"
+            />
+            <path
+              d="M37.74 5.64C37.74 8.95 35.29 11.21 31.43 11.21H27.9V17.76H25.76V0H31.57C35.41 0 37.74 2.31 37.74 5.64ZM35.53 5.66C35.53 3.28 34.16 1.94 31.64 1.94H27.9V9.31H31.64C34.16 9.31 35.53 8.02 35.53 5.66Z"
+              fill="#2A2859"
+            />
+            <path
+              d="M49.7401 5.05004V17.77H47.6701V15.85C46.9001 17.22 45.5601 17.96 44.0001 17.96C41.4601 17.96 39.9401 16.33 39.9401 13.57V5.04004H42.0101V13.33C42.0101 15.23 42.9701 16.16 44.6201 16.16C46.7101 16.16 47.6701 14.55 47.6701 12.06V5.05004H49.7401Z"
+              fill="#2A2859"
+            />
+            <path
+              d="M62.99 9.24992V17.7699H60.92V9.55992C60.92 7.46992 59.96 6.64992 58.31 6.64992C56.22 6.64992 55.21 8.20992 55.21 10.7099V17.7699H53.14V5.04992H55.21V6.94992C56.03 5.57992 57.35 4.80992 58.91 4.81992C61.48 4.81992 62.99 6.42992 62.99 9.25992V9.24992Z"
+              fill="#2A2859"
+            />
+            <path
+              d="M69.99 11.65L68.48 13.14V17.77H66.41V0H68.48V10.76L74.17 5.05H76.79L71.39 10.31L76.88 17.78H74.36L69.99 11.66V11.65Z"
+              fill="#2A2859"
+            />
+            <path
+              d="M83.9101 16.19C84.6501 16.19 85.1801 15.9 85.7601 15.3L86.7401 16.57C85.8501 17.55 84.8701 17.96 83.6401 17.96C81.7201 17.96 80.1401 16.74 80.1401 14.34V6.70996H77.8101V5.04996H80.1401V2.26996L82.2101 1.20996V5.04996H86.4801V6.70996H82.2101V14.29C82.2101 15.75 83.1001 16.19 83.9101 16.19Z"
+              fill="#2A2859"
+            />
+          </svg>
+        </h1>
+        <p class="banner__description">{frontmatter.description}</p>
+      </div>
+    ) : (
+      <h1>{frontmatter.title}</h1>
+    )
+  }
+</section>
+<style lang="scss">
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/variables";
+  @use "@pkt/scss/abstracts/functions";
+  @use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+
+  $bg-logo: url("data:image/svg+xml,%3Csvg viewBox='0 0 613 613' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M306.5 613C475.775 613 613 475.775 613 306.5C613 137.225 475.775 0 306.5 0C137.225 0 0 137.225 0 306.5C0 475.775 137.225 613 306.5 613ZM306.5 440.54C380.528 440.54 440.54 380.528 440.54 306.5C440.54 232.471 380.528 172.459 306.5 172.459C232.471 172.459 172.459 232.471 172.459 306.5C172.459 380.528 232.471 440.54 306.5 440.54Z' fill='%2391efff'/%3E%3C/svg%3E");
+
+  .article-banner {
+    &__description {
+      font-size: clamp(1.25rem, calc(1.25rem + 1vw), 2.25rem);
+      line-height: 1.5em;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,0 +1,69 @@
+name: Docs - manual deploy
+
+on: workflow_dispatch
+
+env:
+  COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
+  BRANCH_NAME: "${{ github.ref_name }}"
+  BUILD_FOLDER: "${{ github.ref_name }}"
+
+jobs:
+  publish:
+    name: Deploy Punkt-docs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: If main branch use version as build folder
+        if: env.BRANCH_NAME == 'main'
+        run: |
+          node ./scripts/build-set-majorminor-version.js
+          echo "BUILD_FOLDER=$(jq -r .majorMinor ./temp/version.json)" >> $GITHUB_ENV
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Generate docs for /${{ env.BUILD_FOLDER }}
+        run: |
+          npx lerna run build --scope=@oslokommune/punkt-docs -- --base='/${{ env.BUILD_FOLDER }}'
+          npx lerna run postbuild-fix-astro-paths --scope=@oslokommune/punkt-docs -- base='${{ env.BUILD_FOLDER }}'
+
+      - name: Deploy files for the website to /${{ env.BUILD_FOLDER }}
+        run: |
+          aws s3 sync ./apps/docs-astro/dist s3://${{ secrets.AWS_S3_PUNKT_WEBSITE }}/${{ env.BUILD_FOLDER }} --delete --cache-control 'max-age=86400'
+
+      - name: Generate docs for /latest
+        run: |
+          npx lerna run build --scope=@oslokommune/punkt-docs -- --base='latest'
+          npx lerna run postbuild-fix-astro-paths --scope=@oslokommune/punkt-docs -- base='latest'
+
+      - name: Deploy files for the website to /latest
+        run: |
+          aws s3 sync ./apps/docs-astro/dist s3://${{ secrets.AWS_S3_PUNKT_WEBSITE }}/latest --delete --cache-control 'max-age=300'
+
+      - name: Invalidate cloudfront cache for prod server
+        run: |
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_DOCS_APP }} --paths "/${{ env.BUILD_FOLDER }}*"
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_DOCS_APP }} --paths "/latest"

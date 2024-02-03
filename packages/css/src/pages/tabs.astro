@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - Tabs">
+  <main class="page-main pkt-container pkt-container--tablet">
+    <h1>Tabs</h1>
+    <section class="component">
+      <h2>Funksjonelt eksempel med endring av innhold</h2>
+      <div class="pkt-tabs" id="PktTabs1">
+        <div class="pkt-tabs__list" role="tablist">
+          <a
+            id="tab-1"
+            class="pkt-tabs__link active"
+            href="#"
+            aria-selected="true"
+            aria-controls="panel-1"
+            role="tab">Tab 1</a
+          >
+          <a
+            id="tab-2"
+            class="pkt-tabs__link"
+            href="#"
+            role="tab"
+            aria-controls="panel-2"
+            aria-selected="false">Tab 2</a
+          >
+          <a
+            id="tab-3"
+            class="pkt-tabs__link"
+            href="#"
+            aria-selected="false"
+            aria-controls="panel-3"
+            role="tab">Tab 3</a
+          >
+          <button
+            id="tab-4"
+            type="button"
+            class="pkt-tabs__button pkt-link-button"
+            aria-selected="false"
+            aria-controls="panel-4"
+            role="tab">Tab 4</button
+          >
+          <a
+            id="tab-5"
+            class="pkt-tabs__link"
+            aria-selected="false"
+            role="tab"
+            aria-controls="panel-5"
+            href="#">Tab 5</a
+          >
+        </div>
+      </div>
+      <div class="pkt-tabpanels" id="PktTabs1Panels">
+        <div
+          id="panel-1"
+          class="p-size-20"
+          role="tabpanel"
+          aria-labelledby="tab-1"
+        >
+          One morning, when Gregor Samsa woke from troubled dreams, he found
+          himself transformed in his bed into a horrible vermin.
+        </div>
+        <div
+          id="panel-2"
+          class="p-size-20 pkt-hide"
+          role="tabpanel"
+          aria-labelledby="tab-2"
+        >
+          He lay on his armour-like back, and if he lifted his head a little he
+          could see his brown belly, slightly domed and divided by arches into
+          stiff sections.
+        </div>
+        <div
+          id="panel-3"
+          class="p-size-20 pkt-hide"
+          role="tabpanel"
+          aria-labelledby="tab-3"
+        >
+          The bedding was hardly able to cover it and seemed ready to slide off
+          any moment.
+        </div>
+        <div
+          id="panel-4"
+          class="p-size-20 pkt-hide"
+          role="tabpanel"
+          aria-labelledby="tab-4"
+        >
+          His many legs, pitifully thin compared with the size of the rest of
+          him, waved about helplessly as he looked.
+        </div>
+        <div
+          id="panel-5"
+          class="p-size-20 pkt-hide"
+          role="tabpanel"
+          aria-labelledby="tab-5"
+        >
+          "What‘s happened to me?" he thought. It wasn‘t a dream.
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Stylingeksempel med tags</h2>
+      <div class="pkt-tabs">
+        <div class="pkt-tabs__list" role="tablist">
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 1 <span class="pkt-tag pkt-tag--small pkt-tag--yellow"
+              >Tag</span
+            ></a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 2 <span class="pkt-tag pkt-tag--small pkt-tag--yellow"
+              >Tag</span
+            ></a
+          >
+          <a
+            class="pkt-tabs__link active"
+            aria-selected="true"
+            role="tab"
+            href="#"
+            >Tab 3 <span class="pkt-tag pkt-tag--small pkt-tag--yellow"
+              >Tag</span
+            ></a
+          >
+          <button
+            type="button"
+            class="pkt-tabs__button pkt-link-button"
+            aria-selected="false"
+            role="tab"
+            >Tab 4 <span class="pkt-tag pkt-tag--small pkt-tag--yellow"
+              >Tag</span
+            ></button
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 5 <span class="pkt-tag pkt-tag--small pkt-tag--yellow"
+              >Tag</span
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Stylingeksempel med ikoner</h2>
+      <div class="pkt-tabs">
+        <div class="pkt-tabs__list" role="tablist">
+          <a
+            class="pkt-tabs__link active"
+            aria-selected="true"
+            role="tab"
+            href="#"
+          >
+            <span class="pkt-icon pkt-icon--small">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            Tab 1
+          </a>
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#">
+            <span class="pkt-icon pkt-icon--small">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            Tab 2</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#">
+            <span class="pkt-icon pkt-icon--small">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            Tab 3
+          </a>
+          <button
+            type="button"
+            class="pkt-tabs__button pkt-link-button"
+            aria-selected="false"
+            role="tab"
+          >
+            <span class="pkt-icon pkt-icon--small">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            Tab 4
+          </button>
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#">
+            <span class="pkt-icon pkt-icon--small">
+              <svg viewBox="0 0 32 32">
+                <use href="#user"></use>
+              </svg>
+            </span>
+            Tab 5
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="component">
+      <h2>Stylingeksempel med sidescroll</h2>
+      <div class="pkt-tabs">
+        <div class="pkt-tabs__list" role="tablist">
+          <a
+            class="pkt-tabs__link active"
+            aria-selected="true"
+            role="tab"
+            href="#">Tab 1</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 2</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 3</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 4</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 5</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 6</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 7</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 8</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 9</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 10</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 11</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 12</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 13</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 14</a
+          >
+          <a class="pkt-tabs__link" aria-selected="false" role="tab" href="#"
+            >Tab 15</a
+          >
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import PktTabs from '../scripts/pkt-tabs.js'
+  const tabList1 = new PktTabs(
+    document.getElementById('PktTabs1'),
+    document.getElementById('PktTabs1Panels')
+  )
+  document.querySelectorAll('#PktTabs1 [role=tab]').forEach((tab, index) => {
+    tab.addEventListener('click', () => tabList1.setActiveByIndex(index))
+  })
+</script>

@@ -1,0 +1,37 @@
+{
+  "svgsprite": {
+    "files": [
+      "../assets/dist/logos/oslologo.svg",
+      "../assets/dist/icons/24h.svg",
+      "../assets/dist/icons/alert-error.svg",
+      "../assets/dist/icons/alert-information.svg",
+      "../assets/dist/icons/alert-success.svg",
+      "../assets/dist/icons/alert-warning.svg",
+      "../assets/dist/icons/check-big.svg",
+      "../assets/dist/icons/chevron-left.svg",
+      "../assets/dist/icons/chevron-right.svg",
+      "../assets/dist/icons/chevron-thin-down.svg",
+      "../assets/dist/icons/chevron-thin-left.svg",
+      "../assets/dist/icons/chevron-thin-right.svg",
+      "../assets/dist/icons/chevron-thin-up.svg",
+      "../assets/dist/icons/clock.svg",
+      "../assets/dist/icons/close.svg",
+      "../assets/dist/icons/cogwheel.svg",
+      "../assets/dist/icons/ecg-heart.svg",
+      "../assets/dist/icons/edit.svg",
+      "../assets/dist/icons/exit.svg",
+      "../assets/dist/icons/facebook.svg",
+      "../assets/dist/icons/heart.svg",
+      "../assets/dist/icons/house-heart.svg",
+      "../assets/dist/icons/menu.svg",
+      "../assets/dist/icons/plus-sign.svg",
+      "../assets/dist/icons/twitter.svg",
+      "../assets/dist/icons/user.svg",
+      "../assets/dist/icons/magnifying-glass-big.svg"
+    ],
+    "output": {
+      "fileType": "html",
+      "filePath": "./src/layouts/Layout.astro"
+    }
+  }
+}

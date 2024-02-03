@@ -1,0 +1,11 @@
+/* 
+ * Accessibility
+ * 
+ */
+
+@use '../abstracts/placeholders';
+
+// content available to screen readers only
+.pkt-sr-only {
+  @extend %sr-only;
+}

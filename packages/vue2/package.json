@@ -1,0 +1,68 @@
+{
+  "name": "@oslokommune/punkt-vue2",
+  "version": "11.4.1",
+  "description": "Vue2 komponentbibliotek til Punkt, et designsystem laget av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "files": [
+    "dist",
+    "src/components/**/*.vue",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
+  "main": "./dist/punkt-vue2-index.cjs",
+  "module": "./dist/punkt-vue2-index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/punkt-vue2-index.js",
+      "require": "./dist/punkt-vue2-index.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-app": "vite build --config vite.config-app.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@oslokommune/punkt-assets": "^11.0.0",
+    "@oslokommune/punkt-css": "^11.4.1",
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "edit-json-file": "^1.7.0",
+    "sass": "^1.63.6",
+    "vite": "^4.4.12",
+    "vue": "^2.7.14",
+    "vue-router": "^3.5.4"
+  },
+  "peerDependencies": {
+    "@oslokommune/punkt-assets": ">=3.1.0",
+    "@oslokommune/punkt-css": ">=3.1.0",
+    "vue": ">= 2.7.0 < 3.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "vue",
+    "vuejs",
+    "components",
+    "ux",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

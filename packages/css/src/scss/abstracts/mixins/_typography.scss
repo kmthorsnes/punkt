@@ -1,0 +1,36 @@
+// Typography mixins
+
+@use 'sass:map';
+@use '../variables';
+@use '../functions';
+@use '../mixins/breakpoints' as *;
+
+// Generate text-class from settings files
+@mixin generate-text-class($name, $style) {
+  .#{$name} {
+    font-size: map.get(variables.$font-size, map.get($style, 'size'));
+    font-weight: map.get(variables.$font-weight, map.get($style, 'weight'));
+    letter-spacing: map.get(variables.$letter-spacing,
+        map.get($style, 'letter-spacing'));
+    line-height: map.get(variables.$line-height,
+        map.get($style, 'line-height'));
+  }
+}
+
+// Fetch pkt get-text from settings files
+@mixin get-text($name) {
+  font-size: map.get(variables.$font-size,
+      functions.map-deep-get(variables.$pkt-styles, $name, 'size'));
+  font-weight: map.get(variables.$font-weight,
+      functions.map-deep-get(variables.$pkt-styles, $name, 'weight'));
+  letter-spacing: map.get(variables.$letter-spacing,
+      functions.map-deep-get(variables.$pkt-styles, $name, 'letter-spacing'));
+  line-height: map.get(variables.$line-height,
+      functions.map-deep-get(variables.$pkt-styles, $name, 'line-height'));
+}
+
+@mixin truncate-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

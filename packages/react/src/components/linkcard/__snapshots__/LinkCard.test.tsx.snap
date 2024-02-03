@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PktLinkCard snapshots renders correctly as fragment with props 1`] = `
+<DocumentFragment>
+  <a
+    class="pkt-linkcard pkt-link pkt-linkcard pkt-linkcard--normal"
+    href="/example"
+    target="_self"
+  >
+    <div
+      class="pkt-linkcard__content"
+    >
+      <div
+        class="pkt-linkcard__title "
+      >
+        Link title
+      </div>
+      <div
+        class="pkt-linkcard__text"
+      >
+        Link content
+      </div>
+    </div>
+  </a>
+</DocumentFragment>
+`;

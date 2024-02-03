@@ -1,0 +1,61 @@
+---
+title: Radiobuttons
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/radiobuttons" },
+    { "title": "Kode", "href": "komponenter/radiobuttons/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/radiobuttons/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Alle radioknappene må ha klare, konsise og unike etiketter. WCAG 2.1: 1.3.1 [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships), 2.4.6 [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- Unngå standardvalg: Forhåndsvalgte valg anses som en villedende praksis for alle brukere. Gå for at brukeren selv skal kunne ta et aktivt valg når du bruker radioknapper.
+- Alle tastaturinteraksjoner og ARIA-etiketter må oppfylle tilgjengelighetskriterier ([WAI-ARIA Checkbox Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox))
+- Bruk `fieldset` og `legend` (som inputwrapper tilbyr) ved grupper av radiobuttons
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Alle radioknappene har en klar, kortfattet og unik etikett
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Ingen av radioknappene har et satt standardvalg
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Brukeren kan tabbe seg gjennom radioknappene, og velge en av dem ved
+        hjelp av mellomromstasten
+      </label>
+    </div>
+  </div>
+</CodeExample>

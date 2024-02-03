@@ -1,0 +1,13 @@
+/* 
+ * Select component
+ *
+ * Denne blir stilsatt av .pkt-input
+ * Ikke bruk klassen .pkt-select 
+ */
+
+@use './input';
+
+.pkt-select select,
+.pkt-select:is(select) {
+  @extend .pkt-input;
+}

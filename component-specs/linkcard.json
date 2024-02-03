@@ -1,0 +1,25 @@
+{
+  "name": "pkt-linkcard",
+  "css-class": "pkt-linkcard",
+  "props": {
+    "skin": [
+      "normal",
+      "blue",
+      "beige",
+      "beige-outline",
+      "grey-outline"
+    ],
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "href": {
+      "type": "string",
+      "default": ""
+    },
+    "iconName": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

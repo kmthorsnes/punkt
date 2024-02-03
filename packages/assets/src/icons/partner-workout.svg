@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="partner-workout" fill="none" data-category="people-and-health" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" d="M10.746 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd" d="M3.25 19.667 4.326 6.75H15.25V3h-1v1h-2V0h2v1h4V0h2v4h-2V3h-1v4.586l1.093 1.093 2.564-1.929h6.675L28.75 21h-1l.034 11h-2l-.034-11h-2l.034 11h-2l-.034-11h-1l.093-8.195L16.85 15.8l-1.2-1.6 5.222-3.916.011-1.013-2.726 2.05-2.571-2.571H12.25v10h-1L11.284 32h-2L9.25 18.75h-2L7.284 32h-2L5.25 18.75h-.002v1.021l-.005.062-1.993-.166ZM22.749 19v-7.625L25.785 9.1l.965 9.9h-4ZM5.5 16.75l.667-8h4.083v8H5.5Z" clip-rule="evenodd"/>
+  <path fill="var(--fg-color, #2A2859)" d="M26.75 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+</svg>

@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - forside">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Text area</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Text area
+          <textarea
+            class="pkt-input"
+            id="exampleInputText1"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1wider"
+          >Text area med overstyrt bredde og høyde (rows og cols)
+          <textarea
+            class="pkt-input"
+            id="exampleInputText1wider"
+            cols="100"
+            rows="25"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Text area inline
+          <textarea
+            class="pkt-input"
+            id="exampleInputText1"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Text area inline med en ekstra lang label som blir bredere enn feltet
+          <textarea
+            class="pkt-input"
+            id="exampleInputText1"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label
+          class="pkt-inputwrapper__label"
+          for="exampleInputText2"
+          id="labelledby"
+          >Text area med hjelpetekst
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <textarea
+            class="pkt-input"
+            id="exampleInputText2"
+            placeholder="Plassholder"></textarea>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText3"
+          ><span
+            >Text area med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <textarea
+            class="pkt-input"
+            id="exampleInputText3"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText45"
+          ><span
+            >Text area med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+              >Må fylles ut</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <textarea
+            class="pkt-input"
+            id="exampleInputText45"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper__helptext mb-size-24">
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Text area med åpen expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-up"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <textarea
+          class="pkt-input"
+          id="exampleInputText33"
+          placeholder="Plassholder"></textarea>
+      </div>
+
+      <div
+        class="pkt-inputwrapper pkt-inputwrapper__helptext pkt-texinput__helptext-expandable mb-size-24"
+      >
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Text area med lukket expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+
+        <div class="pkt-inputwrapper__helptext-expandable-closed">Lukket</div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <textarea
+          class="pkt-input"
+          id="exampleInputText34"
+          placeholder="Plassholder"></textarea>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Text area med counter
+          <textarea
+            class="pkt-input"
+            id="exampleInputText1"
+            placeholder="Plassholder"></textarea>
+          <div class="pkt-input__counter" aria-live="polite">24/100</div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper--error mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Text area med counter og for mange tegn
+          <textarea
+            class="pkt-input pkt-input--counter-error"
+            id="exampleInputText1"
+            placeholder="Plassholder"></textarea>
+          <div class="pkt-input__counter">128/100</div>
+        </label>
+      </div>
+    </section>
+
+    <h1>States</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText4"
+          >Text area focus
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <textarea
+            class="pkt-input pkt-input__textinput--focus"
+            id="exampleInputText4"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText6"
+          >Hover
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <textarea
+            class="pkt-input pkt-input--hover"
+            id="exampleInputText6"
+            placeholder="Plassholder"></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--disabled">
+        <label class="pkt-inputwrapper__label" for="exampleInputText7"
+          ><span
+            >Disabled<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <textarea
+            class="pkt-input"
+            id="exampleInputText7"
+            placeholder="Plassholder"
+            disabled></textarea></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText8"
+          ><span
+            >Error<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <textarea
+            class="pkt-input"
+            id="exampleInputText8"
+            placeholder="Plassholder"></textarea>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

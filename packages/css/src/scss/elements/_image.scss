@@ -1,0 +1,32 @@
+/* 
+ * Image elements
+ */
+
+/*
+DEBATE:
+CSS reset in minside-frontend sets all images to be fluid by default. However, this breaks
+a lot of third-party widgets like Google Maps, as they are not expecting the images within themselves
+to be resized from the outside.
+
+Therefore, this is removed from the reset here, and images who need to be fluid need a class for it.
+*/
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-round {
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+//
+// Figure
+//
+
+.figure {
+  // Ensures the caption-text aligns with image.
+  display: inline-block;
+}

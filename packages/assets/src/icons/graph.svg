@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="graph" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M29 8V1h-7v2h3.596l-8.212 8.21-8.63-8.75-5.581 5.583 1.414 1.414L8.745 5.3l8.63 8.75L27 4.424V8h2Z" />
+    <path fill-rule="evenodd"
+      d="M10.27 13H3.1v16H1v2h30v-2h-2.11V14h-7.17v15h-2.14V18h-7.17v11h-2.14V13Zm13.45 16h3.17V16h-3.17v13Zm-6.14-9v9h-3.17v-9h3.17Zm-9.31 9V15H5.1v14h3.17Z"
+      clip-rule="evenodd" />
+  </g>
+</svg>

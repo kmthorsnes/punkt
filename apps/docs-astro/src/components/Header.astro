@@ -1,0 +1,339 @@
+---
+import AllVersions from "./AllVersions.astro";
+import VersionDropdown from "./VersionDropdown.astro";
+
+export interface Props {
+  path?: string;
+  links?: Array<{
+    title: string;
+    href: string;
+    matchFromTopFolder: boolean;
+  }>;
+  fixed?: boolean;
+  transparent?: boolean;
+}
+
+const { path = "", links, fixed, transparent } = Astro.props;
+const currentPath = path;
+const BASE_URL = import.meta.env.BASE_URL;
+
+function isActive(path, matchFromTopFolder, currentPath) {
+  let isActive = false;
+
+  if (matchFromTopFolder) {
+    const split = path.split("/");
+    const folder = BASE_URL === "/" ? split[1] : split[2];
+    if (currentPath.includes(`/${folder}/`)) {
+      isActive = true;
+    }
+  } else {
+    if (currentPath.includes(path)) {
+      isActive = true;
+    }
+  }
+
+  return isActive;
+}
+---
+
+<header
+  id="pkt-header-docs"
+  class="pkt-header-docs"
+  class:list={[
+    { "pkt-header-docs--fixed": fixed },
+    { "pkt-header-docs--transparent": transparent },
+  ]}
+>
+  <div class="pkt-header-docs__logo">
+    <a
+      aria-label="Tilbake til Punkt forside"
+      class="pkt-header-docs__logo-link"
+      href={BASE_URL}
+    >
+      <svg aria-hidden="true">
+        <use href="#oslologo"></use>
+      </svg>
+    </a>
+  </div>
+  {
+    links && (
+      <ul class="pkt-header-docs__links pkt-show-laptop-up">
+        {links.map((link) => (
+          <li>
+            <a
+              aria-label={link.title}
+              class:list={[
+                "",
+                {
+                  active: isActive(
+                    BASE_URL + link.href,
+                    link.matchFromTopFolder,
+                    currentPath
+                  ),
+                },
+              ]}
+              href={BASE_URL + link.href}
+            >
+              {link.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <!--Social -->
+  <div class="pkt-header-docs__social pkt-show-tablet-up">
+    <a
+      aria-label="Punkt på Slack"
+      class="pkt-header-docs__social-link"
+      target="_blank"
+      href="https://oslokommune.slack.com/archives/C01EWV9U07R"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#slack"></use>
+      </svg>
+    </a>
+    <a
+      aria-label="Punkt på GitHub"
+      class="pkt-header-docs__social-link"
+      target="_blank"
+      href="https://github.com/oslokommune/punkt/"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#github"></use>
+      </svg>
+    </a>
+  </div>
+  <div class="pkt-header-docs__versions pkt-show-tablet-up">
+    <VersionDropdown />
+  </div>
+  <!--Mobile header-->
+  {
+    links && (
+      <div class="pkt-header-docs__burger pkt-hide-tablet-up">
+        <button
+          aria-label="Toggle menu"
+          class="pkt-header-docs__toggle pkt-header-docs__icon--close"
+        >
+          <svg
+            class="pkt-header-docs__icon"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <use href="#close" />
+          </svg>
+          <span class="pkt-sr-only">Toggle menu</span>
+        </button>
+        <button
+          class="pkt-header-docs__toggle pkt-header-docs__icon--menu"
+          aria-label="Vis meny"
+        >
+          <svg
+            class="pkt-header-docs__icon"
+            viewBox="0 0 32 32"
+            aria-hidden="true"
+          >
+            <use href="#menu" />
+          </svg>
+        </button>
+      </div>
+    )
+  }
+</header>
+<script is:inline>
+  // Mobile menu toggle
+  const body = document.querySelector("#pkt-body");
+  const header = document.querySelector("#pkt-header-docs");
+  const closeButton = document.querySelector(".pkt-header-docs__icon--close");
+  const menuButton = document.querySelector(".pkt-header-docs__icon--menu");
+  const burger = document.querySelector(".pkt-header-docs__burger");
+  let lastScrollPosition = 0;
+
+  if (burger) {
+    menuButton.addEventListener("click", () => {
+      body.classList.add("show-mobile-menu");
+      menuButton.style.display = "none";
+      closeButton.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", () => {
+      body.classList.remove("show-mobile-menu");
+      menuButton.style.display = "block";
+      closeButton.style.display = "none";
+    });
+  }
+
+  function onScroll() {
+    const currentScrollPosition =
+      window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScrollPosition < 0) {
+      return;
+    }
+    if (Math.abs(currentScrollPosition - lastScrollPosition) < 60) {
+      return;
+    }
+    header.classList.toggle(
+      "hidden",
+      currentScrollPosition > lastScrollPosition
+    );
+    lastScrollPosition = currentScrollPosition;
+  }
+
+  window.addEventListener("scroll", onScroll);
+</script>
+
+<style lang="scss">
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/variables";
+  @use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+  @use "@pkt/scss/abstracts/mixins/typography";
+
+  $-header-height: 45px;
+
+  .pkt-header-docs {
+    position: absolute;
+    width: 100%;
+    background-color: var(--pkt-color-brand-neutrals-white);
+    grid-area: header;
+    padding: map.get(variables.$spacing, "size-12")
+      map.get(variables.$spacing, "size-24");
+    display: grid;
+    grid-template-columns: 87px 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 0px;
+    grid-template-areas: "header-logo header-burger";
+    align-items: center;
+
+    @include bp("tablet-up") {
+      grid-template-columns: 87px 1fr auto;
+      grid-template-areas: "header-logo header-social header-versions";
+    }
+
+    @include bp("laptop-up") {
+      grid-template-columns: 87px 1fr auto auto;
+      grid-template-areas: "header-logo header-links header-social header-versions";
+    }
+
+    &--fixed {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      transform: translate3d(0, 0, 0);
+      transition: 0.5s transform ease-in-out;
+      &.hidden {
+        transform: translate3d(0, -100%, 0);
+      }
+    }
+    &--transparent {
+      background-color: var(--pkt-color-transparent) !important;
+      border-bottom: 0;
+    }
+    &__logo {
+      grid-area: header-logo;
+
+      &-link {
+        display: block;
+        height: $-header-height;
+
+        svg {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    &__links {
+      grid-area: header-links;
+      justify-self: flex-end;
+      margin: 0;
+
+      @include typography.get-text("pkt-txt-16-light");
+      & li {
+        display: inline-block;
+        text-decoration: none;
+      }
+      & a {
+        text-decoration: none;
+        margin-right: 1.5rem;
+      }
+      & a:visited {
+        color: var(--pkt-color-brand-dark-blue-1000);
+      }
+      & a:hover {
+        color: var(--pkt-color-brand-warm-blue-1000);
+        text-decoration: none;
+      }
+
+      & a.active {
+        cursor: auto;
+        @include typography.get-text("pkt-txt-16-medium");
+        text-decoration: underline;
+        text-underline-offset: 12px;
+        text-decoration-thickness: 2px;
+        text-decoration-color: var(--pkt-color-brand-blue-1000);
+        text-underline-offset: 4px;
+      }
+      & a.active:hover {
+        color: var(--pkt-color-brand-warm-blue-1000);
+      }
+    }
+    &__versions {
+      grid-area: header-versions;
+      justify-self: flex-end;
+    }
+
+    &__social {
+      grid-area: header-social;
+      justify-self: flex-end;
+
+      &-link {
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    &__burger {
+      grid-area: header-burger;
+      justify-self: end;
+    }
+
+    &__toggle {
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      height: 2rem;
+      justify-self: end;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+      width: 2rem;
+    }
+
+    &__icon {
+      --fg-color: var(--pkt-color-brand-dark-blue-1000);
+      height: 2rem;
+      margin: 0;
+      width: 2rem;
+
+      &--menu {
+        display: block;
+        --fg-color: var(--pkt-color-brand-dark-blue-1000);
+      }
+      &--close {
+        display: none;
+      }
+    }
+
+    @at-root .show-mobile-menu & {
+      background-color: var(--pkt-color-brand-neutrals-100);
+    }
+  }
+  body.show-mobile-menu {
+    overflow: hidden;
+    @include bp("laptop-up") {
+      overflow: auto;
+    }
+  }
+</style>

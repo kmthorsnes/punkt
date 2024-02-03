@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="minus-circle" fill="none" data-category="plusminus" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M16 3a13 13 0 1 1 0 26 13 13 0 0 1 0-26Zm0-2a15 15 0 1 0 0 30 15 15 0 0 0 0-30Z" />
+    <path d="M9 15h14v2h-14v-2Z" />
+  </g>
+</svg>

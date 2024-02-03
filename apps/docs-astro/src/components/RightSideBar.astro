@@ -1,0 +1,56 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props as Props;
+---
+
+<script>
+  const headings = document.querySelectorAll<HTMLElement>("article :is(h1,h2)");
+  const sideBarLi = document.querySelectorAll(".right-sidebar ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    headings.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - sectionHeight / 3 - 150) {
+        current = section.getAttribute("id");
+      }
+    });
+    sideBarLi.forEach((li) => {
+      li.classList.remove("active");
+      if (li.classList.contains(current)) {
+        li.classList.add("active");
+      }
+    });
+  });
+  
+  if (sideBarLi.length > 0) {
+    sideBarLi[0].classList.add("active");
+  }
+
+</script>
+
+{
+  headings.length >= 2 && (
+    <aside class="right-sidebar">
+      <h2>Innhold</h2>
+      <ul>
+        {headings
+          .filter(({ depth }) => depth <= 2)
+          .map((heading) => (
+            <li>
+              <a class={heading.slug} href={`#${heading.slug}`}>
+                {heading.text}
+              </a>
+            </li>
+          ))}
+      </ul>
+    </aside>
+  )
+}

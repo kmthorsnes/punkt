@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="feedback" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)"
+    d="m16 26.82-3.05-3.06H3V5h26v18.76h-9.9L16 26.82ZM5 21.76h8.78l2.23 2.23 2.26-2.23h8.71V7H5v14.76Z" />
+</svg>

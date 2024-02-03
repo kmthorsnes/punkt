@@ -1,0 +1,178 @@
+---
+title: Textarea
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textarea" },
+    { "title": "Kode", "href": "komponenter/textarea/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textarea/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import ImageWrapper from "@components/ImageWrapper.astro";
+import CodeExample from "@components/CodeExample.vue";
+import { PktTextarea } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Textarea (også kalt fritekstfelt) er et skjemaelement som lar brukeren skrive tekst over flere rader og skal brukes når man forventer at brukeren skal skrive inn en lengre tekst. Dersom du ønsker at brukeren skal fylle inn kortere tekst, burde Text input-komponenten tas i bruk.
+
+<CodeExample client:load>
+  <PktTextarea
+    id="exampleInputText1"
+    label="Dette er et langsvarfelt"
+    helptext="Under merkelappen til langsvarfeltet kan man skrive videre instruksjoner for utfylling av dette feltet"
+    placeholder="Plassholder"
+    client:load
+  />
+</CodeExample>
+
+## Varianter
+
+Vi har flere mulige variasjoner av fritekstfeltet. Det kan brukes helt enkelt med label og inputfelt, eller du kan legge til:
+
+- Valgfritt- eller obligatorisk-tag
+- Hjelpetekst
+- Ekspanderende hjelpetekst
+- Teller
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-0.svg"
+    alt="Alle varianter av textarea."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Farger
+
+Tekstfeltene skal alltid ha $brand-blue på kant og tekst. Det er ikke mulig å endre farge på tekstfeltet.
+
+## Slik bruker du komponenten
+
+### Label (etikett/ledetekst) og valgfritt/obligatorisk tag
+
+For å fungere godt bør tekstfeltet ha en kort og tydelig ledetekst (label) og det er mulig å legge til hjelpetekst om nødvendig.
+
+Når du skriver label kan det være greit å huske på at:
+
+- Man burde være konsis og konsistent slik at brukeren skjønner hva som forventes av hen
+- Om mulig: hold deg til 1-3 ord og under 20 bokstaver, inkludert mellomrom
+- Ikke bruk bare store eller bare små bokstaver
+- Ikke bruk kolon etter label
+
+Til høyre for label kan du velge å ha enten valgfritt-tag eller obligatorisk-tag. Bruk kun én av variantene i din tjeneste eller løsning for å unngå å forvirre brukeren. Vi anbefaler å markere de valgfrie feltene.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-1.svg"
+    alt="Textarea som er obligatorisk og valgfritt."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Teller (counter)
+
+Hvis du har begrensninger på antall tegn, kan du vise en teller for å hjelpe brukeren med å holde deg innenfor grensen. Dette er ikke en blokkering som forhindrer brukeren i å overstige grensen, men brukeren må få lov til å fullføre tankene sine før de redigerer teksten for å være innenfor grensen.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-2.svg"
+    alt="Textarea som viser telleren i aksjon."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Plassholdertekst
+
+Fritekstfeltet har mulighet for plassholdertekst, men unngå å bruke plassholdertekst med meningsbærende/viktig innhold. Den er nemlig ikke tilgjengelig for skjermlesere og kan skape forvirring for brukeren. Gå heller for ledetekst og/eller hjelpetekst.
+
+### Hjelpetekst
+
+Valgfri hjelpetekst er relevant informasjon som hjelper brukeren med å fylle ut feltet riktig. Det brukes for eksempel ofte til å forklare riktig dataformat.
+
+Når du skriver hjelpetekst, er det viktig at du:
+
+- Bruker store bokstaver i setningstil og skriver teksten i de fleste tilfeller som hele setninger.
+- Dersom du har veldig lang hjelpetekst eller har behov for å legge til lenker og lignende, bruk den ekspanderende hjelpeteksten.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-3.svg"
+    alt="Textarea med vanlig og ekspanderende hjelpetekst."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Størrelse
+
+Pass på at høyden på inputfeltet er proporsjonalt med mengden tekst du forventer at brukerne skal skrive inn.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-4.svg"
+    alt="Textarea der inputfeltet er riktig lengde, og et eksempel der det er for smalt."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Feilmelding og validering
+
+Hvis tekstfeltet ikke validerer, vil en feilmelding dukke opp under tekstfeltet som beskriver hva som er galt. Feilmeldingen har tre visuelle indikatorer: en rød ramme, et ikon og selve feilmeldingsteksten. Essensen av hjelpeteksten må også være inkludert i feilmeldingen. Les mer om hvordan du kan skrive en god feilmelding her (ks.no).
+
+I textarea har man også mulighet for validering på antall tegn. Dersom man går over antall tegn blir feltet farget i rødt og telleren viser hvor mange tegn man har gått over. Du kan selv velge hvor mange tegn som er maks.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-5.svg"
+    alt="Textarea med to ulike feilmeldinger."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Label/etikett
+2. Valgfritt-tag
+3. Obligatorisk-tag
+4. Hjelpetekst
+5. Ekspanderende hjelpetekst
+6. Inputfelt
+7. Plassholder-tekst
+8. Teller
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-6.svg"
+    alt="Textarea sin anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Ikke bruk textarea til kortsvarsinnhold
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-7.svg"
+    alt="Text area dos and donts"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Inputfeltet må bli dimensjonert proporsjonalt med mengden forventet innhold
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/textarea/textarea-8.svg"
+    alt="Text area dos and donts"
+    aria-hidden="true"
+  />
+</ImageWrapper>

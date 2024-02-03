@@ -1,0 +1,53 @@
+---
+title: Backlink
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/backlink" },
+    { "title": "Kode", "href": "komponenter/backlink/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/backlink/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Backlinken må alltid være tilgjengelig med skjermleser og tastaturnavigering
+- Lenketeksten skal være tydelig og formidler målet for lenken
+- Ikke bruk backlink til å erstatte hovednavigasjonen på siden
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Vi har testet at backlink er tilgjengelig med skjermleser og
+        tastaturnavigering.
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Vi har testet at lenketeksten tydelig formidler målet for lenken.
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [UUtilsynet om lenker](https://www.uutilsynet.no/veiledning/lenker/214)

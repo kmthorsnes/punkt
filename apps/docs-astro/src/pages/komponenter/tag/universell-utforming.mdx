@@ -1,0 +1,82 @@
+---
+title: Tag
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/tag" },
+    { "title": "Kode", "href": "komponenter/tag/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/tag/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Teksten bør inneholde kontekst, slik at det gir mening når det blir lest opp av skjermlesere
+- Fargen på tagen er ikke nok for å gi betydning for en tag, den vil ikke bli opplest av skjermlesere, og det er ikke tilstrekkelig med kun farge som indikasjon for de med svakt eller dårlig syn. Sørg for at informasjonen som er betegnet fargen også kommer tydelig frem i innholdet (via tekst og ikon). Du kan også legge til alternative hjelpemidler, som ekstra skjult tekst som kun leses av skjermleser.
+- Når tagen kan lukkes eller klikkes på får den rollen til en knapp og er fokuserbar.
+- Les mer om [UU for knapper](/komponenter/button/universell-utforming) her.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Tagen har tydelig og konsis tekst (max 2 ord)
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Tagen har tekst som refererer til konteksten den opptrer i
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Jeg bruker mer enn farge for å skille mellom tags
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox4"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox4">
+        Dersom tagen er klikkbar er den satt opp som knapp (og har dermed riktig
+        state)
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox5"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox5">
+        Hvis jeg bruker ikon i en tag, så inneholder den også en beskrivende
+        tekst
+      </label>
+    </div>
+  </div>
+</CodeExample>

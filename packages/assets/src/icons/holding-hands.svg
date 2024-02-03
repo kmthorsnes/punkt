@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="holding-hands" fill="none" data-category="people-and-health" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" d="M11.506 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm13.001.25a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd" d="M5.086 6.75 4.01 19.667l1.993.166.005-.062V32h2V18.75h2V32h2V18.75h1.002v-4.791l1.533 5.08 1.912.007 1.647-5.312-.091 9.016h1V32h2v-9.25h2V32h2v-9.25h1v-3.894l.013.072 1.966-.357L25.842 6.75h-7.67v.003l-2.66 8.578-2.586-8.575V6.75h-7.84Zm1.841 2-.667 8h4.75v-8H6.927Zm13.083 0h4v12h-4v-12Z" clip-rule="evenodd"/>
+</svg>

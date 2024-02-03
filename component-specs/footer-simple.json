@@ -1,0 +1,36 @@
+{
+  "name": "pkt-footer-simple",
+  "css-class": "pkt-footer-simple",
+  "props": {
+    "personvernOgInfoLink": {
+      "type": "string",
+      "description": "Link to personvern og info page"
+    },
+    "tilgjengelighetLink": {
+      "type": "string",
+      "description": "Link to tilgjengelighet page"
+    },
+    "links": {
+      "type": "array",
+      "description": "Array of links for the footer",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "URL for the link"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text for the link"
+          },
+          "external": {
+            "type": "boolean",
+            "description": "Whether the link is external"
+          }
+        },
+        "required": ["href", "text"]
+      }
+    }
+  }
+}

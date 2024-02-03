@@ -1,0 +1,278 @@
+---
+title: Alert
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/alert" },
+    { "title": "Kode", "href": "komponenter/alert/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/alert/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+Statusbeskjeder er ofte dynamisk informasjon, derfor må man ha med WAI-ARIA slik at hjelpemidler fanger opp beskjeden. Vi har en prop `ariaLive` på alert-komponenten som er satt til default `polite`. Du kan endre dette basert på hvilken kontekst du bruker denne komponenten i.
+Du har tre verdier å velge mellom.
+
+- `off` - slå av `aria-live` slik at statusbeskjeden vil leses opp for skjermleser i den rekkefølgen dokumentet er satt opp i. Den vil derfor ikke umiddelbart gjøre brukeren oppmerksom på at den finnes.
+- `polite(default)` - kan brukes i de fleste tilfeller for å gjøre brukeren oppmerksom på statusbeskjeden uten å være irriterende. Dette kan for eksempel være ved feil i et skjema.
+- `assertive` - bør bare brukes hvor du mener det er veldig viktig og tidskritisk at brukere får statusbeskjeden. Denne kan være irriterende for bruker og må brukes med varsomhet.
+
+### Avhengigheter
+
+Ikoner:
+
+- alert-information
+- alert-error
+- alert-success
+- alert-warning
+- close
+
+## Varianter
+
+<CodeExample>
+  <div class="pkt-alert">
+    <span class="pkt-icon pkt-alert__icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#alert-information"></use>
+      </svg>
+    </span>
+    <div class="pkt-alert__close">
+      <button
+        class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+        role="button"
+        tabindex="0"
+        aria-label="close"
+      >
+        <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="pkt-alert__title">Information</div>
+    <div class="pkt-alert__text">
+      Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du kan
+      bruke så mange linjer du har behov for, men prøv likevel å være kort og
+      konsis.
+    </div>
+    <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-alert">
+  <span class="pkt-icon pkt-alert__icon">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#alert-information"></use>
+    </svg>
+  </span>
+  <div class="pkt-alert__close">
+    <button
+      class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-only"
+      role="button"
+      tabindex="0"
+      aria-label="close"
+    >
+      <svg viewBox="0 0 32 32" class="pkt-btn__icon">
+        <use href="#close"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="pkt-alert__title">Information</div>
+  <div class="pkt-alert__text">
+    Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du kan
+    bruke så mange linjer du har behov for, men prøv likevel å være kort og
+    konsis.
+  </div>
+  <div class="pkt-alert__date">Sist oppdatert: 09.03.2022</div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-alert title="Alert" date="09.03.2022" :closeAlert="true">
+  Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du kan bruke
+  så mange linjer du har behov for, men prøv likevel å være kort og konsis.
+</pkt-alert>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktAlert title="Med date og close" date="04.02.2022" closeAlert={true}>
+  Bruk dette tekstfeltet til å beskrive hva varslingen handler om. Du kan bruke
+  så mangelinjer du har behov for, men prøv likevel å være kort og konsis.
+</PktAlert>
+```
+
+</div>
+</CodeTabs>
+
+### Kort alert
+
+<CodeExample>
+  <div class="pkt-alert">
+    <div class="pkt-alert__icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#alert-information"></use>
+      </svg>
+    </div>
+    <div class="pkt-alert__text">
+      Bruk dette tekstfeltet til å skrive en kort varsling.
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-alert">
+  <span class="pkt-icon pkt-alert__icon">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#alert-information"></use>
+    </svg>
+  </span>
+  <div class="pkt-alert__text">
+    Bruk dette tekstfeltet til å skrive en kort varsling.
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-alert> Bruk dette tekstfeltet til å skrive en kort varsling. </pkt-alert>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```html
+<PktAlert>Bruk dette tekstfeltet til å skrive en kort varsling.</PktAlert>
+```
+
+</div>
+</CodeTabs>
+
+### Compact alert
+
+<CodeExample>
+  <div class="pkt-alert pkt-alert--compact">
+    <div class="pkt-alert__icon">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <use href="#alert-information"></use>
+      </svg>
+    </div>
+    <div class="pkt-alert__text">
+      Bruk dette tekstfeltet til å skrive en kort varsling.
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+  <div class="web tabcontent">
+
+```html
+<div class="pkt-alert pkt-alert--compact">
+  <span class="pkt-icon pkt-alert__icon">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#alert-information"></use>
+    </svg>
+  </span>
+  <div class="pkt-alert__text">
+    Bruk dette tekstfeltet til å skrive en kort varsling.
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="vue tabcontent">
+
+```html
+<pkt-alert compact>
+  Bruk dette tekstfeltet til å skrive en kort varsling.
+</pkt-alert>
+```
+
+  </div>
+
+  <div class="react tabcontent">
+
+```html
+<PktAlert compact>
+  Bruk dette tekstfeltet til å skrive en kort varsling.</PktAlert
+>
+```
+
+  </div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-alert</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-alert__icon</li>
+    <li>.pkt-alert__close</li>
+    <li>.pkt-alert__title</li>
+    <li>.pkt-alert__text</li>
+    <li>.pkt-alert__date</li>
+  </ul>
+  <p class="pkt-txt-14-medium mt-size-15">Kort og compact:</p>
+  <ul class="pkt-list">
+    <li>.pkt-alert__icon</li>
+    <li>.pkt-alert__text</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-alert`--`info (default)</li>
+    <li>.pkt-alert`--`error</li>
+    <li>.pkt-alert`--`warning</li>
+    <li>.pkt-alert`--`success</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props      | Type    | Validation                    | Default | Beskrivelse                            |
+| ---------- | ------- | ----------------------------- | ------- | -------------------------------------- |
+| skin       | string  | error, success, warning, info | info    |                                        |
+| closeAlert | boolean |                               | false   | Sett til true om du ønsker close-ikon. |
+| title      | string  |                               |         |                                        |
+| date       | string  |                               |         |                                        |
+| ariaLive   | string  | off, polite, assertive        | polite  | Sett aria-live attributt               |
+
+| Slots   | Type | Validation | Default | Beskrivelse                  |
+| ------- | ---- | ---------- | ------- | ---------------------------- |
+| default |      |            |         | Tekstinnholdet i komponenten |
+
+| Events   | Type | Validation | Default | Beskrivelse                        |
+| -------- | ---- | ---------- | ------- | ---------------------------------- |
+| on-close |      |            | false   | Event som trigges når alert lukkes |

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="smiley-smile" fill="none" data-category="feedback" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path
+      d="M16 23a8 8 0 0 1-8-8H6l.004.28C6.152 20.673 10.57 25 16 25c5.523 0 10-4.477 10-10h-2l-.004.25A8 8 0 0 1 16 23Z" />
+    <path fill-rule="evenodd"
+      d="M16 1C7.716 1 1 7.716 1 16c0 8.284 6.716 15 15 15 8.284 0 15-6.716 15-15 0-8.284-6.716-15-15-15Zm0 2c7.18 0 13 5.82 13 13s-5.82 13-13 13S3 23.18 3 16 8.82 3 16 3Z"
+      clip-rule="evenodd" />
+    <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+  </g>
+</svg>

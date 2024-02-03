@@ -1,0 +1,85 @@
+---
+title: Link
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/link" },
+    { "title": "Kode", "href": "komponenter/link/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/link/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Det er viktig at lenkene skiller seg godt nok fra det resterende tekstlige innholdet på nettsiden.
+- Brukeren må kunne tabbe seg gjennom løsningen og lenkene må markeres tydelig.
+- Innholdet i lenker skal være logisk og si noe om hva som møter brukeren når de klikker på lenken. Unngå å ha samme lenketekst på alle lenker (f.eks. “Les mer” eller “Trykk her”).
+- Lenkene må ha farge med god nok kontrast (mer enn 4.5:1).
+- All relevant informasjon om lenken skal stå i selve lenketeksten.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Lenkene skiller seg fra annet innhold på siden/løsningen
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Vi har testet å tabbe oss gjennom løsningen og det fungerer godt
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Tekstinnholdet i lenkene er logisk og inneholder all relevant
+        informasjon
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox4"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox4">
+        Vi har ingen lenker som bare inneholder “les mer” eller “trykk her”
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox5"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox5">
+        Lenkene møter kravene til kontrast
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [Lenker på UUtilsynet.no](https://www.uutilsynet.no/veiledning/lenker/214)

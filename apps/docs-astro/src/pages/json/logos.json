@@ -1,0 +1,77 @@
+[
+  {
+    "id": "16x16-favicon",
+    "fn": "16x16-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "16x16-favicon",
+    "fn": "16x16-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "180x180-favicon",
+    "fn": "180x180-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "180x180-favicon",
+    "fn": "180x180-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "192x192-favicon",
+    "fn": "192x192-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "192x192-favicon",
+    "fn": "192x192-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "32x32-favicon",
+    "fn": "32x32-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "32x32-favicon",
+    "fn": "32x32-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "512x512-favicon",
+    "fn": "512x512-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "512x512-favicon",
+    "fn": "512x512-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "96x96-favicon",
+    "fn": "96x96-favicon.png",
+    "ext": "png"
+  },
+  {
+    "id": "96x96-favicon",
+    "fn": "96x96-favicon.svg",
+    "ext": "svg"
+  },
+  {
+    "id": "apple-touch-icon",
+    "fn": "apple-touch-icon.png",
+    "ext": "png"
+  },
+  {
+    "id": "favicon",
+    "fn": "favicon.ico",
+    "ext": "ico"
+  },
+  {
+    "id": "oslologo",
+    "fn": "oslologo.svg",
+    "ext": "svg"
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "name": "@oslokommune/punkt-assets",
+  "version": "11.0.0",
+  "description": "Punkt - designsystem av Oslo Origo - Assets",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "files": [
+    "/dist",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "svgo": "svgo -f ./svg-source -o ./svg-target --config ./svgo.config.js"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "edit-json-file": "^1.7.0",
+    "fs-extra": "^11.1.0",
+    "svgo": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "svg",
+    "icons",
+    "logos"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

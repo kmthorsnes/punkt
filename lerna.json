@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useWorkspaces": true,
+  "version": "11.4.2",
+  "ignoreChanges": [
+    "packages/**/*.md"
+  ],
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "%s [skip ci]",
+      "registry": "https://registry.npmjs.org/"
+    }
+  }
+}

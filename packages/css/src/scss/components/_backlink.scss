@@ -1,0 +1,19 @@
+/* 
+ * Back link component
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+@use '../abstracts/mixins/typography';
+
+.pkt-back-link {
+  &__icon {
+    flex-basis: 1rem;
+  }
+
+  &__text {
+    @include typography.get-text('pkt-txt-14-light');
+    flex-grow: 1;
+  }
+}

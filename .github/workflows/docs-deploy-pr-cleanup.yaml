@@ -1,0 +1,33 @@
+name: Docs - auto cleanup on PR close
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+      - "feature*"
+    paths:
+      - "apps/docs-astro/**"
+
+env:
+  COMMIT_MESSAGE: "${{ github.event.head_commit.message }}"
+  BUILD_FOLDER: "${{ github.head_ref }}"
+
+jobs:
+  clean-up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Delete folder /${{ env.BUILD_FOLDER }} in S3 created on PR open
+        run: |
+          aws s3 rm s3://${{ secrets.AWS_S3_PUNKT_WEBSITE }}/${{ env.BUILD_FOLDER }} --recursive
+
+      - name: Invalidate CloudFront distribution cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_DOCS_APP }} --paths "/${{ env.BUILD_FOLDER }}*"

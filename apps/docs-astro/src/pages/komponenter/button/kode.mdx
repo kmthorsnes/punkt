@@ -1,0 +1,248 @@
+---
+title: Button
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/button" },
+    { "title": "Kode", "href": "komponenter/button/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/button/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Skin
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--label-only">
+    <span class="pkt-btn__text">Primary</span>
+  </button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--label-only">
+    <span class="pkt-btn__text">Secondary</span>
+  </button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--label-only">
+    <span class="pkt-btn__text">Tertiary</span>
+  </button>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<button class="pkt-btn pkt-btn--primary pkt-btn--label-only">
+  <span class="pkt-btn__text">Primary</span>
+</button>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<pkt-button skin="primary" variant="label-only">
+  Primary
+</pkt-button>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktButton skin="primary" variant="label-only">
+  Primary
+</PktButton>
+```
+
+</div>
+</CodeTabs>
+
+## Farger
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--blue">
+    <span class="pkt-btn__text">Blue</span>
+  </button>
+  <button class="pkt-btn pkt-btn--blue-outline">
+    <span class="pkt-btn__text">Blue-ouline</span>
+  </button>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<button class="pkt-btn pkt-btn--blue">
+  <span class="pkt-btn__text">Blue</span>
+</button>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<pkt-button color="blue">Blue</pkt-button>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktButton color="blue">Blue</PktButton>
+```
+
+</div>
+</CodeTabs>
+
+## Varianter
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--label-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">label-only</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">icon-left</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">icon-right</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  </button>
+  <button class="pkt-btn pkt-btn--icons-right-and-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">icons-right-and-left</span>
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  </button>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<button class="pkt-btn pkt-btn--icon-left">
+  <span class="pkt-icon pkt-btn__icon">
+    <svg viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+  </span>
+  <span class="pkt-btn__text">icon-left</span>
+</button>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-button skin="primary" variant="icon-left" iconName="user">
+  icon-left
+</pkt-button>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```html
+<PktButton skin="primary" variant="icon-left" iconName="user">
+  icon-left
+</PktButton>
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-btn</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-btn__text</li>
+    <li>.pkt-btn__icon</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-btn`--`primary</li>
+    <li>.pkt-btn`--`secondary</li>
+    <li>.pkt-btn`--`tertiary</li>
+    <li>.pkt-btn`--`label-only</li>
+    <li>.pkt-btn`--`icon-left</li>
+    <li>.pkt-btn`--`icon-right</li>
+    <li>.pkt-btn`--`icon-only</li>
+    <li>.pkt-btn`--`icon-right-and-left</li>
+    <li>.pkt-btn`--`small</li>
+    <li>.pkt-btn`--`large</li>
+    <li>.pkt-btn`--`blue</li>
+    <li>.pkt-btn`--`blue-outline</li>
+    <li>.pkt-btn`--`green</li>
+    <li>.pkt-btn`--`green-outline</li>
+    <li>.pkt-btn`--`green-dark</li>
+    <li>.pkt-btn`--`green-dark-outline</li>
+    <li>.pkt-btn`--`beige-light</li>
+    <li>.pkt-btn`--`beige-dark-outline</li>
+    <li>.pkt-btn`--`yellow</li>
+    <li>.pkt-btn`--`yellow-outline</li>
+    <li>.pkt-btn`--`red</li>
+    <li>.pkt-btn`--`red-outline</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props          | Type    | Validation                                                                                                                                          | Default    | Beskrivelse                          |
+| -------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------ |
+| disabled       | boolean |                                                                                                                                                     | false      |                                      |
+| size           | string  | small, medium, large                                                                                                                                | medium     |                                      |
+| skin           | string  | primary, secondary, tertiary                                                                                                                        | primary    |                                      |
+| color          | string  | blue, blue-outline, green, green-outline, green-dark, green-dark-outline, beige-light, beige-dark-outline, yellow, yellow-outline, red, red-outline |            |                                      |
+| type           | string  | button, submit, reset                                                                                                                               | button     |                                      |
+| variant        | string  | label-only, icon-left,icon-right,icon-only,icons-right-and-left                                                                                     | label-only |                                      |
+| iconName       | string  |                                                                                                                                                     |            | Legger til ikon basert på navn       |
+| secondIconName | string  |                                                                                                                                                     |            | Legger til andre ikon basert på navn |
+
+| Events  | Type | Validation | Default | Beskrivelse                                |
+| ------- | ---- | ---------- | ------- | ------------------------------------------ |
+| onClick |      |            |         | Event som trigges når man trykker på knapp |

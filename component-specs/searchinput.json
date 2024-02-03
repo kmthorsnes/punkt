@@ -1,0 +1,48 @@
+{
+  "name": "pkt-searchinput",
+  "css-class": "pkt-searchinput",
+  "props": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "appearance": {
+      "type": "string",
+      "default": "local"
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false
+    },
+    "value": {
+      "type": "string",
+      "required": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "fullwidth": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "label": {
+      "type": "string",
+      "required": false
+    },
+    "action": {
+      "type": "string",
+      "required": false
+    },
+    "suggestions": {
+      "type": "array",
+      "required": false
+    }
+  }
+}

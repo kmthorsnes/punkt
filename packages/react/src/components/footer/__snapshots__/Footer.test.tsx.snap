@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PktFooterSimple snapshot renders correctly with all props 1`] = `
+<div>
+  <footer
+    class="pkt-footer"
+    data-mode="dark"
+  >
+    <div
+      class="pkt-footer__container"
+    >
+      <div
+        class="pkt-grid pkt-grid--rowgap-size-32 pkt-grid--gap-size-16"
+      >
+        <div
+          class="pkt-footer__column pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+        >
+          <h2
+            class="pkt-footer__title"
+          >
+            Column One
+          </h2>
+          <ul
+            class="pkt-footer__list"
+          >
+            <li
+              class="pkt-footer__text"
+            >
+              Column One Text
+            </li>
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link pkt-link--external"
+                href="https://example.com"
+                target="_self"
+              >
+                Link 1
+              </a>
+            </li>
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link "
+                href="https://example.com"
+                target="_self"
+              >
+                Link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="pkt-footer__column pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+        >
+          <h2
+            class="pkt-footer__title"
+          >
+            Column Two
+          </h2>
+          <ul
+            class="pkt-footer__list"
+          >
+            <li
+              class="pkt-footer__text"
+            >
+              Column Two Text
+            </li>
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link pkt-link--external"
+                href="https://example.com"
+                target="_self"
+              >
+                Link 3
+              </a>
+            </li>
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link "
+                href="https://example.com"
+                target="_self"
+              >
+                Link 4
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="pkt-footer__column pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+        >
+          <h2
+            class="pkt-footer__title"
+          >
+            Om nettstedet
+          </h2>
+          <ul
+            class="pkt-footer__list"
+          >
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link"
+                href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+              >
+                Personvern og informasjonskapsler
+              </a>
+            </li>
+            <li
+              class="pkt-footer__list-item"
+            >
+              <a
+                class="pkt-footer__link"
+                href="https://www.oslo.kommune.no/tilgjengelighet/"
+              >
+                Tilgjengelighet
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        aria-label="standard lenker"
+        class="pkt-footer__social"
+      >
+        <div
+          class="pkt-footer__social-languages"
+        />
+        <div
+          class="pkt-footer__social-icons"
+        >
+          <a
+            aria-label="til facebook"
+            class="pkt-footer__social-icon-link"
+            href="https://example.com"
+            target="_self"
+          />
+          <a
+            aria-label="til twitter"
+            class="pkt-footer__social-icon-link"
+            href="https://example.com"
+            target="_self"
+          />
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

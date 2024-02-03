@@ -1,0 +1,166 @@
+$pkt-colors: (
+  // Blue
+  brand-blue-100: #F1FDFF,
+  brand-blue-200: #E5FCFF,
+  brand-blue-300: #D1F9FF,
+  brand-blue-500: #B3F5FF,
+  brand-blue-1000: #6FE9FF,
+  brand-dark-blue-700: #6A698B,
+  brand-dark-blue-1000: #2A2859,
+  brand-warm-blue-1000: #1F42AA,
+  // Green
+  brand-green-400: #C7FDE9,
+  brand-green-1000: #43F8B6,
+  brand-light-green-400: #E5FFE6,
+  brand-light-green-1000: #C7F6C9,
+  brand-dark-green-1000: #034B45,
+
+  // Yellow
+  brand-yellow-1000: #F9C66B,
+  brand-yellow-500: #FFE7BC,
+
+  // Red
+  brand-red-100: #FFF2F1,
+  brand-red-400: #FFDFDC,
+  brand-red-600: #FFB4AC,
+  brand-red-1000: #FF8274,
+
+  // Beige
+  brand-light-beige-1000: #F8F0DD,
+  brand-dark-beige-1000: #D0BFAE,
+
+  // Neutrals
+  brand-neutrals-white: #FFFFFF,
+  brand-neutrals-100: #F9F9F9,
+  brand-neutrals-200: #F2F2F2,
+  brand-neutrals-1000: #2C2C2C,
+  brand-neutrals-black: #000000,
+  brand-neutrals-transparent: transparent,
+
+  // Purple
+  brand-purple-1000: #E0ADFF,
+
+  // Grays
+  grays-gray-100: #E6E6E6,
+  grays-gray-200: #CCCCCC,
+  grays-gray-300: #B3B3B3,
+  grays-gray-400: #9A9A9A,
+  grays-gray-500: #808080,
+  grays-gray-600: #666666,
+  grays-gray-700: #4D4D4D,
+  grays-gray-800: #333333,
+  grays-gray-900: #1A1A1A,
+  grays-gray-1000: #2C2C2C,
+  ) !default;
+
+$pkt-semantic-colors: (
+  // Background
+  background-card: map-get($pkt-colors, brand-neutrals-white),
+  background-default: map-get($pkt-colors, brand-neutrals-white),
+  background-subtle: map-get($pkt-colors, brand-neutrals-100),
+  background-transparent: map-get($pkt-colors, brand-neutrals-transparent),
+  // Borders
+  border-default: map-get($pkt-colors, brand-dark-blue-1000),
+  border-beige: map-get($pkt-colors, brand-dark-beige-1000),
+  border-blue: map-get($pkt-colors, brand-blue-1000),
+  border-gray: map-get($pkt-colors, grays-gray-200),
+  border-green: map-get($pkt-colors, brand-green-1000),
+  border-light-beige: map-get($pkt-colors, brand-light-beige-1000),
+  border-red: map-get($pkt-colors, brand-red-1000),
+  border-subtle: map-get($pkt-colors, brand-neutrals-200),
+  border-yellow: map-get($pkt-colors, brand-yellow-1000),
+  border-states-active: map-get($pkt-colors, brand-warm-blue-1000),
+  border-states-disabled: map-get($pkt-colors, grays-gray-300),
+  border-states-focus: map-get($pkt-colors, brand-purple-1000),
+  border-states-hover: map-get($pkt-colors, brand-warm-blue-1000),
+  // Surface
+  surface-default-faded-green: map-get($pkt-colors, brand-light-green-400),
+  surface-default-faded-red: map-get($pkt-colors, brand-red-400),
+  surface-default-gray: map-get($pkt-colors, brand-neutrals-100),
+  surface-default-light-beige: map-get($pkt-colors, brand-light-beige-1000),
+  surface-default-light-blue: map-get($pkt-colors, brand-blue-300),
+  surface-default-light-green: map-get($pkt-colors, brand-green-400),
+  surface-default-red: map-get($pkt-colors, brand-red-600),
+  surface-default-yellow: map-get($pkt-colors, brand-yellow-500),
+  surface-strong-beige: map-get($pkt-colors, brand-dark-beige-1000),
+  surface-strong-blue: map-get($pkt-colors, brand-blue-1000),
+  surface-strong-dark-blue: map-get($pkt-colors, brand-dark-blue-1000),
+  surface-strong-dark-green: map-get($pkt-colors, brand-dark-green-1000),
+  surface-strong-gray: map-get($pkt-colors, brand-neutrals-200),
+  surface-strong-green: map-get($pkt-colors, brand-green-1000),
+  surface-strong-light-green: map-get($pkt-colors, brand-light-green-1000),
+  surface-strong-red: map-get($pkt-colors, brand-red-1000),
+  surface-strong-yellow: map-get($pkt-colors, brand-yellow-1000),
+  surface-subtle-light-blue: map-get($pkt-colors, brand-blue-200),
+  surface-subtle-light-red: map-get($pkt-colors, brand-red-100),
+  surface-subtle-pale-blue: map-get($pkt-colors, brand-blue-100),
+  surface-subtle-white: map-get($pkt-colors, brand-neutrals-white),
+  // Text
+  text-body-dark: map-get($pkt-colors, brand-dark-blue-1000),
+  text-body-default: map-get($pkt-colors, brand-dark-blue-1000),
+  text-body-light: map-get($pkt-colors, brand-neutrals-white),
+  text-placeholder: map-get($pkt-colors, grays-gray-600),
+  text-action-disabled: map-get($pkt-colors, grays-gray-600),
+  text-action-active: map-get($pkt-colors, brand-warm-blue-1000),
+  text-action-hover: map-get($pkt-colors, brand-warm-blue-1000),
+  text-action-normal: map-get($pkt-colors, brand-dark-blue-1000)) !default;
+
+// Deprecated colors
+$colors: (
+  // brand
+  color-blue: #6fe9ff,
+  color-blue-light: #b3f5ff,
+  color-blue-dark: #2a2859,
+  color-green: #43f8b6,
+  color-green-light: #c7f6c9,
+  color-green-dark: #034b45,
+  color-red: #ff8274,
+  color-red-light: #ffb4ac,
+  color-yellow: #f9c66b,
+  color-beige-light: #f8f0dd,
+  color-beige-dark: #d0bfae,
+  // state
+  color-active: #1f42aa,
+  color-active-light: #b3f5ff,
+  color-hover: #1f42aa,
+  color-hover-light: #b3f5ff,
+  color-focus: #e0adff,
+  color-disabled: #4d4d4d,
+  color-disabled-light: #f9f9f9,
+  // system
+  color-info: #2a2859,
+  color-success: #034b45,
+  color-warning: #774c01,
+  color-error: #96281c,
+  // shade
+  color-blue-dark-5: #f2f9ff,
+  color-blue-dark-10: #d9e9f2,
+  color-blue-5: #f1fdff,
+  color-blue-10: #e5fcff,
+  color-blue-60: #d1f9ff,
+  color-green-dark-5: #f2fff3,
+  color-green-dark-10: #d9f2ef,
+  color-green-10: #e5ffe6,
+  color-green-30: #c7fde9,
+  color-red-5: #fff3f2,
+  color-red-10: #ffe8e5,
+  color-red-30: #ffdfdc,
+  color-yellow-5: #fef9f0,
+  color-yellow-50: #ffe7bc,
+  // grayscale digital
+  color-gray-light: #f9f9f9,
+  color-gray: #f2f2f2,
+  color-gray-dark: #2c2c2c,
+  //grayscale
+  color-transparent: transparent,
+  color-white: #fff,
+  color-grayscale-10: #e6e6e6,
+  color-grayscale-20: #ccc,
+  color-grayscale-30: #b3b3b3,
+  color-grayscale-40: #9a9a9a,
+  color-grayscale-50: #808080,
+  color-grayscale-60: #666,
+  color-grayscale-70: #4d4d4d,
+  color-grayscale-80: #333,
+  color-grayscale-90: #1a1a1a,
+  color-black: #000) !default;

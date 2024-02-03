@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - Switch">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Switch</h1>
+
+    <section class="component">
+      <h2>Single switch</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox"
+              >Switch 1</label
+            >
+          </div>
+        </div>
+        <div class="pkt-input-check mt-size-8">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox pkt-input-check__input-checkbox--error"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxError"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxError">Switch Error</label
+            >
+          </div>
+        </div>
+        <div class="pkt-input-check mt-size-8">
+          <div class="pkt-input-check__input">
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxOtherSide">Switch på andre siden</label
+            >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxOtherSide"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Single switch with text</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxText"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxText"
+              >Switch 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Switch check</h2>
+
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">Dette er tekst over switch</div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox1"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox1"
+              >Switch 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox2"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox2"
+              >Switch 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox3"
+            />
+            <label class="pkt-input-check__input-label" for="exampleCheckbox3"
+              >Switch 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Single switch - Tile</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxTile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxTile"
+              >Switch 1
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Single tile switch with text</h2>
+      <div class="pkt-inputwrapper">
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxTextTile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxTextTile"
+              >Switch 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Switch Tile check</h2>
+
+      <fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox1tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox1tile"
+              >Switch 1
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox2tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox2tile">Switch 2</label
+            >
+          </div>
+          <div class="pkt-input-check__input pkt-input-check__input--tile">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckbox3tile"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckbox3tile"
+              >Switch 3
+              <div class="pkt-input-check__input-helptext">
+                Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+                detaljert.
+              </div>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+
+    <section class="component">
+      <h2>Disabled</h2>
+      <fieldset
+        class="pkt-inputwrapper pkt-inputwrapper__fieldset pkt-inputwrapper--disabled"
+      >
+        <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend"
+          >Label og hjelpetekst</legend
+        >
+        <div class="pkt-inputwrapper__helptext">
+          Dette er tekst over inputfeltet
+        </div>
+        <div class="pkt-input-check">
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxDisabled1"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+              checked
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled1">Switch 1</label
+            >
+          </div>
+          <div class="pkt-input-check__input">
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxDisabled2"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled2">Switch 2</label
+            >
+          </div>
+          <div
+            class="pkt-input-check__input pkt-input-check__input--tile pkt-input-check__input--tile-disabled"
+          >
+            <input
+              class="pkt-input-check__input-checkbox"
+              type="checkbox"
+              role="switch"
+              id="exampleCheckboxDisabled3"
+              disabled
+              aria-disabled="true"
+              aria-label="Disabled checkbox"
+            />
+            <label
+              class="pkt-input-check__input-label"
+              for="exampleCheckboxDisabled3">Switch 3</label
+            >
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </main>
+</Layout>

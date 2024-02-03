@@ -1,0 +1,55 @@
+{
+  "name": "@oslokommune/punkt-cli",
+  "version": "11.0.0",
+  "description": "CLI-verkøyet til Punkt, et designsystem laget av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "bin": {
+    "punkt": "index.js"
+  },
+  "files": [
+    "/src",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "update-version": "node ./scripts/build.js",
+    "dev": "npm install -g ./"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^10.0.0",
+    "execa": "^7.0.0",
+    "fs-extra": "^11.1.0",
+    "inquirer": "^9.2.7",
+    "ora": "^6.1.2",
+    "read-pkg-up": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "nodejs",
+    "cli",
+    "svg",
+    "svgsprites"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

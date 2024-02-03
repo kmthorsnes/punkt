@@ -1,0 +1,74 @@
+{
+  "name": "pkt-textarea",
+  "css-class": "pkt-textarea",
+  "props": {
+    "requiredTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "optionalTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "hasError": {
+      "type": "boolean",
+      "required": false
+    },
+    "errorMessage": {
+      "type": "string",
+      "required": false
+    },
+    "helptext": {
+      "type": "string",
+      "required": false
+    },
+    "helptextDropdown": {
+      "type": "string",
+      "required": false
+    },
+    "helptextDropdownButton": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "inline": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "fullwidth": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "ariaDescribedBy": {
+      "type": "string",
+      "required": false
+    },
+    "ariaLabelledby": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Option elements for select component"
+    }
+  }
+}

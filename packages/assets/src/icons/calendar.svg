@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="calendar" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M21 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+    <path d="M25 2v3h4v25H3V5h4V2h2v3h14V2h2Zm2 9V7H5v4h22ZM5 13v15h22V13H5Z" />
+  </g>
+</svg>

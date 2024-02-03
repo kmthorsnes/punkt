@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="mobile-phone" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M22.627 2v28H9.373V2h13.254Zm2-2H7.373v32h17.254V0Z" />
+    <path d="M16 25.003a1.499 1.499 0 1 0 0 2.998 1.499 1.499 0 0 0 0-2.998Zm3-23.004h-6v2h6v-2Z" />
+  </g>
+</svg>

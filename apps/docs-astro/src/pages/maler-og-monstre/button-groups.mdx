@@ -1,0 +1,108 @@
+---
+title: "Button groups"
+categoryName: maler-og-monstre
+layout: "@layouts/DocLayout.astro"
+priority: 1
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om knappehierarki og struktur
+
+I Origos og Oslo kommunes løsninger generelt skal knapper i grupper plasseres på lignende måte for å skape konsekvent og forventet flyt for brukeren.
+
+Generelt sett skal knappene, når det er mulig, plasseres til høyre på skjermen/løsningen. Dersom det er nødvendig å plassere knappene på venstre side av skjermen, er det spesialregler, les mer om dette under [“Forskjellige plasseringer”](#forskjellige-plasseringer).
+
+Når knappene brukes i grupper har de to ulike behov vi går ut i fra:
+
+- Avbryt/Lagre (send inn, godkjenn osv.)
+- Forrige/Neste
+- Annet oppsett
+
+Det er selvfølgelig mulig at det er andre behov i spesifikke løsninger, ta utgangspunkt i oppsettet slik det er beskrevet her, men tilpass det til din løsning.
+
+Når du bruker knapper i en løsning, husk at den viktigste knappen skal stå tydeligst frem, så prøv å holde deg til kun én primærknapp.
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_hierarkiet.svg"
+    alt="Visualisering av knappehierarkiet"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Varianter
+
+To knapper som står tett sammen skal plasseres på høyre side av skjermen/løsningen. I dette eksempelet er “Lagre” og “Send inn” den endelige handlingen. Å trykke “Slett” eller “Avbryt” tar deg til en annen side:
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_variant1.svg"
+    alt="Eksempel der knappene er plassert riktig, med lagre og slett"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_variant2.svg"
+    alt="Eksempel der knappene er plassert riktig"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Hvis ønskelig kan man ta i bruk en annen farge på det “endelige” steget i en flyt eller knapperekke, men gjør dette med omhu og husk at primærknappene aller helst bør være brand-blue.
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_variant3.svg"
+    alt="Eksempel der primærknapp har annen farge"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Når du har steg og skal vise “Tilbake” og “Neste” skal knappene plasseres på hver sin side (tilbake er link som tar bruker til forrige side, neste er knapp som lagrer informasjon og tar bruker til neste steg). I siste steg vil knappen på høyre side endre tekst til “Send inn” eller lignende.
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_variant4.svg"
+    alt="Viser hvordan knappene skal plasseres når man har steg i en løsning"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Forskjellige plasseringer
+
+Dersom innholdet i teksten din er venstrestilt og du kun har én primærknapp kan det noen ganger være nødvendig å plassere knappene til venstre:
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/buttongroups/btng_other.svg"
+    alt="Eksempel på hvordan man kan plassere kun én primærknapp"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Når du setter det opp på denne måten er det mest brukervennlig å plassere primærknappen (hovedhandlingen) helt til venstre.
+
+Husk at det er viktig at du er konsekvent med plasseringen av knapper gjennom hele løsningen og at brukeren ikke trenger å “bytte” hvor de trykker i en sammenhengende flyt.
+
+## Overflow og mobilvisning
+
+I de aller fleste tilfeller burde knapper inneholde såpass korte og konsise tekster slik at de kan settes opp likt som på desktop.
+
+Men, når den horisontale plassen er begrenset, kan knappegrupper stables vertikalt i fullbredde. Knappene stables etter viktigheten av handlingen, med den mest kritiske eller primære handlingen øverst. Det kan være en god idé å plassere knappene nærmere bunnen av mobilen for å være lettere å trykke på for brukeren.
+
+<ImageWrapper hasTwoImages>
+  <img
+    src="/assets/ressurser/buttongroups/btng_mobile1.svg"
+    alt="Knappegrupper på mobil eksempel 1"
+    aria-hidden="true"
+  />
+  <img
+    src="/assets/ressurser/buttongroups/btng_mobile2.svg"
+    alt="Knappegrupper på mobil eksempel 2"
+    aria-hidden="true"
+  />
+</ImageWrapper>

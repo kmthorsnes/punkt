@@ -1,0 +1,548 @@
+---
+title: Search input
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/searchinput" },
+    { "title": "Kode", "href": "komponenter/searchinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/searchinput/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+Søkefeltet brukes til navigering på en nettside eller tjeneste. Komponenten består av tre hovedstiler, og tillater en liste med søkeforslag eller søkeresultater.
+
+### Avhengigheter
+
+- pkt-input (kun CSS)
+- pkt-button
+- pkt-icon
+
+### Bruk i Vue og React
+
+I Vue sendes hendelsen `onSearch` sammen med `value` ved hver endring av søkefeltets input-felt, samt ved klikk på søkeknappen. I React fungerer det tilsvarende, men man må sende inn en funksjon `onSearch`.
+
+Dersom man ønsker å bruke søkefeltet som en “konvensjonell” form submit kan du sende inn prop `action` og valgfri prop `method` (default `method` er `get`). Dette kan godt kombineres med `onSearch` og `suggestions` men logikken for å sette søketerm etter klikk i forslagene må dere skrive selv.
+
+Søkeforslag, søkeresultat og eventuelle beskjeder vises kun dersom `suggestions`-prop er sendt inn i komponenten. Den er en array av objekter med denne strukturen:
+
+```
+interface SearchSuggestion {
+  title?: string
+  text?: string
+  href?: string
+  onClick?: () => void
+}
+```
+
+Presentasjonen er meget fleksibel og du kan velge selv om søkeforslaget skal ha en lenke (`href`) eller en handling (`onClick`). Du kan også velge å kun ha `title` eller kun `text`, og `href` og `onClick` er valgfritt for situasjoner der du skulle ønske å kun vise en tekst. Dersom ingen `href` eller `onClick` er valgt vil det i Vue sendes en hendelse `onSuggestionClick` med medfølgende `index`-verdi på det som ble klikket, og i React kan man sende inn en funksjon `onSuggestionClick` som får den samme `index`-verdien.
+
+Logikk for å vise og skjule `suggestions` styrer du ved å rett og slett sende inn `suggestions`-prop med eller uten verdier.
+
+## Varianter
+
+<CodeExample client:load>
+  <form class="pkt-searchinput pkt-searchinput--global">
+    <label
+      for="search-global-results"
+      role="search"
+      class="pkt-inputwrapper__label"
+    >
+      Søk med søkeforslag (Skriv noe)
+      <div class="pkt-searchinput__field">
+        <input
+          type="search"
+          name="search-global-results"
+          id="search-global-results"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input"
+          onfocus="document.querySelector('#nosuggestions').classList.toggle('pkt-hide', true)"
+          oninput="document.querySelector('#suggestions').classList.toggle('pkt-hide', !this.value)"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk med søkeforslag (Skriv noe)</span>
+        </button>
+      </div>
+    </label>
+    <ul class="pkt-searchinput__suggestions pkt-hide" id="suggestions">
+      <li>
+        <a
+          href="https://oslo.kommune.no"
+          class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 1
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://oslo.kommune.no"
+          class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 2
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://oslo.kommune.no"
+          class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 3
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://oslo.kommune.no"
+          class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 4
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://oslo.kommune.no"
+          class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 5
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </a>
+      </li>
+      <li>
+        <button
+          type="button"
+          class="pkt-link-button pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        >
+          <h3 class="pkt-searchinput__suggestion-title">
+            Tittel på søkeresultatet 6 med funksjon
+          </h3>
+          <p class="pkt-searchinput__suggestion-text">
+            Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+            nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          </p>
+        </button>
+      </li>
+    </ul>
+  </form>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+<div class="pkt-searchinput pkt-searchinput--global">
+  <label
+    for="search-global-results"
+    role="search"
+    class="pkt-inputwrapper__label"
+    >Søk med søkeforslag (Skriv noe)
+    <div class="pkt-searchinput__field">
+      <input
+        type="search"
+        name="search-global-results"
+        id="search-global-results"
+        placeholder="Søk…"
+        autocomplete="off"
+        class="pkt-input"
+        onfocus="document.querySelector('#nosuggestions').classList.toggle('pkt-hide', true)"
+        oninput="document.querySelector('#suggestions').classList.toggle('pkt-hide', !this.value)"
+      />
+      <button
+        type="submit"
+        class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+        ><span class="pkt-icon pkt-btn__icon"
+          ><svg viewBox="0 0 32 32">
+            <use href="#magnifying-glass-big"></use>
+          </svg></span
+        ><span class="pkt-btn__text">Søk med søkeforslag (Skriv noe)</span
+        >
+      </button>
+    </div>
+  </label>
+  <ul class="pkt-searchinput__suggestions pkt-hide" id="suggestions">
+    <li>
+      <a
+        href="https://oslo.kommune.no"
+        class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 1
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></a
+      >
+    </li><li>
+      <a
+        href="https://oslo.kommune.no"
+        class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 2
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></a
+      >
+    </li><li>
+      <a
+        href="https://oslo.kommune.no"
+        class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 3
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></a
+      >
+    </li><li>
+      <a
+        href="https://oslo.kommune.no"
+        class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 4
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></a
+      >
+    </li><li>
+      <a
+        href="https://oslo.kommune.no"
+        class="pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 5
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></a
+      >
+    </li><li>
+      <button
+        type="button"
+        class="pkt-link-button pkt-searchinput__suggestion pkt-searchinput__suggestion--has-hover"
+        ><h3 class="pkt-searchinput__suggestion-title">
+          Tittel på søkeresultatet 6 med funksjon
+        </h3><p class="pkt-searchinput__suggestion-text">
+          Søkeresultatet kan ha undertekst som beskriver søkeresultatet
+          nærmere. Denne kan gå over flere linjer før den brått kuttes av.
+        </p></button
+      >
+    </li>
+  </ul>
+</div>
+```
+</div>
+
+<div class="vue tabcontent">
+```html
+<PktSearchInput
+  label="Søk med søkeforslag (Skriv noe)"
+  id="search-global-results"
+  v-model="searchValue"
+  :suggestions="searchValue ? results : undefined"
+  appearance="global"
+/>
+```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSearchInput
+  label="Søk med søkeforslag (Skriv noe)"
+  id="search-global-results"
+  value={searchValue}
+  onSearch={handleSearch}
+  suggestions={searchValue ? results : undefined}
+  appearance="global"
+/>
+```
+</div>
+</CodeTabs>
+
+<CodeExample client:load>
+  <div class="pkt-searchinput pkt-searchinput--local-with-button">
+    <div>
+      <div class="pkt-searchinput__field">
+        <input
+          type="search"
+          name="search-local-with-button"
+          id="search-local-with-button"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk etter noe</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+<div class="pkt-searchinput pkt-searchinput--local-with-button">
+  <div>
+    <div class="pkt-searchinput__field">
+      <input
+        type="search"
+        name="search-local-with-button"
+        id="search-local-with-button"
+        placeholder="Søk…"
+        autocomplete="off"
+        class="pkt-input"
+      />
+      <button
+        type="submit"
+        class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+        ><span class="pkt-icon pkt-btn__icon"
+          ><svg viewBox="0 0 32 32">
+            <use href="#magnifying-glass-big"></use>
+          </svg></span
+        ><span class="pkt-btn__text">Søk etter noe</span>
+      </button>
+    </div>
+  </div>
+</div>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```html
+  <PktSearchInput
+    label="Søk etter noe"
+    id="search-local-with-button"
+    appearance="local-with-button"
+  />
+  ```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSearchInput
+  label="Søk etter noe"
+  id="search-local-with-button"
+  appearance="local-with-button"
+/>
+```
+</div>
+</CodeTabs>
+
+<CodeExample client:load>
+  <form
+    class="pkt-searchinput pkt-searchinput--local pkt-searchinput--fullwidth"
+    action="#submit"
+    method="post"
+  >
+    <label
+      for="search-local-fullwidth"
+      role="search"
+      class="pkt-inputwrapper__label"
+    >
+      Søk etter noe (full bredde)
+      <div class="pkt-input__container">
+        <input
+          type="search"
+          name="search-local-fullwidth"
+          id="search-local-fullwidth"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input pkt-input--fullwidth"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk etter noe (full bredde)</span>
+        </button>
+      </div>
+    </label>
+  </form>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="html tabcontent">
+```html
+<form 
+  class="pkt-searchinput pkt-searchinput--local pkt-searchinput--fullwidth"
+  action="#submit"
+  method="post"
+>
+  <label
+    for="search-local-fullwidth"
+    role="search"
+    class="pkt-inputwrapper__label"
+  >
+    Søk etter noe (full bredde)
+    <div class="pkt-input__container">
+      <input
+        type="search"
+        name="search-local-fullwidth"
+        id="search-local-fullwidth"
+        placeholder="Søk…"
+        autocomplete="off"
+        class="pkt-input pkt-input--fullwidth"
+      />
+      <button
+        type="submit"
+        class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+        ><span class="pkt-icon pkt-btn__icon"
+          ><svg viewBox="0 0 32 32">
+            <use href="#magnifying-glass-big"></use>
+          </svg></span
+        ><span class="pkt-btn__text">Søk etter noe (full bredde)</span>
+      </button>
+    </div>
+  </label>
+</form>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```html
+  <PktSearchInput
+    label="Søk etter noe (full bredde)"
+    id="search-local-fullwidth"
+    appearance="local"
+    fullwidth
+    action="#submit"
+    method="post"
+  />
+  ```
+</div>
+
+<div class="react tabcontent">
+```html
+<PktSearchInput
+  label="Søk etter noe (full bredde)"
+  id="search-local-fullwidth"
+  appearance="local"
+  fullwidth
+  action="#submit"
+  method="post"
+/>
+```
+</div>
+</CodeTabs>
+
+## CSS-klasser
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-searchinput</li>
+    <li>.pkt-input</li>
+    <li>.pkt-btn</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper__label</li>
+    <li>.pkt-searchinput__field</li>
+    <li>.pkt-searchinput__button</li>
+    <li>.pkt-searchinput__suggestions</li>
+    <li>.pkt-searchinput__suggestion</li>
+    <li>.pkt-searchinput__suggestion-title</li>
+    <li>.pkt-searchinput__suggestion-text</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-searchinput`--`global</li>
+    <li>.pkt-searchinput`--`local-with-button</li>
+    <li>.pkt-searchinput`--`local</li>
+    <li>.pkt-searchinput`--`fullwidth</li>
+    <li>.pkt-input`--`fullwidth</li>
+    <li>.pkt-btn`--`yellow</li>
+    <li>.pkt-btn`--`icon-only</li>
+    <li>.pkt-btn`--`tertiary</li>
+    <li>.pkt-searchinput__suggestion`--`has-hover</li>
+  </ul>
+</div>
+
+## Props og events
+
+| Props                     | Type     | Validation                       | Default | Beskrivelse                                                                                                         |
+| ------------------------- | -------- | -------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| id                        | string   | Required                         | -       | ID for inputfeltet                                                                                                  |
+| value                     | string   | -                                | -       | Verdien for inputfeltet                                                                                             |
+| name                      | string   | -                                | id      | Navnet for inputfeltet                                                                                              |
+| label                     | string   | -                                | -       | Etiketten for inputfeltet                                                                                           |
+| disabled                  | boolean  | -                                | false   | Angir om inputfeltet er deaktivert                                                                                  |
+| fullwidth                 | boolean  | -                                | false   | Sett komponenten til å ha full bredde                                                                               |
+| placeholder               | string   | -                                | 'Søk…'  | placeholder-tekst i input-feltet                                                                                    |
+| appearance                | string   | global, local, local-with-button | 'local' | Stil på søkefeltet                                                                                                  |
+| action                    | string   | -                                | -       | Brukes i `action`-attributt i `form`                                                                                |
+| method                    | string   | get, post, dialog                | 'get'   | Brukes i samband med`action`-attributt                                                                              |
+| suggestions               | array    | -                                | -       | Søkeforslag, søkeresultater eller melding, som dokumentert over                                                     |
+| onSearch (react)          | function | -                                | -       | Utløses når verdien i inputfeltet endres, eller når submit skjer. Sender den nye verdien som parameter til eventet. |
+| onSuggestionClick (react) | function | -                                | -       | Utløses når bruker klikker på et søkeforslag/søkeresultat når denne hverken har `onClick` eller `href`              |
+
+| Events            | Type | Beskrivelse                                                                                                         |
+| ----------------- | ---- | ------------------------------------------------------------------------------------------------------------------- |
+| onSearch          | Vue  | Utløses når verdien i inputfeltet endres, eller når submit skjer. Sender den nye verdien som parameter til eventet. |
+| onSuggestionClick | Vue  | Utløses når bruker klikker på et søkeforslag/søkeresultat når denne hverken har `onClick` eller `href`              |

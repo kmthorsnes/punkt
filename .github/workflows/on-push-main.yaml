@@ -1,0 +1,212 @@
+name: Auto - push to main
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "packages/**"
+
+jobs:
+  publish:
+    name: Publish packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+    outputs:
+      NEXT_MAJORMINOR: ${{ steps.next_version.outputs.NEXT_MAJORMINOR }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout all branches and tags
+          token: ${{ secrets.GH_TOKEN_SCHJETNE }} # Required for pushing to protected branch
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "<>"
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build all packages
+        run: npm run build
+
+      - name: Create and publish changelog
+        run: |
+          npm run update-changelog
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "chore: Oppdater changelogs [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Bump, tag and commit - lerna version
+        run: |
+          npm run lerna:version
+
+      - name: Find next version
+        id: next_version
+        run: |
+          node ./scripts/build-set-majorminor-version.js
+          NEXT_MAJORMINOR=$(jq -r .majorMinor ./temp/version.json)
+          echo "NEXT_MAJORMINOR=$NEXT_MAJORMINOR" >> $GITHUB_ENV
+          echo "NEXT_MAJORMINOR=$NEXT_MAJORMINOR" > $GITHUB_OUTPUT
+
+      - name: Replace references to /latest with /${{ env.NEXT_MAJORMINOR }} on CDN
+        run: |
+          node ./scripts/build-fix-cdn-paths.js base='${{ env.NEXT_MAJORMINOR }}' mode='packages'
+
+      - name: Publish to NPM - lerna publish
+        run: |
+          npm run lerna:publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_SCHJETNE }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Generate docs for /${{ env.NEXT_MAJORMINOR }}
+        run: |
+          npx lerna run build --scope=@oslokommune/punkt-docs -- --base='/${{ env.NEXT_MAJORMINOR }}'
+          npx lerna run postbuild-fix-astro-paths --scope=@oslokommune/punkt-docs -- base='${{ env.NEXT_MAJORMINOR }}'
+
+      - name: Deploy files for the website to /${{ env.NEXT_MAJORMINOR }}
+        run: |
+          aws s3 sync ./apps/docs-astro/dist s3://${{ secrets.AWS_S3_PUNKT_WEBSITE }}/${{ env.NEXT_MAJORMINOR }} --delete --cache-control 'max-age=86400'
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_DOCS_APP }} --paths "/${{ env.NEXT_MAJORMINOR }}*"
+
+      - name: Generate docs for /latest
+        run: |
+          npx lerna run build --scope=@oslokommune/punkt-docs -- --base='latest'
+          npx lerna run postbuild-fix-astro-paths --scope=@oslokommune/punkt-docs -- base='latest'
+
+      - name: Deploy files for the website to /latest
+        run: |
+          aws s3 sync ./apps/docs-astro/dist s3://${{ secrets.AWS_S3_PUNKT_WEBSITE }}/latest --delete --cache-control 'max-age=300'
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_DOCS_APP }} --paths "/latest"
+
+      - name: Switch registry to GHPR
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@oslokommune"
+
+      - name: Publish to GHPR - lerna publish
+        run: |
+          npm run lerna:publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN_SCHJETNE }}
+
+  cdn:
+    name: Update cdn
+    runs-on: ubuntu-latest
+    needs: publish
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout all branches and tags
+          token: ${{ secrets.GH_TOKEN_SCHJETNE }} # Required for pushing to protected branch
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build necessary packages
+        run: |
+          npm run build-assets
+          npm run build-css
+
+      - name: Set release version from previous job to env var
+        run: |
+          echo "NEXT_MAJORMINOR=${{ needs.publish.outputs.NEXT_MAJORMINOR }}" >> $GITHUB_ENV
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Set references to /latest for the CDN
+        run: |
+          node ./scripts/build-fix-cdn-paths.js base='${{ env.NEXT_MAJORMINOR }}' mode='cdn-latest'
+
+      - name: Deploy files to /latest for CDN
+        run: |
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/latest/fonts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN }}/latest/icons --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN }}/latest/logos --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/latest/fonts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/latest/icons --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/latest/logos --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN }}/latest/css --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/latest/scripts --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/latest/css --delete --cache-control 'max-age=300'
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/latest/scripts --delete --cache-control 'max-age=300'
+
+      - name: Set references to /${{ env.NEXT_MAJORMINOR }} for the CDN
+        run: |
+          node ./scripts/build-fix-cdn-paths.js base='${{ env.NEXT_MAJORMINOR }}' mode='cdn-versioned'
+
+      - name: Deploy files to /${{ env.NEXT_MAJORMINOR }} for CDN
+        run: |
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.NEXT_MAJORMINOR }}/fonts --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.NEXT_MAJORMINOR }}/icons --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.NEXT_MAJORMINOR }}/logos --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/assets/dist/fonts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.NEXT_MAJORMINOR }}/fonts --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/assets/dist/icons s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.NEXT_MAJORMINOR }}/icons --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/assets/dist/logos s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.NEXT_MAJORMINOR }}/logos --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.NEXT_MAJORMINOR }}/css --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN }}/${{ env.NEXT_MAJORMINOR }}/scripts --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/css/dist/css s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.NEXT_MAJORMINOR }}/css --delete --cache-control 'max-age=86400'
+          aws s3 sync ./packages/css/dist/scripts s3://${{ secrets.AWS_S3_PUNKT_CDN_NOCORS }}/${{ env.NEXT_MAJORMINOR }}/scripts --delete --cache-control 'max-age=86400'
+
+      - name: Update CDN versions.json
+        run: |
+          aws s3 cp s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json ./
+          npx lerna run update-cdn-versions-json --scope=@oslokommune/punkt-cdn -- version=${{ env.NEXT_MAJORMINOR }} 
+          aws s3 cp ./versions.json s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json --cache-control 'max-age=300'
+
+      - name: Update other CDN root files
+        run: |
+          aws s3 ls s3://origo-punkt-cdn/ --recursive | awk '{print $4}' > s3_files.txt
+          npx lerna run build-app --scope=@oslokommune/punkt-cdn -- file=../../s3_files.txt
+          aws s3 cp ./apps/cdn/dist s3://${{ secrets.AWS_S3_PUNKT_CDN }}/ --recursive --cache-control 'max-age=300'
+
+      - name: Invalidate CF cache for CDN root and versions
+        run: |
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_CDN }} --paths "/*.*" "/*/index.html" "/latest/*"

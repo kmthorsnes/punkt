@@ -1,0 +1,98 @@
+---
+title: Switch
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/switch" },
+    { "title": "Kode", "href": "komponenter/switch/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/switch/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+Denne komponenten bruker [Checkbox](/komponenter/checkbox) og all kode er identisk, så se dit for detaljert dokumentasjon. Teknisk er en Switch akkurat det samme som en Checkbox, dog med den praktiske forskjellen at Switch kun bør brukes dersom endringene trer i kraft øyeblikkelig mens Checkbox gjerne er en del av en skjemakontekst med en lagreknapp.
+
+Denne siden vil kun vise et eksempel på bruk, og all dokumentasjon deles med [Checkbox](/komponenter/checkbox).
+
+## Eksempel på bruk
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        class="pkt-input-check__input-checkbox"
+        type="checkbox"
+        role="switch"
+        id="exampleSwitch"
+      />
+      <label class="pkt-input-check__input-label" for="exampleSwitch">
+        Dette er en Switch, eller Toggle, eller bryter
+        <div class="pkt-input-check__input-helptext">
+          Men i bunn er det bare en helt vanlig Checkbox… Det eneste du trenger
+          å gjøre er å legge til <code>role=\"switch\"</code> på input‘en så har
+          du en Switch! I Vue- og React-komponentene til Checkbox trenger du
+          bare legge på en prop som heter <code>isSwitch</code> så blir den helt
+          magisk en Switch.
+        </div>
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+```html
+<div class="pkt-input-check">
+  <div class="pkt-input-check__input">
+    <input
+      class="pkt-input-check__input-checkbox"
+      type="checkbox"
+      role="switch"
+      id="exampleSwitch"
+    />
+    <label class="pkt-input-check__input-label" for="exampleSwitch">
+      Dette er en Switch, eller Toggle, eller bryter
+      <div class="pkt-input-check__input-helptext">
+        Men i bunn er det bare en helt vanlig Checkbox… Det eneste du trenger å
+        gjøre er å legge til <code>role=\"switch\"</code> på input‘en så har du
+        en Switch! I Vue- og React-komponentene til Checkbox trenger du bare
+        legge på en prop som heter <code>isSwitch</code> så blir den helt magisk
+        en Switch.
+      </div>
+    </label>
+  </div>
+</div>
+```
+</div>
+
+<div class="vue tabcontent">
+  ```js
+  <PktCheckbox
+    isSwitch
+    id="exampleSwitch"
+    label="Dette er en Switch, eller Toggle, eller bryter"
+    checkHelptext="Men i bunn er det bare en helt vanlig Checkbox…"
+  />
+  ```
+</div>
+
+<div class="react tabcontent">
+  ```js
+  <PktCheckbox
+    isSwitch
+    id="exampleSwitch"
+    label="Dette er en Switch, eller Toggle, eller bryter"
+    checkHelptext="Men i bunn er det bare en helt vanlig Checkbox…"
+  />
+  ```
+</div>
+
+</CodeTabs>

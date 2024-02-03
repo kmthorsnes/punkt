@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="two-people-talking" fill="none" data-category="people-and-health" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd" d="M21.51 1.585h-12v8h3.865l2.135 2.562 2.135-2.562h3.865v-8Zm-10 6v-4h8v4h-2.802L15.51 9.023l-1.198-1.438H11.51Z" clip-rule="evenodd"/>
+  <path fill="var(--fg-color, #2A2859)" d="M6.506 15.585a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm17.999.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd" d="M10.426 17.335h-7.84L1.51 30.252l1.993.166.005-.062.04-1.021h5.92l.04 1.062.002.021 1.993-.166-1.077-12.917Zm-5.999 2-.667 8h5.494l-.667-8h-4.16Zm24.082 11h-8v-.932l-.02.11-1.967-.357 2.148-11.821h7.67l2.148 11.821-1.966.357-.013-.072v.894Zm-6.001-2v-9h4v9h-4Z" clip-rule="evenodd"/>
+</svg>

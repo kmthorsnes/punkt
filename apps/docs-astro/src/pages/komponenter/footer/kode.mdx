@@ -1,0 +1,475 @@
+---
+title: Footer
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/footer" },
+    { "title": "Kode", "href": "komponenter/footer/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/footer/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+import { PktFooterSimple, PktFooter } from "@oslokommune/punkt-react";
+
+export const links = [
+  {
+    href: "#",
+    text: "Test ekstern lenke",
+    external: true,
+    openInNewTab: true,
+  },
+  {
+    href: "#",
+    text: "Testlenke",
+  },
+  {
+    href: "#",
+    text: "Testlenke",
+  },
+];
+
+export const columnOne = {
+  title: "Kolonnetittel 1",
+  text: "Her kan du skrive en lengre tekst som beskriver løsningen eller tjenesten om ønskelig.",
+  links: [
+    {
+      text: "Test ekstern lenke",
+      href: "#",
+      external: true,
+      openInNewTab: true,
+    },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+
+export const columnTwo = {
+  title: "Kolonnetittel 2",
+  links: [
+    {
+      text: "Test ekstern lenke",
+      href: "#",
+      external: true,
+      openInNewTab: true,
+    },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+
+export const socialLinksAll = [
+  { href: "#", language: "Engelsk" },
+  { href: "#", iconName: "facebook" },
+  { href: "#", iconName: "twitter" },
+];
+
+## Om komponenten
+
+Footer er to ulike komponenter, normal og simple:
+
+- PktFooter
+- PktFooterSimple
+
+### Avhengigheter
+
+Ikoner:
+
+- chevron-right (required)
+- twitter
+- facebook
+
+## Varianter
+
+### Normal
+
+Kolonne 3 er obligatorisk med lenke til personvern og informasjonskapsler og tilgjengelighet.
+Du kan velge innholdet i lenkene i kolonne 3 ved å sende med en href-`string` i props `personvernOgInfoLink` og/eller `tilgjengelighetLink`.
+
+<CodeExample>
+  <PktFooter
+    columnOne={columnOne}
+    columnTwo={columnTwo}
+    socialLinks={socialLinksAll}
+    client:load
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<footer data-mode="dark" class="pkt-footer">
+  <div class="pkt-footer__container">
+    <div class="pkt-grid pkt-grid--rowgap-size-32 pkt-grid--gap-size-16">
+      <div
+        class="pkt-footer__column pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+      >
+        <h2 class="pkt-footer__title">Test</h2>
+        <ul class="pkt-footer__list">
+          <li class="pkt-footer__text">
+            Her kan du skrive en lengre tekst som beskriver løsningen eller
+            tjenesten om ønskelig.
+          </li>
+          <li class="pkt-footer__list-item">
+            <a
+              href="#"
+              class="pkt-footer__link pkt-link--external"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Ekstern lenke i ny fane
+            </a>
+          </li>
+          <li class="pkt-footer__list-item">
+            <a href="#" class="pkt-footer__link">
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Ledige stillinger
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="pkt-footer__column pkt-cell pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+      >
+        <h2 class="pkt-footer__title">Test</h2>
+        <ul class="pkt-footer__list">
+          <li class="pkt-footer__list-item">
+            <a href="#" class="pkt-footer__link">
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Kontakt
+            </a>
+          </li>
+          <li class="pkt-footer__list-item">
+            <a href="#" class="pkt-footer__link">
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Ledige stillinger
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="pkt-footer__column pkt-cell pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+      >
+        <h2 class="pkt-footer__title">Om nettstedet</h2>
+        <ul class="pkt-footer__list">
+          <li class="pkt-footer__list-item">
+            <a
+              href="https://www.oslo.kommune.no/tilgjengelighet/"
+              class="pkt-footer__link"
+            >
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Tilgjengelighet
+            </a>
+          </li>
+          <li class="pkt-footer__list-item">
+            <a
+              href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+              class="pkt-footer__link"
+            >
+              <span class="pkt-icon pkt-footer__link-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right"></use>
+                </svg>
+              </span>
+              Personvern og informasjonskapsler
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pkt-footer__social" aria-label="standard lenker">
+      <div class="pkt-footer__social-language">
+        <a href="#" aria-label="til engelsk versjon av nettsiden">Engelsk</a>
+      </div>
+      <div class="pkt-footer__social-icons">
+        <a
+          class="pkt-footer__social-icon-link"
+          href="#"
+          aria-label="til facebook"
+        >
+          <span class="pkt-icon pkt-footer__social-icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#facebook"></use>
+            </svg>
+          </span>
+        </a>
+        <a
+          class="pkt-footer__social-icon-link"
+          href="#"
+          aria-label="til twitter"
+        >
+          <span class="pkt-icon pkt-footer__social-icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#twitter"></use>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-footer
+  :columnOne="columnOne"
+  :columnTwo="columnTwo"
+  :socialLinks="socialLinksAll"
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktFooter
+  columnOne={columnOne}
+  columnTwo={columnTwo}
+  socialLinks={socialLinksAll}
+/>
+```
+
+</div>
+</CodeTabs>
+
+### Eksempeldata PktFooter
+
+```js
+const columnOne = {
+  title: "Kolonnetittel 1",
+  text: "Her kan du skrive en lengre tekst som beskriver løsningen eller tjenesten om ønskelig.",
+  links: [
+    {
+      text: "Test ekstern lenke",
+      href: "#",
+      external: true,
+      openInNewTab: true,
+    },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+const columnTwo = {
+  title: "Kolonnetittel 2",
+  links: [
+    {
+      text: "Test ekstern lenke",
+      href: "#",
+      external: true,
+      openInNewTab: true,
+    },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+const socialLinksAll = [
+  { href: "#", language: "Engelsk", openInNewTab: true },
+  { href: "#", iconName: "facebook" },
+  { href: "#", iconName: "twitter" },
+];
+```
+
+### Simple
+
+<CodeExample client:load>
+  <PktFooterSimple links={links} client:load />
+</CodeExample>
+
+#### Default
+
+<CodeExample client:load>
+  <PktFooterSimple client:load />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<footer data-mode="dark" class="pkt-footer-simple">
+  <div class="pkt-footer-simple__container">
+    <ul class="pkt-footer-simple__list">
+      <li class="pkt-footer-simple__list-item">
+        <a href="#" class="pkt-footer-simple__link pkt-link--external">
+          <span class="pkt-icon pkt-footer-simple__link-icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Ekstern lenke
+        </a>
+      </li>
+      <li class="pkt-footer-simple__list-item">
+        <a href="#" class="pkt-footer-simple__link">
+          <span class="pkt-icon pkt-footer-simple__link-icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Testlenke
+        </a>
+      </li>
+      <li class="pkt-footer-simple__list-item">
+        <a
+          href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+          class="pkt-footer-simple__link"
+        >
+          <span class="pkt-icon pkt-footer-simple__link-icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Personvern og informasjonskapsler
+        </a>
+      </li>
+      <li class="pkt-footer-simple__list-item">
+        <a
+          href="https://www.oslo.kommune.no/tilgjengelighet/"
+          class="pkt-footer-simple__link"
+        >
+          <span class="pkt-icon pkt-footer-simple__link-icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Tilgjengelighetserklæring
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-footer-simple :links="links" />
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktFooterSimple links={links} />
+```
+
+</div>
+</CodeTabs>
+
+### Eksempeldata PktFooterSimple
+
+```js
+const links = [
+  {
+    href: "#",
+    text: "Test ekstern lenke",
+    external: true,
+    openInNewTab: true,
+  },
+  {
+    href: "#",
+    text: "Testlenke",
+  },
+  {
+    href: "#",
+    text: "Test link",
+  },
+];
+```
+
+## CSS oversikt
+
+### Normal
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-footer</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-footer__container</li>
+    <li>.pkt-footer__column</li>
+    <li>.pkt-footer__title</li>
+    <li>.pkt-footer__list</li>
+    <li>.pkt-footer__text</li>
+    <li>.pkt-footer__list-item</li>
+    <li>.pkt-footer__link</li>
+    <li>.pkt-footer__link-icon</li>
+    <li>.pkt-footer__social</li>
+    <li>.pkt-footer__social-language</li>
+    <li>.pkt-footer__social-icons</li>
+    <li>.pkt-footer__social-icon-link</li>
+    <li>.pkt-footer__social-icon</li>
+  </ul>
+</div>
+
+### Simple
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-footer-simple</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-footer-simple__container</li>
+    <li>.pkt-footer-simple__list</li>
+    <li>.pkt-footer-simple__list-item</li>
+    <li>.pkt-footer-simple__link</li>
+    <li>.pkt-footer-simple__link-icon</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+### Normal
+
+| Props                | Type   | Validation                                                                                                                                                                                                   | Default | Description                                                                                    |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------- |
+| columnOne            | object | `title` er påkrevd. Kan også inneholde `text` eller/og `links`. Links må være et array av objekter hvor hvert objekt inneholder string `href` og `text`, kan inneholde boolean `external` og `openInNewTab`. |         | Et objekt som representerer den første kolonnen i footer.                                      |
+| columnTwo            | object | `title` er påkrevd. Kan inneholde `links`. Links må være et array av objekter hvor hvert objekt inneholder string `href` og `text`, kan inneholde boolean `external` og `openInNewTab`.                      |         | Et objekt som representerer den andre kolonnen i footer.                                       |
+| socialLinks          | array  | Et array av objekter hvor hvert objekt inneholder `href`, `iconName`, `language` og `openInNewTab`.                                                                                                          |         | Et valgfritt array av objekter som representerer lenkene til sosiale medier og språk i footer. |
+| personvernOgInfoLink | string | Link til personvern og info-siden.                                                                                                                                                                           |         | Lenke til personvern og informasjonssiden.                                                     |
+| tilgjengelighetLink  | string | Link til tilgjengelighetssiden.                                                                                                                                                                              |         | Lenke til tilgjengelighetssiden.                                                               |
+
+### Simple
+
+| Props                | Type   | Validation                                                                                                                 | Default | Description                                                        |
+| -------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------ |
+| links                | array  | Et array av objekter hvor hvert objekt skal inneholde `href` og `text`. Kan inneholde boolean `external` og `openInNewTab` | `[]`    | Et valgfritt array av objekter som representerer lenkene i footer. |
+| personvernOgInfoLink | string | Link til personvern og info-siden.                                                                                         |         | Lenke til personvern og informasjonssiden.                         |
+| tilgjengelighetLink  | string | Link til tilgjengelighetssiden.                                                                                            |         | Lenke til tilgjengelighetssiden.                                   |

@@ -1,0 +1,171 @@
+---
+import LinkList from "@components/LinkList.vue";
+import MainLayout from "@layouts/MainLayout.astro";
+import { PktFooter } from "@oslokommune/punkt-react";
+import Header from "@components/Header.astro";
+import { columnOne, columnTwo } from "../data/footerdata.js";
+
+//Header data
+const links = [
+  {
+    title: "Ressurser og profil",
+    href: import.meta.env.BASE_URL + "ressurser/om-ressurser",
+    iconName: "#heart",
+    content:
+      "Føringer for farger, grid, typografi og ikoner, i tillegg til best practice.",
+  },
+  {
+    title: "Komponenter",
+    href: import.meta.env.BASE_URL + "komponenter/om-komponenter",
+    iconName: "#table",
+    content:
+      "Oversikt over alle komponentene i Punkt og  hvordan du kan ta dem i bruk.",
+  },
+  {
+    title: "Kom i gang!",
+    href: import.meta.env.BASE_URL + "kom-i-gang/for-utviklere",
+    iconName: "#map",
+    content: "Ganske fersk Punkt-bruker? Kom kjapt i gang med designsystemet.",
+  },
+  {
+    title: "Universell utforming",
+    href: import.meta.env.BASE_URL + "universellutforming/hva-er-uu",
+    iconName: "#bullseye",
+    content: "Hvordan sørger vi for å lage tilgjengelige løsninger?",
+  },
+];
+---
+
+<MainLayout title="Forside">
+  <Header transparent />
+  <main id="main-content" class="main-content" aria-label="Innhold">
+    <section class="section section--1">
+      <div class="section__text section--text-center">
+        <h2 class="section__title pkt-sr-only">Punkt</h2>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 87 19"
+          class="section__svg"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.07 0C4.06 0 0 4.06 0 9.07C0 14.08 4.06 18.14 9.07 18.14C14.08 18.14 18.14 14.08 18.14 9.07C18.14 4.06 14.07 0 9.07 0ZM9.07 13.07C6.86 13.07 5.07 11.28 5.07 9.07C5.07 6.86 6.86 5.07 9.07 5.07C11.28 5.07 13.07 6.86 13.07 9.07C13.07 11.28 11.28 13.07 9.07 13.07Z"
+            fill="#2A2859"></path>
+          <path
+            d="M37.74 5.64C37.74 8.95 35.29 11.21 31.43 11.21H27.9V17.76H25.76V0H31.57C35.41 0 37.74 2.31 37.74 5.64ZM35.53 5.66C35.53 3.28 34.16 1.94 31.64 1.94H27.9V9.31H31.64C34.16 9.31 35.53 8.02 35.53 5.66Z"
+            fill="#2A2859"></path>
+          <path
+            d="M49.7401 5.05004V17.77H47.6701V15.85C46.9001 17.22 45.5601 17.96 44.0001 17.96C41.4601 17.96 39.9401 16.33 39.9401 13.57V5.04004H42.0101V13.33C42.0101 15.23 42.9701 16.16 44.6201 16.16C46.7101 16.16 47.6701 14.55 47.6701 12.06V5.05004H49.7401Z"
+            fill="#2A2859"></path>
+          <path
+            d="M62.99 9.24992V17.7699H60.92V9.55992C60.92 7.46992 59.96 6.64992 58.31 6.64992C56.22 6.64992 55.21 8.20992 55.21 10.7099V17.7699H53.14V5.04992H55.21V6.94992C56.03 5.57992 57.35 4.80992 58.91 4.81992C61.48 4.81992 62.99 6.42992 62.99 9.25992V9.24992Z"
+            fill="#2A2859"></path>
+          <path
+            d="M69.99 11.65L68.48 13.14V17.77H66.41V0H68.48V10.76L74.17 5.05H76.79L71.39 10.31L76.88 17.78H74.36L69.99 11.66V11.65Z"
+            fill="#2A2859"></path>
+          <path
+            d="M83.9101 16.19C84.6501 16.19 85.1801 15.9 85.7601 15.3L86.7401 16.57C85.8501 17.55 84.8701 17.96 83.6401 17.96C81.7201 17.96 80.1401 16.74 80.1401 14.34V6.70996H77.8101V5.04996H80.1401V2.26996L82.2101 1.20996V5.04996H86.4801V6.70996H82.2101V14.29C82.2101 15.75 83.1001 16.19 83.9101 16.19Z"
+            fill="#2A2859"></path>
+        </svg>
+        <p>
+          Punkt kan brukes av alle som lager digitale produkter i Origo i Oslo
+          kommune. Designsystemet driftes av en gjeng i Oslo Origo, men vi
+          oppfordrer alle som bruker det til å bidra 💙
+        </p>
+      </div>
+      <div class="pkt-container">
+        <LinkList links={links} />
+      </div>
+    </section>
+
+    <section class="section section--2">
+      <article class="section section__text section__content pkt-container">
+        <div class="pkt-grid">
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <h2>Hvorfor har vi et designsystem?</h2>
+          </div>
+
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <p>
+              Designsystemet skal gjøre det enkelt å lage digitale produkter i
+              Origo som ivaretar Oslos visuelle identitet og som er universelt
+              utformet. Samtidig sikrer vi at produktene våre har et helhetlig
+              uttrykk på tvers av løsninger.
+            </p>
+          </div>
+
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <h2>Hvem lager designsystemet?</h2>
+          </div>
+
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <p>
+              Punkt lages av team Designsystem i Oslo Origo – Oslo kommunes
+              digitaliseringsetat. Vi i Origo utvikler digitale tjenester som
+              gjør hverdagen til innbyggerne våre litt enklere og bedre.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section--3">
+      <article class="section section__text section__content pkt-container">
+        <div class="pkt-grid">
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <h2>Hvem samarbeider vi med?</h2>
+          </div>
+
+          <div
+            class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up"
+            data-mode="dark"
+          >
+            <p>
+              Team designsystem i Origo samarbeider tett med Utviklings- og
+              kompetanseetaten (UKE). De er ansvarlig for drift og utvikling av
+              <a href="https://www.oslo.kommune.no">www.oslo.kommune.no</a>.
+              Disse nettsidene er ofte innbyggernes første møte med kommunens
+              tjenester. Designsystemet skal bidra til å skape en helthetlig
+              opplevelse på tvers av tjenestene til Oslo kommune.
+            </p>
+            <p>
+              <a href="https://www.oslo.kommune.no">www.oslo.kommune.no</a> har et
+              eget designsystem som du finner på <a
+                href="https://designsystem.oslo.kommune.no/"
+                >designsystem.oslo.kommune.no</a
+              >
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section--4">
+      <article class="section section__text section__content pkt-container">
+        <div class="pkt-grid">
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <h2>Trenger du bistand eller hjelp?</h2>
+          </div>
+
+          <div class="pkt-cell pkt-cell--span12 pkt-cell--span6-tablet-up">
+            <p>
+              Feedback? Innspill? Spørsmål? Ikke nøl med å ta kontakt med oss!
+              Stikk innom oss på kontoret eller ta kontakt med oss
+              <a href="https://oslokommune.slack.com/archives/C01EWV9U07R"
+                >på Slack.</a
+              >
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <PktFooter
+      className="pkt-footer-frontpage"
+      columnOne={columnOne}
+      columnTwo={columnTwo}
+      client:load
+    />
+  </main>
+</MainLayout>

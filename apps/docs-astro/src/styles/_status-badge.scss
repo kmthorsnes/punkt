@@ -1,0 +1,52 @@
+/* 
+ * Badge element
+ * Venter på ny badge i punk-css
+ */
+
+@use "@pkt/scss/abstracts/mixins/typography";
+@use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+@use "@pkt/scss/abstracts/variables";
+
+.status-badge {
+  @include typography.get-text("pkt-txt-14-medium");
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.4em;
+  padding: 4px 12px;
+  background: var(--pkt-color-brand-neutrals-200);
+  color: var(--pkt-color-grays-gray-700);
+  border-radius: 1px;
+
+  &__icon {
+    margin-right: 4px;
+  }
+
+  &--strong {
+    color: var(--pkt-color-brand-blue-500);
+    background: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--success {
+    background: var(--pkt-color-brand-light-green-1000);
+    color: var(--pkt-color-brand-dark-green-1000);
+  }
+
+  &--info {
+    background: var(--pkt-color-brand-blue-500);
+    color: var(--pkt-color-brand-dark-blue-1000);
+  }
+
+  &--default {
+    background: var(--pkt-color-brand-neutrals-200);
+    color: var(--pkt-color-grays-gray-700);
+  }
+}
+
+// Reduce size when used inside headings
+.status-badge.status-badge--small,
+.status-h1>.status-badge,
+.status-h2>.status-badge,
+.status-h3>.status-badge {
+  font-size: 0.5em;
+  transform: translateY(-0.25em);
+}

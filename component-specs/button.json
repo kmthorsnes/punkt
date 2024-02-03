@@ -1,0 +1,51 @@
+{
+  "name": "pkt-button",
+  "css-class": "pkt-btn",
+  "events": {
+    "onClick": {}
+  },
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconName": {
+      "type": "string",
+      "default": ""
+    },
+    "secondIconName": {
+      "type": "string",
+      "default": ""
+    },
+    "mode": ["light", "dark"],
+    "size": ["small", "medium", "large"],
+    "skin": ["primary", "secondary", "tertiary"],
+    "color": [
+      "blue",
+      "blue-outline",
+      "green",
+      "green-outline",
+      "green-dark",
+      "green-dark-outline",
+      "beige-light",
+      "beige-dark-outline",
+      "yellow",
+      "yellow-outline",
+      "red",
+      "red-outline"
+    ],
+    "state": ["normal", "focus", "hover", "active"],
+    "variant": [
+      "label-only",
+      "icon-left",
+      "icon-right",
+      "icon-only",
+      "icons-right-and-left"
+    ]
+  },
+  "slots": {
+    "default": {
+      "description": ""
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@oslokommune/punkt-cdn",
+  "version": "0.0.0",
+  "description": "CDN-nettstedet til Punkt, et designsystem laget av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "scripts": {
+    "build-app": "node ./scripts/build-app.js",
+    "dev": "npm run build-app && http-server ./dist -c-1 -p 3000",
+    "update-cdn-versions-json": "node ./scripts/update-cdn-versions-json.js"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.1.0",
+    "http-server": "^14.1.1",
+    "mustache": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=18.19"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "nodejs",
+    "cdn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="chevron-down" fill="none" data-category="arrows" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd"
+    d="m15.9972 23.1429 10-10-4.2858-4.2858-5.7142 5.7143-5.7143-5.7143-4.2857 4.2858 10 10ZM10.2829 6l5.7143 5.7143L21.7114 6l7.1429 7.1429L15.9972 26 3.14 13.1429 10.283 6Z"
+    clip-rule="evenodd" />
+</svg>

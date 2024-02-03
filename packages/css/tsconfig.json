@@ -1,0 +1,6 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "paths": { "@pkt-assets": ["@oslokommune/punkt-assets/dist"] }
+  }
+}

@@ -1,0 +1,151 @@
+@charset "utf-8";
+
+@use "sass:map";
+@use "@pkt/scss/abstracts/variables";
+@use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+@use "@pkt/scss/abstracts/mixins/typography";
+
+h1 {
+  @include typography.get-text("pkt-txt-36");
+  margin-top: map.get(variables.$spacing, "size-16");
+  margin-bottom: map.get(variables.$spacing, "size-16");
+
+  @include bp("tablet-up") {
+    @include typography.get-text("pkt-txt-54");
+  }
+}
+
+h2 {
+  @include typography.get-text("pkt-txt-26");
+  margin-bottom: map.get(variables.$spacing, "size-8");
+  margin-top: map.get(variables.$spacing, "size-32");
+
+  @include bp("tablet-up") {
+    @include typography.get-text("pkt-txt-36");
+  }
+}
+
+h2:first-of-type {
+  margin-top: 0;
+}
+
+h3 {
+  @include typography.get-text("pkt-txt-22");
+  margin-bottom: map.get(variables.$spacing, "size-8");
+  margin-top: map.get(variables.$spacing, "size-32");
+
+  @include bp("tablet-up") {
+    @include typography.get-text("pkt-txt-30");
+  }
+}
+
+h4 {
+  @include typography.get-text("pkt-txt-18-medium");
+  margin-top: map.get(variables.$spacing, "size-24");
+  margin-bottom: map.get(variables.$spacing, "size-4");
+
+  @include bp("tablet-up") {
+    @include typography.get-text("pkt-txt-24-medium");
+  }
+}
+
+h5 {
+  @include typography.get-text("pkt-txt-16-medium");
+  margin: map.get(variables.$spacing, "size-8") 0;
+
+  @include bp("tablet-up") {
+    @include typography.get-text("pkt-txt-22-medium");
+  }
+}
+
+p {
+  margin-bottom: map.get(variables.$spacing, "size-16");
+}
+
+ul,
+ol {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.nested-numbers {
+  ol {
+    counter-reset: num;
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+
+  li:before {
+    content: counters(num, ".") ". ";
+    counter-increment: num;
+  }
+
+  ol ol {
+    margin-top: 0;
+  }
+
+  p:first-child {
+    display: inline;
+  }
+}
+
+.pkt-linklist {
+  padding: 0;
+
+  & ul,
+  li {
+    list-style-type: none;
+  }
+}
+
+.pkt-messagebox p {
+  margin: 0;
+}
+
+.ingress {
+  @include typography.get-text("pkt-txt-24-light");
+}
+
+// tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+
+  @include bp("mobile") {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th {
+    border-bottom: 1px solid map.get(variables.$colors, "pkt-color-brand-dark-blue-100");
+    font-weight: map.get(variables.$font-weight, "medium");
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 1px solid map.get(variables.$colors, "pkt-color-grays-gray-300");
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  &.table-centered {
+    td {
+      text-align: center;
+      border-bottom: 0;
+    }
+  }
+}
+
+// override pkt-table styles
+.pkt-table th,
+.pkt-table td {
+  min-width: auto !important;
+}

@@ -1,0 +1,56 @@
+---
+title: Select
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/select" },
+    { "title": "Kode", "href": "komponenter/select/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/select/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Skjemaelementer burde ha en en-kolonnes layout, og hvert element skal ha sin egen label for å beskrive bruk. Om label av en eller annen grunn ikke skal vises skal den fortsatt finnes, men bruke klassen pkt-sr-only slik at skjemaet fortsatt er brukervennlig.
+- Alle tekstfelt bør ha et tilknyttet label (ledetekst) eller instruksjon som viser hvordan skjemaet skal fylles ut.
+- Label (ledeteksten) bør være koblet til tekstfeltet i koden slik at skjermlesere kan lese opp riktig informasjon. Komplekse skjema kan kreve mer hjelp enn bare enn labels.
+- Feilmeldinger bør være kodet som tekst og identifisere det spesifikke skjemaelementet hvor feilen oppstod. Feilmeldingen må beskrive feilen og være synlig uten at brukeren gjør noen ekstra handlinger.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Alle nedtrekksmenyene har tilknyttet label eller instruksjon.
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Feilmeldinger er kodet som tekst og er i nærheten av det spesifikke
+        tekstfeltet der feilen oppstod.
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [Ledetekster og instruksjoner (UUTilsynet)](https://www.uutilsynet.no/veiledning/skjema/38#ledetekster_og_instruksjoner)
+- [Tekst på interaksjonselementer (KS)](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/feilmeldinger/)

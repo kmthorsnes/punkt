@@ -1,0 +1,333 @@
+---
+title: Checkbox
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/checkbox" },
+    { "title": "Kode", "href": "komponenter/checkbox/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/checkbox/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+import { PktCheckbox, PktInputWrapper } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Både checkboxer og radiobuttons bruker samme klasse, `pkt-input-check`.
+
+Strukturelt skal `<input>` og `<label>` være søskenelementer istedet for å ha `<label>` rundt `<input>`. Dette krever mer markup siden du må legge til `id` og `for` attributter. Dette er gjort for at det er dette som gir mest konsistent resultat for hjelpemidler som skjermlesere og liknende.
+
+For å lage grupper med checkboxes brukes vår inputwrapper som sikrer riktig layout og styling. Ved grupper av checkboxes brukes `hasFieldset` som wrapper gruppen med `fieldset` og `legend`.
+
+## Varianter
+
+<CodeExample>
+  <PktCheckbox
+    id="checboxSingle"
+    label="Checkbox"
+    checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-input-check">
+  <div class="pkt-input-check__input">
+    <input
+      class="pkt-input-check__input-checkbox"
+      type="checkbox"
+      id="exampleCheckbox"
+    />
+    <label class="pkt-input-check__input-label" for="exampleCheckbox"
+      >Checkbox 1
+      <div class="pkt-input-check__input-helptext">
+        Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+        detaljert.
+      </div>
+    </label>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktCheckbox
+  id="checboxSingle"
+  label="Checkbox"
+  checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktCheckbox
+  id="checboxSingle"
+  label="Checkbox"
+  checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+/>
+```
+
+</div>
+</CodeTabs>
+
+### Tile
+
+<CodeExample>
+  <PktCheckbox
+    id="checboxTile"
+    label="ChecboxTile"
+    checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+    hasTile
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-input-check">
+  <div class="pkt-input-check__input">
+    <input
+      class="pkt-input-check__input-checkbox pkt-input-check__input--tile"
+      type="checkbox"
+      id="checboxTile"
+    />
+    <label class="pkt-input-check__input-label" for="checboxTile"
+      >Checkbox 1
+      <div class="pkt-input-check__input-helptext">
+        Denne valgfrie teksten kan brukes til å beskrive etiketten mer
+        detaljert.
+      </div>
+    </label>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktCheckbox
+  id="checboxTile"
+  label="ChecboxTile"
+  checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+  hasTile
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktCheckbox
+  id="checboxTile"
+  label="CheckboxTile"
+  checkHelptext="Denne valgfrie teksten kan brukes til å beskrive etiketten mer detaljert."
+  hasTile
+/>
+```
+
+</div>
+</CodeTabs>
+
+### Checkboxgroup med inputwrapper
+
+<CodeExample>
+  <PktInputWrapper
+    label="Etikett"
+    helptext="Dette er tekst over avmerkingsboksene."
+    optionalTag
+    optionalText="Valgfritt"
+    forId="checkboxGroup"
+    hasFieldset
+  >
+    <PktCheckbox id="checkbox1" label="Checkbox1" />
+    <PktCheckbox id="checkbox2" label="Checkbox2" />
+  </PktInputWrapper>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<fieldset class="pkt-inputwrapper pkt-inputwrapper__fieldset">
+  <legend class="pkt-inputwrapper__label pkt-inputwrapper__legend">
+    Etikett
+  </legend>
+  <div class="pkt-inputwrapper__helptext">
+    Dette er tekst over avmerkingsboksene.
+  </div>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input pkt-input-check__input--tile">
+      <input
+        class="pkt-input-check__input-checkbox"
+        type="checkbox"
+        id="checkbox1"
+      />
+      <label class="pkt-input-check__input-label" for="checkbox1"
+        >Checkbox1
+      </label>
+    </div>
+    <div class="pkt-input-check__input pkt-input-check__input--tile">
+      <input
+        class="pkt-input-check__input-checkbox"
+        type="checkbox"
+        id="exampleCheckbox2tile"
+      />
+      <label class="pkt-input-check__input-label" for="checkbox2"
+        >Checkbox2</label
+      >
+    </div>
+  </div>
+</fieldset>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktInputWrapper
+  label="Etikett"
+  helptext="Dette er tekst over avmerkingsboksene."
+  optionalTag
+  optionalText="Valgfritt"
+  forId="checkboxGroup"
+  hasFieldset
+>
+  <PktCheckbox id="checkbox1" label="Checkbox1" />
+  <PktCheckbox id="checkbox2" label="Checkbox2" />
+</PktInputWrapper>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktInputWrapper
+  label="Etikett"
+  helptext="Dette er tekst over avmerkingsboksene."
+  optionalTag
+  optionalText="Valgfritt"
+  forId="checkboxGroup"
+  hasFieldset
+>
+  <PktCheckbox id="checkbox1" label="Checkbox1" />
+  <PktCheckbox id="checkbox2" label="Checkbox2" />
+</PktInputWrapper>
+```
+
+</div>
+</CodeTabs>
+
+### Error
+
+Legg til `pkt-input-check__input-checkbox--error` på inputfeltet i CSS, eller `hasError` som prop i React/Vue.
+
+<CodeExample>
+  <PktCheckbox id="checboxError" label="CheckboxError" hasError />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-input-check">
+  <div class="pkt-input-check__input">
+    <input
+      class="pkt-input-check__input-checkbox pkt-input-check__input-checkbox--error"
+      type="checkbox"
+      id="exampleCheckboxError"
+    />
+    <label class="pkt-input-check__input-label" for="exampleCheckboxError">
+      Checkbox Error
+    </label>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktCheckbox id="checboxError" label="CheckboxError" hasError />
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktCheckbox id="checboxError" label="CheckboxError" hasError />
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-input-check</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-input-check__input</li>
+    <li>.pkt-input-check__input-checkbox</li>
+    <li>.pkt-input-check__input-label</li>
+    <li>.pkt-input-check__input-helptext</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-input-check__input`--`tile</li>
+    <li>.pkt-input-check__input-checkbox`--`error</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Prop             | Type    | Validation | Default | Beskrivelse                                                                                        |
+| ---------------- | ------- | ---------- | ------- | -------------------------------------------------------------------------------------------------- |
+| id               | String  | Påkrevd    | -       | En unik identifikator for komponenten.                                                             |
+| defaultChecked   | Boolean | -          | false   | Standardverdi for Checkbox.                                                                        |
+| checked (Vue)    | Boolean | -          | false   | Nåværende tilstand for Checkbox.                                                                   |
+| value (Vue)      | Boolean | -          | false   | Verdien til Checkbox.                                                                              |
+| hasTile          | Boolean | -          | false   | Angi om komponenten har en Tile.                                                                   |
+| disabled         | Boolean | -          | false   | Angi om Checkbox er disabled.                                                                      |
+| label            | String  | Påkrevd    | -       | Tekstetiketten for Checkbox.                                                                       |
+| labelPosition    | Boolean | -          | 'right' | Skal etikett plasseres til venstre (`left`) eller høyre (`right`) for checkbox                     |
+| hideLabel        | Boolean | -          | false   | Dersom det ønskes en frittstående checkbox. Merk at label fortsatt bør inkluderes for skjermlesere |
+| checkHelptext    | String  | -          | -       | Valgfri hjelpetekst for å beskrive Checkbox mer detaljert.                                         |
+| hasError         | Boolean | -          | false   | Angi om det er en feil i Checkbox.                                                                 |
+| className(React) | string  | -          | -       | Tilpasset CSS-klasse for RadioButton                                                               |
+| isSwitch         | Boolean | -          | false   | Sett denne til `true` dersom Checkbox skal presenteres som en [Switch](/komponenter/switch)        |
+
+| Events         | Type | Validation | Default | Beskrivelse                                                       |
+| -------------- | ---- | ---------- | ------- | ----------------------------------------------------------------- |
+| change (Vue)   | -    | -          | -       | Utløses når tilstanden til Checkbox endres.                       |
+| onChange (Vue) | -    | -          | -       | En annen hendelse som utløses når tilstanden til Checkbox endres. |

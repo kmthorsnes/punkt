@@ -1,0 +1,57 @@
+name: CDN - manual deploy versions file
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Skriv major.minor versjon du ønsker å legge til"
+        required: true
+        type: string
+
+jobs:
+  cdn:
+    name: Update cdn
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [18.19]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Checkout all branches and tags
+
+      - name: Setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Fetch versions.json from AWS
+        run: |
+          aws s3 cp s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json ./
+
+      - name: Update local version
+        run: |
+          npx lerna run update-cdn-versions-json --scope=@oslokommune/punkt-cdn -- version=${{ github.events.inputs.version }}
+
+      - name: Copy updated versions.json to AWS
+        run: |
+          aws s3 cp ./versions.json s3://${{ secrets.AWS_S3_PUNKT_CDN }}/versions.json --cache-control 'max-age=300'
+
+      - name: Invalidate CF cache for CDN root and versions
+        run: |
+          AWS_MAX_ATTEMPTS=10 aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_PUNKT_CDN }} --paths "/versions.json"

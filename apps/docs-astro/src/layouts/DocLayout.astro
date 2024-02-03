@@ -1,0 +1,117 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Tab from "@components/Tabs/Tab.vue";
+import Tabs from "@components/Tabs/Tabs.vue";
+import ElementSummary from "@components/ElementSummary.vue";
+import RightSideBar from "@components/RightSideBar.astro";
+import Navigation from "@components/Navigation.vue";
+import Banner from "@components/Banner.astro";
+import Header from "@components/Header.astro";
+import ComponentStatus from "@components/ComponentStatus.astro";
+import { columnOne, columnTwo } from "../data/footerdata.js";
+import { links } from "../data/links.js";
+import type { MarkdownHeading } from "astro";
+
+import { PktFooter } from "@oslokommune/punkt-react";
+
+import status from "../../../../component-specs/component-status.json";
+import {
+  ComponentStatusCollection,
+  Frontmatter,
+  AllowedComponentStatus,
+  validateComponentStatus,
+} from "src/config";
+import SkipLink from "src/components/SkipLink.astro";
+
+type Props = {
+  frontmatter: Frontmatter;
+  url: string;
+  headings: MarkdownHeading[];
+};
+const { frontmatter, headings } = Astro.props as Props;
+
+const allArticles = await Astro.glob("../pages/**/*.{mdx,md}");
+const filteredArticles = allArticles.filter(
+  (article) => !article.file.includes("/pages/versjoner.mdx")
+);
+
+const pagePathName = Astro.url.pathname;
+const page = Astro.props;
+
+function isActive(href) {
+  return page.url.endsWith(href);
+}
+// Status component
+let cs = status.filter((st) => st.name === frontmatter.title);
+let statusObj = {} as ComponentStatusCollection;
+for (let i = 0; i < cs.length; i++) {
+  Object.assign(statusObj, cs[i]);
+}
+
+if (frontmatter.showStatus && !validateComponentStatus(statusObj)) {
+  console.error(
+    "\x1b[31m",
+    "Component status on",
+    frontmatter.title,
+    "has the wrong or missing status.",
+    "\n",
+    "Allowed values:",
+    AllowedComponentStatus
+  );
+}
+---
+
+<MainLayout title={frontmatter.title}>
+  <SkipLink />
+  <Header path={pagePathName} links={links} fixed />
+  <div class="page-container">
+    <Navigation articles={filteredArticles} page={pagePathName} />
+
+    <main id="main-content" class="main-content" aria-label="Innhold">
+      <Banner frontmatter={frontmatter} />
+      {
+        frontmatter.tabs && (
+          <Tabs class="mb-size-16">
+            {frontmatter.tabs.map((tabs) => (
+              <Tab
+                title={tabs.title}
+                active={isActive(tabs.href)}
+                href={import.meta.env.BASE_URL + tabs.href}
+              />
+            ))}
+          </Tabs>
+        )
+      }
+      <div class="main-content__lead">
+        <RightSideBar headings={headings} />
+        <article class="main-content__article">
+          {frontmatter.showStatus && <ComponentStatus compStatus={statusObj} />}
+          {
+            frontmatter.element && (
+              <ElementSummary element={frontmatter.element} />
+            )
+          }
+          <slot />
+        </article>
+      </div>
+    </main>
+  </div>
+  <PktFooter
+    className="pkt-footer-main"
+    columnOne={columnOne}
+    columnTwo={columnTwo}
+    client:load
+  />
+</MainLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 128px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+  }
+</style>

@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "@pkt/scss/abstracts/mixins/typography";
+@use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+@use "@pkt/scss/abstracts/functions";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__svg {
+    height: 3.5rem;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+
+    @include bp("phablet-up") {
+      margin-bottom: 2.94rem;
+      margin-top: 8.75rem;
+      height: 5.375rem;
+    }
+  }
+
+  &__text {
+    padding: 32px;
+    @include typography.get-text("pkt-txt-18-light");
+
+    @include bp("laptop-up") {
+      @include typography.get-text("pkt-txt-26-light");
+    }
+
+    p {
+      max-width: 929px;
+      margin-top: 0;
+    }
+  }
+
+  &__cards {
+    margin-bottom: 2rem;
+
+    @include bp("desktop-up") {
+      margin-top: 8rem;
+      margin-bottom: 10rem;
+    }
+
+    & .link-list__link {
+      background-color: white;
+      padding: 40px;
+      max-height: 173px;
+
+      &:hover {
+        background-color: var(--pkt-color-brand-blue-100);
+      }
+
+      &:visited {
+        color: var(--pkt-color-brand-dark-blue-1000);
+      }
+    }
+  }
+
+  &__content {
+    padding: 2.5rem;
+
+    @include bp("laptop-up") {
+      padding: 4rem;
+    }
+
+    @include bp("desktop-up") {
+      padding: 7.5rem 0;
+    }
+
+    & h2 {
+      @include typography.get-text("pkt-txt-28");
+    }
+  }
+
+  /* modifiers */
+  &--1 {
+    background-color: var(--pkt-color-brand-blue-500);
+    color: var(--pkt-color-brand-dark-blue-1000);
+
+    background-image: url(assets/frontpage/circle-cut.svg);
+    background-repeat: no-repeat;
+    background-position: right -240px top -180px;
+    background-size: 613px 613px;
+  }
+
+  &--2 {
+    background-color: var(--pkt-color-brand-light-green-1000);
+    color: var(--pkt-color-brand-dark-green-1000);
+  }
+
+  &--3 {
+    background-color: var(--pkt-color-brand-dark-green-1000);
+    color: var(--pkt-color-brand-neutrals-white);
+  }
+
+  &--4 {
+    background-color: var(--pkt-color-brand-neutrals-white);
+    color: var(--pkt-color-brand-dark-green-1000);
+  }
+
+  &--text-center {
+    text-align: center;
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "pkt-textarea",
+  "css-class": "pkt-textarea",
+  "props": {
+    "requiredTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "optionalTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "hasError": {
+      "type": "boolean",
+      "required": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false
+    },
+    "value": {
+      "type": "string",
+      "required": false
+    },
+    "rows": {
+      "type": "number",
+      "required": false
+    },
+    "counterMaxLength": {
+      "type": "number",
+      "required": false
+    },
+    "counter": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "inline": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "fullwidth": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "ariaLabelledby": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

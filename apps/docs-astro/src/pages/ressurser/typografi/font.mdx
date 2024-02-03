@@ -1,0 +1,105 @@
+---
+title: Typografi
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "ressurser/typografi" },
+    { "title": "Font", "href": "ressurser/typografi/font" },
+    { "title": "Kode", "href": "ressurser/typografi/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "ressurser/typografi/universell-utforming",
+    },
+  ]
+---
+
+<p class="ingress">
+  Oslo kommune har utviklet en egen skrifttype. Den heter Oslo Sans. Oslo Sans
+  skal benyttes i all kommunikasjon fra Oslo kommune. Oslo sans kommer I fire
+  ulike vekter Light, Regular, Medium og Bold.
+</p>
+
+## Font
+
+Punkt bruker fonten Oslo Sans.
+Oslo Sans er tilgjengelig i formatene woff og woff2.
+
+| Skrifttype              | Url                                                                         |
+| :---------------------- | :-------------------------------------------------------------------------- |
+| OsloSans Bold           | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Bold.woff           |
+|                         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Bold.woff2          |
+| OsloSans Light          | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Light.woff          |
+|                         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Light.woff2         |
+| OsloSans Medium         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Medium.woff         |
+|                         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Medium.woff2        |
+| OsloSans Regular        | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Regular.woff        |
+|                         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-Regular.woff2       |
+| OsloSans Regular Italic | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-RegularItalic.woff  |
+|                         | https://punkt-cdn.oslo.kommune.no/latest/fonts/OsloSans-RegularItalic.woff2 |
+
+**NB!** Om du ønsker å låse til versjon bytter du ut `latest` med ønsket versjon.
+
+### Eksempel på bruk i kode
+
+Om du ønsker å ta i bruk fontene via NPM anbefaler vi å lese mer om [Installasjon](/kom-i-gang/for-utviklere) for å få en grundigere innføring av de ulike delene.
+
+```css
+@font-face {
+  font-display: swap;
+  font-family: Oslo Sans;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Regular.woff2)
+      format("woff2"), url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Regular.woff)
+      format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Oslo Sans;
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-RegularItalic.woff2)
+      format("woff2"), url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-RegularItalic.woff)
+      format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Oslo Sans;
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Light.woff2)
+      format("woff2"), url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Light.woff)
+      format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Oslo Sans;
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Medium.woff2)
+      format("woff2"), url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Medium.woff)
+      format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Oslo Sans;
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Bold.woff2)
+      format("woff2"), url(https://cdn-punkt.oslo.kommune.no/latest/fonts/OsloSans-Bold.woff)
+      format("woff");
+}
+
+body {
+  color: #2a2859;
+  font-family: "Oslo Sans", arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: normal;
+  line-height: 1.5em;
+}
+```

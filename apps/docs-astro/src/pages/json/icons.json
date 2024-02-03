@@ -1,0 +1,802 @@
+[
+  {
+    "id": "24h",
+    "fn": "24h.svg",
+    "cat": "services"
+  },
+  {
+    "id": "active-person",
+    "fn": "active-person.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "alert-circle",
+    "fn": "alert-circle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "alert-error",
+    "fn": "alert-error.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "alert-information",
+    "fn": "alert-information.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "alert-success",
+    "fn": "alert-success.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "alert-warning",
+    "fn": "alert-warning.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "apple",
+    "fn": "apple.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "archive",
+    "fn": "archive.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "arrow-circle",
+    "fn": "arrow-circle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "arrow",
+    "fn": "arrow.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "attachment",
+    "fn": "attachment.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "backpack",
+    "fn": "backpack.svg",
+    "cat": "services"
+  },
+  {
+    "id": "books",
+    "fn": "books.svg",
+    "cat": "services"
+  },
+  {
+    "id": "brain-heart",
+    "fn": "brain-heart.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "brain-signal",
+    "fn": "brain-signal.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "bullseye",
+    "fn": "bullseye.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "bus",
+    "fn": "bus.svg",
+    "cat": "services"
+  },
+  {
+    "id": "calendar",
+    "fn": "calendar.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "camera",
+    "fn": "camera.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "car",
+    "fn": "car.svg",
+    "cat": "sign"
+  },
+  {
+    "id": "character-exclamation-mark",
+    "fn": "character-exclamation-mark.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "character-information",
+    "fn": "character-information.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "check-big",
+    "fn": "check-big.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "check-circle",
+    "fn": "check-circle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "check-medium",
+    "fn": "check-medium.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "check",
+    "fn": "check.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "chevron-down",
+    "fn": "chevron-down.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-left",
+    "fn": "chevron-left.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-right",
+    "fn": "chevron-right.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-thin-down",
+    "fn": "chevron-thin-down.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-thin-left",
+    "fn": "chevron-thin-left.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-thin-right",
+    "fn": "chevron-thin-right.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-thin-up",
+    "fn": "chevron-thin-up.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "chevron-up-and-down",
+    "fn": "chevron-up-and-down.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "chevron-up",
+    "fn": "chevron-up.svg",
+    "cat": "arrows"
+  },
+  {
+    "id": "clock",
+    "fn": "clock.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "close",
+    "fn": "close.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "cloud",
+    "fn": "cloud.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "code",
+    "fn": "code.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "cogwheel",
+    "fn": "cogwheel.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "coin-stacks",
+    "fn": "coin-stacks.svg",
+    "cat": "services"
+  },
+  {
+    "id": "computer",
+    "fn": "computer.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "copy",
+    "fn": "copy.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "crane",
+    "fn": "crane.svg",
+    "cat": "services"
+  },
+  {
+    "id": "cross-circle-big",
+    "fn": "cross-circle-big.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "cross-circle-fill",
+    "fn": "cross-circle-fill.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "cross-circle",
+    "fn": "cross-circle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "cross",
+    "fn": "cross.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "data",
+    "fn": "data.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "district",
+    "fn": "district.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "document-code",
+    "fn": "document-code.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "document-pdf",
+    "fn": "document-pdf.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "document-plain",
+    "fn": "document-plain.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "document-table",
+    "fn": "document-table.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "document-text",
+    "fn": "document-text.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "download",
+    "fn": "download.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "drag",
+    "fn": "drag.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "drinking-area-refreshments",
+    "fn": "drinking-area-refreshments.svg",
+    "cat": "sign"
+  },
+  {
+    "id": "ecg-heart",
+    "fn": "ecg-heart.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "edit",
+    "fn": "edit.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "email",
+    "fn": "email.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "exclamation-mark-circle",
+    "fn": "exclamation-mark-circle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "exclamation-mark-square",
+    "fn": "exclamation-mark-square.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "exit",
+    "fn": "exit.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "expand",
+    "fn": "expand.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "eye",
+    "fn": "eye.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "face-almost-happy",
+    "fn": "face-almost-happy.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "face-almost-sad",
+    "fn": "face-almost-sad.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "face-happy",
+    "fn": "face-happy.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "face-neutral",
+    "fn": "face-neutral.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "face-sad",
+    "fn": "face-sad.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "facebook",
+    "fn": "facebook.svg",
+    "cat": "social"
+  },
+  {
+    "id": "factory-fill",
+    "fn": "factory-fill.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "feedback",
+    "fn": "feedback.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "figma",
+    "fn": "figma.svg",
+    "cat": "social"
+  },
+  {
+    "id": "filter",
+    "fn": "filter.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "fire-emblem",
+    "fn": "fire-emblem.svg",
+    "cat": "services"
+  },
+  {
+    "id": "fire-safety",
+    "fn": "fire-safety.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "folder",
+    "fn": "folder.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "github",
+    "fn": "github.svg",
+    "cat": "social"
+  },
+  {
+    "id": "graph",
+    "fn": "graph.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "grid",
+    "fn": "grid.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "hands-globe",
+    "fn": "hands-globe.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "heart-hand",
+    "fn": "heart-hand.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "heart-plus",
+    "fn": "heart-plus.svg",
+    "cat": "services"
+  },
+  {
+    "id": "heart",
+    "fn": "heart.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "holding-hands",
+    "fn": "holding-hands.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "home",
+    "fn": "home.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "house-heart",
+    "fn": "house-heart.svg",
+    "cat": "services"
+  },
+  {
+    "id": "information",
+    "fn": "information.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "instagram",
+    "fn": "instagram.svg",
+    "cat": "social"
+  },
+  {
+    "id": "invoice",
+    "fn": "invoice.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "key",
+    "fn": "key.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "language",
+    "fn": "language.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "law-paragraph",
+    "fn": "law-paragraph.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "link",
+    "fn": "link.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "linkedin",
+    "fn": "linkedin.svg",
+    "cat": "social"
+  },
+  {
+    "id": "list",
+    "fn": "list.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "location-pin-filled",
+    "fn": "location-pin-filled.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "location-pin",
+    "fn": "location-pin.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "lock-locked",
+    "fn": "lock-locked.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "lock-unlocked",
+    "fn": "lock-unlocked.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "magnifying-glass-big",
+    "fn": "magnifying-glass-big.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "magnifying-glass-small",
+    "fn": "magnifying-glass-small.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "map",
+    "fn": "map.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "menu",
+    "fn": "menu.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "message",
+    "fn": "message.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "minimize",
+    "fn": "minimize.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "minus-circle-fill",
+    "fn": "minus-circle-fill.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "minus-circle",
+    "fn": "minus-circle.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "minus-sign",
+    "fn": "minus-sign.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "mobile-phone",
+    "fn": "mobile-phone.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "new-window-small",
+    "fn": "new-window-small.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "new-window",
+    "fn": "new-window.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "nodejs",
+    "fn": "nodejs.svg",
+    "cat": "social"
+  },
+  {
+    "id": "obstacle",
+    "fn": "obstacle.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "organization",
+    "fn": "organization.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "paint-bucket",
+    "fn": "paint-bucket.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "park",
+    "fn": "park.svg",
+    "cat": "services"
+  },
+  {
+    "id": "partner-workout",
+    "fn": "partner-workout.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "picture",
+    "fn": "picture.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "placeholder-icon",
+    "fn": "placeholder-icon.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "plus-circle-fill",
+    "fn": "plus-circle-fill.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "plus-circle",
+    "fn": "plus-circle.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "plus-sign",
+    "fn": "plus-sign.svg",
+    "cat": "plusminus"
+  },
+  {
+    "id": "pride-heart",
+    "fn": "pride-heart.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "print",
+    "fn": "print.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "punkt-circle-blue",
+    "fn": "punkt-circle-blue.svg",
+    "cat": "social"
+  },
+  {
+    "id": "qr-code",
+    "fn": "qr-code.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "question",
+    "fn": "question.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "react",
+    "fn": "react.svg",
+    "cat": "social"
+  },
+  {
+    "id": "receipt",
+    "fn": "receipt.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "recycling",
+    "fn": "recycling.svg",
+    "cat": "services"
+  },
+  {
+    "id": "sass",
+    "fn": "sass.svg",
+    "cat": "social"
+  },
+  {
+    "id": "save",
+    "fn": "save.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "share-outline",
+    "fn": "share-outline.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "share",
+    "fn": "share.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "slack",
+    "fn": "slack.svg",
+    "cat": "social"
+  },
+  {
+    "id": "smiley-neutral",
+    "fn": "smiley-neutral.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "smiley-sad",
+    "fn": "smiley-sad.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "smiley-smile",
+    "fn": "smiley-smile.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "sort",
+    "fn": "sort.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "sound-off",
+    "fn": "sound-off.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "sound-on",
+    "fn": "sound-on.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "svg-logo",
+    "fn": "svg.svg",
+    "cat": "social"
+  },
+  {
+    "id": "swingset",
+    "fn": "swingset.svg",
+    "cat": "services"
+  },
+  {
+    "id": "table",
+    "fn": "table.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "target",
+    "fn": "target.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "thumbs-down",
+    "fn": "thumbs-down.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "thumbs-up",
+    "fn": "thumbs-up.svg",
+    "cat": "feedback"
+  },
+  {
+    "id": "trash-can",
+    "fn": "trash-can.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "twitter",
+    "fn": "twitter.svg",
+    "cat": "social"
+  },
+  {
+    "id": "two-people-dancing",
+    "fn": "two-people-dancing.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "two-people-talking",
+    "fn": "two-people-talking.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "user",
+    "fn": "user.svg",
+    "cat": "ui"
+  },
+  {
+    "id": "vue",
+    "fn": "vue.svg",
+    "cat": "social"
+  },
+  {
+    "id": "water-faucet",
+    "fn": "water-faucet.svg",
+    "cat": "services"
+  },
+  {
+    "id": "wine-bottle",
+    "fn": "wine-bottle.svg",
+    "cat": "people-and-health"
+  },
+  {
+    "id": "workplace",
+    "fn": "workplace.svg",
+    "cat": "social"
+  }
+]

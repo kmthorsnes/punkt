@@ -1,0 +1,136 @@
+---
+title: Link card
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/linkcard" },
+    { "title": "Kode", "href": "komponenter/linkcard/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/linkcard/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+Denne komponenten er avhengig av stylingen til [.pkt-link](/komponenter/link/kode).
+Linkcard i oslo.kommune.no blir brukt i en grid. Les mer [om grid](/ressurser/grid/kode).
+
+## Varianter
+
+<CodeExample>
+  <a href="#" class="pkt-linkcard pkt-linkcard--normal pkt-link">
+    <span class="pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user" />
+      </svg>
+    </span>
+    <div class="pkt-linkcard__content">
+      <div class="pkt-linkcard__title pkt-link pkt-link--external">
+        Overskrift her
+      </div>
+      <div class="pkt-linkcard__text">
+        Tekst som går over flere linjer og som forklarer innholdet på den siden
+        man kommer.
+      </div>
+    </div>
+  </a>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<a href="#" class="pkt-linkcard pkt-linkcard--normal pkt-link">
+  <span class="pkt-icon pkt-link__icon">
+    <svg viewBox="0 0 32 32">
+      <use href="#user" />
+    </svg>
+  </span>
+  <div class="pkt-linkcard__content">
+    <div class="pkt-linkcard__title pkt-link pkt-link--external">
+      Overskrift her
+    </div>
+    <div class="pkt-linkcard__text">
+      Tekst som går over flere linjer og som forklarer innholdet på den siden
+      man kommer.
+    </div>
+  </div>
+</a>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-linkcard href="#" title="Overskrift her" skin="normal" iconName="user">
+  Tekst som går over flere linjer og som forklarer innholdet på den siden man
+  kommer.
+</pkt-linkcard>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```html
+<PktLinkCard href="#" title="Overskrift her" skin="normal" iconName="user">
+  Skriv en informerende tekst om ønskelig tema her. Legg til knapper bilder om
+  du ønsker
+</PktLinkCard>
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-linkcard .pkt-link</li>
+  </ul>
+</div>
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-linkcard__icon</li>
+    <li>.pkt-linkcard__content</li>
+    <li>.pkt-linkcard__title</li>
+    <li>.pkt-linkcard__text</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-alert`--`normal (default)</li>
+    <li>.pkt-alert`--`blue</li>
+    <li>.pkt-alert`--`beige</li>
+    <li>.pkt-alert`--`beige-outline</li>
+    <li>.pkt-alert`--`grey-outline</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props        | Type    | Validation                                       | Default | Beskrivelse |
+| ------------ | ------- | ------------------------------------------------ | ------- | ----------- |
+| skin         | string  | normal, blue, beige, beige-outline, grey-outline | normal  |             |
+| title        | string  |                                                  |         |             |
+| href         | string  |                                                  |         |             |
+| iconName     | string  |                                                  |         |             |
+| openInNewTab | boolean |                                                  | false   |             |
+| external     | boolean |                                                  | false   |             |
+
+| Slots   | Type | Validation | Default | Beskrivelse                  |
+| ------- | ---- | ---------- | ------- | ---------------------------- |
+| default |      |            |         | Tekstinnholdet i komponenten |
+
+| Events | Type | Validation | Default | Beskrivelse |
+| ------ | ---- | ---------- | ------- | ----------- |
+|        |      |            |         |             |

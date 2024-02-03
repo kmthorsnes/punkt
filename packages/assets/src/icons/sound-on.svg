@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="sound-on" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd"
+    d="M16 2c5.43 0 9.848 4.327 9.996 9.72L26 12v7.585l4 4v2.665H19.992a4 4 0 0 1-7.984 0H2v-2.664l4-4.002V12C6 6.477 10.477 2 16 2Zm-1.985 24.25a2 2 0 0 0 3.97 0h-3.97ZM8 20.414V12l.004-.25A8 8 0 0 1 24 12v8.414l3.835 3.836H4.164L8 20.414Z"
+    clip-rule="evenodd" />
+</svg>

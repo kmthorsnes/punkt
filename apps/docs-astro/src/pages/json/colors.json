@@ -1,0 +1,711 @@
+[
+  {
+    "name": "Dark blue 1000",
+    "baseVarName": "brand-dark-blue-1000",
+    "hex": "#2A2859",
+    "category": "brand",
+    "variant": "dark-blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Dark blue 700",
+    "baseVarName": "brand-dark-blue-700",
+    "hex": "#6A698B",
+    "category": "brand",
+    "variant": "dark-blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue 1000",
+    "baseVarName": "brand-blue-1000",
+    "hex": "#6FE9FF",
+    "category": "brand",
+    "variant": "blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue 500",
+    "baseVarName": "brand-blue-500",
+    "hex": "#B3F5FF",
+    "category": "brand",
+    "variant": "blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue 300",
+    "baseVarName": "brand-blue-300",
+    "hex": "#D1F9FF",
+    "category": "brand",
+    "variant": "blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue 200",
+    "baseVarName": "brand-blue-200",
+    "hex": "#E5FCFF",
+    "category": "brand",
+    "variant": "blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue 100",
+    "baseVarName": "brand-blue-100",
+    "hex": "#F1FDFF",
+    "category": "brand",
+    "variant": "blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Warm blue 1000",
+    "baseVarName": "brand-warm-blue-1000",
+    "hex": "#1F42AA",
+    "category": "brand",
+    "variant": "warm-blue",
+    "circle": "fill"
+  },
+  {
+    "name": "Green 1000",
+    "baseVarName": "brand-green-1000",
+    "hex": "#43F8B6",
+    "category": "brand",
+    "variant": "green",
+    "circle": "fill"
+  },
+  {
+    "name": "Green 400",
+    "baseVarName": "brand-green-400",
+    "hex": "#C7FDE9",
+    "category": "brand",
+    "variant": "green",
+    "circle": "fill"
+  },
+  {
+    "name": "Light green 1000",
+    "baseVarName": "brand-light-green-1000",
+    "hex": "#C7F6C9",
+    "category": "brand",
+    "variant": "light-green",
+    "circle": "fill"
+  },
+  {
+    "name": "Light green 400",
+    "baseVarName": "brand-light-green-400",
+    "hex": "#E5FFE6",
+    "category": "brand",
+    "variant": "light-green",
+    "circle": "fill"
+  },
+  {
+    "name": "Dark green 1000",
+    "baseVarName": "brand-dark-green-1000",
+    "hex": "#034B45",
+    "category": "brand",
+    "variant": "dark-green",
+    "circle": "fill"
+  },
+  {
+    "name": "Yellow 1000",
+    "baseVarName": "brand-yellow-1000",
+    "hex": "#F9C66B",
+    "category": "brand",
+    "variant": "yellow",
+    "circle": "fill"
+  },
+  {
+    "name": "Yellow 500",
+    "baseVarName": "brand-yellow-500",
+    "hex": "#FFE7BC",
+    "category": "brand",
+    "variant": "yellow",
+    "circle": "fill"
+  },
+  {
+    "name": "Red 1000",
+    "baseVarName": "brand-red-1000",
+    "hex": "#FF8274",
+    "category": "brand",
+    "variant": "red",
+    "circle": "fill"
+  },
+  {
+    "name": "Red 600",
+    "baseVarName": "brand-red-600",
+    "hex": "#FFB4AC",
+    "category": "brand",
+    "variant": "red",
+    "circle": "fill"
+  },
+  {
+    "name": "Red 400",
+    "baseVarName": "brand-red-400",
+    "hex": "#FFDFDC",
+    "category": "brand",
+    "variant": "red",
+    "circle": "fill"
+  },
+  {
+    "name": "Red 100",
+    "baseVarName": "brand-red-100",
+    "hex": "#FFF2F1",
+    "category": "brand",
+    "variant": "red",
+    "circle": "fill"
+  },
+  {
+    "name": "Light beige 1000",
+    "baseVarName": "brand-light-beige-1000",
+    "hex": "#F8F0DD",
+    "category": "brand",
+    "variant": "light-beige",
+    "circle": "fill"
+  },
+  {
+    "name": "Dark beige 1000",
+    "baseVarName": "brand-dark-beige-1000",
+    "hex": "#D0BFAE",
+    "category": "brand",
+    "variant": "dark-beige",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals Black",
+    "baseVarName": "brand-neutrals-black",
+    "hex": "#000000",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals 1000",
+    "baseVarName": "brand-neutrals-1000",
+    "hex": "#2C2C2C",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals 200",
+    "baseVarName": "brand-neutrals-200",
+    "hex": "#F2F2F2",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals 100",
+    "baseVarName": "brand-neutrals-100",
+    "hex": "#F9F9F9",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals White",
+    "baseVarName": "brand-neutrals-white",
+    "hex": "#FFFFFF",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Neutrals Transparent",
+    "baseVarName": "brand-neutrals-transparent",
+    "hex": "transparent",
+    "category": "brand",
+    "variant": "neutrals",
+    "circle": "fill"
+  },
+  {
+    "name": "Purple 1000",
+    "baseVarName": "brand-purple-1000",
+    "hex": "#E0ADFF",
+    "category": "brand",
+    "variant": "purple",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 1000",
+    "baseVarName": "grays-gray-1000",
+    "hex": "#2C2C2C",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 900",
+    "baseVarName": "grays-gray-900",
+    "hex": "#1A1A1A",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 800",
+    "baseVarName": "grays-gray-800",
+    "hex": "#333333",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 700",
+    "baseVarName": "grays-gray-700",
+    "hex": "#4D4D4D",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 600",
+    "baseVarName": "grays-gray-600",
+    "hex": "#666666",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 500",
+    "baseVarName": "grays-gray-500",
+    "hex": "#808080",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 400",
+    "baseVarName": "grays-gray-400",
+    "hex": "#9A9A9A",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 300",
+    "baseVarName": "grays-gray-300",
+    "hex": "#B3B3B3",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 200",
+    "baseVarName": "grays-gray-200",
+    "hex": "#CCCCCC",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray 100",
+    "baseVarName": "grays-gray-100",
+    "hex": "#E6E6E6",
+    "category": "brand",
+    "variant": "gray",
+    "circle": "fill"
+  },
+  {
+    "name": "Default",
+    "baseVarName": "background-default",
+    "hex": "#FFFFFF",
+    "darkHex": "#2C2C2C",
+    "category": "semantic",
+    "variant": "background",
+    "circle": "fill"
+  },
+  {
+    "name": "Subtle",
+    "baseVarName": "background-subtle",
+    "hex": "#F9F9F9",
+    "darkHex": "#2C2C2C",
+    "category": "semantic",
+    "variant": "background",
+    "circle": "fill"
+  },
+  {
+    "name": "Card",
+    "baseVarName": "background-card",
+    "hex": "#FFFFFF",
+    "darkHex": "#4D4D4D",
+    "category": "semantic",
+    "variant": "background",
+    "circle": "fill"
+  },
+  {
+    "name": "Transparent",
+    "baseVarName": "background-transparent",
+    "hex": "transparent",
+    "darkHex": "transparent",
+    "category": "semantic",
+    "variant": "background",
+    "circle": "fill"
+  },
+  {
+    "name": "Dark blue",
+    "baseVarName": "surface-strong-dark-blue",
+    "hex": "#2A2859",
+    "darkHex": "#2A2859",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Blue",
+    "baseVarName": "surface-strong-blue",
+    "hex": "#6FE9FF",
+    "darkHex": "#6FE9FF",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Dark green",
+    "baseVarName": "surface-strong-dark-green",
+    "hex": "#034B45",
+    "darkHex": "#034B45",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Green",
+    "baseVarName": "surface-strong-green",
+    "hex": "#43F8B6",
+    "darkHex": "#43F8B6",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Light green",
+    "baseVarName": "surface-strong-light-green",
+    "hex": "#C7F6C9",
+    "darkHex": "#C7F6C9",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Red",
+    "baseVarName": "surface-strong-red",
+    "hex": "#FF8274",
+    "darkHex": "#FF8274",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Yellow",
+    "baseVarName": "surface-strong-yellow",
+    "hex": "#F9C66B",
+    "darkHex": "#F9C66B",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Beige",
+    "baseVarName": "surface-strong-beige",
+    "hex": "#D0BFAE",
+    "darkHex": "#D0BFAE",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray",
+    "baseVarName": "surface-strong-gray",
+    "hex": "#CCCCCC",
+    "darkHex": "#CCCCCC",
+    "category": "semantic",
+    "variant": "surface-strong",
+    "circle": "fill"
+  },
+  {
+    "name": "Light blue",
+    "baseVarName": "surface-default-light-blue",
+    "hex": "#D1F9FF",
+    "darkHex": "#D1F9FF",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Light green",
+    "baseVarName": "surface-default-light-green",
+    "hex": "#C7FDE9",
+    "darkHex": "#C7FDE9",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Faded green",
+    "baseVarName": "surface-default-faded-green",
+    "hex": "#F9C66B",
+    "darkHex": "#F9C66B",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Faded red",
+    "baseVarName": "surface-default-faded-red",
+    "hex": "#FFDFDC",
+    "darkHex": "#FFDFDC",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Red",
+    "baseVarName": "surface-default-red",
+    "hex": "#FFB4AC",
+    "darkHex": "#FFB4AC",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Light beige",
+    "baseVarName": "surface-default-light-beige",
+    "hex": "#F8F0DD",
+    "darkHex": "#F8F0DD",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Yellow",
+    "baseVarName": "surface-default-yellow",
+    "hex": "#FFE7BC",
+    "darkHex": "#FFE7BC",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Gray",
+    "baseVarName": "surface-default-gray",
+    "hex": "#F9F9F9",
+    "darkHex": "#F9F9F9",
+    "category": "semantic",
+    "variant": "surface-default",
+    "circle": "fill"
+  },
+  {
+    "name": "Light blue",
+    "baseVarName": "surface-subtle-light-blue",
+    "hex": "#E5FCFF",
+    "darkHex": "#E5FCFF",
+    "category": "semantic",
+    "variant": "surface-subtle",
+    "circle": "fill"
+  },
+  {
+    "name": "Pale blue",
+    "baseVarName": "surface-subtle-pale-blue",
+    "hex": "#F1FDFF",
+    "darkHex": "#F1FDFF",
+    "category": "semantic",
+    "variant": "surface-subtle",
+    "circle": "fill"
+  },
+  {
+    "name": "White",
+    "baseVarName": "surface-subtle-white",
+    "hex": "#FFFFFF",
+    "darkHex": "#FFFFFF",
+    "category": "semantic",
+    "variant": "surface-subtle",
+    "circle": "fill"
+  },
+  {
+    "name": "Light red",
+    "baseVarName": "surface-subtle-light-red",
+    "hex": "#FFF2F1",
+    "darkHex": "#FFF2F1",
+    "category": "semantic",
+    "variant": "surface-subtle",
+    "circle": "fill"
+  },
+  {
+    "name": "Subtle",
+    "baseVarName": "border-subtle",
+    "hex": "#F9F9F9",
+    "darkHex": "#6A698B",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Default",
+    "baseVarName": "border-default",
+    "hex": "#2A2859",
+    "darkHex": "#FFFFFF",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Red",
+    "baseVarName": "border-red",
+    "hex": "#FF8274",
+    "darkHex": "#FF8274",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Blue",
+    "baseVarName": "border-blue",
+    "hex": "#6FE9FF",
+    "darkHex": "#6FE9FF",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Green",
+    "baseVarName": "border-green",
+    "hex": "#43F8B6",
+    "darkHex": "#43F8B6",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Beige",
+    "baseVarName": "border-beige",
+    "hex": "#D0BFAE",
+    "darkHex": "#D0BFAE",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Light beige",
+    "baseVarName": "border-light-beige",
+    "hex": "#F8F0DD",
+    "darkHex": "#F8F0DD",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Yellow",
+    "baseVarName": "border-yellow",
+    "hex": "#F9C66B",
+    "darkHex": "#F9C66B",
+    "category": "semantic",
+    "variant": "border",
+    "circle": "border"
+  },
+  {
+    "name": "Active",
+    "baseVarName": "border-states-active",
+    "hex": "#1F42AA",
+    "darkHex": "#B3F5FF",
+    "category": "semantic",
+    "variant": "border-states",
+    "circle": "border"
+  },
+  {
+    "name": "Hover",
+    "baseVarName": "border-states-hover",
+    "hex": "#1F42AA",
+    "darkHex": "#B3F5FF",
+    "category": "semantic",
+    "variant": "border-states",
+    "circle": "border"
+  },
+  {
+    "name": "Focus",
+    "baseVarName": "border-states-focus",
+    "hex": "#E0ADFF",
+    "darkHex": "#E0ADFF",
+    "category": "semantic",
+    "variant": "border-states",
+    "circle": "border"
+  },
+  {
+    "name": "Disabled",
+    "baseVarName": "border-states-disabled",
+    "hex": "#B3B3B3",
+    "darkHex": "#808080",
+    "category": "semantic",
+    "variant": "border-states",
+    "circle": "border"
+  },
+  {
+    "name": "Body default",
+    "baseVarName": "text-body-default",
+    "hex": "#2A2859",
+    "darkHex": "#FFFFFF",
+    "category": "semantic",
+    "variant": "text",
+    "circle": "fill"
+  },
+  {
+    "name": "Body light",
+    "baseVarName": "text-body-light",
+    "hex": "#FFFFFF",
+    "darkHex": "#2A2859",
+    "category": "semantic",
+    "variant": "text",
+    "circle": "fill"
+  },
+  {
+    "name": "Body dark",
+    "baseVarName": "text-body-dark",
+    "hex": "#2A2859",
+    "darkHex": "#2A2859",
+    "category": "semantic",
+    "variant": "text",
+    "circle": "fill"
+  },
+  {
+    "name": "Placeholder",
+    "baseVarName": "text-placeholder",
+    "hex": "#666666",
+    "darkHex": "#B3B3B3",
+    "category": "semantic",
+    "variant": "text",
+    "circle": "fill"
+  },
+  {
+    "name": "Normal",
+    "baseVarName": "text-action-normal",
+    "hex": "#2A2859",
+    "darkHex": "#FFFFFF",
+    "category": "semantic",
+    "variant": "text-action",
+    "circle": "fill"
+  },
+  {
+    "name": "Active",
+    "baseVarName": "text-action-active",
+    "hex": "#1F42AA",
+    "darkHex": "#B3F5FF",
+    "category": "semantic",
+    "variant": "text-action",
+    "circle": "fill"
+  },
+  {
+    "name": "Hover",
+    "baseVarName": "text-action-active",
+    "hex": "#1F42AA",
+    "darkHex": "#B3F5FF",
+    "category": "semantic",
+    "variant": "text-action",
+    "circle": "fill"
+  },
+  {
+    "name": "Disabled",
+    "baseVarName": "text-action-disabled",
+    "hex": "#666666",
+    "darkHex": "#CCCCCC",
+    "category": "semantic",
+    "variant": "text-action",
+    "circle": "fill"
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "name": "pkt-tabs",
+  "css-class": "pkt-tabs",
+  "props": {
+    "tabs": {
+      "type": "array",
+      "description": "Array of links or functions that make up the tabs",
+      "items": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "description": "URL for the tab"
+          },
+          "text": {
+            "type": "string",
+            "description": "Title for the tab"
+          },
+          "action": {
+            "type": "function",
+            "description": "Function to trigger on click"
+          },
+          "controls": {
+            "type": "string",
+            "description": "Sets aria-controls attribute on tab"
+          },
+          "tag": {
+            "type": "object",
+            "properties": {
+              "skin": {
+                "type": "string",
+                "required": false,
+                "default": "blue",
+                "values": [
+                  "blue",
+                  "green",
+                  "red",
+                  "beige",
+                  "yellow",
+                  "grey",
+                  "blue-light"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "description": "The text in the tag"
+              }
+            }
+          },
+          "icon": {
+            "type": "string",
+            "description": "The name of the icon"
+          },
+          "active": {
+            "type": "Boolean",
+            "description": "Is tab currently the active tab?"
+          }
+        },
+        "required": ["text"]
+      }
+    }
+  },
+  "events": {
+    "tab-selected": {
+      "description": "Returns with index of clicked tab"
+    }
+  }
+}

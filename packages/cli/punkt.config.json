@@ -1,0 +1,16 @@
+{
+  "svgsprite": {
+    "files": [
+      "./playground/svg/alert-error.svg",
+      "./playground/svg/alert-information.svg",
+      "./playground/svg/alert-success.svg",
+      "./playground/svg/alert-warning.svg",
+      "./playground/svg/chevron-left.svg",
+      "./playground/svg/oslologo.svg"
+    ],
+    "output": {
+      "fileType": "html",
+      "filePath": "./playground/index.html"
+    }
+  }
+}

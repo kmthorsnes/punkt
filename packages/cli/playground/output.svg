@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+<symbol id="alert-error" fill="none" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="var(--bg-color, #FF8274)" />
+  <path fill="var(--fg-color, #2A2859)"
+    d="m14.593 7.563.376 11.25h2.062l.375-11.25h-2.813Zm-.469 15c0 1.049.804 1.875 1.875 1.875a1.844 1.844 0 0 0 1.875-1.875c0-1.05-.803-1.875-1.875-1.875a1.844 1.844 0 0 0-1.875 1.875Z" />
+</symbol><symbol id="alert-information" fill="none" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="var(--bg-color, #6FE9FF)" />
+  <path fill="var(--fg-color, #2A2859)"
+    d="M17.125 13.188h-2.25v11.25h2.25v-11.25Zm-2.906-3.657c0 .997.763 1.781 1.781 1.781a1.752 1.752 0 0 0 1.781-1.78c0-.997-.763-1.782-1.781-1.782a1.752 1.752 0 0 0-1.781 1.781Z" />
+</symbol><symbol id="alert-success" fill="none" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="var(--bg-color, #43F8B6)"/>
+  <path fill="var(--fg-color, #2A2859)" d="m23.704 12.214-9.707 9.707-5.707-5.707L9.704 14.8l4.293 4.293L22.29 10.8l1.414 1.414Z"/>
+</symbol>
+<symbol id="alert-warning" fill="none" viewBox="0 0 32 32">
+  <path fill="var(--bg-color, #f9c66b)" d="m16 3 15 26H1L16 3Z" />
+  <path fill="var(--fg-color, #2A2859)"
+    d="m14.874 12.25.301 9h1.65l.3-9h-2.25Zm-.374 12c0 .84.642 1.5 1.5 1.5.856 0 1.5-.66 1.5-1.5s-.644-1.5-1.5-1.5c-.858 0-1.5.66-1.5 1.5Z" />
+</symbol><symbol id="chevron-left" fill="none" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd"
+    d="m6.8571 15.8571 10 10 4.2858-4.2857-5.7143-5.7143 5.7143-5.7142-4.2858-4.2858-10 10ZM24 10.1429l-5.7143 5.7142L24 21.5714l-7.1429 7.1429L4 15.8571 16.8571 3 24 10.1429Z"
+    clip-rule="evenodd" />
+</symbol></svg>

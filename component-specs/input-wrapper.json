@@ -1,0 +1,66 @@
+{
+  "name": "pkt-inputwrapper",
+  "css-class": "pkt-inputwrapper",
+  "props": {
+    "label": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "helptext": {
+      "type": "string",
+      "required": false
+    },
+    "helptextDropdown": {
+      "type": "string",
+      "required": false
+    },
+    "helptextDropdownButton": {
+      "type": "string",
+      "required": false
+    },
+    "optionalTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "optionalText": {
+      "type": "string",
+      "required": false
+    },
+    "requiredTag": {
+      "type": "boolean",
+      "required": false
+    },
+    "requiredText": {
+      "type": "string",
+      "required": false
+    },
+    "hasError": {
+      "type": "boolean",
+      "required": false
+    },
+    "errorMessage": {
+      "type": "string",
+      "required": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "inline": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "ariaDescribedby": {
+      "type": "string",
+      "required": false
+    },
+    "hasFieldset": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  }
+}

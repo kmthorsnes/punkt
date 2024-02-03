@@ -1,0 +1,83 @@
+---
+title: Link
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/link" },
+    { "title": "Kode", "href": "komponenter/link/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/link/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Varianter
+
+<CodeExample client:load toggle-mode>
+  <a href="#123" class="pkt-link my-size-8">
+    Normal lenke
+  </a>
+  <br />
+  <a href="#123" class="pkt-link pkt-link--focus my-size-8">
+    Fokus lenke
+  </a>
+  <br />
+  <a href="#123" class="pkt-link pkt-link--hover my-size-8">
+    Hover lenke
+  </a>
+  <br />
+  <a href="#123" class="pkt-link pkt-link--active my-size-8">
+    Aktiv lenke
+  </a>
+  <br />
+  <a href="#123" class="pkt-link pkt-link--external my-size-8">
+    Ekstern lenke
+  </a>
+  <br />
+  <a href="#" class="pkt-link pkt-link--icon-right">
+    <span class="pkt-icon">
+      <svg class="pkt-link__icon" viewBox="0 0 32 32">
+        <use href="#chevron-right"></use>
+      </svg>
+    </span>
+    Link med ikon til høyre
+  </a>
+  <br />
+  <a href="#" class="pkt-link pkt-link--icon-left">
+    <span class="pkt-icon">
+      <svg class="pkt-link__icon" viewBox="0 0 32 32">
+        <use href="#chevron-right"></use>
+      </svg>
+    </span>
+    Link med ikon til venstre
+  </a>
+</CodeExample>
+
+```html
+<a href="#" class="pkt-link">Normal lenke</a>
+<a href="#" class="pkt-link pkt-link--focus">Fokus lenke</a>
+<a href="#" class="pkt-link pkt-link--hover">Hover lenke</a>
+<a href="#" class="pkt-link pkt-link--active">Aktiv lenke</a>
+<a href="#" class="pkt-link pkt-link--external">Ekstern lenke</a>
+
+<a href="#" class="pkt-link pkt-link--icon-right">
+  <span class="pkt-icon">
+    <svg class="pkt-link__icon" viewBox="0 0 32 32">
+      <use href="#chevron-right"></use>
+    </svg>
+  </span>
+  Link med ikon til høyre
+</a>
+
+<a href="#" class="pkt-link pkt-link--icon-left">
+  <span class="pkt-icon">
+    <svg class="pkt-link__icon" viewBox="0 0 32 32">
+      <use href="#chevron-right"></use>
+    </svg>
+  </span>
+  Link med ikon til venstre
+</a>
+```

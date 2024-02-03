@@ -1,0 +1,523 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - forside">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Text input</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Textinput
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText1"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1size"
+          >Textinput med overstyrt bredde (med size-attributt)
+          <input
+            class="pkt-input"
+            type="password"
+            size="4"
+            id="exampleInputText1size"
+            placeholder="XXXX"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1fullwidth"
+          >Textinput med overstyrt bredde (med fullwidth-prop)
+          <input
+            class="pkt-input pkt-input--fullwidth"
+            type="password"
+            id="exampleInputText1size"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Textinput inline
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText1"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+      <div class="pkt-inputwrapper pkt-inputwrapper--inline mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText1"
+          >Textinput inline
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText1"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label
+          class="pkt-inputwrapper__label"
+          for="exampleInputText2"
+          id="labelledby"
+          >Textinput med hjelpetekst
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText2"
+            placeholder="Plassholder"
+          />
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText3"
+          ><span
+            >Textinput med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText3"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText45"
+          ><span
+            >Textinput med tag <span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+              >Må fylles ut</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText45"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText35"
+          >Text med prefix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText35"
+              placeholder="Plassholder"
+            />
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText36"
+          >Textinput med suffix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText36"
+              placeholder="Plassholder"
+            />
+            <p class="pkt-input-suffix">kr</p>
+          </div></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText37"
+          >Textinput med suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText37"
+              placeholder="Plassholder"
+            />
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText38"
+          >Textinput med ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText38"
+              placeholder="Plassholder"
+            />
+            <div class="pkt-input-icon">
+              <span class="pkt-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText38"
+          >Textinput med søkeikon
+          <div class="pkt-inputwrapper__helptext">
+            Her kan du søke etter meningen med livet.
+          </div>
+          <div class="pkt-input__container">
+            <input
+              class="pkt-input"
+              type="search"
+              id="exampleInputText38"
+              placeholder="Søk…"
+            />
+            <div class="pkt-input-icon">
+              <span class="pkt-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#magnifying-glass-big"></use>
+                </svg></span
+              >
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText372"
+          >Textinput med prefix, suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText372"
+              placeholder="Plassholder"
+            />
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+      </div>
+
+      <div class="pkt-inputwrapper pkt-inputwrapper__helptext mb-size-24">
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Textinput med åpen expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <input
+          class="pkt-input"
+          type="text"
+          id="exampleInputText33"
+          placeholder="Plassholder"
+        />
+      </div>
+
+      <div
+        class="pkt-inputwrapper pkt-inputwrapper__helptext pkt-texinput__helptext-expandable mb-size-24"
+      >
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Textinput med lukket expandable helptext<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+
+        <div class="pkt-inputwrapper__helptext-expandable-closed">Lukket</div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <input
+          class="pkt-input"
+          type="text"
+          id="exampleInputText34"
+          placeholder="Plassholder"
+        />
+      </div>
+    </section>
+
+    <h1>States</h1>
+
+    <section class="component">
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText4"
+          >Textinput focus
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <input
+            class="pkt-input pkt-input__textinput--focus"
+            type="text"
+            id="exampleInputText4"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24">
+        <label class="pkt-inputwrapper__label" for="exampleInputText6"
+          >Hover
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <input
+            class="pkt-input pkt-input--hover"
+            type="text"
+            id="exampleInputText6"
+            placeholder="Plassholder"
+          /></label
+        >
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--disabled">
+        <label class="pkt-inputwrapper__label" for="exampleInputText7"
+          ><span
+            >Disabled<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText7"
+            placeholder="Plassholder"
+            disabled
+          /></label
+        >
+      </div>
+
+      <div
+        class="pkt-inputwrapper pkt-inputwrapper__helptext pkt-inputwrapper--disabled mb-size-24"
+      >
+        <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+          Expandable disabled<span
+            class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+            >Må fylles ut</span
+          >
+        </h2>
+        <button
+          class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right"
+          disabled
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#chevron-thin-down"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text"
+            >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+          >
+        </button>
+        <div
+          class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+        >
+          Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+        </div>
+        <label
+          class="pkt-inputwrapper__label pkt-sr-only"
+          for="exampleInputText33">Visuelt skjult label</label
+        >
+        <div class="pkt-input__container">
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText37"
+            placeholder="Plassholder"
+            disabled
+          />
+          <p class="pkt-input-suffix">
+            Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+              <svg viewBox="0 0 32 32">
+                <use href="#close"></use>
+              </svg></span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText8"
+          ><span
+            >Error<span
+              class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--blue-light"
+              >Valgfritt</span
+            ></span
+          >
+          <div class="pkt-inputwrapper__helptext">Test</div>
+          <input
+            class="pkt-input"
+            type="text"
+            id="exampleInputText8"
+            placeholder="Plassholder"
+          />
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText37"
+          >Textinput med suffix og ikon
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText37"
+              placeholder="Plassholder"
+            />
+            <p class="pkt-input-suffix">
+              Suffix <span class="pkt-icon pkt-input__input-suffix-icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#close"></use>
+                </svg></span
+              >
+            </p>
+          </div>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+      <div class="pkt-inputwrapper mb-size-24 pkt-inputwrapper--error">
+        <label class="pkt-inputwrapper__label" for="exampleInputText35"
+          >Text med prefix
+          <div class="pkt-inputwrapper__helptext">
+            Dette er tekst over tekstfeltet.
+          </div>
+          <div class="pkt-input__container">
+            <div class="pkt-input-prefix">+47</div>
+            <input
+              class="pkt-input"
+              type="text"
+              id="exampleInputText35"
+              placeholder="Plassholder"
+            />
+          </div>
+        </label>
+        <div
+          class="pkt-alert pkt-alert--error pkt-alert--compact"
+          aria-live="assertive"
+        >
+          <span class="pkt-icon pkt-alert__icon">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <use href="#alert-error"></use>
+            </svg>
+          </span>
+          <div class="pkt-alert__text">Dette er en feilmelding</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,103 @@
+/* 
+ * Breadcrumbs component
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+@use '../abstracts/mixins/typography';
+
+.pkt-breadcrumbs {
+  position: relative;
+  @include typography.get-text('pkt-txt-14-light');
+
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    list-style-type: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s ease-in-out;
+
+    @include bp('phablet-up') {
+      flex-direction: row;
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: none;
+    width: 100%;
+    text-decoration: underline;
+
+    @include bp('phablet-up') {
+      display: block;
+      width: auto;
+    }
+
+    &:last-child {
+      display: block;
+      text-decoration: none;
+
+      @include bp('tablet-up') {
+        max-width: 300px;
+      }
+
+      .pkt-breadcrumbs__text {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  &__text {
+    display: block;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: map.get(variables.$font-weight, 'light');
+
+    @include bp('phablet-up') {
+      max-width: 120px;
+    }
+
+    @include bp('tablet-up') {
+      max-width: 200px;
+    }
+
+    @include bp('tablet-big-up') {
+      max-width: 300px;
+    }
+  }
+
+  &__icon {
+    width: 1rem;
+    height: 1rem;
+    margin-left: map.get(variables.$spacing, 'size-8');
+  }
+
+
+  &--desktop {
+    display: none !important;
+
+    @include bp('phablet-up') {
+      display: inline-flex !important;
+    }
+  }
+
+  &--mobile {
+    display: inline-flex !important;
+
+    @include bp('phablet-up') {
+      display: none !important;
+    }
+  }
+}

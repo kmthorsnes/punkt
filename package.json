@@ -1,0 +1,84 @@
+{
+  "name": "@oslokommune/punkt",
+  "description": "Punkt - designsystem av Oslo Origo",
+  "homepage": "https://punkt.oslo.kommune.no",
+  "author": "Team Designsystem, Oslo Origo",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npx lerna run build",
+    "build-assets": "npx lerna run build --scope=@oslokommune/punkt-assets",
+    "build-cdn-app": "npx lerna run build-app --scope=@oslokommune/punkt-cdn",
+    "build-css": "npx lerna run build --scope=@oslokommune/punkt-css",
+    "build-css-app": "npx lerna run build-app --scope=@oslokommune/punkt-css",
+    "build-react": "npx lerna run build --scope=@oslokommune/punkt-react",
+    "build-react-app": "npx lerna run build-app --scope=@oslokommune/punkt-react",
+    "build-vue": "npx lerna run build --scope=@oslokommune/punkt-vue",
+    "build-vue-app": "npx lerna run build-app --scope=@oslokommune/punkt-vue",
+    "build-vue2": "npx lerna run build --scope=@oslokommune/punkt-vue2",
+    "build-vue2-app": "npx lerna run build-app --scope=@oslokommune/punkt-vue2",
+    "build-docs": "npx lerna run build --scope=@oslokommune/punkt-docs",
+    "clean": "node ./scripts/clean-nodefiles.js",
+    "dev-cdn": "npx lerna run dev --scope=@oslokommune/punkt-cdn",
+    "dev-cli": "npx lerna run dev --scope=@oslokommune/punkt-cli",
+    "dev-css": "npx lerna run dev --scope=@oslokommune/punkt-css",
+    "dev-docs": "npx lerna run dev --scope=@oslokommune/punkt-docs",
+    "dev-docs-base": "npx lerna run dev --scope=@oslokommune/punkt-docs -- --base='/3.1'",
+    "dev-react": "npx lerna run dev --scope=@oslokommune/punkt-react",
+    "dev-vue": "npx lerna run dev --scope=@oslokommune/punkt-vue",
+    "dev-vue2": "npx lerna run dev --scope=@oslokommune/punkt-vue2",
+    "lerna:version": "npx lerna version --no-private --yes --no-changelog",
+    "lerna:publish": "npx lerna publish from-git --yes",
+    "lint-react": "npx lerna run lint --scope=@oslokommune/punkt-react",
+    "lint-react:fix": "npx lerna run lint:fix --scope=@oslokommune/punkt-react",
+    "svgo": "npx lerna run svgo --scope=@oslokommune/punkt-assets",
+    "test-react": "npx lerna run test --scope=@oslokommune/punkt-react",
+    "update-changelog": "node ./scripts/build-update-changelog.js",
+    "watch": "npx lerna watch",
+    "watch-cdn": "npx lerna watch --scope=@oslokommune/punkt-cdn -- npm run build-cdn-app",
+    "watch-css": "npx lerna watch --scope=@oslokommune/punkt-css -- npm run build-css"
+  },
+  "devDependencies": {
+    "@vue/devtools-api": "^6.5.1",
+    "a11y-color-contrast": "^0.2.0",
+    "edit-json-file": "^1.7.0",
+    "esbuild": "^0.19.9",
+    "fs-extra": "^11.1.0",
+    "lerna": "^6.6.1",
+    "minimatch": "^8.0.2",
+    "mustache": "^4.2.0",
+    "semver": "^7.5.4",
+    "simple-git": "^3.19.1"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "private": true,
+  "keywords": [
+    "punkt",
+    "designsystem",
+    "vue",
+    "vuejs",
+    "react",
+    "components",
+    "ux",
+    "ui",
+    "css",
+    "framework",
+    "figma"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslokommune/punkt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oslokommune/punkt/issues"
+  },
+  "license": "MIT",
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.8.0"
+  }
+}

@@ -1,0 +1,130 @@
+---
+title: Switch
+description: "En bryter for å skru ting av og på. Også kalt en Toggle."
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/switch" },
+    { "title": "Kode", "href": "komponenter/switch/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/switch/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Switch (også kalt toggle, eller bryter på godt norsk) er en kontroll som lar brukerne veksle mellom to mulige tilstander (av eller på).
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        class="pkt-input-check__input-checkbox"
+        type="checkbox"
+        role="switch"
+        id="exampleCheckbox"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox">
+        Skru på lyset
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Varianter
+
+I Punkt kan du selv velge om du ønsker å bruke/plassere switchen frittstående, eller med tekst på én av sidene.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-1.svg"
+    alt="Switch-komponenten med og uten tekst."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Farger
+
+Switchen er alltid Dark blue ($dark-blue-1000), #2A2859.
+
+## Slik bruker du komponenten
+
+Switch brukes kun for binære handlinger som aktiveres eller deaktiveres umiddelbart etter at brukeren har slått på eller av bryteren. Det vil si at endring i tilstanden ikke skal kreve bekreftelse eller lagring. Switchen bør ha en ledetekst som forteller hva brukeren slår av og på.
+
+<ImageWrapper caption="Eksempel på bruk av switch i team Booking sin admin-løsning">
+  <img
+    src="/assets/komponenter/switch/switch-2.svg"
+    alt="Eksempel på bruk av switch i booking sin løsning."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Husk at switchen ikke alltid er det riktige valget - ofte fungerer det best med en avmerkningsboks (checkbox). Enkelt oppsummert:
+
+- Bruk [avmerkingsbokser (checkbox)](https://punkt.oslo.kommune.no/latest/komponenter/checkbox/) for å velge flere relaterte alternativer.
+- Bruk [radioknapper](https://punkt.oslo.kommune.no/latest/komponenter/radiobuttons/) for å velge ett enkelt alternativ i en liste av alternativer.
+- Bruk switch for å skru noe av eller på, eller aktivere, et valg eller en handling.
+
+## Gjør dette/ikke gjør dette
+
+### En switch skal ikke erstatte en knapp
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-3.svg"
+    alt="Eksempel med riktig bruk av knapp, og switch som knapp."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ledeteksten forteller hva det er og switchen forteller statusen
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-4.svg"
+    alt="Eksempel på god og dårlig ledetekst foran en switch."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk switch i stedet for avmerkningsboks (checkbox)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-5.svg"
+    alt="Riktig bruk av checkboxer vs switch."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Switchen skal ha automatisk effekt ved aktivering
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-6.svg"
+    alt="Switch med og uten lagring."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Venstrestilt ledetekst (valgfritt)
+2. Switch
+3. Ikon
+4. Høyrestilt ledetekst (valgfritt)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/switch/switch-7.svg"
+    alt="Switch-komponentens anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

@@ -1,0 +1,58 @@
+{
+  "name": "pkt-tag",
+  "css-class": "pkt-tag",
+  "props": {
+    "closeTag": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "size": {
+      "type": "string",
+      "required": false,
+      "default": "medium",
+      "values": ["small", "medium", "large"]
+    },
+    "iconName": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    },
+    "skin": {
+      "type": "string",
+      "required": false,
+      "default": "blue",
+      "values": [
+        "blue",
+        "green",
+        "red",
+        "beige",
+        "yellow",
+        "grey",
+        "blue-light"
+      ]
+    },
+    "textStyle": {
+      "type": "string",
+      "required": false,
+      "default": "normal-text",
+      "values": ["thin-text", "normal-text"]
+    },
+    "type": {
+      "type": "string",
+      "required": false,
+      "default": "button",
+      "values": ["button", "submit", "reset"]
+    },
+    "ariaLabel": {
+      "type": "string",
+      "required": false,
+      "default": "close"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Teksten til tag"
+    }
+  }
+}

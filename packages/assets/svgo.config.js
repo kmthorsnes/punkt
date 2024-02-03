@@ -1,0 +1,48 @@
+export default {
+  multipass: true, // boolean. false by default
+  //datauri: 'enc', // 'base64', 'enc' or 'unenc'. 'base64' by default
+  js2svg: {
+    indent: 2, // string with spaces or number of spaces. 4 by default
+    pretty: true, // boolean, false by default
+  },
+  plugins: [
+    { name: "cleanupAttrs" },
+    { name: "mergeStyles" },
+    { name: "inlineStyles" },
+    { name: "removeDoctype" },
+    { name: "removeXMLProcInst" },
+    { name: "removeComments" },
+    { name: "removeMetadata" },
+    { name: "removeTitle" },
+    { name: "removeDesc" },
+    { name: "removeUselessDefs" },
+    { name: "removeEditorsNSData" },
+    { name: "removeEmptyAttrs" },
+    { name: "removeHiddenElems" },
+    { name: "removeEmptyText" },
+    { name: "removeEmptyContainers" },
+    { name: "cleanupEnableBackground" },
+    { name: "minifyStyles" },
+    { name: "convertStyleToAttrs" },
+    { name: "convertColors" },
+    { name: "convertPathData" },
+    { name: "convertTransform" },
+    { name: "removeUnknownsAndDefaults" },
+    { name: "removeNonInheritableGroupAttrs" },
+    { name: "removeUselessStrokeAndFill" },
+    { name: "removeUnusedNS" },
+    { name: "cleanupNumericValues" },
+    { name: "cleanupListOfValues" },
+    { name: "moveElemsAttrsToGroup" },
+    { name: "moveGroupAttrsToElems" },
+    { name: "collapseGroups" },
+    { name: "removeRasterImages" },
+    { name: "mergePaths" },
+    { name: "convertShapeToPath" },
+    { name: "convertEllipseToCircle" },
+    { name: "sortAttrs" },
+    { name: "sortDefsChildren" },
+    { name: "removeDimensions" },
+    { name: "reusePaths" },
+  ],
+};

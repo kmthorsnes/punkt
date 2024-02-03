@@ -1,0 +1,85 @@
+---
+title: Tabs
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/tabs" },
+    { "title": "Kode", "href": "komponenter/tabs/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/tabs/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Ved tastaturnavigering skal ikke tabulator hoppe til neste fane, men ut av fanegruppen
+- Piltaster til venstre og høyre skal fokusere forrige og neste fane, og mellomrom og enter skal aktivere valget
+- Skriv logiske og konsise tekster på fanene, det holder som oftest ikke med kun ikon
+- Ikke bruk faner dersom du har veldig mange blokker med innhold, eller dersom innholdet i de skjulte blokkene er særdeles viktig informasjon
+- Tenk nøye over om faner virkelig dekker behovet du har, eller om du heller bør omstrukturere innholdet ditt
+
+## Bør du unngå faner?
+
+Dersom du bruker en fanegruppe til å «skjule mindre viktig informasjon», bør du først tenke nøye gjennom om informasjonen du skjuler bak faner er informasjon du heller kan droppe. Det kan være at du tyr til faner når det du egentlig vil er å ha mindre informasjon eller bedre strukturert informasjon på siden din.
+
+Selv om faner har et etablert bruksmønster for tastaturbrukere og skjermlesere, så er det allikevel mange som ikke forstår hvordan de virker, eller som ikke legger merke til at fanene er der ved en form for «UI-blindhet». Resultatet er at mange utelukkende vil lese informasjonen under første fanevalg. Å skjule informasjon kan være problematisk av disse grunner, men også fordi du tar fra brukeren muligheten til å sammenligne all informasjon som er på siden.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Fanene har `role=tab`, containeren til fanene har `role=tablist`, og
+        blokkene med innhold har `role=tabpanel`
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Fanene kan navigeres ved bruk av piltaster og velges med linjeskift
+        eller mellomrom
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Alle fanene har logiske tekster som sier noe om hva brukeren finner i
+        visningen
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox4"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox4">
+        En gjennomgang er blitt gjort for å avgjøre hvorvidt faner faktisk er
+        rett valg her
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [WAI-ARIA - Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/)
+- [ARIA - `tablist` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role)

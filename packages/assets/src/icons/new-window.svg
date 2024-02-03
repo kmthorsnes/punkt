@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="new-window" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="M29.04 23.84v5.15H3.07V2.97l5.02-.03-.03-1.92H4.42v-.01H1.1v29.98h3.32v-.01h26.64v-7.11l-2.02-.03Z" />
+    <path d="M17.01 1.01v2h10.56L13.08 17.49l1.41 1.42L28.96 4.44v10.57h2v-14H17.01Z" />
+  </g>
+</svg>

@@ -1,0 +1,275 @@
+---
+title: Text input
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textinput" },
+    { "title": "Kode", "href": "komponenter/textinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textinput/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import ImageWrapper from "@components/ImageWrapper.astro";
+import CodeExample from "@components/CodeExample.vue";
+import { PktTextinput } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Tekstfelt (også kalt text input og inputfelt) er en komponent som tar imot fritekst fra brukeren. De brukes vanligvis i skjemaer, men kan også brukes andre steder i en tjeneste.
+
+Standard tekstfelt brukes for eksempel til e-post, navn, fødselsnummer og andre typer informasjon som får plass på én linje.
+
+<CodeExample client:load>
+<PktTextinput
+  id="testinput2"
+  label="Tekstfelt med hjelpetekst og påkrevd-merking"
+  helptext="Dette er hjelpetekst over tekstfeltet"
+  required
+  client:load
+/>
+
+<br />
+
+<PktTextinput
+  id="testinput5"
+  label="Tekstfelt med prefix og valgfritt-merking"
+  helptext="Dette er hjelpetekst over tekstfeltet"
+  prefix="+47"
+  optional
+  client:load
+/>
+
+<br />
+
+<PktTextinput
+  id="testinput6"
+  label="Tekstfelt med suffix og utvidet hjelpetekst"
+  suffix="kr"
+  helptextDropdown="Dette er en utvidet hjelpetekst"
+  client:load
+/>
+
+<br />
+
+<PktTextinput
+  id="testinput8"
+  label="Tekstfelt med ikon"
+  iconNameRight="user"
+  client:load
+/>
+
+<br />
+
+<PktTextinput
+  id="testinput9"
+  label="Tekstfelt med feilmelding"
+  errorMessage="Dette er en feilmelding"
+  hasError
+  client:load
+/>
+
+<br />
+
+<PktTextinput
+  id="testinput11"
+  label="Deaktivert tekstfelt"
+  iconNameRight="user"
+  disabled
+  client:load
+/>
+</CodeExample>
+
+## Varianter
+
+Vi har flere mulige variasjoner av tekstfeltet. Det kan brukes helt enkelt med label og inputfelt, eller du kan legge til:
+
+- Valgfritt- eller obligatorisk-tag
+- Prefiks
+- Suffiks
+- Hjelpetekst
+- Ekspanderende hjelpetekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-0.svg"
+    alt="Varianter av text input."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Farger
+
+Tekstfeltene skal alltid ha $brand-blue på kant og tekst. Det er ikke mulig å endre farge på tekstfeltet.
+
+## Slik bruker du komponenten
+
+### Label (etikett/ledetekst)
+
+For å fungere godt bør tekstfeltet ha en kort og tydelig ledetekst (label) og det er mulig å legge til hjelpetekst om nødvendig.
+
+Når du skriver label kan det være greit å huske på at:
+
+- Man burde være konsis og konsistent slik at brukeren skjønner hva som forventes av hen
+- Om mulig: hold deg til 1-3 ord og under 20 bokstaver, inkludert mellomrom
+- Ikke bruk bare store eller bare små bokstaver
+- Ikke bruk kolon etter label
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-1.svg"
+    alt="Text input med to forskjellige labels."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Valgfritt-/obligatorisk-tag
+
+Til høyre for label kan du velge å ha enten valgfritt-tag eller obligatorisk-tag. Bruk kun én av variantene i din tjeneste eller løsning for å unngå å forvirre brukeren. Vi anbefaler å markere de valgfrie feltene.
+
+### Størrelse
+
+Det er ikke påkrevd, men det anbefales at et tekstfelt ikke er bredere enn 500 px.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-2.svg"
+    alt="Visning av text input med standard bredde og anbefalt maks bredde."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Det viktigste er at bredden på tekstfeltet må passe til innholdet brukeren legger inn. F.eks. ved telefonnummer bør ikke tekstfeltet være bredere enn 8 tegn.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-3.svg"
+    alt="Tre forskjellige tekstfelt som viser variert størrelse, telefonnummer, e-post og postnummer."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Feilmelding og validering
+
+Hvis tekstfeltet ikke validerer, vil en feilmelding dukke opp under tekstfeltet som beskriver hva som er galt. Feilmeldingen har tre visuelle indikatorer: en rød ramme, et ikon og selve feilmeldingsteksten. Essensen av hjelpeteksten må også være inkludert i feilmeldingen. [Les mer om hvordan du kan skrive en god feilmelding her (ks.no)](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/feilmeldinger/).
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-4.svg"
+    alt="Tekstfelt med feilmelding."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Plassholdertekst
+
+Tekstfeltet har mulighet for plassholdertekst, men unngå å bruke plassholdertekst med meningsbærende/viktig innhold. Den er nemlig ikke tilgjengelig for skjermlesere og kan skape forvirring for brukeren. Gå heller for ledetekst og/eller hjelpetekst.
+
+### Hjelpetekst
+
+Valgfri hjelpetekst er relevant informasjon som hjelper brukeren med å fylle ut feltet riktig. Det brukes for eksempel ofte til å forklare riktig dataformat.
+
+Når du skriver hjelpetekst, er det viktig at du:
+
+- Bruker store bokstaver i setningstil og skriver teksten i de fleste tilfeller som hele setninger.
+- Dersom du har veldig lang hjelpetekst eller har behov for å legge til lenker og lignende, bruk den ekspanderende hjelpeteksten.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-5.svg"
+    alt="Tekstfelt med vanlig hjelpetekst og ekspanderende hjelpetekst."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Prefiks
+
+Du kan velge å legge til en prefiks i input feltet, dette kan for eksempel være landskode på telefonnummer. Du kan ikke bruke ikon i prefiks-feltet, men du kan bruke det i suffiks.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-6.svg"
+    alt="Eksempel som viser tekstfelt med prefiks telefonnummer og innloggingskode."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Suffiks
+
+Suffiksen kan brukes for å definere enhet, et beskrivende ikon eller tekst. Den kan også være klikkbar, for eksempel med et øye for å skjule/vise passord, eller kryss for å fjerne teksten som er fylt inn i tekstfeltet.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-7.svg"
+    alt="Eksempel som viser tekstfelt med suffiks, kroner, kvadratmeter, ikon og lukkbar."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Bruk label og skriv den kort og konsis
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-9.svg"
+    alt="Eksempel på god og dårlig bruk av label."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk placeholder som hjelpetekst (som forsvinner)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-10.svg"
+    alt="Eksempel som viser tekstfelt med og uten label."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ha riktig bredde i forhold til innholdet i inputfeltet
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-11.svg"
+    alt="Eksempel som viser tekstetfelt med feil bredde i forhold til innhold."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk kolon etter label
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-12.svg"
+    alt="Eksempel som viser label med og uten kolon."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Label (etikett/ledetekst)
+2. Valgfritt-tag
+3. Obligatorisk-tag
+4. Hjelpetekst
+5. Ekspanderende hjelpetekst
+6. Inputfelt
+7. Prefiks
+8. Plassholdertekst
+9. Suffiks tekst
+10. Suffiks ikon
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/input/textinput-8.svg"
+    alt="Tekstfeltets anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

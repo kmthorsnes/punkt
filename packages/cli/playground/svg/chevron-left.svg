@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="chevron-left" fill="none" data-category="arrows" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)" fill-rule="evenodd"
+    d="m6.8571 15.8571 10 10 4.2858-4.2857-5.7143-5.7143 5.7143-5.7142-4.2858-4.2858-10 10ZM24 10.1429l-5.7143 5.7142L24 21.5714l-7.1429 7.1429L4 15.8571 16.8571 3 24 10.1429Z"
+    clip-rule="evenodd" />
+</svg>

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PktFooterSimple snapshot renders correctly with all props 1`] = `
+<div>
+  <footer
+    class="pkt-footer-simple"
+    data-mode="dark"
+  >
+    <div
+      class="pkt-footer-simple__container"
+    >
+      <ul
+        class="pkt-footer-simple__list"
+      >
+        <li
+          class="pkt-footer-simple__list-item"
+        >
+          <a
+            class="pkt-footer-simple__link "
+            href="https://www.example.com"
+            target="_self"
+          >
+            Example Link 1
+          </a>
+        </li>
+        <li
+          class="pkt-footer-simple__list-item"
+        >
+          <a
+            class="pkt-footer-simple__link "
+            href="https://www.example.com"
+            target="_self"
+          >
+            Example Link 2
+          </a>
+        </li>
+        <li
+          class="pkt-footer-simple__list-item"
+        >
+          <a
+            class="pkt-footer-simple__link "
+            href="https://www.example.com"
+            target="_self"
+          >
+            Example Link 3
+          </a>
+        </li>
+        <li
+          class="pkt-footer-simple__list-item"
+        >
+          <a
+            class="pkt-footer-simple__link"
+            href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+          >
+            Personvern og informasjonskapsler
+          </a>
+        </li>
+        <li
+          class="pkt-footer-simple__list-item"
+        >
+          <a
+            class="pkt-footer-simple__link"
+            href="https://www.oslo.kommune.no/tilgjengelighet/"
+          >
+            Tilgjengelighet
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+`;

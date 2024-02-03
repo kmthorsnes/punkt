@@ -1,0 +1,82 @@
+---
+---
+
+<div class="version-banner">
+  Hei, du! 👋 Det finnes en nyere versjon av Punkt. <a
+    href="https://punkt.oslo.kommune.no/latest">Se siste versjon her.</a
+  >
+</div>
+<script>
+  (async () => {
+    // Check if the version is old
+    async function fetchVersions() {
+      const response = await fetch(
+        "https://punkt-cdn.oslo.kommune.no/versions.json"
+      );
+      return (await response.json()).versions;
+    }
+
+    const versions = await fetchVersions();
+    let latestVersion = versions.reverse()[0];
+    latestVersion = "/" + latestVersion + "/";
+    const baseUrl = import.meta.env.BASE_URL;
+    const showBanner =
+      baseUrl !== "/latest/" && baseUrl !== latestVersion && baseUrl !== "/";
+    //Test in dev:
+    //baseUrl !== "/latest/" && baseUrl !== latestVersion && baseUrl;
+
+    // Get the banner and header elements
+    const banner = document.querySelector(".version-banner") as HTMLElement;
+    const header = document.querySelector(".pkt-header-docs") as HTMLElement;
+    const maincontent = document.querySelector(".main-content") as HTMLElement;
+    const pagenavigation = document.querySelector(".page-nav") as HTMLElement;
+
+    // Set the banner height and header margin if banner is shown
+    if (showBanner) {
+      if (banner) {
+        banner.style.display = "flex";
+      }
+      if (header) {
+        header.style.marginTop = banner.clientHeight + "px";
+      }
+
+      if (maincontent) {
+        maincontent.style.paddingTop =
+          banner.clientHeight + header.clientHeight + "px";
+      }
+      if (pagenavigation) {
+        pagenavigation.style.top =
+          banner.clientHeight + header.clientHeight + "px";
+        pagenavigation.style.height =
+          "calc(100hv - " + banner.clientHeight + header.clientHeight + "px)";
+      }
+    } else {
+      return;
+    }
+  })();
+</script>
+<style lang="scss" scoped>
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/variables";
+  @use "@pkt/scss/abstracts/mixins/typography";
+  @use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+  .version-banner {
+    background-color: var(--pkt-color-brand-blue-100);
+    display: none;
+    width: 100%;
+    padding: 0.6875rem 2.9375rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    @include bp("tablet-up") {
+      flex-direction: row;
+    }
+  }
+</style>

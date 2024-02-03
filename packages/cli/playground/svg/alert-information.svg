@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="alert-information" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <circle cx="16" cy="16" r="15" fill="var(--bg-color, #6FE9FF)" />
+  <path fill="var(--fg-color, #2A2859)"
+    d="M17.125 13.188h-2.25v11.25h2.25v-11.25Zm-2.906-3.657c0 .997.763 1.781 1.781 1.781a1.752 1.752 0 0 0 1.781-1.78c0-.997-.763-1.782-1.781-1.782a1.752 1.752 0 0 0-1.781 1.781Z" />
+</svg>

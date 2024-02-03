@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS dev-app">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Fluid grid</h1>
+    <section class="component">
+      <h2>Maksbredde på container</h2>
+      <section class="pkt-grid pkt-grid--phablet mt-size-16">
+        <div class="pkt-cell pkt-cell--span12" style="background-color: pink;">
+          .pkt-grid--phablet
+        </div>
+      </section>
+      <section class="pkt-grid pkt-grid--tablet mt-size-16">
+        <div class="pkt-cell pkt-cell--span12" style="background-color: pink;">
+          .pkt-grid--tablet
+        </div>
+      </section>
+    </section>
+    <section class="component">
+      <h2>Left, right, center</h2>
+      <section class="pkt-grid pkt-grid--phablet pkt-grid--left mt-size-16">
+        <div class="pkt-cell pkt-cell--span12" style="background-color: pink;">
+          .pkt-grid--left
+        </div>
+      </section>
+      <section class="pkt-grid pkt-grid--phablet pkt-grid--center mt-size-16">
+        <div class="pkt-cell pkt-cell--span12" style="background-color: pink;">
+          .pkt-grid--center
+        </div>
+      </section>
+      <section class="pkt-grid pkt-grid--phablet pkt-grid--right mt-size-16">
+        <div class="pkt-cell pkt-cell--span12" style="background-color: pink;">
+          .pkt-grid--right
+        </div>
+      </section>
+    </section>
+    <section class="component">
+      <h2>Gap</h2>
+      <div
+        class="pkt-grid pkt-grid--gap-size-32"
+        style="background-color: pink;"
+      >
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          .pkt-grid--gap-size-32
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          .pkt-grid--gap-size-32
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          .pkt-grid--gap-size-32
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
+          id urna vitae imperdiet. Pellentesque at nulla quis mi efficitur
+          mattis.
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
+          id urna vitae imperdiet. Pellentesque at nulla quis mi efficitur
+          mattis.
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span4-phablet-up"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
+          id urna vitae imperdiet. Pellentesque at nulla quis mi efficitur
+          mattis.
+        </div>
+      </div>
+    </section>
+    <section class="component">
+      <h2>Grid cell - responsive cell</h2>
+      <div class="pkt-grid" style="background-color: pink;">
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span6-phablet-up"
+        >
+          .pkt-cell--span12 pkt-cell--span6-phablet-up
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span6-phablet-up"
+        >
+          .pkt-cell--span12 pkt-cell--span6-phablet-up
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span6-phablet-up"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
+          id urna vitae imperdiet. Pellentesque at nulla quis mi efficitur
+          mattis. Sed ornare, lectus ut tincidunt commodo, est tortor bibendum
+          lectus, nec aliquam eros ligula eget ipsum. Maecenas iaculis convallis
+          neque, mollis fermentum augue molestie porttitor.
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--span12 pkt-cell--span6-phablet-up"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mattis
+          id urna vitae imperdiet. Pellentesque at nulla quis mi efficitur
+          mattis. Sed ornare, lectus ut tincidunt commodo, est tortor bibendum
+          lectus, nec aliquam eros ligula eget ipsum. Maecenas iaculis convallis
+          neque, mollis fermentum augue molestie porttitor.
+        </div>
+      </div>
+    </section>
+    <section class="component">
+      <h2>Grid cell - top, bottom, center-vertical (vertikal)</h2>
+      <div class="pkt-grid" style="background-color: pink;">
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--top"
+        >
+          .pkt-cell--top
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--center-vertical"
+        >
+          .pkt-cell--center-vertical
+        </div>
+        <div
+          style="background-color: palevioletred;"
+          class="pkt-cell pkt-cell--bottom"
+        >
+          .pkt-cell--bottom
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

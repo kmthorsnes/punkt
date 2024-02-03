@@ -1,0 +1,203 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Punkt CSS - footer">
+  <main class="page-main">
+    <h1>Footer</h1>
+    <section class="component">
+      <h2>Enkel footer</h2>
+      <div class="component__block-example">
+        <footer data-mode="dark" class="pkt-footer-simple">
+          <div class="pkt-footer-simple__container">
+            <ul class="pkt-footer-simple__list">
+              <li class="pkt-footer-simple__list-item">
+                <a href="#" class="pkt-footer-simple__link pkt-link--external">
+                  <span class="pkt-icon pkt-footer-simple__link-icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-right"></use>
+                    </svg>
+                  </span>
+                  Ekstern lenke
+                </a>
+              </li>
+              <li class="pkt-footer-simple__list-item">
+                <a href="#" class="pkt-footer-simple__link">
+                  <span class="pkt-icon pkt-footer-simple__link-icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-right"></use>
+                    </svg>
+                  </span>
+                  Kontakt
+                </a>
+              </li>
+              <li class="pkt-footer-simple__list-item">
+                <a
+                  href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+                  class="pkt-footer-simple__link"
+                >
+                  <span class="pkt-icon pkt-footer-simple__link-icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-right"></use>
+                    </svg>
+                  </span>
+                  Personvern og informasjonskapsler
+                </a>
+              </li>
+              <li class="pkt-footer-simple__list-item">
+                <a
+                  href="https://www.oslo.kommune.no/tilgjengelighet/"
+                  class="pkt-footer-simple__link"
+                >
+                  <span class="pkt-icon pkt-footer-simple__link-icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-right"></use>
+                    </svg>
+                  </span>
+                  Tilgjengelighetserklæring
+                </a>
+              </li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2>Normal footer</h2>
+      <div class="component__block-example">
+        <footer data-mode="dark" class="pkt-footer">
+          <div class="pkt-footer__container">
+            <div
+              class="pkt-grid pkt-grid--rowgap-size-32 pkt-grid--gap-size-16"
+            >
+              <div
+                class="pkt-footer__column pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+              >
+                <h2 class="pkt-footer__title">Test</h2>
+                <ul class="pkt-footer__list">
+                  <li class="pkt-footer__text">
+                    Her kan du skrive en lengre tekst som beskriver løsningen
+                    eller tjenesten om ønskelig.
+                  </li>
+                  <li class="pkt-footer__list-item">
+                    <a href="#" class="pkt-footer__link pkt-link--external">
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Ekstern lenke
+                    </a>
+                  </li>
+                  <li class="pkt-footer__list-item">
+                    <a href="#" class="pkt-footer__link">
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Ledige stillinger
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="pkt-footer__column pkt-cell pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+              >
+                <h2 class="pkt-footer__title">Test</h2>
+                <ul class="pkt-footer__list">
+                  <li class="pkt-footer__list-item">
+                    <a href="#" class="pkt-footer__link">
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Kontakt
+                    </a>
+                  </li>
+                  <li class="pkt-footer__list-item">
+                    <a href="#" class="pkt-footer__link">
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Ledige stillinger
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="pkt-footer__column pkt-cell pkt-cell pkt-cell--span12 pkt-cell--span4-laptop-up"
+              >
+                <h2 class="pkt-footer__title">Om nettstedet</h2>
+                <ul class="pkt-footer__list">
+                  <li class="pkt-footer__list-item">
+                    <a
+                      href="https://www.oslo.kommune.no/tilgjengelighet/"
+                      class="pkt-footer__link"
+                    >
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Tilgjengelighet
+                    </a>
+                  </li>
+                  <li class="pkt-footer__list-item">
+                    <a
+                      href="https://www.oslo.kommune.no/personvern-og-informasjonskapsler/"
+                      class="pkt-footer__link"
+                    >
+                      <span class="pkt-icon pkt-footer__link-icon">
+                        <svg viewBox="0 0 32 32">
+                          <use href="#chevron-right"></use>
+                        </svg>
+                      </span>
+                      Personvern og informasjonskapsler
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="pkt-footer__social" aria-label="standard lenker">
+              <div class="pkt-footer__social-language">
+                <a href="#" aria-label="til engelsk versjon av nettsiden"
+                  >Engelsk</a
+                >
+              </div>
+              <div class="pkt-footer__social-icons">
+                <a
+                  class="pkt-footer__social-icon-link"
+                  href="#"
+                  aria-label="til facebook"
+                >
+                  <span class="pkt-icon pkt-footer__social-icon">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                      <use href="#facebook"></use>
+                    </svg>
+                  </span>
+                </a>
+                <a
+                  class="pkt-footer__social-icon-link"
+                  href="#"
+                  aria-label="til twitter"
+                >
+                  <span class="pkt-icon pkt-footer__social-icon">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                      <use href="#twitter"></use>
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</Layout>

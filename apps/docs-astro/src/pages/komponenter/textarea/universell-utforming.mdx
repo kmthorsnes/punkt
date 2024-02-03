@@ -1,0 +1,67 @@
+---
+title: Textarea
+description: ""
+categoryName: Komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textarea" },
+    { "title": "Kode", "href": "komponenter/textarea/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textarea/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Alle skjemaelementer bør ha en tilknyttet ledetekst eller instruksjon som viser hvordan skjemaet skal fylles ut, inkludert informasjon om obligatoriske felt.
+- Ledeteksten (label) bør være koblet til skjemaelementet i koden slik at skjermlesere kan lese opp riktig informasjon. Komplekse skjema kan kreve mer hjelp enn bare en ledetekst.
+- Sørg for at feilmeldinger er tilgjengelig for skjermleser og keyboard-navigering. Det skal være lett å identifisere det spesifikke skjemaelementet hvor feilen oppstod. Feilmeldingen bør også beskrive feilen og være synlig uten at brukeren må gjøre ekstra handlinger.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Alle skjemaelementene har tilknyttet label eller instruksjon
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Det er tydelig merket hvilke felter som er obligatoriske og hvilke som
+        er valgfrie
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Det er tydelig merket hvilke felter som er obligatoriske og hvilke som
+        er valgfrie
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [UUtilsynet: Ledetekster og instruksjoner](https://www.uutilsynet.no/veiledning/skjema/38#ledetekster_og_instruksjoner)
+- [KS: Klart språk - feilmeldinger](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/feilmeldinger/)

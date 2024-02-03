@@ -1,0 +1,55 @@
+---
+title: Breadcrumbs
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/breadcrumbs" },
+    { "title": "Kode", "href": "komponenter/breadcrumbs/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/breadcrumbs/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Brødsmulestien må alltid være tilgjengelig med skjermleser og tastaturnavigering.
+- Alle sidene i brødsmulestien skal være interaktive (unntatt den gjeldende siden) og lenke til sine respektive sider.
+- Lenketeksten skal være tydelig og formidler målet for lenken.
+- Ikke bruk brødsmulesti for å erstatte hovednavigasjonen på siden.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Vi har testet at brødsmulestien er tilgjengelig med skjermleser og
+        tastaturnavigering.
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Vi har testet at lenketeksten tydelig formidler målet for lenken.
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [UUtilsynet om lenker](https://www.uutilsynet.no/veiledning/lenker/214)

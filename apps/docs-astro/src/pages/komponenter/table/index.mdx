@@ -1,0 +1,95 @@
+---
+title: Table
+description: 'Dokumentasjon og eksempler for opt-in styling av tabeller.'
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { 'title': 'Beskrivelse', 'href': 'komponenter/table' },
+    { 'title': 'Kode', 'href': 'komponenter/table/kode' },
+    { 'title': 'Universell utforming', 'href': 'komponenter/table/universell-utforming' },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Varianter
+
+<CodeExample>
+  <table class="pkt-table">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+#### Info
+
+<CodeExample>
+  <table class="pkt-table pkt-table--info">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+#### Success
+
+<CodeExample>
+  <table class="pkt-table pkt-table--success">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+#### Strong og med skygge
+
+<CodeExample>
+  <table class="pkt-table pkt-table--strong pkt-table--shadow">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>

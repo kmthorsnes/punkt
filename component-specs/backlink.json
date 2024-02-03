@@ -1,0 +1,21 @@
+{
+  "name": "pkt-back-link",
+  "css-class": "pkt-back-link",
+  "props": {
+    "href": {
+      "type": "String",
+      "required": false,
+      "default": "https://www.oslo.kommune.no"
+    },
+    "text": {
+      "type": "String",
+      "required": false,
+      "default": "oslo.kommune.no"
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Teksten til tilbake-lenken"
+    }
+  }
+}

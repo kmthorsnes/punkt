@@ -1,0 +1,67 @@
+---
+export interface Props {
+  caption?: string;
+  hasTwoImages?: boolean;
+}
+
+const { hasTwoImages, caption } = Astro.props;
+---
+
+<figure class:list={["image-wrapper", { splitSpace: hasTwoImages }]}>
+  <div class="image-wrapper__content my-size-24">
+    <slot />
+  </div>
+  {caption && <figcaption class="image-wrapper__caption">{caption}</figcaption>}
+</figure>
+
+<style lang="scss">
+  @use "sass:map";
+  @use "@pkt/scss/abstracts/functions";
+  @use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+  @use "@pkt/scss/abstracts/mixins/typography";
+
+  .image-wrapper {
+    background-color: #fff;
+    margin: 0;
+    &__content {
+      border: 1px solid var(--pkt-color-grays-gray-100);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-shrink: 0;
+      padding: 0;
+
+      @include bp("laptop-up") {
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 32px;
+      }
+    }
+    &__caption {
+      @include typography.get-text("pkt-txt-14-light");
+      margin: 0 auto;
+      font-style: italic;
+      text-align: center;
+    }
+    & + p {
+      margin-top: 24px;
+    }
+  }
+
+  // I Astro må man bruke :global for å style slots, global i style-taggen fungerte ikke optimalt
+  .image-wrapper :global(img) {
+    width: 100%;
+    height: auto;
+
+    @include bp("laptop-up") {
+      width: 100%;
+    }
+  }
+
+  .splitSpace :global(img) {
+    @include bp("laptop-up") {
+      width: 50%;
+    }
+  }
+</style>

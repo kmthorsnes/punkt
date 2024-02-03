@@ -1,0 +1,129 @@
+/* 
+ * List elements
+ */
+
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+
+// Container for vertical lists
+// TODO: This needs work, doesn't hold ut ATM!
+.pkt-list {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  row-gap: 1.5rem;
+
+  &.two-cols-tablet-up {
+    @include bp('tablet-up') {
+      column-gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+  }
+
+  &.three-cols-laptop-up {
+    @include bp('laptop-up') {
+      column-gap: 1.5rem;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  li>a {
+    display: grid;
+    grid-template-columns: 2rem auto;
+    column-gap: 1rem;
+  }
+}
+
+.pkt-list-horizontal {
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-right: map.get(variables.$spacing, 'size-16');
+  }
+
+  li+li {
+    padding-left: map.get(variables.$spacing, 'size-16');
+  }
+
+  li:last-child {
+    padding-right: 0;
+  }
+
+  &.bordered {
+    li+li {
+      border-left: 1px solid var(--pkt-color-grays-gray-600);
+    }
+  }
+}
+
+// ==========================================================================
+// Definition lists
+// ==========================================================================
+
+.pkt-dl,
+.pkt-dl--narrow {
+  display: flex;
+  flex-direction: column;
+
+  @supports (display: grid) {
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    margin: 0.5rem 0;
+  }
+}
+
+.pkt-dl {
+  @include bp('tablet-up') {
+    grid-template-columns: minmax(9rem, auto) 1fr;
+    border-bottom: 0;
+  }
+}
+
+@mixin dt-narrow {
+  padding: 0.5em 0 0;
+  font-size: map.get(variables.$font-size, 'size-14');
+  border-bottom: none;
+}
+
+@mixin dd-narrow {
+  padding: 0 0 0.5em;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(black, 0.15);
+}
+
+.pkt-dt {
+  @include dt-narrow;
+
+  @include bp('tablet-up') {
+    font-size: inherit;
+  }
+}
+
+.pkt-dl--narrow>.pkt-dt {
+  @include dt-narrow;
+}
+
+.pkt-dd {
+  @include dd-narrow;
+
+  @include bp('tablet-up') {
+    border-bottom: 1px solid rgba(black, 0.15);
+
+    @supports (display: grid) {
+      padding: 0.25em 0 0.25em 1.25em;
+      border-bottom: 0;
+    }
+  }
+}
+
+.pkt-dl--narrow>.pkt-dd {
+  @include dd-narrow;
+}

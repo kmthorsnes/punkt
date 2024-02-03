@@ -1,0 +1,221 @@
+---
+title: Tag
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/tag" },
+    { "title": "Kode", "href": "komponenter/tag/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/tag/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om komponenten
+
+## Varianter
+
+<CodeExample>
+  <span class="pkt-tag mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--red mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--yellow mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--green mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--beige mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--grey mr-size-8">Tag</span>
+  <span class="pkt-tag pkt-tag--blue-light mr-size-8">Tag</span>
+  <span class="pkt-tag mr-size-8 pkt-tag--thin-text">Tag</span>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<span class="pkt-tag">Tag</span>
+<span class="pkt-tag pkt-tag--red">Tag</span>
+<span class="pkt-tag pkt-tag--yellow">Tag</span>
+<span class="pkt-tag pkt-tag--green">Tag</span>
+<span class="pkt-tag pkt-tag--beige">Tag</span>
+<span class="pkt-tag pkt-tag--grey">Tag</span>
+<span class="pkt-tag pkt-tag--blue-light">Tag</span>
+<span class="pkt-tag pkt-tag--thin-text">Tag</span>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktTag>Tag</PktTag>
+<PktTag skin="red">Tag</PktTag>
+<PktTag skin="yellow">Tag</PktTag>
+<PktTag skin="green">Tag</PktTag>
+<PktTag skin="beige">Tag</PktTag>
+<PktTag skin="grey">Tag</PktTag>
+<PktTag skin="blue-light">Tag</PktTag>
+<PktTag textStyle="thin-text">Tag</PktTag>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTag>Tag</PktTag>
+<PktTag skin="red">Tag</PktTag>
+<PktTag skin="yellow">Tag</PktTag>
+<PktTag skin="green">Tag</PktTag>
+<PktTag skin="beige">Tag</PktTag>
+<PktTag skin="grey">Tag</PktTag>
+<PktTag skin="blue-light">Tag</PktTag>
+<PktTag textStyle="thin-text">Tag</PktTag>
+```
+
+</div>
+</CodeTabs>
+
+### Tag med ikon og button
+
+<CodeExample>
+  <span class="pkt-tag pkt-tag--small mr-size-8">
+    <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+    Small
+  </span>
+  <span class="pkt-tag pkt-tag--medium mr-size-8">
+    <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+    Medium
+  </span>
+  <span class="pkt-tag pkt-tag--large mr-size-8">
+    <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+    Large
+  </span>
+</CodeExample>
+
+<CodeExample>
+  <button class="pkt-tag pkt-tag--grey pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left">
+    <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+      <use href="#user"></use>
+    </svg>
+    Tag
+    <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+      <use href="#close"></use>
+    </svg>
+  </button>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<span class="pkt-tag pkt-tag--medium">
+  <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+    <use href="#user"></use>
+  </svg>
+  Tag
+</span>
+
+<button
+  class="pkt-tag pkt-tag--grey 
+  pkt-btn pkt-btn--tertiary
+  pkt-btn--icons-right-and-left"
+>
+  <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+    <use href="#user"></use>
+  </svg>
+  Tag
+  <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+    <use href="#close"></use>
+  </svg>
+</button>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```js
+<PktTag size="medium" iconName="user" closeTag>
+  Tag
+</PktTag>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTag size="medium" iconName="user" closeTag>
+  Tag
+</PktTag>
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-tag</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-tag__icon</li>
+    <li>.pkt-tag__close-btn</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-tag`--`red</li>
+    <li>.pkt-tag`--`yellow</li>
+    <li>.pkt-tag`--`green</li>
+    <li>.pkt-tag`--`beige</li>
+    <li>.pkt-tag`--`grey</li>
+    <li>.pkt-tag`--`blue-light</li>
+    <li>.pkt-tag`--`small</li>
+    <li>.pkt-tag`--`medium</li>
+    <li>.pkt-tag`--`large</li>
+    <li>.pkt-tag`--`normal-text</li>
+    <li>.pkt-tag`--`thin-text</li>
+    <li>.pkt-tag`--`hover</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props                        | Type    | Validation                                        | Default | Beskrivelse                                      |
+| ---------------------------- | ------- | ------------------------------------------------- | ------- | ------------------------------------------------ |
+| skin                         | string  | blue, green, red, beige, yellow, grey, blue-light | blue    | Fargevariant for komponenten                     |
+| textStyle                    | string  | normal-text, thin-text                            | normal  | Tekstvariant                                     |
+| closeTag                     | boolean |                                                   | false   | Sett til true hvis du vil ha knapp med lukkeikon |
+| iconName                     | string  |                                                   |         | Navn på ikonet i komponenten                     |
+| type                         | string  | button, submit, reset                             | button  | HTML-knappetype                                  |
+| ariaLabel                    | string  |                                                   | close   | Aria-label for knappen                           |
+| ButtonHTMLAttributes (React) | string  |                                                   |         | HTML attributter for knapp                       |
+| className (React)            | string  |                                                   |         |                                                  |
+
+| Slots           | Type   | Validation | Default | Beskrivelse                  |
+| --------------- | ------ | ---------- | ------- | ---------------------------- |
+| default         |        |            |         | Tekstinnholdet i komponenten |
+| children(React) | string |            |         | Tekstinnholdet i komponenten |
+
+| Events         | Type     | Validation | Default    | Beskrivelse                           |
+| -------------- | -------- | ---------- | ---------- | ------------------------------------- |
+| on-close       | boolean  |            | Lukker tag | Utløses når lukkeknappen blir klikket |
+| onClick(React) | function |            | Lukker tag | Klikkhandlingen for komponenten       |

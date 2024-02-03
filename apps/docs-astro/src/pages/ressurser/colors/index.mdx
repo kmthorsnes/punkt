@@ -1,0 +1,53 @@
+---
+title: Farger
+categoryName: ressurser
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "ressurser/colors" },
+    { "title": "Kode", "href": "ressurser/colors/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "ressurser/colors/universell-utforming",
+    },
+  ]
+priority: 3
+---
+
+import Colors from "@components/Colors.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Fargebruk
+
+Oslo kommune har en fargepalett som er inspirert av Oslos bybilde; blått fra trikken og fjorden, grønt fra våre grønne lunger og marka. De varme fargene er inspirert av fasader på byens bygninger.
+
+Samlet sammensetning av fargene bør stemme overens med merkevarefargen som er valgt som hovedfarge til applikasjonen/domenet. Nyansefarger bør brukes på en måte som komplimenterer brandfargene.
+
+## Navngiving og fargeoppsett
+
+Vi har to nivåer av farger i Punkt: brand farger og semantiske farger:
+
+<ImageWrapper>
+  <img
+    src="/assets/ressurser/colors/farger-1.svg"
+    alt="Farger"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Fargesystemet består av globale farger som refererer til hva fargen er (eks. brand-dark-blue-100) og et semantisk nivå som beskriver hva fargen skal brukes til (eks. text-body-default).
+
+Fargene har semantiske fargenavn som er bygget opp av tre ledd: UI-element - Situasjon - Variant/Tilstand. Første ledd refererer til elementet som fargelegges: background, Surface
+
+- Background: Som regel bakgrunnen på hele siden (HTML body).
+- Surface: Bakgrunnsfargen til en element, som for eksempel et panel, en knapp, en seksjon, etc.
+- Border: Fargen til en ramme (stroke).
+- Text/Icon: Fargen på tekst og ikoner.
+
+## Brand farger
+
+<Colors category="brand" client:load />
+
+## Semantiske farger
+
+<Colors category="semantic" client:load showToolbar />

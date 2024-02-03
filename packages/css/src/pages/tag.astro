@@ -1,0 +1,528 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Punkt CSS - Tag">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Tag</h1>
+
+    <section class="component">
+      <span class="pkt-tag">Tag</span>
+      <span class="pkt-tag pkt-tag--red">Tag</span>
+      <span class="pkt-tag pkt-tag--yellow">Tag</span>
+      <span class="pkt-tag pkt-tag--green">Tag</span>
+      <span class="pkt-tag pkt-tag--beige">Tag</span>
+      <span class="pkt-tag pkt-tag--grey">Tag</span>
+      <span class="pkt-tag pkt-tag--blue-light">Tag</span>
+    </section>
+
+    <h1>Tag thin-text</h1>
+
+    <section class="component">
+      <span class="pkt-tag pkt-tag--thin-text">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--red">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--yellow">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--green">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--beige">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--grey">Tag</span>
+      <span class="pkt-tag pkt-tag--thin-text pkt-tag--blue-light">Tag</span>
+    </section>
+
+    <h2>Tag med ikon</h2>
+    <section class="component">
+      <span class="pkt-tag"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>Tag</span
+      >
+      <span class="pkt-tag pkt-tag--red"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#edit"></use>
+        </svg>Tag</span
+      >
+      <span class="pkt-tag pkt-tag--yellow"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#clock"></use>
+        </svg>Tag</span
+      >
+      <span class="pkt-tag pkt-tag--green"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#check-big"></use>
+        </svg>Tag</span
+      >
+      <span class="pkt-tag pkt-tag--beige"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#chevron-right"></use>
+        </svg>Tag</span
+      >
+      <span class="pkt-tag pkt-tag--grey"
+        ><svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#chevron-right"></use>
+        </svg>Tag</span
+      >
+    </section>
+
+    <h2>Tag med close</h2>
+    <section class="component">
+      <button class="pkt-tag pkt-btn pkt-btn--tertiary pkt-btn--icon-right">
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-tag--red pkt-btn pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-tag--yellow pkt-btn pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-btn pkt-tag--green pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-btn pkt-tag--beige pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-btn pkt-tag--grey pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+      <button
+        class="pkt-tag pkt-btn pkt-tag--blue-light pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>Tag
+      </button>
+    </section>
+
+    <h2>Tag med ikon og close</h2>
+    <section class="component">
+      <button
+        class="pkt-tag pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+
+      <button
+        class="pkt-tag pkt-tag--red pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+
+      <button
+        class="pkt-tag pkt-tag--yellow pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--green pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--beige pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--grey pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--blue-light pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Tag
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </section>
+
+    <h2>Tag størrelser</h2>
+    <section class="component">
+      <h3>Small</h3>
+      <span class="pkt-tag pkt-tag--small">Small</span>
+      <button
+        class="pkt-tag pkt-tag--small pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Small
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--small pkt-btn pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+        Small
+      </button>
+      <button
+        class="pkt-tag pkt-tag--small pkt-btn pkt-btn--tertiary pkt-btn--icon-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#edit"></use>
+        </svg>
+        Small
+      </button>
+      <h3>Medium (default)</h3>
+      <span class="pkt-tag pkt-tag--medium">Medium</span>
+      <button
+        class="pkt-tag pkt-tag--medium pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Medium
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--medium pkt-btn pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+        Medium
+      </button>
+      <button
+        class="pkt-tag pkt-tag--medium pkt-btn pkt-btn--tertiary pkt-btn--icon-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#edit"></use>
+        </svg>
+        Medium
+      </button>
+      <h3>Large</h3>
+      <span class="pkt-tag pkt-tag--large">Large</span>
+      <button
+        class="pkt-tag pkt-tag--large pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        Large
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--large pkt-btn pkt-btn--tertiary pkt-btn--icon-right"
+      >
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+        Large
+      </button>
+      <button
+        class="pkt-tag pkt-tag--large pkt-btn pkt-btn--tertiary pkt-btn--icon-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#edit"></use>
+        </svg>
+        Large
+      </button>
+    </section>
+    <h2>Tag states</h2>
+    <section class="component">
+      <button
+        class="pkt-tag pkt-tag--hover pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--green pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--red pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--beige pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--yellow pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--grey pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--hover pkt-tag--blue-light pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        hover
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </section>
+    <section class="component">
+      <button
+        class="pkt-tag pkt-tag--focus pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--green pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--red pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--beige pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--yellow pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--grey pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--focus pkt-tag--blue-light pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        focus
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </section>
+    <section class="component">
+      <button
+        class="pkt-tag pkt-tag--active pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--green pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--red pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--beige pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--yellow pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--grey pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+      <button
+        class="pkt-tag pkt-tag--active pkt-tag--blue-light pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left"
+      >
+        <svg class="pkt-tag__icon" viewBox="0 0 32 32">
+          <use href="#plus-sign"></use>
+        </svg>
+        active
+        <svg class="pkt-tag__close-btn" viewBox="0 0 32 32">
+          <use href="#close"></use>
+        </svg>
+      </button>
+    </section>
+  </main>
+</Layout>

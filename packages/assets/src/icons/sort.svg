@@ -1,0 +1,12 @@
+<svg id="sort" data-category="ui" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M30 14.245H2V12.085H30V14.245Z"
+    fill="var(--fg-color, #2A2859)" />
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M30 19.6449H2V17.4849H30V19.6449Z"
+    fill="var(--fg-color, #2A2859)" />
+  <path fill-rule="evenodd" clip-rule="evenodd"
+    d="M15.9324 2L21.5099 6.95779L20.0749 8.57219L15.9324 4.88998L11.7899 8.57219L10.3549 6.95779L15.9324 2Z"
+    fill="var(--fg-color, #2A2859)" />
+  <path fill-rule="evenodd" clip-rule="evenodd"
+    d="M15.5775 29.73L10 24.7722L11.435 23.1578L15.5775 26.84L19.72 23.1578L21.155 24.7722L15.5775 29.73Z"
+    fill="var(--fg-color, #2A2859)" />
+</svg>

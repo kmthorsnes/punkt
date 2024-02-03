@@ -1,0 +1,109 @@
+/* 
+ * Spacing
+ */
+
+@use "sass:map";
+@use "../abstracts/variables";
+@use "../abstracts/mixins/breakpoints" as *;
+
+@each $sp-name, $sp-value in variables.$spacing {
+  .m-#{$sp-name} {
+    margin: $sp-value !important;
+  }
+  .mt-#{$sp-name} {
+    margin-top: $sp-value !important;
+  }
+  .mr-#{$sp-name} {
+    margin-right: $sp-value !important;
+  }
+  .mb-#{$sp-name} {
+    margin-bottom: $sp-value !important;
+  }
+  .ml-#{$sp-name} {
+    margin-left: $sp-value !important;
+  }
+  .mx-#{$sp-name} {
+    margin-right: $sp-value !important;
+    margin-left: $sp-value !important;
+  }
+  .my-#{$sp-name} {
+    margin-top: $sp-value !important;
+    margin-bottom: $sp-value !important;
+  }
+
+  .p-#{$sp-name} {
+    padding: $sp-value !important;
+  }
+  .pt-#{$sp-name} {
+    padding-top: $sp-value !important;
+  }
+  .pr-#{$sp-name} {
+    padding-right: $sp-value !important;
+  }
+  .pb-#{$sp-name} {
+    padding-bottom: $sp-value !important;
+  }
+  .pl-#{$sp-name} {
+    padding-left: $sp-value !important;
+  }
+  .px-#{$sp-name} {
+    padding-right: $sp-value !important;
+    padding-left: $sp-value !important;
+  }
+  .py-#{$sp-name} {
+    padding-top: $sp-value !important;
+    padding-bottom: $sp-value !important;
+  }
+
+  @each $bp-name, $bp-value in variables.$breakpoints {
+    @include bp('#{$bp-value}') {
+      .m-#{$sp-name}--#{$bp-name}-up {
+        margin: $sp-value !important;
+      }
+      .mt-#{$sp-name}--#{$bp-name}-up {
+        margin-top: $sp-value !important;
+      }
+      .mr-#{$sp-name}--#{$bp-name}-up {
+        margin-right: $sp-value !important;
+      }
+      .mb-#{$sp-name}--#{$bp-name}-up {
+        margin-bottom: $sp-value !important;
+      }
+      .ml-#{$sp-name}--#{$bp-name}-up {
+        margin-left: $sp-value !important;
+      }
+      .mx-#{$sp-name}--#{$bp-name}-up {
+        margin-right: $sp-value !important;
+        margin-left: $sp-value !important;
+      }
+      .my-#{$sp-name}--#{$bp-name}-up {
+        margin-top: $sp-value !important;
+        margin-bottom: $sp-value !important;
+      }
+
+      .p-#{$sp-name}--#{$bp-name}-up {
+        padding: $sp-value !important;
+      }
+      .pt-#{$sp-name}--#{$bp-name}-up {
+        padding-top: $sp-value !important;
+      }
+      .pr-#{$sp-name}--#{$bp-name}-up {
+        padding-right: $sp-value !important;
+      }
+      .pb-#{$sp-name}--#{$bp-name}-up {
+        padding-bottom: $sp-value !important;
+      }
+      .pl-#{$sp-name}--#{$bp-name}-up {
+        padding-left: $sp-value !important;
+      }
+      .px-#{$sp-name}--#{$bp-name}-up {
+        padding-right: $sp-value !important;
+        padding-left: $sp-value !important;
+      }
+      .py-#{$sp-name}--#{$bp-name}-up {
+        padding-top: $sp-value !important;
+        padding-bottom: $sp-value !important;
+      }
+    }
+  }
+}

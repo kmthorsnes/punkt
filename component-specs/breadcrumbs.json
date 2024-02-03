@@ -1,0 +1,13 @@
+{
+  "name": "pkt-breadcrumbs",
+  "css-class": "pkt-breadcrumbs",
+  "props": {
+    "breadcrumbs": {
+      "type": "Array",
+      "required": true,
+      "default": []
+    },
+    "navigationType": ["router", "anchor"]
+  },
+  "slots": {}
+}

@@ -1,0 +1,70 @@
+{
+  "name": "pkt-header",
+  "css-class": "pkt-header",
+  "events": {
+    "changeRepresentation": {
+      "description": "User clicks change representation link"
+    },
+    "logIn": {
+      "description": "User clicks log in button"
+    },
+    "logOut": {
+      "description": "User clicks log out button"
+    }
+  },
+  "props": {
+    "logoLink": {
+      "type": ["String", "Function"],
+      "required": false,
+      "default": "https://www.oslo.kommune.no/"
+    },
+    "serviceName": {
+      "type": "String",
+      "required": false
+    },
+    "fixed": {
+      "type": "Boolean",
+      "default": true
+    },
+    "scrollToHide": {
+      "type": "Boolean",
+      "default": true
+    },
+    "user": {
+      "type": "Object",
+      "required": false
+    },
+    "userMenu": {
+      "type": "Array",
+      "required": false
+    },
+    "userMenuFooter": {
+      "type": "Array",
+      "required": false
+    },
+    "userOptions": {
+      "type": "Array",
+      "required": false
+    },
+    "representing": {
+      "type": "Object",
+      "required": false,
+      "default": ""
+    },
+    "canChangeRepresentation": {
+      "type": "Boolean",
+      "required": false,
+      "default": false
+    },
+    "showLogOutButton": {
+      "type": "Boolean",
+      "required": false,
+      "default": true
+    }
+  },
+  "slots": {
+    "default": {
+      "description": "Not in use"
+    }
+  }
+}

@@ -1,0 +1,240 @@
+---
+title: Headermeny
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/headermeny" },
+    { "title": "Kode", "href": "komponenter/headermeny/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/headermeny/universell-utforming",
+    },
+  ]
+showStatus: true,
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Vi skiller mellom to typer ekspandert meny: innlogget versjon og den som er lik oslo.kommune.no. Disse trigges ved å klikke på menyikonet eller navnet til den innloggede brukeren i header. [Les mer om header her](https://punkt.oslo.kommune.no/latest/komponenter/header/).
+
+I Punkt har du tilgang til den innloggede menyen. Denne kan brukes i alle innloggede løsninger og kan inneholde flere forskjellige seksjoner, og det er denne vi kommer til å beskrive i nærmere detalj her.
+
+For kodeeksempler og teknisk informasjon, se dokumentasjon for `Header`-komponenten.
+
+## Varianter
+
+I menyen har vi 5 ulike seksjoner:
+
+- Pålogget bruker
+- Brukermeny
+- Hvilken organisasjon du representerer
+- Brukervalg (slik som innstillinger og logg ut)
+- Horisontal lenkeliste
+
+Du kan selv velge hvilken kombinasjon du ønsker basert på behovet i din løsning. Her kan du se noen alternativer for kombinasjoner:
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-1.svg"
+    alt="Seksjonene som er tilgjengelig i menyen."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Farger
+
+Annenhver seksjon skal være hvit og grå ($gray-light: #F9F9F9), aldri ha to seksjoner i samme farge under hverandre. Du kan selv velge om du ønsker å starte med en hvit eller grå seksjon.
+
+## Responsivitet
+
+På desktop skal den ekspanderte menyen åpne direkte under knappen med innlogget bruker.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-2.svg"
+    alt="Menyen ekspandert på desktop."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+På mobil fyller menyen hele skjermen i bredden.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-3.svg"
+    alt="Menyen ekspandert på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+For å ta i bruk komponenten bør man først ta en beslutning på hierarkiet på siden eller i tjenesten og vurdere hva som bør legges i brukermenyen. Velg så de ulike seksjonene og lenkene som trengs.
+
+Du kan selv bytte ut alle lenker, ikoner og innhold. [Les mer om gode lenker og lenketekster her](https://punkt.oslo.kommune.no/latest/komponenter/link/).
+
+### Lenker og oppsett
+
+Som nevnt har vi 5 ulike seksjoner i den ekspanderte menyen:
+
+- Pålogget bruker
+- Brukermeny
+- Hvilken organisasjon du representerer
+- Brukervalg (slik som innstillinger og logg ut)
+- Horisontal lenkeliste
+
+Vi anbefaler å ikke bruke alle seksjonene samtidig, da dette blir mye lenker og kan være forvirrende for brukeren. Hold deg til 2-3 seksjoner som dekker behovet til din løsning.
+
+#### Pålogget bruker
+
+Den innloggede brukeren sitt fulle navn skal vises i denne seksjonen. På mobil kan du velge om du ønsker å kun vise brukerikonet eller om du ønsker å vise initialene til brukeren. Du kan selv velge å ha mer informasjon om brukeren under navnet, for eksempel sist de logget inn eller annen relevant informasjon som rolle eller fødselsnummer.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-4.svg"
+    alt="Seksjon for pålogget bruker."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+#### Brukermeny
+
+Brukermenyen skal inneholde lenker til sider i applikasjonen eller tjenesten. Vi har satt standard til 4 stykker, men du kan selv velge om du ønsker flere eller færre. Velg ikoner og lenketekster som er logiske for brukeren.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-5.svg"
+    alt="Seksjon for brukermeny."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+#### Hvilken organisasjon du representerer
+
+Her skal den aktive organisasjonen vises. Ved klikk på “Endre organisasjon” skal brukeren tas til en side der de kan velge en annen organisasjon å representere.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-6.svg"
+    alt="Seksjon for representasjon."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+#### Brukervalg
+
+Logg ut-knappen skal lede brukeren til en side som bekrefter at de har logget ut. Du kan selv velge om du ønsker å inkludere en lenke til, for eksempel til innstillinger, denne skal ta brukeren til en ny side.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-7.svg"
+    alt="Seksjon for brukervalg."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+#### Horisontal lenkeliste
+
+Brukes for det meste kun til lenker som personvern og kontakt. Bruk denne om løsningen din ikke har footer som inneholder denne informasjonen.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-8.svg"
+    alt="Seksjon for horisontal lenkeliste."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør dette/ikke gjør dette
+
+### Unngå å bruke alle seksjonene samtidig
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-9.svg"
+    alt="Bilde som viser riktig bruk av seksjonene, og feil bruk av alle seksjonene."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Hold navigasjonen enkel og konsis
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-10.svg"
+    alt="Bilde som viser riktig og feil bruk av navigasjonen i menyen."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ha forskjellig farge mellom de ulike seksjonene
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-11.svg"
+    alt="Bilde som viser riktig og feil bruk av farge i menyen."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+<div class="nested-numbers">
+  <ol>
+    <li>Bakgrunn/hele menyen</li>
+    <li>
+      Seksjon 1: Pålogget bruker
+      <ol>
+        <li>Pålogget bruker label</li>
+        <li>Navn</li>
+        <li>
+          Ekstra informasjon (sist pålogget, fødselsnummer eller lignende)
+        </li>
+      </ol>
+    </li>
+    <li>
+      Brukermeny
+      <ol>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+        <li>Link 4</li>
+      </ol>
+    </li>
+    <li>
+      Innlogget organisasjon
+      <ol>
+        <li>Representerer label</li>
+        <li>Navn på Representerer</li>
+        <li>Organisasjonsnummer</li>
+        <li>Lenke til å bytte representasjon</li>
+      </ol>
+    </li>
+    <li>
+      Brukervalg
+      <ol>
+        <li>Link til innstillinger (kan endres)</li>
+        <li>Link til logg ut</li>
+      </ol>
+    </li>
+    <li>
+      Horisontal lenkeliste
+      <ol>
+        <li>Link 1</li>
+        <li>Link 2</li>
+      </ol>
+    </li>
+  </ol>
+</div>
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/header/headermenu-12.svg"
+    alt="Menyens anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

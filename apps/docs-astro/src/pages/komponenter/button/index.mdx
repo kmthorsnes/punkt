@@ -1,0 +1,423 @@
+---
+title: Button
+description: "Knapper er et viktig element i ethvert design. De har en viktig funksjon og er direkte knyttet til en handling (action)."
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/button" },
+    { "title": "Kode", "href": "komponenter/button/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/button/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Knapper har en viktig funksjon og er direkte knyttet til en handling (action). De gir brukeren mulighet til å utføre handlinger som å logge inn, sende inn et skjema eller laste opp en fil.
+
+[Les om plassering av knapper og button groups](/maler-og-monstre/button-groups/).
+
+Husk, en tommelfingerregel er å skille mellom funksjonen til lenker og knapper:
+
+- Bruk lenker når brukeren skal komme til en ny side
+- Bruk knapper når brukerne skal utføre en konkret handling: logg inn, send, last opp osv.
+
+Med det sagt, så er ikke dette noe som er satt i stein. Det vil være tilfeller der en knapp fungerer bedre enn en lenke selvom brukeren navigerer til en ny side, f.eks dersom det kun er én primærhandling brukeren kan gjøre på den aktuelle siden.
+
+## Varianter
+
+Knappene i Punkt har 3 ulike varianter:
+
+### Primærknapp
+
+Primærknapp er fylt. Brukes til den viktigste handlingen på en side - hovedhandlingen (primary action). En side kan noen ganger ha mer enn én hovedhandling, men bør ikke ha mange.
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--label-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Label only</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon left</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon right</span>
+  </button>
+  <button class="pkt-btn pkt-btn--icons-right-and-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">icons-right-and-left</span>
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  </button>
+  <button class="pkt-btn pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon only</span>
+  </button>
+  <br />
+  <button class="pkt-btn">Normal</button>
+  <button class="pkt-btn pkt-btn--focus">Focus</button>
+  <button class="pkt-btn pkt-btn--hover">Hover</button>
+  <button class="pkt-btn pkt-btn--active">Active</button>
+  <button class="pkt-btn" disabled="">
+    Disabled
+  </button>
+</CodeExample>
+
+### Sekundærknapp
+
+Sekundærknapp har outline. Brukes til handlinger som ikke er like viktige for oss eller brukeren.
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--label-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Label only</span>
+  </button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon left</span>
+  </button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon right</span>
+  </button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--icons-right-and-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon right and left</span>
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  </button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon only</span>
+  </button>
+  <br />
+  <button class="pkt-btn pkt-btn--secondary">Normal</button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--focus">Focus</button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--hover">Hover</button>
+  <button class="pkt-btn pkt-btn--secondary pkt-btn--active">Active</button>
+  <button class="pkt-btn pkt-btn--secondary" disabled="">
+    Disabled
+  </button>
+</CodeExample>
+
+### Tertiærknapp
+
+Tertiærknapp brukes sammen med en av de andre knappene på et valg som ikke skal prioriteres, f.eks. “avbryt”. Tertiærknappen kan også brukes i andre elementer der den vanlige knappestylingen ville vært forstyrrende, f.eks. i header.
+
+<CodeExample client:load toggle-mode>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--label-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Label only</span>
+  </button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon left</span>
+  </button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon right</span>
+  </button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--icons-right-and-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon right and left</span>
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  </button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text">Icon only</span>
+  </button>
+  <br />
+  <button class="pkt-btn pkt-btn--tertiary">Normal</button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--focus">Focus</button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--hover">Hover</button>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--active">Active</button>
+  <button class="pkt-btn pkt-btn--tertiary" disabled="">
+    Disabled
+  </button>
+</CodeExample>
+
+### Størrelser
+
+Knapper kan brukes i tre størrelser; liten, medium og stor.
+
+Medium er størrelsen som brukes i de fleste situasjoner og stor knapp brukes for ekstra oppmerksomhet dersom nødvendig.
+
+Liten knapp kan brukes i unntakstilfeller ved behov. Viktig: Størrelsen på den lille knappen er WCAG AA-godkjent, ikke AAA. Derfor er det viktig at du helst bruker medium eller large, og kun bruker liten knapp dersom det er nødvendig på grunn av plassmangel eller andre spesielle behov i løsningen. Prøv å unngå å bruke liten knapp på sider som kan navigeres til fra de åpne nettsidene på oslo.kommune.no, da denne knappestørrelsen ikke brukes på resten av nettsidene.
+
+<CodeExample client:load toggle-mode>
+<button class="pkt-btn pkt-btn--label-only pkt-btn--small">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Label only</span>
+</button>
+<button class="pkt-btn pkt-btn--small pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon left</span>
+</button>
+<button class="pkt-btn pkt-btn--small pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon right</span>
+</button>
+<button class="pkt-btn pkt-btn--small pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon only</span>
+</button>
+<br/>
+<button class="pkt-btn pkt-btn--label-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Label only</span>
+</button>
+<button class="pkt-btn pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon left</span>
+</button>
+<button class="pkt-btn pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon right</span>
+</button>
+<button class="pkt-btn pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon only</span>
+</button>
+<br/>
+<button class="pkt-btn pkt-btn--label-only pkt-btn--large">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Label only</span>
+</button>
+<button class="pkt-btn pkt-btn--large pkt-btn--icon-left">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon left</span>
+</button>
+<button class="pkt-btn pkt-btn--large pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon right</span>
+</button>
+<button class="pkt-btn pkt-btn--large pkt-btn--icon-only">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#user"></use>
+      </svg>
+    </span>
+  <span class="pkt-btn__text">Icon only</span>
+</button>
+
+</CodeExample>
+
+### Tekst og ikon
+
+Alle knappene kan brukes med et ikon fra biblioteket på høyre eller venstre side. Knappen kan også brukes helt uten tekst, altså med kun ikon.
+
+## Farger
+
+Knapper kan brukes med forskjellige farger. Mørk blå er primærfargen som brukes på knapper. I noen situasjoner brukes andre farger for å skille mellom innhold. Men vær forsiktig med å overbruke farger, og gå for mørk blå i de fleste tilfeller:
+
+- Blå: $blue-dark (#2A2859)
+- På mørk bagrunn: $blue-light (#B3F5FF)
+
+Du kan også bruke de andre fargene fra fargepaletten:
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/buttons-farger.svg"
+    alt="Forskjellige fargemuligheter i buttons"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+### Tekst på knapper
+
+Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord.
+
+Velg verb i oppfordringsform (imperativ) på knapper for å vise brukerne at de kan utføre en handling (call to action).
+
+[Les mer informasjon om tekster i knapper](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/knapper/)
+
+## Gjør dette/ikke gjør dette
+
+### Ikke bruk avrundede kanter
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/avrundede-hjørner.svg"
+    alt="Eksempel som viser at man ikke skal ha avrundede hjørner"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke ha for lav kontrast
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/lav-kontrast.svg"
+    alt="Eksempel av for lav kontrast på knapp"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke endre størrelse på teksten
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/størrelse-tekst.svg"
+    alt="Eksempel som viser at man skal beholde størrelse på teksten"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Tenk over ikonbruken
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/ikoner.svg"
+    alt="Eksempel med bruk av ikoner i knapp"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk bare store bokstaver
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/store-bokstaver.svg"
+    alt="Eksempel som viser at man ikke skal bruke bare store bokstaver i knapp"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Ikon
+2. Tekst
+3. Bakgrunn/outline
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/button/anatomi-2.svg"
+    alt="Anatomi av knappen"
+    aria-hidden="true"
+  />
+</ImageWrapper>

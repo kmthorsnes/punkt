@@ -1,0 +1,148 @@
+---
+title: Footer
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/footer" },
+    { "title": "Kode", "href": "komponenter/footer/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/footer/universell-utforming",
+    },
+  ]
+showStatus: true,
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktFooter } from "@oslokommune/punkt-react";
+
+export const columnOne = {
+  title: "Kolonnetittel 1",
+  text: "Her kan du skrive en lengre tekst som beskriver løsningen eller tjenesten om ønskelig.",
+  links: [
+    { text: "Test ekstern lenke", href: "#", external: true },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+
+export const columnTwo = {
+  title: "Kolonnetittel 2",
+  links: [
+    { text: "Test ekstern lenke", href: "#", external: true },
+    { text: "Testlenke", href: "#" },
+  ],
+};
+
+export const socialLinksAll = [
+  { href: "#", language: "Engelsk" },
+  { href: "#", iconName: "facebook" },
+  { href: "#", iconName: "twitter" },
+];
+
+## Om komponenten
+
+Footer er en del av standardsidemalen og er et navigasjonselement som ligger nederst på siden. Footeren inneholder lenker til sider og områder på nettsiden/applikasjonen, for eksempel lenker til andre sider og kontaktinformasjon. Footer henger tett sammen med header som tilsammen tydeliggjør avsender for nettsiden/applikasjonen din.
+
+<CodeExample client:load>
+  <PktFooter
+    columnOne={columnOne}
+    columnTwo={columnTwo}
+    socialLinks={socialLinksAll}
+    client:load
+  />
+</CodeExample>
+
+## Varianter
+
+I Punkt har vi to forskjellige varianter av footer. Vi har en forenklet versjon som kan brukes der man ønsker mindre innhold, og en større versjon med tre kolonner og kolonnetitler. Footeren dekker hele bredden av visningsområdet nederst på siden. Vi kaller dem for Normal og Simple i Figma og i kode.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/footer/footer_varianter.svg"
+    alt="De to ulike variantene av footer"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+På mobil bygger footeren i høyden.
+
+<ImageWrapper hasTwoImages>
+  <img
+    src="/assets/komponenter/footer/footer_mobile_normal.svg"
+    alt="Footer på mobil, normal versjon"
+    aria-hidden="true"
+  />
+  <img
+    src="/assets/komponenter/footer/footer_mobile_simple.svg"
+    alt="Footer på mobil, enkel versjon"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+Footeren skal alltid plasseres nederst på siden i alle tjenester med Oslo kommune som avsender. Komponenten skal alltid være brand-blue, med hvit tekst (pure-white).
+
+Du bør alltid bruke den store varianten av footeren når løsningen kan nås fra oslo.kommune.no. Dersom man har en løsning som ikke henger så tett sammen med oslo.kommune.no, så anbefaler vi å bruke den mindre varianten av footer.
+
+### Lenker og innhold
+
+Ut ifra løsningen eller tjenesten footeren opptrer i er det fritt å velge hvilke lenker/innhold som skal vises. Footeren er basert på oslo.kommune.no sin footer, men du kan selv velge å endre tekst og lenker om ønskelig. Husk at footer alltid må inneholde lenke til personvern og tilgjengelighet.
+
+Footeren skal aldri inneholde lenker som ikke kan nås fra andre steder på nettsiden, med unntak av personvern og tilgjengelighet.
+
+## Gjør dette/ikke gjør dette
+
+- Ikke bruk bilder eller andre ikoner i footeren
+- Bruk en footer som passer til formålet
+- Ikke skriv altfor lange lenker i footeren
+- Ikke lenk til alt innholdet på nettsiden fra footeren
+- Fjern lenke til språk om du ikke har flere språk/versjoner av nettstedet
+- Ikke bruk forenklet versjon av footeren (Simple) med altfor mange lenker
+- Fjern lenker til Facebook og Twitter dersom det ikke er relevant for din tjeneste
+
+## Anatomi
+
+### Normal versjon (lik som oslo.kommune.no)
+
+1. Bakgrunn
+2. Kolonnetittel 1
+3. Tekst (valgfritt)
+4. Link 1, kolonne 1
+5. Link 2, kolonne 1
+6. Kolonnetittel 2
+7. Link 1, kolonne 2
+8. Link 2, kolonne 2
+9. Kolonnetittel 3
+10. Link 1, kolonne 3
+11. Link 2, kolonne 3
+12. Lenke til annen språklig versjon av nettsiden
+13. Link til Oslo Kommunes sosiale medier (Facebook)
+14. Link til Oslo Kommunes sosiale medier (Twitter)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/footer/footer_anatomi_normal.svg"
+    alt="Anatomi av footer, normal versjon"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Forenklet versjon
+
+1. Bakgrunn
+2. Link 1
+3. Link 2
+4. Link 3
+5. Link 4
+6. Link 5
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/footer/footer_anatomi_simple.svg"
+    alt="Anatomi av footer, forenklet versjon"
+    aria-hidden="true"
+  />
+</ImageWrapper>

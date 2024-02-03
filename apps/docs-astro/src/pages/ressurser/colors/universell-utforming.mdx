@@ -1,0 +1,25 @@
+---
+title: Farger
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "ressurser/colors" },
+    { "title": "Kode", "href": "ressurser/colors/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "ressurser/colors/universell-utforming",
+    },
+  ]
+---
+
+import ContrastChecker from "@components/ContrastChecker/ContrastChecker.vue";
+
+## Kontrast
+
+Alle farger bør testes for kontrast ved å bruke en online kontrastkontroll for å sikre at den oppfyller WCAG AA-krav for tilgjengelighet. Dette kan du gjøre via plugins i Figma, på nett eller du kan ta i bruk kontrastsjekkeren under.
+
+<ContrastChecker client:load />
+
+## Tilgjengelighet for fargeblinde
+
+Det er en god idé å teste fargene du planlegger å bruke med en fargeblindesimuleringsapp, for eksempel Color Oracle. Du kan bruke simuleringen til å justere fargekombinasjonene for å være tilgjengelige.

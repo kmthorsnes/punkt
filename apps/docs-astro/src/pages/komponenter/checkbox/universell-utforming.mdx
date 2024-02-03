@@ -1,0 +1,61 @@
+---
+title: Checkbox
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/checkbox" },
+    { "title": "Kode", "href": "komponenter/checkbox/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/checkbox/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Alle avmerkingsbokser krever en klar, kortfattet og unik etikett: For avmerkingsboksvarianter uten etiketter, for eksempel de som brukes i en tabell, kreves det fortsatt en skjult etikett for hjelpeteknologier. WCAG 2.1: 1.3.1 [Info and Relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships), 2.4.6 [Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels.html)
+- Unngå standardvalg: Forhåndsvalgte valg anses som en villedende praksis for alle brukere. Implementer en standard uvalgt tilstand.
+- Alle tastaturinteraksjoner og ARIA-etiketter må oppfylle tilgjengelighetskriterier ([WAI-ARIA Checkbox Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#checkbox))
+- Bruk `fieldset` og `legend` (som inputwrapper tilbyr) ved grupper av avmerkingsbokser
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Alle avmerkningsboksene har en klar, kortfattet og unik etikett
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Ingen av avmerkningsboksene har et satt standardvalg
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Brukeren kan tabbe seg gjennom avmerkningsboksene, og velge dem ved
+        hjelp av mellomromstasten
+      </label>
+    </div>
+  </div>
+</CodeExample>

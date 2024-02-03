@@ -1,0 +1,64 @@
+---
+title: Alert
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/alert" },
+    { "title": "Kode", "href": "komponenter/alert/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/alert/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Unngå å bruke alert som en toast som blir borte etter noen sekunder hvis du ikke er sikker på at alle får informasjonen med seg.
+- Test med skjermleser og tastatur om brukeren får tilgang til alert i løsningen din.
+- Vi har testet fargekontrasten til de ulike variantene av alert. Men husk å teste dette selv hvis du bruker alert til en annen bakgrunn enn hvit.
+
+## Sjekkliste
+
+<CodeExample>
+
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+      Vi har testet at alert er tilgjengelig med skjermleser
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+       Jeg har sjekket av alerten ikke blir for fort borte/at alle får med seg innholdet
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Jeg har tabbet meg gjennom løsningen og sørget for at det fungerer bra
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [Statusbeskjed](https://www.uutilsynet.no/wcag-standarden/413-statusbeskjeder-niva-aa/152)
+- [ARIA Live Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)

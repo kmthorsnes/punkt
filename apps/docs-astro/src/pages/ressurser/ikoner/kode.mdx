@@ -1,0 +1,313 @@
+---
+title: Ikoner
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "ressurser/ikoner" },
+    { "title": "Kode", "href": "ressurser/ikoner/kode" },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+## Om ikoner
+
+Våre CSS-klasser som inneholder ikoner og alle våre komponenter med ikoner/logoer importeres via vår [CDN](https://punkt-cdn.oslo.kommune.no/).
+
+Om du har en content security policy(CSP) satt opp må du åpne for https://punkt-cdn.oslo.kommune.no i din CSP.
+
+## Eksempler
+
+Viser bruk av ikon og logo. Merk at i Vue og React må man legge til path til logoer, siden path til ikoner er default, [se props](#props).
+
+<CodeExample>
+  <span class="pkt-icon pkt-icon--large">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#oslologo"></use>
+    </svg>
+  </span>
+  <br />
+  <span class="pkt-icon pkt-icon--medium">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#user"></use>
+    </svg>
+  </span>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<span class="pkt-icon pkt-icon--large">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <use href="#oslologo"></use>
+  </svg>
+</span>
+
+<span class="pkt-icon pkt-icon--medium">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <use href="#user"></use>
+  </svg>
+</span>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-icon
+  name="oslologo"
+  class="pkt-icon pkt-icon--large"
+  path="https://punkt-cdn.oslo.kommune.no/latest/logos/"
+>
+</pkt-icon>
+
+<pkt-icon name="user" class="pkt-icon pkt-icon--medium"> </pkt-icon>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```html
+<PktIcon
+  name="oslologo"
+  class="pkt-icon pkt-icon--large"
+  path="https://punkt-cdn.oslo.kommune.no/latest/logos/"
+>
+</PktIcon>
+
+<PktIcon name="user" class="pkt-icon pkt-icon--medium"> </PktIcon>
+```
+
+</div>
+</CodeTabs>
+
+## Farger
+
+CSS-variablene `--bg-color` og `--fg-color` styrer fargene, og disse kan overstyres.
+
+<CodeExample>
+  <span class="pkt-icon pkt-icon--large green-icon">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#oslologo"></use>
+    </svg>
+  </span>
+  <br />
+  <span class="pkt-icon pkt-icon--medium green-icon">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <use href="#user"></use>
+    </svg>
+  </span>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<span class="pkt-icon pkt-icon--large green-icon">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <use href="#oslologo"></use>
+  </svg>
+</span>
+
+<span class="pkt-icon pkt-icon--medium green-icon">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <use href="#user"></use>
+  </svg>
+</span>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-icon
+  name="oslologo"
+  class="pkt-icon pkt-icon--large green-icon"
+  path="https://punkt-cdn.oslo.kommune.no/latest/logos/"
+>
+</pkt-icon>
+
+<pkt-icon name="user" class="pkt-icon pkt-icon--medium green-icon"> </pkt-icon>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```html
+<PktIcon
+  name="oslologo"
+  class="pkt-icon pkt-icon--large green-icon"
+  path="https://punkt-cdn.oslo.kommune.no/latest/logos/"
+>
+</PktIcon>
+
+<PktIcon name="user" class="pkt-icon pkt-icon--medium green-icon"> </PktIcon>
+```
+
+</div>
+</CodeTabs>
+
+```css
+.green-icon > svg {
+  --fg-color: var(--pkt-color-brand-dark-green-1000);
+}
+```
+
+## Props
+
+| Props | Type   | Validation | Default                                         | Beskrivelse                         |
+| ----- | ------ | ---------- | ----------------------------------------------- | ----------------------------------- |
+| name  | string |            |                                                 | Navn på ikonet                      |
+| path  | string |            | https://punkt-cdn.oslo.kommune.no/latest/icons/ | Filstien der ikonet skal hentes fra |
+
+## CSS
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-icon</li>
+  </ul>
+</div>
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-icon--small (default)</li>
+    <li>.pkt-icon--medium</li>
+    <li>.pkt-icon--large</li>
+  </ul>
+</div>
+
+## Hvordan bruke ikonene
+
+Alle svg-filene i Punkt er optimalisert og tilpasset vår standard. Men hvordan lønner det seg å bruke dem i din applikasjon? Her lister vi opp ulike alternativer, og forsøker å si noe om når hvilken metode passer å bruke.
+
+### 1. SVG sprites
+
+Med denne varianten putter du de ikonene du trenger i applikasjonen i en samle-svg i toppen av siden, i et `<symbol>`. Dette generes gjerne med et byggescript.
+
+Vårt [CLI-verktøy](/kom-i-gang/for-utviklere/cli) kan hjelpe til med dette oppsettet.
+
+Eksempel på bruk:
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="icon-1" viewBox="0 0 32 32">
+    <!-- ikon-paths osv -->
+  </symbol>
+  <symbol id="icon-2" viewBox="0 0 32 32">
+    <!-- ikon-paths osv -->
+  </symbol>
+</svg>
+
+<!-- Bruk dem på denne måten -->
+<svg class="icon">
+  <use href="#icon-1" />
+</svg>
+<svg class="icon">
+  <use href="#icon-2" />
+</svg>
+```
+
+**Metoden passer når** du har ikoner som gjentas mange steder. Fint i en SPA. Her må det gjøres en avveining i hver applikasjon for å se hva som lønner seg, men det er som regel relativt tydelig.
+
+Denne måten tillater heller ikke caching, men det finnes flere fikse måter der ute for å ordne det. Legg merke til at denne metoden også introduserer en shadow DOM grense for SVG'en. Vi kan likevel styre fargen på ikonene siden CSS custom properties slipper gjennom. Overstyr verdien for `--fg-color` og `--bg-color` der det trengs, og det funker som fjell.
+
+### 2. Referér til SVG-fil i HTML eller CSS
+
+Referér til filen direkte i en `<img>` tag.
+
+**Metoden passer når** du trenger en enkelt SVG inn på siden. Overstyring av farge vil ikke fungere.
+
+```html
+<!-- <img> -->
+<img src="/svg/24h.svg" alt="Klokka tikker..." width="64" />
+
+<!-- background-image -->
+<style>
+  .logo {
+    display: block;
+    text-indent: -9999px;
+    width: 60px;
+    height: 31px;
+    background: url(/svg/oslologo.svg);
+    background-size: 60px 31px;
+  }
+</style>
+<a href="/" aria-label="Tilbake til Punkt forside" class="logo">
+  Oslo kommune
+</a>
+```
+
+### 3. CDN
+
+Eksempel på bruk:
+
+```html
+<img
+  src="https://cdn-punkt.oslo.kommune.no/latest/icons/attachment.svg"
+  alt="Vedlegg"
+  width="64"
+/>
+```
+
+### 4. Inline SVG
+
+Inline svg-koden i markupen. Med denne metoden kan du styre farge.
+
+**Metoden passer når** du trenger full kontroll over din SVG, som f.eks styre farger. Dette er den metoden man som regel ender opp med å bruke, om du da ikke har for mange gjentagende ikoner på en side. Ulempen er at svg-koden ikke blir cachet.
+
+```html
+<div class="pkt-icon">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    id="24h"
+    fill="none"
+    data-category="services"
+    viewBox="0 0 32 32"
+  >
+    <g fill="var(--fg-color, #2A2859)">
+      <path
+        d="M8.837 21.012v1.793h6.451v-1.967h-3.515l1.991-1.902c.704-.646 1.512-1.559 1.512-2.88 0-1.691-1.329-2.872-3.232-2.872-1.713 0-3.087 1.173-3.267 2.789l-.032.286 2.04.315.041-.303c.039-.292.241-1.244 1.194-1.244.489 0 .874.231 1.031.619.226.555-.048 1.283-.731 1.948l-3.483 3.418Zm11.254-7.604-3.879 5.864v1.706h4.062v1.827h2.066v-1.827h1.229v-1.879H22.34v-5.691h-2.249Zm.183 5.691h-1.677l1.677-2.644v2.644Z"
+      />
+      <path
+        d="m24.526 9.556 1.422-1.407A13.915 13.915 0 0 1 30 18c0 7.72-6.28 14-14 14S2 25.72 2 18C2 10.503 7.927 4.382 15.34 4.033V0L23 5l-7.66 5V6.033C9.031 6.379 4 11.606 4 18c0 6.617 5.383 12 12 12s12-5.383 12-12c0-3.183-1.233-6.182-3.474-8.444Z"
+      />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .pkt-icon > svg {
+    --fg-color: red;
+  }
+</style>
+```
+
+### 5. Data URI'er
+
+En variant av inline SVG er å putte SVG-koden andre steder, som i en `<img>` eller i CSS `background-image`.
+
+```html
+<img src="data:image/svg+xml;[encoded svg]" />
+
+<style>
+  .bg {
+    background: url("data:image/svg+xml;[encoded svg]");
+  }
+</style>
+```
+
+Her er en enkel oppskrift for å lage din SVG string til å inkluderes som en data URI:
+
+1. Optimaliser din SVG-fil vha [svgo](https://github.com/svg/svgo).
+2. Erstatt alle doble anførselstegn med enkle vha en teksteditor. Ta bort alle linjeskift.
+3. Erstatt alle ikke-ASCII og URL-utrygge karakterer, f.eks vha [dette lille online verktøyet.](https://yoksel.github.io/url-encoder/)
+4. Lim inn din encodede SVG inn i stedet for [encoded svg] i eksemplene over.
+
+**Metoden passer når** du trenger god kontroll over din SVG, som i en komponent. Ulempen er manglende caching og at din Content Security Policy må tillate `data:` URI'er, noe som er en sikkerhetsrisiko.

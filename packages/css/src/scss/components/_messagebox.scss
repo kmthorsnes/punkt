@@ -1,0 +1,78 @@
+/*
+ * Messagebox component
+ */
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/mixins/breakpoints' as *;
+@use '../abstracts/' as *;
+
+$-module-name: 'pkt-messagebox';
+
+// Spacing
+$-messagebox-spacing: map.get(variables.$spacing, 'size-24');
+$-messagebox-spacing-compact: map.get(variables.$spacing, 'size-16');
+$-border-thickness: map.get(variables.$spacing, 'size-4');
+
+// default is "info"
+.#{$-module-name} {
+  --pkt-color-messagebox-bc: var(--pkt-color-border-beige);
+  --pkt-color-messagebox-bg: var(--pkt-color-surface-default-light-beige);
+  --pkt-color-messagebox-txt: var(--pkt-color-text-body-dark);
+}
+
+.#{$-module-name}--red {
+  --pkt-color-messagebox-bc: var(--pkt-color-border-red);
+  --pkt-color-messagebox-bg: var(--pkt-color-surface-default-faded-red);
+}
+
+.#{$-module-name}--green {
+  --pkt-color-messagebox-bc: var(--pkt-color-border-green);
+  --pkt-color-messagebox-bg: var(--pkt-color-surface-default-light-green);
+}
+
+.#{$-module-name}--blue {
+  --pkt-color-messagebox-bc: var(--pkt-color-border-blue);
+  --pkt-color-messagebox-bg: var(--pkt-color-surface-default-light-blue);
+}
+
+.#{$-module-name} {
+  padding: $-messagebox-spacing $-messagebox-spacing $-messagebox-spacing
+    calc($-messagebox-spacing - $-border-thickness);
+  display: block;
+  position: relative;
+  border-left: $-border-thickness solid var(--pkt-color-messagebox-bc);
+  background-color: var(--pkt-color-messagebox-bg);
+  color: var(--pkt-color-messagebox-txt);
+
+  &__title {
+    @include get-text('pkt-txt-24-medium');
+    margin: 0 0 $-messagebox-spacing 0;
+  }
+
+  &__text {
+    @include get-text('pkt-txt-18-light');
+    margin: 0;
+
+    p {
+      margin-bottom: map.get(variables.$spacing, 'size-16');
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Compact variant
+.#{$-module-name}--compact {
+  padding: $-messagebox-spacing-compact $-messagebox-spacing-compact
+    $-messagebox-spacing-compact
+    calc($-messagebox-spacing-compact - $-border-thickness);
+  .#{$-module-name}__title {
+    @include get-text('pkt-txt-16-medium');
+  }
+
+  .#{$-module-name}__text {
+    @include get-text('pkt-txt-16-light');
+  }
+}

@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use 'pkt/scss/abstracts/variables' with ($font-path: 'pktAssets'
+);
+@use 'pkt/scss/abstracts/mixins/breakpoints' as *;
+@use 'pkt/scss/abstracts/mixins/typography';
+@use 'pkt/scss/pkt.scss';
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  min-width: 360px;
+  padding: 0;
+}
+
+h1 {
+  @include typography.get-text('pkt-txt-28');
+  margin-bottom: map.get(variables.$spacing, 'size-20');
+
+  @include bp('tablet-up') {
+    @include typography.get-text('pkt-txt-36');
+  }
+}
+
+h2 {
+  @include typography.get-text('pkt-txt-24');
+  margin-bottom: map.get(variables.$spacing, 'size-10');
+
+  @include bp('tablet-up') {
+    @include typography.get-text('pkt-txt-30');
+  }
+}
+
+p {
+  margin-bottom: map.get(variables.$spacing, 'size-15');
+}
+
+.component {
+  background-color: var(--pkt-color-background-default);
+  margin-bottom: map.get(variables.$spacing, 'size-40');
+  color: var(--pkt-color-text-body-default);
+  padding: 10px;
+  transition: all 0.3s ease-out;
+
+  &>* {
+    margin-right: 4px;
+  }
+
+  &__example {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 5px;
+  }
+
+  &__block-example>div {
+    margin-bottom: 20px;
+  }
+
+  &__example+&__example,
+  &__block-example+&__block-example {
+    margin-top: map.get(variables.$spacing, 'size-5');
+  }
+}

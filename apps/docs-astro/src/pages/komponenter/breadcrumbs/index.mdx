@@ -1,0 +1,124 @@
+---
+title: Breadcrumbs
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/breadcrumbs" },
+    { "title": "Kode", "href": "komponenter/breadcrumbs/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/breadcrumbs/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktBreadcrumbs } from "@oslokommune/punkt-react";
+
+export const breadcrumbs = [
+        {
+            href: '#1',
+            text: 'Nivå 1',
+        },
+        {
+            href: '#2',
+            text: 'Nivå 2',
+
+        },
+        {
+            href: '#3',
+            text: 'Nivå 3',
+        },
+        {
+            href: '#4',
+            text: 'Nivå 4',
+        },
+
+];
+
+## Om komponenten
+
+Brødsmulestier (breadcrumbs) er sekundære navigasjonselementer som viser brukerens nåværende plassering i en applikasjon, løsning eller nettsted. Komponenten skal gjøre det mulig å raskt bevege seg tilbake til et overordnet nivå eller tidligere trinn.
+
+<CodeExample client:load>
+  <PktBreadcrumbs breadcrumbs={breadcrumbs} client:only="react" />
+</CodeExample>
+
+## Varianter
+
+Punkt støtter både [backlink](https://punkt.oslo.kommune.no/latest/komponenter/backlink/) og brødsmulesti. Det er viktig at du er konsistent i din løsning og kun bruker én av mulighetene.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/breadcrumbs/breadcrumb-1.svg"
+    alt="Backlink vs breadcrumb."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Dersom du lager en løsning som henger sammen med Oslo kommune sine åpne nettsider (www.oslo.kommune.no) skal du <i>alltid</i> bruke [backlink](https://punkt.oslo.kommune.no/latest/komponenter/backlink/), aldri brødsmulesti.
+
+### Farger
+
+Komponenten følger stylingen til standard lenker. [Les mer om lenker her](https://punkt.oslo.kommune.no/latest/komponenter/link/).
+
+## Slik bruker du komponenten
+
+Brødsmulestier er nyttige og effektive der du har en stor mengde innhold organisert hierarkisk med mer enn to nivåer, brødsmulestien gir brukeren en kontekst for deres plassering i navigasjonshierarkiet.
+
+- Hver lenke i en brødsmulesti skal være kort og tydelig gjenspeile plasseringen eller siden den lenker tilbake til.
+- Det første nivået skal alltid være den første siden på nettstedet/løsningen, for deretter å gå dypere inn i informasjonsstrukturen etterhvert som brødsmulestien utvikler seg.
+
+Vi har satt et maksimum antall nivåer på fire. Dersom du har en dypere arkitektur enn dette anbefaler vi å forenkle den, du kan lese mer om [sidearkitektur og hierarki hos NNGroup her](https://www.nngroup.com/articles/flat-vs-deep-hierarchy/).
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/breadcrumbs/breadcrumb-2.svg"
+    alt="Eksempel på brødsmulesti med og uten innlagt innhold."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Brødsmulestien skal alltid plasseres i den øverste venstre delen av siden. Den skal være under menyen og hovednavigasjonen, men over sidetittelen.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/breadcrumbs/breadcrumb-3.svg"
+    alt="Brødsmulesti på desktop."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+På mobil styles brødsmulestien som backlink og viser bare det overordnede nivået på grunn av plassbesparelse.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/breadcrumbs/breadcrumb-4.svg"
+    alt="Brødsmulesti på mobil."
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+- Breadcrumbs skal alltid være sekundær og skal aldri erstatte primærnavigasjonen på løsningen eller siden din.
+- Unngå å bruke breadcrumbs for løsninger der du kun har ett enkelt nivå, for det kan skape visuelt støy (vurder evt å gå for backlink)
+- Breadcrumbs er ikke det samme som en stegindikator og bør ikke brukes til dette.
+
+## Anatomi
+
+1. Nivå 1
+2. Ikon
+3. Nivå 2
+4. Nivå 3 (aktiv side)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/breadcrumbs/breadcrumb-5.svg"
+    alt="Brødsmulestiens anatomi."
+    aria-hidden="true"
+  />
+</ImageWrapper>

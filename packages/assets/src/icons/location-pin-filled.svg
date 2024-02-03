@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="location-pin-filled" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <path fill="var(--fg-color, #2A2859)"
+    d="M25.37 3.88a13.25 13.25 0 0 0-18.46-.27l-.28.27a13.25 13.25 0 0 0 0 18.75L16 32l9.37-9.37a13.25 13.25 0 0 0 0-18.75ZM16 16.1a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+</svg>

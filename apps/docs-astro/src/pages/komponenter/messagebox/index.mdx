@@ -1,0 +1,59 @@
+---
+title: Messagebox
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { 'title': 'Beskrivelse', 'href': 'komponenter/messagebox' },
+    { 'title': 'Kode', 'href': 'komponenter/messagebox/kode' },
+    { 'title': 'Universell utforming', 'href': 'komponenter/messagebox/universell-utforming' },
+  ]
+showStatus: true
+---
+
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+En meldingsboks er en komponent som kan brukes fritt til å gi opplysninger og tilleggsinformasjon til brukeren. Du kan selv velge om du ønsker at den skal inneholde kun tekst eller lenker, bilder, punktlister m.m.
+
+## Varianter
+Meldingsboksen kan brukes i to ulike størrelser: Default og Compact. Bruk den som passer best til ditt formål.
+
+<ImageWrapper>
+<img src="/assets/komponenter/messagebox/messagebox-1.svg"  alt="Varianter av meldingsboksen" aria-hidden="true" />
+</ImageWrapper>
+
+## Farger
+Meldingsboksen kommer i fire varianter (skins) som har forskjellige farger: beige, grønn, blå og rød. Bruk de fargene som harmonerer best med din løsning eller innholdet i komponenten.
+
+De ulike fargene som brukes er:
+
+- Beige: bg $beige-light (#F8F0DD), linje $beige-dark (#D0BFAE)
+- Blå: bg $blue-60 (#D1F9FF), linje $blue (#6FE9FF)
+- Rød: bg $red-30 (#FFDFDC), linje $red (#FF8274)
+- Grønn: bg $green-30 (#C7FDE9), linje $green (#43F8B6) 
+- Alle bruker blue-dark (#2A2859) som tekstfarge.
+
+<ImageWrapper>
+<img src="/assets/komponenter/messagebox/messagebox-2.svg"  alt="Ulike farger av meldingsboksen" aria-hidden="true" />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+Komponenten har ingen bestemte retningslinjer for bruk, den kan fritt brukes til innhold du ønsker å gruppere. Ved å bruke komponenten kan du hjelpe brukerne med å visuelt skille mellom det som er relatert og det som ikke er det.
+
+Unngå å bruke flere i forskjellige farger i samme løsning, da dette kan være forvirrende.
+
+Viktig: Skal du gi brukeren et varsel om at noe er feil, informasjon om at noe mangler i et skjema eller gi dem en bekreftelse på at noe har blitt oppdatert, så skal du bruke [Alert-komponenten](/komponenter/alert/).
+
+<ImageWrapper>
+<img src="/assets/komponenter/messagebox/messagebox-3.svg"  alt="Eksempel på bruk av meldingsboks" aria-hidden="true" />
+</ImageWrapper>
+
+## Anatomi
+1. Bakgrunn
+2. Tittel
+3. Innhold
+
+<ImageWrapper>
+<img src="/assets/komponenter/messagebox/messagebox-4.svg"  alt="Anatomi og oppbygning av meldingsboks" aria-hidden="true" />
+</ImageWrapper>

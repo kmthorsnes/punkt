@@ -1,0 +1,187 @@
+/* inputwrapper */
+@use 'sass:map';
+@use '../abstracts/variables';
+@use '../abstracts/functions';
+@use '../abstracts/mixins/typography';
+
+.pkt-inputwrapper {
+  &__label {
+    @include typography.get-text('pkt-txt-18-medium');
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: map.get(variables.$spacing, 'size-8');
+    color: var(--pkt-color-text-body-default);
+
+    >h2 {
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      display: inline;
+      margin-bottom: 0;
+    }
+  }
+
+  &__helptext {
+    width: min(100%, 31rem);
+    @include typography.get-text('pkt-txt-14-light');
+    color: var(--pkt-color-text-body-default);
+
+    >* {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-expandable {
+      display: inline-flex;
+      text-align: left;
+      align-items: center;
+
+      &-heading {
+        @include typography.get-text('pkt-txt-18-medium');
+        margin: 0;
+      }
+
+      &-open {
+        display: block;
+        border-left: 2px solid var(--pkt-color-text-body-dark);
+        padding: map.get(variables.$spacing, 'size-8') map.get(variables.$spacing, 'size-16');
+        margin-bottom: map.get(variables.$spacing, 'size-4');
+      }
+
+      &-closed {
+        display: none;
+      }
+    }
+  }
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: map.get(variables.$spacing, 'size-16');
+
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__legend {
+    margin-bottom: 0.5rem;
+  }
+
+  &--disabled {
+    color: var(--pkt-color-text-action-disabled);
+    cursor: inherit;
+
+    .pkt-tag {
+      background-color: var(--pkt-color-surface-default-gray);
+    }
+
+    .pkt-alert {
+      background-color: var(--pkt-color-surface-default-gray);
+      border-color: var(--pkt-color-text-action-disabled);
+    }
+  }
+
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  // Alert
+  .pkt-alert {
+    width: min(100%, 31rem);
+    margin: 0 0 0.5rem 0;
+
+    &--error {
+      margin: 0.5rem 0 0.5rem 0;
+    }
+  }
+
+  // Tag
+  .pkt-tag {
+    margin-left: 8px;
+  }
+
+  .pkt-btn {
+    @include typography.get-text('pkt-txt-14-light');
+    padding: 0;
+    height: auto;
+  }
+
+  &--error {
+
+    .pkt-input,
+    .pkt-input-prefix,
+    .pkt-input-suffix,
+    .pkt-input-icon {
+      border-color: var(--pkt-color-brand-red-1000);
+    }
+
+    .pkt-input:hover,
+    .pkt-input__container:hover,
+    .pkt-input__container:hover .pkt-input,
+    .pkt-input__container:hover .pkt-input-prefix,
+    .pkt-input__container:hover .pkt-input-suffix,
+    .pkt-input__container:hover .pkt-input-icon {
+      border-color: var(--pkt-color-brand-red-1000);
+    }
+
+    .pkt-input:focus-within,
+    .pkt-input__container:focus-within .pkt-input,
+    .pkt-input__container:focus-within .pkt-input-prefix,
+    .pkt-input__container:focus-within .pkt-input-suffix,
+    .pkt-input__container:focus-within .pkt-input-icon {
+      border-color: var(--pkt-color-brand-red-1000);
+    }
+  }
+
+  &--disabled {
+    color: var(--pkt-color-text-action-disabled);
+    cursor: inherit;
+
+    .pkt-input,
+    .pkt-input-prefix,
+    .pkt-input-suffix,
+    .pkt-input-icon {
+      border-color: var(--pkt-color-border-states-disabled);
+      background-color: var(--pkt-color-surface-default-gray);
+    }
+
+    .pkt-input__container:hover .pkt-input,
+    .pkt-input__container:hover .pkt-input-prefix,
+    .pkt-input__container:hover .pkt-input-suffix,
+    .pkt-input__container:hover .pkt-input-icon {
+      border-color: var(--pkt-color-border-states-disabled);
+    }
+
+    .pkt-input:hover {
+      border-color: var(--pkt-color-border-states-disabled);
+      box-shadow: none;
+    }
+
+    .pkt-input:focus {
+      border-color: var(--pkt-color-border-states-disabled);
+      box-shadow: none;
+      outline: none;
+    }
+
+    .pkt-input__container:active .pkt-input {
+      border-right: none;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
+
+[data-mode='dark'] .pkt-inputwrapper {
+  color: white;
+}

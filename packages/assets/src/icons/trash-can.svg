@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="trash-can" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path d="m10 12 1 13h2l-1-13h-2Zm5 13V12h2v13h-2Zm5-13-1 13h2l1-13h-2Z" />
+    <path fill-rule="evenodd"
+      d="M21.96 1H10v3H4v5h1.042L7.09 31h17.82l2.047-22H28V4h-6.04V1Zm-2 3H12V3h7.96v1ZM8.911 29 7.051 9h17.898l-1.86 20H8.91ZM6 6v1h20V6H6Z"
+      clip-rule="evenodd" />
+  </g>
+</svg>

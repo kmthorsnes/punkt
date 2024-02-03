@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="district" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path
+      d="M30 29.92v-28H16v15.25l-5.5-3.67-3.86 2.57L6 13.5H3v16.42h27Zm-25-2V19.5l5.5-3.5 5.5 3.5v8.42H5Zm23 0H18v-24h10v24Z" />
+    <path
+      d="M20 5.9h2v2h-2v-2Zm4 0h2v2h-2v-2Zm-4 5h2v2h-2v-2Zm4 0h2v2h-2v-2Zm0 5h2v2h-2v-2Zm-4 0h2v2h-2v-2Zm0 5h2v2h-2v-2Zm-9 0h3v6h-3v-6Zm-4 0h2v2H7v-2Zm17 0h2v2h-2v-2Z" />
+  </g>
+</svg>

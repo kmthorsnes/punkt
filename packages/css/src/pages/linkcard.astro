@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkCardSpec from "../../../../component-specs/linkcard.json";
+
+const skins = LinkCardSpec.props.skin;
+---
+
+<Layout title="Link and LinkCard - Punkt CSS">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Links</h1>
+
+    <section class="component">
+      <h2>Link uten pkt-link klassen</h2>
+      <p>
+        Dette er en <a href="">link uten pkt-link klassen</a>
+      </p>
+
+      <h2>Pkt-link states</h2>
+      <a href="#" class="pkt-link my-size-8">Normal lenke</a> -
+      <a href="#" class="pkt-link pkt-link--focus my-size-8">Fokus lenke</a> -
+      <a href="#" class="pkt-link pkt-link--hover my-size-8">Hover lenke</a> -
+      <a href="#" class="pkt-link pkt-link--active my-size-8">Aktiv lenke</a>
+
+      <h2>Link i tekst</h2>
+      <p>
+        Dette er en <a href="" class="pkt-link">link i tekst</a> som skal se fin
+        ut.
+      </p>
+      <h2>Ekstern link</h2>
+      <p>
+        Dette er en <a href="" class="pkt-link pkt-link--external">
+          ekstern link
+        </a> som viser ikon ved å sette en modifier på lenken.
+      </p>
+      <h2>Link med ikon</h2>
+      <p>
+        <a href="#" class="pkt-link pkt-link--icon-right">
+          <span class="pkt-icon">
+            <svg class="pkt-link__icon" viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Link ikon-høyre
+        </a>
+        <br />
+        <a href="#" class="pkt-link pkt-link--icon-left">
+          <span class="pkt-icon">
+            <svg class="pkt-link__icon" viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Link ikon-venstre
+        </a>
+        <br />
+        <a href="" class="pkt-link pkt-link--icon-left pkt-txt-24-medium">
+          <span class="pkt-icon">
+            <svg class="pkt-link__icon" viewBox="0 0 32 32">
+              <use href="#chevron-right"></use>
+            </svg>
+          </span>
+          Stor link
+        </a>
+      </p>
+    </section>
+    {
+      skins.map((skin) => (
+        <>
+          <h1>Link card - skin: {skin}</h1>
+          <section class="component">
+            <h2>Enkel tekst</h2>
+            <a href="" class={`pkt-linkcard pkt-link pkt-linkcard--${skin}`}>
+              <span class="pkt-icon pkt-link__icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right" />
+                </svg>
+              </span>
+              <div class="pkt-linkcard__content">
+                <div class="pkt-linkcard__title pkt-link pkt-link--external">
+                  Overskrift her
+                </div>
+                <div class="pkt-linkcard__text">
+                  Tekst som går over flere linjer og som forklarer innholdet på
+                  den siden man kommer.
+                </div>
+              </div>
+            </a>
+
+            <h2 class="mt-size-32">To avsnitt</h2>
+            <a href="" class={`pkt-linkcard pkt-link pkt-linkcard--${skin}`}>
+              <span class="pkt-icon pkt-link__icon">
+                <svg viewBox="0 0 32 32">
+                  <use href="#chevron-right" />
+                </svg>
+              </span>
+              <div class="pkt-linkcard__content">
+                <div class="pkt-linkcard__title">Overskrift her</div>
+                <div class="pkt-linkcard__text">
+                  <p>
+                    Tekst som går over flere linjer og som forklarer innholdet
+                    på den siden man kommer.
+                  </p>
+                  <p>
+                    Tekst som går over flere linjer og som forklarer innholdet
+                    på den siden man kommer.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </section>
+        </>
+      ))
+    }
+
+    <section class="component">
+      <h2>Link card i grid</h2>
+
+      <section class="pkt-grid">
+        {
+          skins.map((skin) => (
+            <>
+              <div class="pkt-cell pkt-cell--span12 pkt-cell--span4-tablet-up">
+                <a
+                  href=""
+                  class={`pkt-linkcard pkt-link pkt-linkcard--${skin}`}
+                >
+                  <span class="pkt-icon pkt-link__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-right" />
+                    </svg>
+                  </span>
+                  <div class="pkt-linkcard__content">
+                    <div class="pkt-linkcard__title">Overskrift her</div>
+                    <div class="pkt-linkcard__text">
+                      Tekst som går over flere linjer og som forklarer innholdet
+                      på den siden man kommer.
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </>
+          ))
+        }
+      </section>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> renders correctly with modifier values false 1`] = `
+<DocumentFragment>
+  <table
+    class="pkt-table"
+  >
+    <thead>
+      <tr>
+        <th
+          class="pkt-table__th"
+        >
+          Header 1
+        </th>
+        <th
+          class="pkt-table__th"
+        >
+          Header 2
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Table data
+        </td>
+        <td>
+          Table data
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`<Table /> renders correctly with modifier values true 1`] = `
+<DocumentFragment>
+  <table
+    class="pkt-table pkt-table--info pkt-table--success pkt-table--strong pkt-table--shadow"
+  >
+    <thead>
+      <tr>
+        <th
+          class="pkt-table__th"
+        >
+          Header 1
+        </th>
+        <th
+          class="pkt-table__th"
+        >
+          Header 2
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Table data
+        </td>
+        <td>
+          Table data
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`<Table /> renders correctly without modifiers 1`] = `
+<DocumentFragment>
+  <table
+    class="pkt-table"
+  >
+    <thead>
+      <tr>
+        <th
+          class="pkt-table__th"
+        >
+          Header 1
+        </th>
+        <th
+          class="pkt-table__th"
+        >
+          Header 2
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Table data
+        </td>
+        <td>
+          Table data
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
+
+exports[`<Table /> renders with responsive container 1`] = `
+<DocumentFragment>
+  <div
+    class="pkt-table-container"
+  >
+    <table
+      class="pkt-table"
+    >
+      <thead>
+        <tr>
+          <th
+            class="pkt-table__th"
+          >
+            Header 1
+          </th>
+          <th
+            class="pkt-table__th"
+          >
+            Header 2
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Table data
+          </td>
+          <td>
+            Table data
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;

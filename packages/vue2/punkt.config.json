@@ -1,0 +1,22 @@
+{
+  "svgsprite": {
+    "files": [
+      "../assets/dist/logos/oslologo.svg",
+      "../assets/dist/icons/alert-information.svg",
+      "../assets/dist/icons/alert-error.svg",
+      "../assets/dist/icons/alert-success.svg",
+      "../assets/dist/icons/alert-warning.svg",
+      "../assets/dist/icons/close.svg",
+      "../assets/dist/icons/user.svg",
+      "../assets/dist/icons/exit.svg",
+      "../assets/dist/icons/chevron-right.svg",
+      "../assets/dist/icons/chevron-left.svg",
+      "../assets/dist/icons/facebook.svg",
+      "../assets/dist/icons/twitter.svg"
+    ],
+    "output": {
+      "fileType": "html",
+      "filePath": "index.html"
+    }
+  }
+}

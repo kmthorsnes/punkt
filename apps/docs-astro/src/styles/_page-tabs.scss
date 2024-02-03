@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "@pkt/scss/abstracts/mixins/typography";
+@use "@pkt/scss/abstracts/mixins/breakpoints" as *;
+@use "@pkt/scss/abstracts/variables";
+
+.page-tabs {
+  @include typography.get-text("pkt-txt-18-medium");
+  position: sticky;
+  top: 0;
+  margin-bottom: 1.75rem;
+  z-index: 3;
+
+  &__list {
+    background-color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 8px;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  &__tab {
+    display: inline-block;
+    margin-right: 2rem;
+    padding: 0;
+
+    &.active a {
+      cursor: auto;
+      @include typography.get-text("pkt-txt-16-medium");
+      text-decoration: underline;
+      text-underline-offset: 12px;
+      text-decoration-thickness: 4px;
+      text-decoration-color: var(--pkt-color-brand-blue-1000);
+      color: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &.active a:hover {
+      color: var(--pkt-color-brand-warm-blue-1000);
+    }
+  }
+
+  &__link {
+    @include typography.get-text("pkt-txt-16-light");
+    display: block;
+    padding-bottom: 0.5rem;
+    text-decoration: none;
+    color: var(--pkt-color-grays-gray-400);
+
+    @include bp("phablet-up") {
+      display: inline-block;
+      color: var(--pkt-color-brand-dark-blue-1000);
+    }
+
+    &:visited {
+      color: var(--pkt-color-grays-gray-400);
+
+      @include bp("phablet-up") {
+        color: var(--pkt-color-brand-dark-blue-1000);
+      }
+    }
+
+    &:hover {
+      color: var(--pkt-color-brand-warm-blue-1000);
+      text-decoration: none;
+    }
+  }
+
+  .pkt-hr {
+    margin-top: -0.5rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6rem;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+
+  @include bp("phablet-up") {
+    &::after {
+      display: none;
+    }
+  }
+}

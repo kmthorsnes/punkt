@@ -1,0 +1,177 @@
+---
+title: Breadcrumbs
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/breadcrumbs" },
+    { "title": "Kode", "href": "komponenter/breadcrumbs/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/breadcrumbs/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+import { PktBreadcrumbs } from "@oslokommune/punkt-react";
+
+export const breadcrumbs = [
+        {
+            href: '#1',
+            text: 'Nivå 1',
+        },
+        {
+            href: '#2',
+            text: 'Nivå 2',
+
+        },
+        {
+            href: '#3',
+            text: 'Nivå 3',
+        },
+        {
+            href: '#4',
+            text: 'Nivå 4',
+        },
+
+];
+
+## Om komponenten
+
+Breadcrumbs er default en anchor-link komponent. Ønsker du å bruke Vue router(router-link) eller React router(Link) kan du spesifisere dette i props `navigationType` med verdien `router`. Komponenten kan også bare brukes med maks 4 lenker.
+
+### Avhengigheter
+
+Ikoner:
+
+- chevron-thin-left
+- chevron-thin-right
+
+Komponenter:
+
+- [pkt-link](/komponenter/link/kode)
+- pkt-icon
+
+## Varianter
+
+<CodeExample client:load>
+  <PktBreadcrumbs breadcrumbs={breadcrumbs} client:only="react" />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<nav aria-label="brødsmulemeny" class="pkt-breadcrumbs">
+  <ol class="pkt-breadcrumbs__list pkt-breadcrumbs--desktop">
+    <li class="pkt-breadcrumbs__item">
+      <a
+        href="#1"
+        class="pkt-link pkt-link--icon-right pkt-breadcrumbs__label pkt-breadcrumbs__link"
+      >
+        <span class="pkt-icon pkt-breadcrumbs__icon pkt-link__icon">
+          <svg viewBox="0 0 32 32">
+            <use href="#chevron-thin-right"></use>
+          </svg>
+        </span>
+        <span class="pkt-breadcrumbs__text">Nivå 1</span>
+      </a>
+    </li>
+    <li class="pkt-breadcrumbs__item">
+      <a href="#2" class="pkt-link pkt-link--icon-right pkt-breadcrumbs__label">
+        <span class="pkt-icon pkt-breadcrumbs__icon pkt-link__icon">
+          <svg viewBox="0 0 32 32">
+            <use href="#chevron-thin-right"></use>
+          </svg>
+        </span>
+        <span class="pkt-breadcrumbs__text">Nivå 2</span>
+      </a>
+    </li>
+    <li class="pkt-breadcrumbs__item">
+      <a href="#3" class="pkt-link pkt-link--icon-right pkt-breadcrumbs__label">
+        <span class="pkt-icon pkt-breadcrumbs__icon pkt-link__icon">
+          <svg viewBox="0 0 32 32">
+            <use href="#chevron-thin-right"></use>
+          </svg>
+        </span>
+        <span class="pkt-breadcrumbs__text">Nivå 3</span>
+      </a>
+    </li>
+    <li aria-current="true" class="pkt-breadcrumbs__item">
+      <span class="pkt-breadcrumbs__label pkt-breadcrumbs--desktop">
+        <span class="pkt-breadcrumbs__text"> Nivå 4</span>
+      </span>
+    </li>
+  </ol>
+  <a href="#3" class="pkt-link pkt-link--icon-left pkt-breadcrumbs--mobile">
+    <span class="pkt-back-link__icon pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#chevron-thin-left"></use>
+      </svg>
+    </span>
+    <span class="pkt-back-link__text">Nivå 3</span>
+  </a>
+</nav>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-breadcrumbs :breadcrumbs="breadcrumbs" />
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktBreadcrumbs breadcrumbs={breadcrumbs} />
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-breadcrumbs</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-breadcrumbs__list</li>
+    <li>.pkt-breadcrumbs__item</li>
+    <li>.pkt-breadcrumbs__label</li>
+    <li>.pkt-breadcrumbs__link</li>
+    <li>.pkt-breadcrumbs__text</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-breadcrumbs`--`desktop</li>
+    <li>.pkt-breadcrumbs`--`mobile</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Prop              | Type   | Validation         | Default  | Beskrivelse                                                                                                                     |
+| ----------------- | ------ | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| breadcrumbs       | array  | Obligatorisk       |          | En liste over brødsmule-elementer. Hvert element må ha en `text` (tekstetikett) og en `href` (URL). Maks fire linker vil vises. |
+| navigationType    | string | 'router', 'anchor' | 'anchor' | 'router' for å bruke React Router `Link` eller Vue router `router-link` , 'anchor' for å bruke ankertag.                        |
+| className (React) | string |                    |          | Ekstra CSS-klasser som kan brukes på komponenten.                                                                               |
+| ...rest (React)   |        |                    |          | Eventuelle ekstra attributter som skal legges til på ankeretiketten.                                                            |
+
+| Events | Type | Validation | Default | Beskrivelse |
+| ------ | ---- | ---------- | ------- | ----------- |
+|        |      |            |         |             |

@@ -1,0 +1,21 @@
+/* 
+ * Oslo-sans
+ */
+
+@use "sass:map";
+@use "../abstracts/variables";
+
+@mixin font-face($font) {
+  @font-face {
+    font-display: swap;
+    font-family: map.get($font, 'family');
+    font-style: map.get($font, 'style');
+    font-weight: map.get($font, 'weight');
+    src: url(map.get($font, 'src-woff2')) format('woff2'),
+      url(map.get($font, 'src-woff')) format('woff');
+  }
+}
+
+@each $name, $attr in variables.$font-face {
+  @include font-face($attr);
+}

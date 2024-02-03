@@ -1,0 +1,103 @@
+---
+title: Backlink
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/backlink" },
+    { "title": "Kode", "href": "komponenter/backlink/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/backlink/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+
+import { PktBackLink } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Denne er ment å brukes som tilbakeknapp under header.
+
+### Avhengigheter
+
+Ikoner:
+
+- chevron-thin-left
+
+Komponenter:
+
+- [pkt-link](/komponenter/link/kode)
+- pkt-icon
+
+## Varianter
+
+<CodeExample client:load>
+  <PktBackLink href="#" text="Start-/transport-/landingsside" client:load />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<nav class="pkt-back-link" aria-label="Gå tilbake et steg">
+  <a href="/" class="pkt-link pkt-link--icon-left">
+    <span class="pkt-back-link__icon pkt-icon pkt-link__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#chevron-thin-left"></use>
+      </svg>
+    </span>
+    <span class="pkt-back-link__text">Forsiden</span>
+  </a>
+</nav>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<pkt-back-link href="#" text="Start-/transport-/landingsside" />
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktBackLink href="#" text="Start-/transport-/landingsside" />
+```
+
+</div>
+</CodeTabs>
+
+## CSS oversikt
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-back-link</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-back-link__icon</li>
+    <li>.pkt-back-link__text</li>
+  </ul>
+</div>
+## Props, slots og events
+
+| Prop               | Type     | Validation | Default  | Beskrivelse                                                                                                                                                                         |
+| ------------------ | -------- | ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `href`             | `string` |            |          | URL-en å navigere til når lenken klikkes. I Vue kan denne være en lenke eller en routerlenke. I React kan denne være en lenke eller du kan legge til egen routerlogikk med onClick. |
+| `text`             | `string` |            | Forsiden | Teksten som vises i tilbake-lenken.                                                                                                                                                 |
+| `className`(React) | `string` |            |          | Ekstra CSS-klasser som kan brukes på komponenten.                                                                                                                                   |
+| ...props (React)   | `object` |            |          | Eventuelle ekstra attributter som kan brukes på en anker (`<a>`) element.                                                                                                           |
+
+| Events         | Type | Validation | Default | Beskrivelse                                                                 |
+| -------------- | ---- | ---------- | ------- | --------------------------------------------------------------------------- |
+| onClick(React) |      |            |         | Event som trigges når man trykker på knapp, legg til egen navigasjonslogikk |

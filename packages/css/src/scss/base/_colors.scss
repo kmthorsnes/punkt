@@ -1,0 +1,126 @@
+/* 
+ * Colors
+ * Brand
+ * Light mode
+ * Dark mode
+ */
+
+@use "../abstracts/variables";
+
+:root {
+
+  /**
+   * @tokens Colors
+   * @presenter Color
+   */
+  // Brand
+  @each $name, $color in variables.$pkt-colors {
+    --pkt-color-#{$name}: #{$color};
+  }
+
+  // Semantic
+  @each $name, $color in variables.$pkt-semantic-colors {
+    --pkt-color-#{$name}: #{$color};
+  }
+
+  // Lager css-klasser basert på pkt-fargevariabler
+  @each $name, $color in variables.$pkt-colors {
+    .pkt-color-bg-#{$name} {
+      background-color: $color !important;
+    }
+
+    .pkt-color-txt-#{$name} {
+      color: $color !important;
+    }
+
+    .pkt-color-border-#{$name} {
+      border-color: $color !important;
+    }
+  }
+
+  // Lager css-klasser basert på semantiske variabler
+  @each $name, $color in variables.$pkt-semantic-colors {
+    .pkt-color-bg-#{$name} {
+      background-color: var(--pkt-color-#{$name}) !important;
+    }
+
+    .pkt-color-txt-#{$name} {
+      color: var(--pkt-color-#{$name}) !important;
+    }
+
+    .pkt-color-border-#{$name} {
+      border-color: var(--pkt-color-#{$name}) !important;
+    }
+  }
+
+  // Deprecated colors
+  @each $name, $color in variables.$colors {
+    --#{$name}: #{$color};
+  }
+
+  // Lager css-klasser basert på gamle fargevariabler - deprecated
+  @each $name, $color in variables.$colors {
+    .bg-#{$name} {
+      background-color: $color !important;
+    }
+
+    .txt-#{$name} {
+      color: $color !important;
+    }
+  }
+
+  // Dark mode
+  [data-mode="dark"] {
+    // Background
+    --pkt-color-background-card: var(--pkt-color-grays-gray-700);
+    --pkt-color-background-default: var(--pkt-color-grays-gray-1000);
+    --pkt-color-background-subtle: var(--pkt-color-grays-gray-1000);
+    --pkt-color-background-transparent: var(--pkt-color-brand-neutrals-transparent);
+
+    // Borders
+    --pkt-color-border-default: var(--pkt-color-brand-neutrals-white);
+    --pkt-color-border-beige: var(--pkt-color-brand-dark-beige-1000);
+    --pkt-color-border-blue: var(--pkt-color-brand-blue-1000);
+    --pkt-color-border-green: var(--pkt-color-brand-green-1000);
+    --pkt-color-border-light-beige: var(--pkt-color-brand-light-beige-1000);
+    --pkt-color-border-red: var(--pkt-color-brand-red-1000);
+    --pkt-color-border-subtle: var(--pkt-color-brand-dark-blue-700);
+    --pkt-color-border-yellow: var(--pkt-color-brand-yellow-1000);
+    --pkt-color-border-states-active: var(--pkt-color-brand-blue-500);
+    --pkt-color-border-states-disabled: var(--pkt-color-grays-gray-500);
+    --pkt-color-border-states-focus: var(--pkt-color-brand-purple-1000);
+    --pkt-color-border-states-hover: var(--pkt-color-brand-blue-500);
+    // Surface
+    --pkt-color-surface-default-faded-green: var(--pkt-color-brand-light-green-400);
+    --pkt-color-surface-default-faded-red: var(--pkt-color-brand-red-400);
+    --pkt-color-surface-default-gray: var(--pkt-color-brand-neutrals-100);
+    --pkt-color-surface-default-light-beige: var(--pkt-color-brand-light-beige-1000);
+    --pkt-color-surface-default-light-blue: var(--pkt-color-brand-blue-300);
+    --pkt-color-surface-default-light-green: var(--pkt-color-brand-green-400);
+    --pkt-color-surface-default-red: var(--pkt-color-brand-red-600);
+    --pkt-color-surface-default-yellow: var(--pkt-color-brand-yellow-500);
+    --pkt-color-surface-strong-beige: var(--pkt-color-brand-dark-beige-1000);
+    --pkt-color-surface-strong-blue: var(--pkt-color-brand-blue-1000);
+    --pkt-color-surface-strong-dark-blue: var(--pkt-color-brand-dark-blue-1000);
+    --pkt-color-surface-strong-dark-green: var(--pkt-color-brand-dark-green-1000);
+    --pkt-color-surface-strong-gray: var(--pkt-color-brand-neutrals-200);
+    --pkt-color-surface-strong-green: var(--pkt-color-brand-green-1000);
+    --pkt-color-surface-strong-light-green: var(--pkt-color-brand-light-green-1000);
+    --pkt-color-surface-strong-red: var(--pkt-color-brand-red-1000);
+    --pkt-color-surface-strong-yellow: var(--pkt-color-brand-yellow-1000);
+    --pkt-color-surface-subtle-light-blue: var(--pkt-color-brand-blue-200);
+    --pkt-color-surface-subtle-light-red: var(--pkt-color-brand-red-100);
+    --pkt-color-surface-subtle-pale-blue: var(--pkt-color-brand-blue-100);
+    --pkt-color-surface-subtle-white: var(--pkt-color-brand-neutrals-white);
+
+    // Text
+    --pkt-color-text-body-dark: var(--pkt-color-brand-dark-blue-1000);
+    --pkt-color-text-body-default: var(--pkt-color-brand-neutrals-white);
+    --pkt-color-text-body-light: var(--pkt-color-brand-neutrals-white);
+    --pkt-color-text-placeholder: var(--pkt-color-grays-gray-300);
+    --pkt-color-text-action-disabled: var(--pkt-color-grays-gray-200);
+    --pkt-color-text-action-active: var(--pkt-color-brand-blue-500);
+    --pkt-color-text-action-hover: var(--pkt-color-brand-blue-500);
+    --pkt-color-text-action-normal: var(--pkt-color-brand-neutrals-white);
+  }
+}

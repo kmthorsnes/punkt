@@ -1,0 +1,110 @@
+---
+title: Button
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/button" },
+    { "title": "Kode", "href": "komponenter/button/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/button/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Husk på
+
+- Hold deg til korte, konsise tekster i knappene. Det skal være enkelt for brukeren å forstå hva som skjer om de trykker på knappen.
+- Dersom du bruker andre farger i knappene: dobbeltsjekk at du har god nok kontrast, minst 4.5:1 (bruk Stark plugin i Figma for å sjekke).
+- Ikke glem visuell feedback - bruk riktige hover, active og focus-states!
+- Så godt det lar seg gjøre: prioriter å bruke aktiv knapp med feilmelding i stedet for “disabled”-variant av knappen.
+- Sørg for at knappen er forståelig for de som bruker skjermleser, dette er spesielt viktig om du bruker knapp med bare ikon. I tilfeller hvor ikonet er meningsbærende, for eksempel en knapp med et e-post-ikon og teksten “send”, så kan skjermleseren bare lese “button, send”. I disse tilfellene bør du bruke aria-label eller vår CSS-klasse “pkt-sr-only” for å skjule beskrivelsen av knappen visuelt, men den leses opp av skjermleseren.
+- Hvis du bruker animasjon for å gi tilbakemelding på knappens tilstand, bør du sørge for at det er mulig å slå av eller dempe animasjonen.
+
+## Sjekkliste
+
+<CodeExample>
+  <div class="pkt-input-check">
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox1"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox1">
+        Jeg har (så langt det er mulig) kun én primærknapp per side
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox2"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox2">
+        Knappene mine har korte og konsise tekster
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox3"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox3">
+        Dersom du har byttet farge på knappene: jeg har dobbeltsjekket
+        kontrasten på fargene
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox4"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox4">
+        Vi har tatt i bruk og testet ulike states
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox5"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox5">
+        Knappen er stor/tydelig nok
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox6"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox6">
+        Vi har lagt til aria-label om nødvendig
+      </label>
+    </div>
+    <div class="pkt-input-check__input">
+      <input
+        type="checkbox"
+        class="pkt-input-check__input-checkbox"
+        id="exampleCheckbox7"
+      />
+      <label class="pkt-input-check__input-label" for="exampleCheckbox7">
+        Hvis det er tatt i bruk animasjon: vi har gitt brukeren mulighet til å
+        slå av eller dempe animasjonen
+      </label>
+    </div>
+  </div>
+</CodeExample>
+
+## Les mer
+
+- [Les mer informasjon om tekster i knapper](https://www.ks.no/fagomrader/digitalisering/klart-sprak-i-digitale-selvbetjeningslosninger/tekst-pa-interaksjonselementer/knapper/)
+- [WCAG 2.5.8 Target Size (AA)](https://wcag.com/developers/2-5-8-target-size-minimum-level-aa/)
+- [WCAG 2.5.5 Target Size (AAA)](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)

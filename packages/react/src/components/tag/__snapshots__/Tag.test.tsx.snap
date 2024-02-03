@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PktTag snapshot renders correctly with all props 1`] = `
+<div>
+  <button
+    aria-label="close"
+    class="pkt-tag pkt-btn pkt-btn--tertiary pkt-tag--small pkt-tag--red pkt-tag--normal-text pkt-btn--icons-right-and-left"
+    type="button"
+  >
+    <span
+      class="pkt-tag__icon pkt-tag__icon"
+      data-testid="mocked-pkt-icon"
+      name="user"
+    />
+    Tag
+    <span
+      class="pkt-tag__icon pkt-tag__close-btn"
+      data-testid="mocked-pkt-icon"
+      name="close"
+    />
+  </button>
+</div>
+`;

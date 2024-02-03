@@ -1,0 +1,266 @@
+---
+title: Search input
+description: ""
+categoryName: komponenter
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/searchinput" },
+    { "title": "Kode", "href": "komponenter/searchinput/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/searchinput/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+
+## Om komponenten
+
+Søkefeltet brukes til navigering på en nettside eller tjeneste. Brukeren skriver inn et nøkkelord eller en setning i søkefeltet og ser deretter relaterte resultater.
+
+<CodeExample>
+  <div class="pkt-searchinput pkt-searchinput--global" role="search">
+    <div>
+      <div class="pkt-searchinput__field">
+        <input
+          type="search"
+          name="search-global"
+          id="search-global"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--icon-only pkt-btn--yellow pkt-searchinput__button"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk etter noe</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="pkt-searchinput pkt-searchinput--local-with-button" role="search">
+    <div>
+      <div class="pkt-searchinput__field">
+        <input
+          type="search"
+          name="search-local-with-button"
+          id="search-local-with-button"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--icon-only pkt-searchinput__button"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk etter noe</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="pkt-searchinput pkt-searchinput--local" role="search">
+    <div>
+      <div class="pkt-input__container">
+        <input
+          type="search"
+          name="search-local"
+          id="search-local"
+          placeholder="Søk…"
+          autocomplete="off"
+          class="pkt-input"
+        />
+        <button
+          type="submit"
+          class="pkt-btn pkt-btn--tertiary pkt-btn--icon-only pkt-searchinput__button pkt-input-icon"
+        >
+          <span class="pkt-icon pkt-btn__icon">
+            <svg viewBox="0 0 32 32">
+              <use href="#magnifying-glass-big"></use>
+            </svg>
+          </span>
+          <span class="pkt-btn__text">Søk etter noe</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</CodeExample>
+
+## Varianter
+
+Søkefeltet (search) kommer i tre ulike varianter, globalt, lokalt med knapp og lokalt.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-0.svg"
+    alt="De tre forskjellige søkefeltene"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Globalt (overordnet) søk
+
+Globalt søk skal brukes når søkefeltet søker gjennom hele løsningen eller nettstedet og skal kun brukes i Oslo kommunes felles header.
+
+<ImageWrapper caption="Søkefeltet ligger i header og gir resultater for hele løsningen/nettsiden.">
+  <img
+    src="/assets/komponenter/searchinput/search-1.svg"
+    alt="Søkefelt i header"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Lokalt søk
+
+Lokalt søk brukes når brukeren skal filtrere eller søke i et mindre element på en side eller i en løsning, for eksempel oppramsning av tilgjengelige barnehager eller en liste med elementer.
+
+<ImageWrapper caption="Her ligger søkefeltet over tabellen, til høyre, og filtrerer listen med pasienter.">
+  <img
+    src="/assets/komponenter/searchinput/search-2.svg"
+    alt="Søkefelt for tabell"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Farger
+
+Globalt søk skal alltid brukes i gul ($yellow-1000), lokalt søk skal være i blå ($dark-blue-1000).
+
+## Slik bruker du komponenten
+
+### Label (etikett/ledetekst)
+
+Om du ønsker kan søkefeltet brukes sammen med ledetekst (label), men det er ikke påkrevd. I de fleste tilfeller er det unødvendig med en synlig ledetekst over søkefeltet.
+Utformingen av søkefeltet, knappen og søkeikonet gjør funksjonen tydelig for brukeren.
+
+Selv om ledeteksten ikke er synlig, bør den alltid være tilgjengelig for skjermlesere gjennom bruk av “label”-prop.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-3.svg"
+    alt="Søkefelt for adressesøk"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Plassholdertekst
+
+Søk er det eneste inputfeltet i designsystemet som kan brukes med kun plassholdertekst, fordi feltets funksjon er tydelig selv når teksten forsvinner ved klikk.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-4.svg"
+    alt="Søkefelt med kun placeholdertekst"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Størrelse
+
+Det er ikke påkrevd, men det anbefales at et tekstfelt ikke er bredere enn 500 px, dette gjelder også søkefeltet.
+
+### Responsivitet
+
+På mobil legger det overordnede søket seg som et forstørrelsesglassikon. Ved klikk åpnes søkefeltet under headeren.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-5.svg"
+    alt="Globalt søk på mobil"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Lokale søk skal ligge <i>over</i> innholdet de filtrerer eller søker i.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-6.svg"
+    alt="Lokalt søk på mobil"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Gjør slik/ikke gjør slik
+
+### Ikke gjør søkefeltet for smalt for vanlig/forventet inputtekst
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-10.svg"
+    alt="Eksempel på ett søkefelt som er bredt nok, og ett som er for smalt"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Bruk plassholderteksten til å gi brukeren en indikasjon på hva de kan fylle inn
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-11.svg"
+    alt="Lokalt søk: Eksempel på ett søkefelt med beskrivende placeholder, og ett med 'Søk' som placeholder"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+### Globalt søk
+
+1. Inputfelt
+2. Plassholdertekst
+3. Knapp
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-7.svg"
+    alt="Anatomi av globalt søk"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Lokalt søk med knapp
+
+1. Ledetekst (label)
+2. Inputfelt
+3. Plassholdertekst
+4. Knapp
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-8.svg"
+    alt="Anatomi av lokalt søk med knapp"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Lokalt søk
+
+1. Ledetekst (label)
+2. Inputfelt
+3. Plassholdertekst
+4. Søkeikon
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/searchinput/search-9.svg"
+    alt="Anatomi av lokalt søk"
+    aria-hidden="true"
+  />
+</ImageWrapper>

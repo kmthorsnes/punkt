@@ -1,0 +1,163 @@
+---
+title: Tag
+description: "Tag brukes for øke «information scent» for en lenke/knapp eller å legge en merkelapp på tekst eller tittel."
+layout: "@layouts/DocLayout.astro"
+categoryName: komponenter
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/tag" },
+    { "title": "Kode", "href": "komponenter/tag/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/tag/universell-utforming",
+    },
+  ]
+showStatus: true
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import ImageWrapper from "@components/ImageWrapper.astro";
+import { PktTag } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+Tags (også noen ganger referert til som badge) brukes til innhold som trenger å merkes, kategoriseres eller organiseres ved hjelp av nøkkelord som beskriver dem. Tags brukes ofte som et filter der alle tagsene er i samme farge, eller når innholdet er kartlagt til flere kategorier, der fargen brukes til å skille mellom kategoriene.
+
+## Varianter
+
+Tag kommer i flere forskjellige farger, og kan brukes med eller uten ikon.
+
+<CodeExample>
+  <PktTag
+    className="mr-size-8"
+    size="large"
+    iconName="user"
+    closeTag
+    client:only="react"
+  >
+    Tag
+  </PktTag>
+  <PktTag
+    className="mr-size-8"
+    size="medium"
+    iconName="user"
+    closeTag
+    client:only="react"
+  >
+    Tag
+  </PktTag>
+  <PktTag
+    className="mr-size-8"
+    size="small"
+    iconName="user"
+    closeTag
+    client:only="react"
+  >
+    Tag
+  </PktTag>
+  <PktTag
+    className="mr-size-8"
+    size="small"
+    textStyle="thin-text"
+    iconName="user"
+    closeTag
+    client:only="react"
+  >
+    Tag
+  </PktTag>
+</CodeExample>
+
+De ulike fargene som kan brukes er:
+
+- Blue: $blue-light (#B3F5FF)
+- Green: $green-light (#C7F6C9)
+- Red: $red-light (#FFB4AC)
+- Beige: $beige-light (#F8F0DD)
+- Yellow: $yellow-50 (#FFE7BC)
+- Gray: $gray (#F2F2F2)
+- Light blue: $blue-10 (#e5fcff)
+
+Alle bruker blue-dark (#2A2859) som tekstfarge. Dersom du endrer fargene er det viktig at du dobbeltsjekker at du møter WCAGs kontrastkrav.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_1.svg"
+    alt="Tags i alle fargevarianter"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Når en tag brukes til filtrering, kan de også ha et “lukk”-ikon på høyre side.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_2.svg"
+    alt="Bruk av tags til filtrering"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Tagen fungerer da som en knapp, og har hover, fokus og active-state.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_3.svg"
+    alt="States til tag"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+Tag har tre forskjellige størrelser: small, medium (default) og large. Bruk den størrelsen som passer best sammen med konteksten den opptrer i.
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_4.svg"
+    alt="De ulike størrelsene tag kan brukes til"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Slik bruker du komponenten
+
+Sørg for at teksten i tagen er klar og konsis, det er viktig å bruke korte tekster for enkel skanning. Bruk to ord kun om det er nødvendig for å beskrive statusen eller skille den fra en annen tag. Dersom den skal bli lest av skjermleser må den også inkludere kontekst. For eksempel burde det stå “Ny søknad” i stedet for bare “Ny”.
+
+Farge bør ikke brukes som det eneste middelet for å skille tags fra hverandre. Sørg for at informasjonen som tillegges fargen også kommer tydelig frem i innholdet, via tekst og ikon. Dersom du bruker egendefinerte farger, må kravene til minimum kontrast overholdes.
+
+Dersom du bruker ikon skal dette alltid vises på venstre side av teksten. Ikonet skal underbygge teksten i tagen. Ikke bruk tag med kun ikon, dette gjør det vanskelig for brukeren å skjønne betydningen.
+
+## Gjør dette/ikke gjør dette
+
+### Ikke bruk tag med lange setninger
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_5.svg"
+    alt="Hvordan bruke tags - ikke bruk lange setninger"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+### Ikke bruk tag med kun ikoner
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_6.svg"
+    alt="Hvordan bruke tags - ikke bruk kun ikoner"
+    aria-hidden="true"
+  />
+</ImageWrapper>
+
+## Anatomi
+
+1. Ikon (valgfritt)
+2. Tekst
+3. Bakgrunn
+4. Lukk-ikon (valgfritt)
+
+<ImageWrapper>
+  <img
+    src="/assets/komponenter/tag/tag_7.svg"
+    alt="Tag anatomi"
+    aria-hidden="true"
+  />
+</ImageWrapper>

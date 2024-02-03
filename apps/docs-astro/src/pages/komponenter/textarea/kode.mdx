@@ -1,0 +1,331 @@
+---
+title: Textarea
+description: ""
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { "title": "Beskrivelse", "href": "komponenter/textarea" },
+    { "title": "Kode", "href": "komponenter/textarea/kode" },
+    {
+      "title": "Universell utforming",
+      "href": "komponenter/textarea/universell-utforming",
+    },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+import CodeTabs from "@components/CodeTabs.vue";
+import { PktTextarea } from "@oslokommune/punkt-react";
+
+## Om komponenten
+
+### Avhengigheter
+
+- pkt-icon
+
+Ekspanderende hjelpetekst:
+
+- pkt-alert
+- pkt-button
+
+## Varianter
+
+### Textarea
+
+<CodeExample client:load>
+  <PktTextarea
+    id="exampleInputText1"
+    label="Textinput"
+    placeholder="Plassholder"
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-textinput pkt-inputwrapper">
+  <label class="pkt-inputwrapper__label" for="exampleInputText1"
+    >Textinput
+    <textarea
+      class="pkt-input"
+      type="text"
+      id="exampleInputText1"
+      placeholder="Plassholder"
+    ></textarea>
+  </label>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<PktTextarea
+  id="exampleInputText1"
+  label="Textinput"
+  placeholder="Plassholder"
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextarea
+  id="exampleInputText1"
+  label="Textinput"
+  placeholder="Plassholder"
+/>
+```
+
+</div>
+</CodeTabs>
+
+### Textarea med skjult hjelpetekst og tegnteller
+
+For å åpne helptext i CSS, bytt ut `pkt-inputwrapper__helptext-expandable-closed` med `pkt-inputwrapper__helptext-expandable-open`
+
+<CodeExample client:only="vue">
+  <PktTextarea
+    client:load
+    id="exampleInputText2"
+    label="Tekstinput med dropdown"
+    helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+    helptextDropdown="Dette er en utvidet hjelpetekst"
+    counter
+    counterMaxLength={200}
+    value="Dette er en tekst, den er 39 tegn lang."
+    readOnly
+    requiredTag
+  ></PktTextarea>
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div class="pkt-inputwrapper pkt-inputwrapper__helptext">
+  <h2 class="pkt-inputwrapper__helptext-expandable-heading">
+    Textinput med åpen expandable helptext<span
+      class="pkt-tag pkt-tag--small pkt-tag--thin-text pkt-tag--beige"
+      >Må fylles ut</span
+    >
+  </h2>
+  <button class="pkt-btn pkt-btn--tertiary pkt-btn--small pkt-btn--icon-right">
+    <span class="pkt-icon pkt-btn__icon">
+      <svg viewBox="0 0 32 32">
+        <use href="#chevron-thin-down"></use>
+      </svg>
+    </span>
+    <span class="pkt-btn__text"
+      >Les mer <span class="pkt-sr-only">om inputfeltet</span></span
+    >
+  </button>
+  <div
+    class="pkt-inputwrapper__helptext pkt-inputwrapper__helptext-expandable-open"
+  >
+    Bruk dette tekstfeltet til å skrive mer informasjon om inputfeltet.
+  </div>
+  <label class="pkt-sr-only" for="exampleInputText2"
+    >Visuelt skjult label</label
+  >
+  <textarea
+    class="pkt-input"
+    type="text"
+    id="exampleInputText2"
+    placeholder="Plassholder"
+  >
+    Dette er en tekst, den er 39 tegn lang.
+  </textarea>
+  <div class="pkt-input__counter" aria-live="polite" aria-atomic="true">
+    39/200
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<PktTextarea
+  id="exampleInputText2"
+  label="Tekstinput med dropdown"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  helptextDropdown="Dette er en utvidet hjelpetekst"
+  counter
+  :counterMaxLength="200"
+  requiredTag
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextarea
+  id="exampleInputText2"
+  label="Tekstinput med dropdown"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  helptextDropdown="Dette er en utvidet hjelpetekst"
+  counter
+  counterMaxLength={200}
+  requiredTag
+/>
+```
+
+</div>
+</CodeTabs>
+
+### Textarea med error
+
+<CodeExample client:load>
+  <PktTextarea
+    id="exampleInputText3"
+    label="Tekstinput med error"
+    helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+    errorMessage="Dette er en feilmelding"
+    hasError
+  />
+</CodeExample>
+
+<CodeTabs client:only="vue">
+<div class="web tabcontent">
+
+```html
+<div
+  class="pkt-textinput pkt-textarea pkt-inputwrapper pkt-inputwrapper--error"
+>
+  <label for="exampleInputText3" class="pkt-inputwrapper__label"
+    ><h2>Tekstinput med error</h2></label
+  >
+  <div class="pkt-inputwrapper__helptext">
+    Bruk dette tekstfeltet til å skrive en kort varsling.
+  </div>
+  <textarea
+    class="pkt-input "
+    name="exampleInputText3"
+    id="exampleInputText3"
+    aria-invalid="true"
+  ></textarea>
+  <div>
+    <div
+      aria-live="polite"
+      class="pkt-alert pkt-alert--error pkt-alert--compact"
+    >
+      <span class="pkt-icon pkt-alert__icon">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <use href="#alert-error"></use>
+        </svg>
+      </span>
+      <div class="pkt-alert__text">Dette er en feilmelding</div>
+    </div>
+  </div>
+</div>
+```
+
+</div>
+
+<div class="vue tabcontent">
+
+```html
+<PktTextarea
+  id="exampleInputText3"
+  label="Tekstinput med error"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  errorMessage="Dette er en feilmelding"
+  hasError
+/>
+```
+
+</div>
+
+<div class="react tabcontent">
+
+```js
+<PktTextarea
+  id="exampleInputText3"
+  label="Tekstinput med error"
+  helptext="Bruk dette tekstfeltet til å skrive en kort varsling."
+  errorMessage="Dette er en feilmelding"
+  hasError
+/>
+```
+
+</div>
+</CodeTabs>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Block:</p>
+  <ul class="pkt-list">
+    <li>.pkt-textinput</li>
+    <li>.pkt-inputwrapper</li>
+  </ul>
+</div>
+
+<div class="pkt-section p-size-20">
+  <p class="pkt-txt-18-medium">Elements:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper__label</li>
+    <li>.pkt-inputwrapper__helptext</li>
+    <li>.pkt-input__container</li>
+    <li>.pkt-input</li>
+    <li>.pkt-inputwrapper__helptext-expandable</li>
+    <li>.pkt-inputwrapper__helptext-expandable-heading</li>
+    <li>.pkt-inputwrapper__helptext-expandable-open</li>
+    <li>.pkt-inputwrapper__helptext-expandable-closed</li>
+  </ul>
+</div>
+
+<div class="pkt-section--grey p-size-20">
+  <p class="pkt-txt-18-medium">Modifiers:</p>
+  <ul class="pkt-list">
+    <li>.pkt-inputwrapper`--`disabled</li>
+    <li>.pkt-inputwrapper`--`error</li>
+    <li>.pkt-inputwrapper`--`inline</li>
+    <li>.pkt-input`--`fullwidth</li>
+  </ul>
+</div>
+
+## Props, slots og events
+
+| Props                  | Type    | Validation | Default        | Beskrivelse                                                              |
+| ---------------------- | ------- | ---------- | -------------- | ------------------------------------------------------------------------ |
+| id                     | string  | Required   | -              | ID for inputfeltet                                                       |
+| label                  | string  | Required   | -              | Etiketten for inputfeltet                                                |
+| ariaDescribedby        | string  | -          | -              | aria for elementet som beskriver inputfeltet                             |
+| ariaLabelledby         | string  | -          | -              | aria for elementet som beskriver inputfeltet                             |
+| className              | string  | -          | -              | Tilpasset CSS-klasse for inputfeltet                                     |
+| counter                | boolean | -          | false          | Angir om feltet skal ha en tegnteller                                    |
+| counterMaxLength       | number  | -          | -              | Angir at feltet skal ha et maks antall tegn                              |
+| disabled               | boolean | -          | false          | Angir om inputfeltet er deaktivert                                       |
+| errorMessage           | string  | -          | -              | Feilmelding som vises når det er en feil i inputfeltet                   |
+| hasError               | boolean | -          | false          | Angir om inputfeltet har en feil                                         |
+| helptext               | string  | -          | -              | Hjelpetekst som vises over inputfeltet                                   |
+| helptextDropdown       | string  | -          | -              | Hjelpetekst som er skjult bak "Les mer"-knapp                            |
+| helptextDropdownButton | string  | -          | -              | Alternativ tekst til "Les mer"-knapp                                     |
+| inline                 | boolean | -          | false          | Angir om inputfelt skal vises i en linje                                 |
+| fullwidth              | boolean | -          | false          | Sett textarea-elementet til å ha full bredde                             |
+| name                   | string  | -          | id             | Navnet for inputfeltet                                                   |
+| placeholder            | string  | -          | -              | Plassholder-tekst for inputfeltet                                        |
+| optionalTag            | boolean | -          | false          | Angir om inputfeltet skal ha et valgfritt-merke                          |
+| optionalText           | string  | -          | 'Valgfritt'    | Overstyre tekst for `optionalTag`-merke                                  |
+| requiredTag            | boolean | -          | false          | Angir om inputfeltet er påkrevd                                          |
+| requiredText           | string  | -          | 'Må fylles ut' | Overstyre tekst for `requiredTag`-merke                                  |
+| rows                   | number  | -          | -              | Overstyrer feltets standardhøyde med et ønsket antall linjer             |
+| useWrapper             | boolean | -          | true           | Angir om feltet skal ha label og hjelpetekst eller om det skal stå alene |
+| value                  | string  | -          | -              | Verdien for inputfeltet                                                  |
+
+| Slots | Type | Validation | Default | Beskrivelse |
+| ----- | ---- | ---------- | ------- | ----------- |
+|       | -    | -          | -       |             |
+
+| Events | Type | Validation | Default | Beskrivelse                                                                                 |
+| ------ | ---- | ---------- | ------- | ------------------------------------------------------------------------------------------- |
+| input  | Vue  |            |         | Utløses når verdien i inputfeltet endres. Sender den nye verdien som parameter til eventet. |
+
+React Merk: Denne komponenten er videresendt med `forwardRef`, så den støtter også å motta en `ref` som en ekstra prop. Denne `ref`-propen kan brukes til å referere til selve inputfeltet og få tilgang til dets egenskaper og metoder.

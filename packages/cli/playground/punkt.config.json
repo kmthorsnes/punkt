@@ -1,0 +1,16 @@
+{
+  "svgsprite": {
+    "files": [
+      "./node_modules/@oslokommune/punkt-assets/dist/icons/alert-error.svg",
+      "./node_modules/@oslokommune/punkt-assets/dist/icons/alert-information.svg",
+      "./node_modules/@oslokommune/punkt-assets/dist/icons/alert-success.svg",
+      "./node_modules/@oslokommune/punkt-assets/dist/icons/alert-warning.svg",
+      "./node_modules/@oslokommune/punkt-assets/dist/icons/chevron-left.svg",
+      "./node_modules/@oslokommune/punkt-assets/dist/logos/oslologo.svg"
+    ],
+    "output": {
+      "fileType": "html",
+      "filePath": "index.html"
+    }
+  }
+}

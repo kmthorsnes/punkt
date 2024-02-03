@@ -1,0 +1,102 @@
+---
+import { ComponentStatusCollection, AllowedComponentStatus } from "src/config";
+
+export interface Props {
+  compStatus: ComponentStatusCollection;
+}
+
+const { compStatus } = Astro.props;
+
+function badgeColor(status): any {
+  let modifier = "";
+  switch (status) {
+    case AllowedComponentStatus.IARBEID:
+      return (modifier = "status-badge--info");
+    case AllowedComponentStatus.BACKLOG:
+      return (modifier = "status-badge--default");
+    case AllowedComponentStatus.PUBLISERT:
+      return (modifier = "status-badge--success");
+    default:
+      return (modifier = "status-badge--default");
+  }
+}
+function badgeEmoji(status): any {
+  let icon = "";
+  switch (status) {
+    case AllowedComponentStatus.IARBEID:
+      return (icon = "🚧");
+    case AllowedComponentStatus.BACKLOG:
+      return (icon = "🗄");
+    case AllowedComponentStatus.PUBLISERT:
+      return (icon = "✅");
+    default:
+      return (icon = "🗄");
+  }
+}
+---
+
+<table class="status-table">
+  <thead>
+    <tr>
+      <th colspan="2"><h2>Status</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Figma</td>
+      <td class="text-align-right"
+        ><span class:list={["status-badge", badgeColor(compStatus.figma)]}
+          ><span class="status-badge__icon">{badgeEmoji(compStatus.figma)}</span
+          >{compStatus.figma}</span
+        >
+      </td>
+      <tr>
+        <td>CSS</td>
+        <td class="text-align-right"
+          ><span class:list={["status-badge", badgeColor(compStatus.css)]}
+            ><span class="status-badge__icon">{badgeEmoji(compStatus.css)}</span
+            >{compStatus.css}</span
+          ></td
+        >
+      </tr>
+      <tr>
+        <td>Vue</td>
+        <td class="text-align-right"
+          ><span class:list={["status-badge", badgeColor(compStatus.vue)]}
+            ><span class="status-badge__icon">{badgeEmoji(compStatus.vue)}</span
+            >{compStatus.vue}</span
+          ></td
+        >
+      </tr>
+      <tr>
+        <td>React</td>
+        <td class="text-align-right"
+          ><span class:list={["status-badge", badgeColor(compStatus.react)]}
+            ><span class="status-badge__icon"
+              >{badgeEmoji(compStatus.react)}</span
+            >{compStatus.react}</span
+          ></td
+        >
+      </tr>
+      <tr>
+        <td>Dokumentasjon</td>
+        <td class="text-align-right"
+          ><span
+            class:list={["status-badge", badgeColor(compStatus.dokumentasjon)]}
+            ><span class="status-badge__icon"
+              >{badgeEmoji(compStatus.dokumentasjon)}</span
+            >{compStatus.dokumentasjon}</span
+          ></td
+        >
+      </tr>
+    </tr>
+  </tbody>
+  <style lang="scss" scoped>
+    .status-table {
+      max-width: 486px;
+    }
+    .text-align-right {
+      text-align: right;
+    }
+  </style>
+</table>

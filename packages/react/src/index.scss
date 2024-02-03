@@ -1,0 +1,171 @@
+@use 'sass:map';
+@use 'pkt/scss/abstracts/variables' with ($font-path: 'pktAssets'
+);
+@use 'pkt/scss/abstracts/functions';
+@use 'pkt/scss/abstracts/mixins/breakpoints' as *;
+@use 'pkt/scss/abstracts/mixins/typography';
+@use 'pkt/scss/pkt.scss';
+
+body {
+  background-color: #efefef;
+  margin: 0;
+  min-width: 360px;
+  padding: 0;
+}
+
+h1 {
+  @include typography.get-text('pkt-txt-28');
+  margin-bottom: map.get(variables.$spacing, 'size-20');
+
+  @include bp('tablet-up') {
+    @include typography.get-text('pkt-txt-36');
+  }
+}
+
+h2 {
+  @include typography.get-text('pkt-txt-24');
+  margin-bottom: map.get(variables.$spacing, 'size-10');
+
+  @include bp('tablet-up') {
+    @include typography.get-text('pkt-txt-30');
+  }
+}
+
+p {
+  margin-bottom: map.get(variables.$spacing, 'size-15');
+}
+
+.pkt-logo {
+  width: 50%;
+  height: 50%;
+  max-width: 18rem;
+  display: inline-block;
+  margin: 1rem;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  grid-template-areas:
+    'header'
+    'main';
+}
+
+.dev-header {
+  $-header-height: 50px;
+  $-header-height-phablet-up: 60px;
+  $-logo-width: calc($-header-height * 60 / 31);
+  $-logo-width-phablet-up: calc($-header-height-phablet-up * 60 / 31);
+
+  background-color: var(--pkt-color-background-default);
+  border-bottom: 1px solid var(--pkt-color-border-subtle);
+  display: grid;
+  gap: 0 0;
+  grid-area: header;
+  grid-template-areas: 'dev-header-logo . dev-header-nav';
+  grid-template-columns: minmax($-logo-width, $-logo-width-phablet-up) 1fr auto auto;
+  padding: map.get(variables.$spacing, 'size-20') map.get(variables.$spacing, 'size-15');
+  align-items: center;
+
+  &__logo {
+    grid-area: dev-header-logo;
+
+    &-link {
+      display: block;
+    }
+
+    &-svg {
+      height: $-header-height;
+      width: calc($-header-height * 60 / 31);
+
+      @include bp('phablet-up') {
+        height: $-header-height-phablet-up;
+        width: calc($-header-height-phablet-up * 60 / 31);
+      }
+    }
+  }
+
+  &__nav {
+    grid-area: dev-header-nav;
+  }
+}
+
+.component {
+  background-color: #fff;
+  margin-bottom: map.get(variables.$spacing, 'size-40');
+  padding: 10px;
+  transition: all 0.3s ease-out;
+
+  [data-mode='dark'] & {
+    background-color: var(--pkt-color-brand-dark-blue-1000);
+    color: #fff;
+  }
+
+  &__example {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 5px;
+  }
+
+  &__block-example>div {
+    margin-bottom: 20px;
+  }
+
+  &__example+&__example,
+  &__block-example+&__block-example {
+    margin-top: map.get(variables.$spacing, 'size-5');
+  }
+}
+
+$-checkbox-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/></svg>") !default;
+
+.page-main {
+  position: relative;
+  grid-area: main;
+  padding-bottom: map.get(variables.$spacing, 'size-15');
+  padding-top: map.get(variables.$spacing, 'size-15');
+
+  @include bp('tablet-up') {
+    padding-bottom: map.get(variables.$spacing, 'size-30');
+    padding-top: map.get(variables.$spacing, 'size-30');
+  }
+
+  &__toolbar {
+    display: flex;
+    position: absolute;
+    right: 2rem;
+    top: 2.25rem;
+    justify-content: flex-end;
+  }
+
+  &__checkbox {
+    appearance: none;
+    background-color: var(--pkt-color-input-background-normal);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 2px solid var(--pkt-color-input-border-normal);
+    display: inline-block;
+    margin: 0.125rem 0.25rem 0 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: all 0.3s ease-out;
+    vertical-align: top;
+
+    &[type='checkbox'] {
+      border-radius: 0;
+    }
+
+    &:checked {
+      &[type='checkbox'] {
+        background-color: var(--pkt-color-input-border-normal);
+        background-image: functions.escape-svg($-checkbox-img);
+        border-color: var(--pkt-color-input-border-normal);
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+---
+title: Table
+description: ''
+layout: "@layouts/DocLayout.astro"
+tabs:
+  [
+    { 'title': 'Beskrivelse', 'href': 'komponenter/table' },
+    { 'title': 'Kode', 'href': 'komponenter/table/kode' },
+    { 'title': 'Universell utforming', 'href': 'komponenter/table/universell-utforming' },
+  ]
+---
+
+import CodeExample from "@components/CodeExample.vue";
+
+## Om komponenten
+
+For komplekse tabeller – f.eks med `colspan`, `rowspan` osv eller utvidet funksjonalitet – må ytterligere styling pålegges.
+
+Bruk `.pkt-table` på (enkle) tabeller og `<thead>`, `<tbody>`, `<tr>` og `<td>` elementer for å oppnå riktig styling.
+
+<CodeExample>
+  <table class="pkt-table">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+```html
+<table class="pkt-table">
+  <thead>
+    <tr>
+      <th class="pkt-table__th">Kolonnetittel</th>
+      <th class="pkt-table__th">Kolonnetittel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Celle</td>
+      <td>Celle</td>
+    </tr>
+    <tr>
+      <td>Celle</td>
+      <td>Celle</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Varianter
+
+
+- `.pkt-table--info`
+- `.pkt-table--success`
+- `.pkt-table--strong`
+
+Du kan også bruke `.pkt-table--shadow` for å gi en svak skygge rundt hele tabellen.
+
+### Info
+
+<CodeExample>
+  <table class="pkt-table pkt-table--info">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+```html
+<table class="pkt-table pkt-table--info">
+  <thead>
+    <tr>
+      <th class="pkt-table__th">Kolonnetittel</th>
+      <th class="pkt-table__th">Kolonnetittel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Celle</td>
+      <td>Celle</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Success
+
+<CodeExample>
+  <table class="pkt-table pkt-table--success">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+```html
+<table class="pkt-table pkt-table--success">
+  <thead>
+    <tr>
+      <th class="pkt-table__th">Kolonnetittel</th>
+      <th class="pkt-table__th">Kolonnetittel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Celle</td>
+      <td>Celle</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Strong og med skygge
+
+<CodeExample>
+  <table class="pkt-table pkt-table--strong pkt-table--shadow">
+    <thead>
+      <tr>
+        <th class="pkt-table__th">Kolonnetittel</th>
+        <th class="pkt-table__th">Kolonnetittel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Celle</td>
+        <td>Celle</td>
+      </tr>
+    </tbody>
+  </table>
+</CodeExample>
+
+```html
+<table class="pkt-table pkt-table--strong pkt-table--shadow">
+  <thead>
+    <tr>
+      <th class="pkt-table__th">Kolonnetittel</th>
+      <th class="pkt-table__th">Kolonnetittel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Celle</td>
+      <td>Celle</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Responsive tabeller
+
+For å tilpasse tabeller på små skjermer kan hele tabellen legges inni en container med klassen `.pkt-table-container`. Dette gir en horisontal scroll.
+
+```html
+<div class="pkt-table-container">
+  <table class="pkt-table">
+    <!-- ... -->
+  </table>
+</div>
+```
+
+
+### Justert tekst
+
+Tekst kan justeres ved hjelp av hjelpeklasser for tekstjustering, f.eks `.pkt-txt-end`, eller følgende CSS (hvor `N` endres til riktig kolonne):
+
+```css
+.my-custom-table td:nth-child(N),
+.my-custom-table th:nth-child(N) {
+  text-align: right; /* eller center */
+}
+```

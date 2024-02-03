@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="favicon" fill="none" viewBox="0 0 32 32">
+<style>
+@media (prefers-color-scheme: dark) {
+.outer { fill: #B3F5FF }
+.inner { fill: #2A2859 }
+}
+</style>
+<circle class="outer" fill="#2A2859" r="16" cx="16" cy="16"/>
+<circle class="inner" fill="#B3F5FF" r="7.05" cx="16" cy="16"/>
+</svg>

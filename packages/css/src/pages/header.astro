@@ -1,0 +1,606 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Punkt CSS - header">
+  <main class="page-main pkt-container pkt-container--laptop">
+    <h1>Header</h1>
+    <section class="component">
+      <h2 class="mb-size-20">Ikke logget inn</h2>
+      <h3>Uten tjenestenavn</h3>
+      <div class="component__block-example">
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="pkt-header__actions"></div>
+        </header>
+        <h3>Med tjenestenavn</h3>
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <div class="pkt-header__actions"></div>
+        </header>
+      </div>
+      <h3>Med tjenestenavn og generisk menyknapp</h3>
+      <div class="component__block-example">
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <nav class="pkt-header__actions">
+            <ul class="pkt-header__actions-row">
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__menu-btn pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#menu"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Meny</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2 class="mb-size-20">Logget inn</h2>
+      <h3>Med brukermeny</h3>
+      <div class="component__block-example">
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <nav class="pkt-header__actions">
+            <ul class="pkt-header__actions-row">
+              <li class="pkt-header--has-dropdown">
+                <button
+                  class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+                  type="button"
+                  aria-controls="pktUserDropdown"
+                  aria-expanded="false"
+                  onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#user"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-header__user-fullname pkt-btn__text"
+                    >Aksel Web Opdahl</span
+                  >
+                  <span class="pkt-header__user-shortname pkt-btn__text"
+                    >AWO</span
+                  >
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-down"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-up"></use>
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  id="pktUserDropdown"
+                  class="pkt-header__dropdown pkt-user-menu"
+                >
+                  <li>
+                    <div class="pkt-user-menu__label">Pålogget som</div>
+                    <div class="pkt-user-menu__name">Aksel Web Opdahl</div>
+                    <div class="pkt-user-menu__last-logged-in">
+                      Sist pålogget: <time>20.01.2022</time>
+                    </div>
+                  </li>
+                  <li>
+                    <ul class="pkt-list">
+                      <li>
+                        <a href="#" class="pkt-link">
+                          <span class="pkt-icon pkt-icon--medium">
+                            <svg viewBox="0 0 32 32">
+                              <use href="#heart"></use>
+                            </svg>
+                          </span>
+                          Mine bookinger
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="pkt-link">
+                          <span class="pkt-icon pkt-icon--medium">
+                            <svg viewBox="0 0 32 32">
+                              <use href="#house-heart"></use>
+                            </svg>
+                          </span>
+                          Mine adresser
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="pkt-user-menu__label">Representerer</div>
+                    <div class="pkt-user-menu__name">Joe & The Juice AS</div>
+                    <div class="pkt-user-menu__org-number">
+                      Org.nr. 911738066
+                    </div>
+                    <ul class="pkt-list mt-size-16">
+                      <li>
+                        <a href="#" class="pkt-link">
+                          <span class="pkt-icon pkt-icon--medium">
+                            <svg viewBox="0 0 32 32">
+                              <use href="#cogwheel"></use>
+                            </svg>
+                          </span>
+                          Endre organisasjon
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ul class="pkt-list">
+                      <li>
+                        <a href="#" class="pkt-link">
+                          <span class="pkt-icon pkt-icon--medium">
+                            <svg viewBox="0 0 32 32">
+                              <use href="#cogwheel"></use>
+                            </svg>
+                          </span>
+                          Innstillinger
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="pkt-link">
+                          <span class="pkt-icon pkt-icon--medium">
+                            <svg viewBox="0 0 32 32">
+                              <use href="#exit"></use>
+                            </svg>
+                          </span>
+                          Logg ut
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <ul class="pkt-list-horizontal bordered">
+                      <li><a href="#" class="pkt-link">Kontakt</a></li>
+                      <li><a href="#" class="pkt-link">Personvern</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <h3>Med logg-ut-knapp</h3>
+      <div class="component__block-example">
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <nav class="pkt-header__actions">
+            <ul class="pkt-header__actions-row">
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__user-btn pkt-header__user-btn-logout pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#exit"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Logg ut</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <h3>Med alle knapper</h3>
+      <div class="component__block-example">
+        <header id="pkt-header" aria-label="Topp" class="pkt-header">
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <nav class="pkt-header__actions">
+            <ul class="pkt-header__actions-row">
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__menu-btn pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#menu"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Meny</span>
+                </button>
+              </li>
+              <li class="pkt-header--has-dropdown">
+                <button
+                  class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+                  type="button"
+                  aria-controls="pktUserDropdown"
+                  aria-expanded="false"
+                  onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#user"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-header__user-fullname pkt-btn__text"
+                    >Aksel Web Opdahl</span
+                  >
+                  <span class="pkt-header__user-shortname pkt-btn__text"
+                    >AWO</span
+                  >
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-down"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-up"></use>
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  id="pktUserDropdown"
+                  class="pkt-header__dropdown pkt-user-menu"
+                >
+                  <li>Brukermeny</li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__user-btn pkt-header__user-btn-logout pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#exit"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Logg ut</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+    <section class="component">
+      <h2 class="mb-size-20">Smal stil (mindre høyde)</h2>
+      <h3>Med alle knapper</h3>
+      <div class="component__block-example">
+        <header
+          id="pkt-header"
+          aria-label="Topp"
+          class="pkt-header pkt-header--narrow"
+        >
+          <div class="pkt-header__logo">
+            <a
+              aria-label="Tilbake til forside"
+              href="https://www.oslo.kommune.no/"
+              class="pkt-header__logo-link"
+            >
+              <span class="pkt-icon pkt-header__logo-svg">
+                <svg viewBox="0 0 60 31">
+                  <use href="#oslologo"></use>
+                </svg>
+              </span>
+            </a>
+            <span class="pkt-header__logo-service">Navn på virksomheten</span>
+          </div>
+          <nav class="pkt-header__actions">
+            <ul class="pkt-header__actions-row">
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__menu-btn pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#menu"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Meny</span>
+                </button>
+              </li>
+              <li class="pkt-header--has-dropdown">
+                <button
+                  class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+                  type="button"
+                  aria-controls="pktUserDropdown"
+                  aria-expanded="false"
+                  onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#user"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-header__user-fullname pkt-btn__text"
+                    >Aksel Web Opdahl</span
+                  >
+                  <span class="pkt-header__user-shortname pkt-btn__text"
+                    >AWO</span
+                  >
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-down"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#chevron-thin-up"></use>
+                    </svg>
+                  </span>
+                </button>
+                <ul
+                  id="pktUserDropdown"
+                  class="pkt-header__dropdown pkt-user-menu"
+                >
+                  <li>Brukermeny</li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  class="pkt-header__user-btn pkt-header__user-btn-logout pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+                >
+                  <span class="pkt-icon pkt-btn__icon">
+                    <svg viewBox="0 0 32 32">
+                      <use href="#exit"></use>
+                    </svg>
+                  </span>
+                  <span class="pkt-btn__text">Logg ut</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+    <section class="component">
+      <header id="pkt-header" aria-label="Topp" class="pkt-header">
+        <div class="pkt-header__logo">
+          <a
+            aria-label="Tilbake til forside"
+            href="https://www.oslo.kommune.no/"
+            class="pkt-header__logo-link"
+          >
+            <span class="pkt-icon pkt-header__logo-svg">
+              <svg viewBox="0 0 60 31">
+                <use href="#oslologo"></use>
+              </svg>
+            </span>
+          </a>
+          <span class="pkt-header__logo-service">Navn på virksomheten</span>
+        </div>
+        <nav class="pkt-header__actions">
+          <ul class="pkt-header__actions-row">
+            <li>
+              <button
+                type="button"
+                class="pkt-header__menu-btn pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+              >
+                <span class="pkt-icon pkt-btn__icon">
+                  <svg viewBox="0 0 32 32">
+                    <use href="#menu"></use>
+                  </svg>
+                </span>
+                <span class="pkt-btn__text">Meny</span>
+              </button>
+            </li>
+            <li class="pkt-header--has-dropdown">
+              <button
+                class="pkt-header__user-btn pkt-btn pkt-btn--secondary"
+                type="button"
+                aria-controls="pktUserDropdown"
+                aria-expanded="false"
+                onclick="this.parentNode.classList.toggle('pkt-header--open-dropdown');"
+              >
+                <span class="pkt-icon pkt-btn__icon">
+                  <svg viewBox="0 0 32 32">
+                    <use href="#user"></use>
+                  </svg>
+                </span>
+                <span class="pkt-header__user-fullname pkt-btn__text"
+                  >Aksel Web Opdahl</span
+                >
+                <span class="pkt-header__user-shortname pkt-btn__text">AWO</span
+                >
+                <span class="pkt-icon pkt-btn__icon pkt-btn--closed">
+                  <svg viewBox="0 0 32 32">
+                    <use href="#chevron-thin-down"></use>
+                  </svg>
+                </span>
+                <span class="pkt-icon pkt-btn__icon pkt-btn--open">
+                  <svg viewBox="0 0 32 32">
+                    <use href="#chevron-thin-up"></use>
+                  </svg>
+                </span>
+              </button>
+              <ul
+                id="pktUserDropdown"
+                class="pkt-header__dropdown pkt-user-menu"
+              >
+                <li>
+                  <div class="pkt-user-menu__label">Pålogget som</div>
+                  <div class="pkt-user-menu__name">Aksel Web Opdahl</div>
+                  <div class="pkt-user-menu__last-logged-in">
+                    Sist pålogget: <time>20.01.2022</time>
+                  </div>
+                </li>
+                <li>
+                  <ul class="pkt-list">
+                    <li>
+                      <a href="#" class="pkt-link">
+                        <span class="pkt-icon pkt-icon--medium">
+                          <svg viewBox="0 0 32 32">
+                            <use href="#heart"></use>
+                          </svg>
+                        </span>
+                        Mine bookinger
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="pkt-link">
+                        <span class="pkt-icon pkt-icon--medium">
+                          <svg viewBox="0 0 32 32">
+                            <use href="#house-heart"></use>
+                          </svg>
+                        </span>
+                        Mine adresser
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="pkt-user-menu__label">Representerer</div>
+                  <div class="pkt-user-menu__name">Joe & The Juice AS</div>
+                  <div class="pkt-user-menu__org-number">Org.nr. 911738066</div>
+                  <ul class="pkt-list mt-size-16">
+                    <li>
+                      <a href="#" class="pkt-link">
+                        <span class="pkt-icon pkt-icon--medium">
+                          <svg viewBox="0 0 32 32">
+                            <use href="#cogwheel"></use>
+                          </svg>
+                        </span>
+                        Endre organisasjon
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <ul class="pkt-list">
+                    <li>
+                      <a href="#" class="pkt-link">
+                        <span class="pkt-icon pkt-icon--medium">
+                          <svg viewBox="0 0 32 32">
+                            <use href="#cogwheel"></use>
+                          </svg>
+                        </span>
+                        Innstillinger
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="pkt-link">
+                        <span class="pkt-icon pkt-icon--medium">
+                          <svg viewBox="0 0 32 32">
+                            <use href="#exit"></use>
+                          </svg>
+                        </span>
+                        Logg ut
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer">
+                  <ul class="pkt-list-horizontal bordered">
+                    <li><a href="#" class="pkt-link">Kontakt</a></li>
+                    <li><a href="#" class="pkt-link">Personvern</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="pkt-header__user-btn pkt-header__user-btn-logout pkt-btn pkt-btn--secondary pkt-btn--icon-right"
+              >
+                <span class="pkt-icon pkt-btn__icon">
+                  <svg viewBox="0 0 32 32">
+                    <use href="#exit"></use>
+                  </svg>
+                </span>
+                <span class="pkt-btn__text">Logg ut</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </section>
+  </main>
+</Layout>

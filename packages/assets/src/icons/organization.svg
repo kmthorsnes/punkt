@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="organization" fill="none" data-category="ui" viewBox="0 0 32 32">
+  <g fill="var(--fg-color, #2A2859)">
+    <path
+      d="M27 28.86v-28H11v5H2v23H0v2h30v-2h-3Zm-16 0H8v-6h3v6Zm4 0h-2v-8H6v8H4v-21h11v21Zm10 0h-8v-2h6v-2h-6v-2h6v-2h-6v-2h6v-2h-6v-2h6v-2h-6v-2h6v-2h-6v-2h6v-2h-8v1h-2v-3h12v26Z" />
+    <path d="M6 15.73h2v2.14H6v-2.14Zm5 0h2v2.14h-2v-2.14Zm-5-5.01h2v2.14H6v-2.14Zm5 0h2v2.14h-2v-2.14Z" />
+  </g>
+</svg>
